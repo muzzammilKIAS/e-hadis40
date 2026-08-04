@@ -178,55 +178,55 @@
     "passingScorePercent": 80
   },
   "audio": {
-    "arabicRecitation": "assets/audio/hadith_03.mp3",
+    "arabicRecitation": "assets/audio/hadith_03_v2.m4a",
     "translationMalay": "",
-    "durationMs": 29808,
+    "durationMs": 30320,
     "syncOffsetMs": 0,
-    "timingMethod": "phrase_alignment_from_detected_pauses",
+    "timingMethod": "proportional_scaling_from_repaired_recording",
     "timedSegments": [
       {
         "startMs": 0,
-        "endMs": 2153,
+        "endMs": 2190,
         "text": "عَنْ أَبِي عَبْدِ الرَّحْمَنِ"
       },
       {
-        "startMs": 3041,
-        "endMs": 5539,
+        "startMs": 3093,
+        "endMs": 5634,
         "text": "عَبْدِ اللَّهِ بْنِ عُمَرَ بْنِ الْخَطَّابِ"
       },
       {
-        "startMs": 6573,
-        "endMs": 8637,
+        "startMs": 6686,
+        "endMs": 8785,
         "text": "رَضِيَ اللَّهُ عَنْهُمَا قَالَ:"
       },
       {
-        "startMs": 9371,
-        "endMs": 13836,
+        "startMs": 9532,
+        "endMs": 14074,
         "text": "سَمِعْتُ رَسُولَ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ يَقُولُ:"
       },
       {
-        "startMs": 14209,
-        "endMs": 16577,
+        "startMs": 14453,
+        "endMs": 16862,
         "text": "بُنِيَ الْإِسْلَامُ عَلَى خَمْسٍ:"
       },
       {
-        "startMs": 17309,
-        "endMs": 19963,
+        "startMs": 17606,
+        "endMs": 20306,
         "text": "شَهَادَةِ أَنْ لَا إِلَهَ إِلَّا اللَّهُ"
       },
       {
-        "startMs": 20491,
-        "endMs": 22849,
+        "startMs": 20843,
+        "endMs": 23241,
         "text": "وَأَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ،"
       },
       {
-        "startMs": 23786,
-        "endMs": 24991,
+        "startMs": 24195,
+        "endMs": 25420,
         "text": "وَإِقَامِ الصَّلَاةِ، وَإِيتَاءِ الزَّكَاةِ،"
       },
       {
-        "startMs": 25586,
-        "endMs": 29808,
+        "startMs": 26025,
+        "endMs": 30320,
         "text": "وَحَجِّ الْبَيْتِ، وَصَوْمِ رَمَضَانَ."
       }
     ]
