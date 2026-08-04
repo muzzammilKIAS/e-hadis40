@@ -8,3 +8,34 @@ build/
 .idea/
 .vscode/*.log
 .DS_Store
+
+# Flutter generated
+.dart_tool/
+.packages
+.pub/
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# IDE
+.idea/
+*.iml
+
+# macOS
+.DS_Store
+
+# Android secrets
+android/local.properties
+android/key.properties
+*.jks
+*.keystore
+
+# Environment and credentials
+.env
+.env.*
+*.pem
+*.p12
+*.mobileprovision
+
+# Temporary
+*.log
