@@ -1,0 +1,683 @@
+import 'dart:math' as math;
+
+import 'package:flutter/material.dart';
+import 'package:just_audio/just_audio.dart';
+
+import '../core/constants/app_constants.dart';
+import '../data/models/hadith.dart';
+import '../services/hadith_audio_service.dart';
+
+class SyncedHadithReader extends StatefulWidget {
+  const SyncedHadithReader({
+    required this.hadith,
+    required this.textScale,
+    super.key,
+  });
+
+  final Hadith hadith;
+  final double textScale;
+
+  @override
+  State<SyncedHadithReader> createState() => _SyncedHadithReaderState();
+}
+
+class _SyncedHadithReaderState extends State<SyncedHadithReader> {
+  late final HadithAudioService _service;
+  late final ScrollController _scrollController;
+  late List<GlobalKey> _segmentKeys;
+
+  bool _followAudio = true;
+  int _manualOffsetMs = 0;
+  int _lastScrolledIndex = -1;
+
+  @override
+  void initState() {
+    super.initState();
+    _service = HadithAudioService()..addListener(_refresh);
+    _scrollController = ScrollController();
+    _segmentKeys = _buildSegmentKeys();
+    _service.load(widget.hadith.audioAsset);
+  }
+
+  @override
+  void didUpdateWidget(covariant SyncedHadithReader oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.hadith.id != widget.hadith.id ||
+        oldWidget.hadith.audioTimings.length !=
+            widget.hadith.audioTimings.length ||
+        oldWidget.hadith.audioAsset != widget.hadith.audioAsset) {
+      _segmentKeys = _buildSegmentKeys();
+      _lastScrolledIndex = -1;
+      _manualOffsetMs = 0;
+      _service.load(widget.hadith.audioAsset);
+    }
+  }
+
+  List<GlobalKey> _buildSegmentKeys() {
+    return List<GlobalKey>.generate(
+      widget.hadith.audioTimings.length,
+      (_) => GlobalKey(),
+    );
+  }
+
+  void _refresh() {
+    if (mounted) setState(() {});
+  }
+
+  @override
+  void dispose() {
+    _service.removeListener(_refresh);
+    _scrollController.dispose();
+    _service.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+
+    if (_service.loading) {
+      return const Padding(
+        padding: EdgeInsets.symmetric(vertical: 18),
+        child: Row(
+          children: [
+            SizedBox(
+              width: 22,
+              height: 22,
+              child: CircularProgressIndicator(strokeWidth: 2),
+            ),
+            SizedBox(width: 12),
+            Expanded(child: Text('Memuatkan rakaman bacaan…')),
+          ],
+        ),
+      );
+    }
+
+    if (!_service.ready) {
+      return _unavailableState(context);
+    }
+
+    if (widget.hadith.audioTimings.isEmpty) {
+      return _plainTextFallback(context);
+    }
+
+    return StreamBuilder<PlayerState>(
+      stream: _service.player.playerStateStream,
+      builder: (context, stateSnapshot) {
+        final playerState = stateSnapshot.data;
+        final playing = playerState?.playing ?? false;
+        final completed =
+            playerState?.processingState == ProcessingState.completed;
+
+        return StreamBuilder<Duration?>(
+          stream: _service.player.durationStream,
+          builder: (context, durationSnapshot) {
+            final duration = durationSnapshot.data ??
+                Duration(milliseconds: widget.hadith.audioDurationMs);
+
+            return StreamBuilder<Duration>(
+              stream: _service.player.positionStream,
+              builder: (context, positionSnapshot) {
+                final position = positionSnapshot.data ?? Duration.zero;
+                final effectiveMs = math.max(
+                  0,
+                  position.inMilliseconds +
+                      widget.hadith.audioSyncOffsetMs +
+                      _manualOffsetMs,
+                );
+                final activeIndex = _activeSegmentIndex(effectiveMs);
+                _scheduleAutoScroll(activeIndex, completed: completed);
+
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    _statusRow(
+                      context,
+                      playing: playing,
+                      completed: completed,
+                      activeIndex: activeIndex,
+                    ),
+                    const SizedBox(height: 14),
+                    Container(
+                      width: double.infinity,
+                      height:
+                          MediaQuery.sizeOf(context).width < 600 ? 410 : 500,
+                      decoration: BoxDecoration(
+                        color: scheme.surfaceContainerLowest,
+                        borderRadius: BorderRadius.circular(20),
+                        border: Border.all(color: scheme.outlineVariant),
+                      ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(20),
+                        child: ListView.separated(
+                          controller: _scrollController,
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 14,
+                            vertical: 18,
+                          ),
+                          itemCount: widget.hadith.audioTimings.length,
+                          separatorBuilder: (_, __) =>
+                              const SizedBox(height: 10),
+                          itemBuilder: (context, index) {
+                            final segment = widget.hadith.audioTimings[index];
+                            final isActive = !completed && index == activeIndex;
+                            final isCompleted = completed ||
+                                effectiveMs >= segment.endMs ||
+                                index < activeIndex;
+                            final activeWordIndex = isActive
+                                ? _activeWordIndex(segment, effectiveMs)
+                                : -1;
+
+                            return _SyncedSegmentTile(
+                              key: _segmentKeys[index],
+                              number: index + 1,
+                              segment: segment,
+                              isActive: isActive,
+                              isCompleted: isCompleted,
+                              activeWordIndex: activeWordIndex,
+                              textScale: widget.textScale,
+                              onTap: () => _seekToSegment(segment),
+                            );
+                          },
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 14),
+                    _audioControls(
+                      context: context,
+                      playing: playing,
+                      completed: completed,
+                      position: position,
+                      duration: duration,
+                    ),
+                    const SizedBox(height: 12),
+                    _syncControls(context),
+                    const SizedBox(height: 8),
+                    Text(
+                      'Tekan mana-mana petikan untuk terus memainkan bacaan '
+                      'daripada bahagian tersebut.',
+                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                            color: scheme.onSurfaceVariant,
+                          ),
+                    ),
+                  ],
+                );
+              },
+            );
+          },
+        );
+      },
+    );
+  }
+
+  Widget _statusRow(
+    BuildContext context, {
+    required bool playing,
+    required bool completed,
+    required int activeIndex,
+  }) {
+    final scheme = Theme.of(context).colorScheme;
+    final current = activeIndex >= 0
+        ? '${activeIndex + 1}/${widget.hadith.audioTimings.length}'
+        : '—';
+
+    final statusLabel = completed
+        ? 'Bacaan selesai'
+        : playing
+            ? 'Bacaan sedang dimainkan'
+            : 'Bacaan dihentikan seketika';
+
+    final statusIcon = completed
+        ? Icons.check_circle_rounded
+        : playing
+            ? Icons.graphic_eq_rounded
+            : Icons.pause_circle_outline_rounded;
+
+    return Wrap(
+      spacing: 10,
+      runSpacing: 8,
+      crossAxisAlignment: WrapCrossAlignment.center,
+      children: [
+        Chip(
+          avatar: Icon(statusIcon, size: 18),
+          label: Text(statusLabel),
+        ),
+        Chip(
+          avatar: const Icon(Icons.format_quote_rounded, size: 18),
+          label: Text('Petikan $current'),
+        ),
+        FilterChip(
+          selected: _followAudio,
+          avatar: const Icon(Icons.vertical_align_center_rounded, size: 18),
+          label: const Text('Ikut audio'),
+          tooltip: _followAudio
+              ? 'Paparan bergerak secara automatik mengikut bacaan'
+              : 'Paparan kekal pada kedudukan yang anda pilih',
+          onSelected: (value) {
+            setState(() {
+              _followAudio = value;
+              if (value) _lastScrolledIndex = -1;
+            });
+          },
+        ),
+        if (_manualOffsetMs != 0)
+          Chip(
+            avatar: Icon(Icons.tune_rounded, size: 18, color: scheme.primary),
+            label: Text(
+              'Larasan ${(_manualOffsetMs / 1000).toStringAsFixed(2)} saat',
+            ),
+          ),
+      ],
+    );
+  }
+
+  Widget _audioControls({
+    required BuildContext context,
+    required bool playing,
+    required bool completed,
+    required Duration position,
+    required Duration duration,
+  }) {
+    final maxMilliseconds =
+        duration.inMilliseconds <= 0 ? 1.0 : duration.inMilliseconds.toDouble();
+    final safePosition = position.inMilliseconds
+        .toDouble()
+        .clamp(0.0, maxMilliseconds)
+        .toDouble();
+
+    final mainLabel = playing
+        ? 'Pause'
+        : completed
+            ? 'Main semula'
+            : 'Mainkan';
+    final mainIcon = playing
+        ? Icons.pause_rounded
+        : completed
+            ? Icons.replay_rounded
+            : Icons.play_arrow_rounded;
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Wrap(
+          spacing: 8,
+          runSpacing: 8,
+          crossAxisAlignment: WrapCrossAlignment.center,
+          children: [
+            FilledButton.tonalIcon(
+              onPressed: _service.togglePlay,
+              icon: Icon(mainIcon),
+              label: Text(mainLabel),
+            ),
+            Tooltip(
+              message: 'Mainkan semula dari awal',
+              child: IconButton(
+                onPressed: _service.replay,
+                icon: const Icon(Icons.restart_alt_rounded),
+              ),
+            ),
+            Tooltip(
+              message: _service.repeat
+                  ? 'Matikan ulangan automatik'
+                  : 'Aktifkan ulangan automatik',
+              child: IconButton(
+                onPressed: _service.toggleRepeat,
+                isSelected: _service.repeat,
+                icon: const Icon(Icons.repeat_rounded),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.only(left: 10),
+              decoration: BoxDecoration(
+                border: Border(
+                  left: BorderSide(
+                    color: Theme.of(context).colorScheme.outlineVariant,
+                  ),
+                ),
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Text('Kelajuan'),
+                  const SizedBox(width: 8),
+                  DropdownButton<double>(
+                    value: _service.speed,
+                    underline: const SizedBox.shrink(),
+                    borderRadius: BorderRadius.circular(14),
+                    onChanged: (value) {
+                      if (value != null) _service.setSpeed(value);
+                    },
+                    items: const [
+                      DropdownMenuItem(value: 0.75, child: Text('0.75×')),
+                      DropdownMenuItem(value: 1.0, child: Text('1.0×')),
+                      DropdownMenuItem(value: 1.25, child: Text('1.25×')),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 8),
+        Slider(
+          value: safePosition,
+          max: maxMilliseconds,
+          semanticFormatterCallback: (value) =>
+              _formatDuration(Duration(milliseconds: value.round())),
+          onChanged: (value) {
+            _service.seek(Duration(milliseconds: value.round()));
+          },
+        ),
+        Row(
+          children: [
+            Text(_formatDuration(position)),
+            const Spacer(),
+            Text(_formatDuration(duration)),
+          ],
+        ),
+      ],
+    );
+  }
+
+  Widget _syncControls(BuildContext context) {
+    return ExpansionTile(
+      tilePadding: EdgeInsets.zero,
+      childrenPadding: const EdgeInsets.only(bottom: 4),
+      leading: const Icon(Icons.tune_rounded),
+      title: const Text('Laraskan ketepatan sorotan teks'),
+      subtitle: const Text(
+        'Gunakan jika sorotan teks kelihatan sedikit terlalu awal atau lewat.',
+      ),
+      children: [
+        Wrap(
+          spacing: 8,
+          runSpacing: 8,
+          children: [
+            OutlinedButton.icon(
+              onPressed: () => setState(() => _manualOffsetMs += 250),
+              icon: const Icon(Icons.fast_forward_rounded),
+              label: const Text('Teks lebih awal'),
+            ),
+            OutlinedButton.icon(
+              onPressed: () => setState(() => _manualOffsetMs -= 250),
+              icon: const Icon(Icons.fast_rewind_rounded),
+              label: const Text('Teks lebih lewat'),
+            ),
+            TextButton.icon(
+              onPressed: _manualOffsetMs == 0
+                  ? null
+                  : () => setState(() => _manualOffsetMs = 0),
+              icon: const Icon(Icons.restart_alt_rounded),
+              label: const Text('Kembali ke asal'),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+
+  Widget _unavailableState(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: scheme.secondaryContainer.withValues(alpha: 0.5),
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: scheme.outlineVariant),
+      ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Icon(Icons.volume_off_rounded, color: scheme.onSecondaryContainer),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Text(
+              _service.errorMessage ?? 'Audio bacaan sedang disediakan.',
+              style: TextStyle(color: scheme.onSecondaryContainer),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _plainTextFallback(BuildContext context) {
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: SelectableText(
+        widget.hadith.arabicText,
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          fontFamily: AppConstants.arabicFontFamily,
+          fontFamilyFallback: AppConstants.arabicFontFallback,
+          fontSize: 30 * widget.textScale,
+          height: 2,
+          fontWeight: FontWeight.w500,
+        ),
+      ),
+    );
+  }
+
+  int _activeSegmentIndex(int positionMs) {
+    final segments = widget.hadith.audioTimings;
+    if (segments.isEmpty) return -1;
+    if (positionMs < segments.first.startMs) return 0;
+
+    for (var index = segments.length - 1; index >= 0; index--) {
+      if (positionMs >= segments[index].startMs) return index;
+    }
+    return 0;
+  }
+
+  int _activeWordIndex(AudioTextSegment segment, int positionMs) {
+    final words = segment.text
+        .trim()
+        .split(RegExp(r'\s+'))
+        .where((word) => word.isNotEmpty)
+        .toList(growable: false);
+    if (words.isEmpty) return -1;
+    if (positionMs <= segment.startMs) return 0;
+    if (positionMs >= segment.endMs) return words.length - 1;
+
+    final duration = math.max(1, segment.endMs - segment.startMs);
+    final progress =
+        ((positionMs - segment.startMs) / duration).clamp(0.0, 1.0);
+
+    final weights = words
+        .map((word) => math.max(1, _arabicLetterWeight(word)))
+        .toList(growable: false);
+    final totalWeight = weights.fold<int>(0, (sum, value) => sum + value);
+    final target = progress * totalWeight;
+
+    var cumulative = 0;
+    for (var index = 0; index < weights.length; index++) {
+      cumulative += weights[index];
+      if (target <= cumulative) return index;
+    }
+    return words.length - 1;
+  }
+
+  int _arabicLetterWeight(String word) {
+    final withoutMarks = word.replaceAll(
+      RegExp(
+        r'[\u0610-\u061A\u064B-\u065F\u0670\u06D6-\u06ED،؛؟.:]',
+      ),
+      '',
+    );
+    return withoutMarks.runes.length;
+  }
+
+  void _scheduleAutoScroll(int activeIndex, {required bool completed}) {
+    if (!_followAudio ||
+        completed ||
+        activeIndex < 0 ||
+        activeIndex >= _segmentKeys.length ||
+        activeIndex == _lastScrolledIndex) {
+      return;
+    }
+
+    _lastScrolledIndex = activeIndex;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted || !_scrollController.hasClients) return;
+      final targetContext = _segmentKeys[activeIndex].currentContext;
+      if (targetContext == null) return;
+      Scrollable.ensureVisible(
+        targetContext,
+        alignment: 0.42,
+        duration: const Duration(milliseconds: 320),
+        curve: Curves.easeOutCubic,
+      );
+    });
+  }
+
+  Future<void> _seekToSegment(AudioTextSegment segment) async {
+    await _service.seek(segment.start);
+    if (!_service.player.playing) {
+      await _service.player.play();
+    }
+  }
+
+  String _formatDuration(Duration value) {
+    final minutes = value.inMinutes.remainder(60).toString().padLeft(2, '0');
+    final seconds = value.inSeconds.remainder(60).toString().padLeft(2, '0');
+    return '$minutes:$seconds';
+  }
+}
+
+class _SyncedSegmentTile extends StatelessWidget {
+  const _SyncedSegmentTile({
+    required this.number,
+    required this.segment,
+    required this.isActive,
+    required this.isCompleted,
+    required this.activeWordIndex,
+    required this.textScale,
+    required this.onTap,
+    super.key,
+  });
+
+  final int number;
+  final AudioTextSegment segment;
+  final bool isActive;
+  final bool isCompleted;
+  final int activeWordIndex;
+  final double textScale;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+    final words = segment.text
+        .trim()
+        .split(RegExp(r'\s+'))
+        .where((word) => word.isNotEmpty)
+        .toList(growable: false);
+
+    return Semantics(
+      button: true,
+      label: 'Petikan $number. Tekan untuk memainkan bacaan dari bahagian ini.',
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: onTap,
+          borderRadius: BorderRadius.circular(18),
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 220),
+            curve: Curves.easeOut,
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+            decoration: BoxDecoration(
+              color: isActive
+                  ? scheme.primaryContainer.withValues(alpha: 0.72)
+                  : isCompleted
+                      ? scheme.secondaryContainer.withValues(alpha: 0.28)
+                      : scheme.surface,
+              borderRadius: BorderRadius.circular(18),
+              border: Border.all(
+                color: isActive ? scheme.primary : scheme.outlineVariant,
+                width: isActive ? 1.6 : 1,
+              ),
+            ),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                AnimatedContainer(
+                  duration: const Duration(milliseconds: 220),
+                  width: 34,
+                  height: 34,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: isActive
+                        ? scheme.primary
+                        : isCompleted
+                            ? scheme.secondaryContainer
+                            : scheme.surfaceContainerHighest,
+                  ),
+                  child: isCompleted && !isActive
+                      ? Icon(
+                          Icons.check_rounded,
+                          size: 18,
+                          color: scheme.onSecondaryContainer,
+                        )
+                      : Text(
+                          '$number',
+                          style: TextStyle(
+                            color: isActive
+                                ? scheme.onPrimary
+                                : scheme.onSurfaceVariant,
+                            fontWeight: FontWeight.w800,
+                          ),
+                        ),
+                ),
+                const SizedBox(width: 14),
+                Expanded(
+                  child: Directionality(
+                    textDirection: TextDirection.rtl,
+                    child: Text.rich(
+                      TextSpan(
+                        children: [
+                          for (var index = 0; index < words.length; index++)
+                            TextSpan(
+                              text: '${words[index]} ',
+                              style: TextStyle(
+                                color: index == activeWordIndex && isActive
+                                    ? scheme.onTertiaryContainer
+                                    : isActive && index < activeWordIndex
+                                        ? scheme.primary
+                                        : scheme.onSurface,
+                                backgroundColor:
+                                    index == activeWordIndex && isActive
+                                        ? scheme.tertiaryContainer
+                                        : Colors.transparent,
+                                fontWeight: index == activeWordIndex && isActive
+                                    ? FontWeight.w900
+                                    : isActive && index < activeWordIndex
+                                        ? FontWeight.w700
+                                        : FontWeight.w500,
+                              ),
+                            ),
+                        ],
+                      ),
+                      textAlign: TextAlign.right,
+                      style: TextStyle(
+                        fontFamily: AppConstants.arabicFontFamily,
+                        fontFamilyFallback: AppConstants.arabicFontFallback,
+                        fontSize: 27 * textScale,
+                        height: 1.9,
+                      ),
+                    ),
+                  ),
+                ),
+                if (isActive) ...[
+                  const SizedBox(width: 8),
+                  Icon(Icons.graphic_eq_rounded, color: scheme.primary),
+                ],
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}

@@ -1,0 +1,35 @@
+e-Hadis40 — Hadis 02 Audio Sync Validation
+
+Project version: 1.4.0+5
+Audio duration: 128.836 seconds
+Audio format: mp3
+Audio codec: mp3
+Sample rate: 44100 Hz
+Channels: 1
+Timed segments: 38
+Detected pauses: 37
+
+Checks completed:
+- Uploaded audio opened successfully.
+- WAV/PCM source converted to true MP3.
+- Loudness normalized with peak protection.
+- Hadith 2 JSON parsed successfully.
+- Timing segments are ordered and within audio duration.
+- Timed text covers the complete Arabic hadith.
+- Lotus Linotype set as primary Arabic font.
+- Safe Arabic font fallbacks configured.
+- Mainkan/Jeda/Main semula wording corrected.
+- English UI terms “highlight” and “cursor” removed.
+- Completed-state and replay behaviour improved.
+- Dart delimiter checks passed.
+
+Not executable here because Flutter SDK is unavailable:
+- flutter pub get
+- dart format .
+- flutter analyze
+- flutter test
+- flutter build web
+
+Important:
+Timing is aligned to detected pauses and manually mapped to phrases.
+Pronunciation accuracy still requires review by a qualified listener.

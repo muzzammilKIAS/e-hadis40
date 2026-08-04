@@ -1,0 +1,33 @@
+e-Hadis40 — Hadis 02 Validation Report
+
+Project version: 1.3.0+4
+
+Completed:
+- Hadith 2 JSON created and parsed successfully.
+- HadithRepository updated to load Hadith 1 and Hadith 2.
+- Module 1 availability count updated dynamically.
+- Search, bookmarks, notes, quiz and progress can use Hadith 2.
+- Empty learning-intention section is hidden.
+- Audio missing state remains safe and does not require a dummy MP3.
+- Hadith 2 model test added.
+- Dart delimiter checks passed.
+
+Content:
+- Arabic hadith: complete Hadith Jibril text.
+- Malay translation: application draft.
+- Explanations: 6
+- Lessons: 4
+- Appreciation points: 4
+- Values: 3
+- Activities: 4
+- Reflection questions: 4
+- Quiz questions: 5
+
+Not executable in this environment because Flutter SDK is unavailable:
+- flutter pub get
+- dart format .
+- flutter analyze
+- flutter test
+- flutter build web
+
+Run those commands in VS Code after extracting the ZIP.

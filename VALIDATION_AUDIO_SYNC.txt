@@ -1,0 +1,29 @@
+e-Hadis40 Flutter Audio Sync — Validation Report
+
+Project version: 1.2.0+3
+Dart files checked: 32
+Timed Arabic segments: 10
+Audio duration: 35.400000 seconds
+Audio container: mp3
+Audio codec: mp3
+Sample rate: 24000 Hz
+Channels: 1
+
+Completed checks:
+- Uploaded recording read successfully.
+- Audio converted from WAV/PCM container to true MP3.
+- Hadith JSON parsed successfully.
+- Timing segments are ordered and remain within audio duration.
+- Dart delimiter checks passed.
+- Audio asset is registered by the existing assets/audio/ pubspec entry.
+- Synced reader, auto-scroll, word highlight and tap-to-seek code added.
+- Model test updated for audio timing fields.
+
+Not executable in this environment because Flutter SDK is unavailable:
+- flutter pub get
+- dart format .
+- flutter analyze
+- flutter test
+- flutter build web
+
+Run those commands in VS Code after extracting the ZIP.

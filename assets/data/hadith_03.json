@@ -1,0 +1,246 @@
+{
+  "id": "hadith_03",
+  "moduleId": "module_01",
+  "hadithNumber": 3,
+  "title": "Rukun Islam",
+  "subtitle": "Lima asas utama yang membina kehidupan seorang Muslim.",
+  "theme": "Syahadah, solat, zakat, puasa dan haji",
+  "arabicText": "عَنْ أَبِي عَبْدِ الرَّحْمَنِ عَبْدِ اللَّهِ بْنِ عُمَرَ بْنِ الْخَطَّابِ رَضِيَ اللَّهُ عَنْهُمَا قَالَ: سَمِعْتُ رَسُولَ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ يَقُولُ: بُنِيَ الْإِسْلَامُ عَلَى خَمْسٍ: شَهَادَةِ أَنْ لَا إِلَهَ إِلَّا اللَّهُ وَأَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ، وَإِقَامِ الصَّلَاةِ، وَإِيتَاءِ الزَّكَاةِ، وَحَجِّ الْبَيْتِ، وَصَوْمِ رَمَضَانَ.",
+  "translationMalay": "Daripada Abu Abdul Rahman Abdullah bin Umar bin al-Khattab r.a., beliau berkata: “Aku mendengar Rasulullah SAW bersabda: Islam dibina atas lima perkara: bersaksi bahawa tiada sembahan yang benar selain Allah dan bahawa Muhammad ialah hamba serta utusan-Nya, mendirikan solat, menunaikan zakat, mengerjakan haji di Baitullah dan berpuasa pada bulan Ramadan.”",
+  "narrator": {
+    "id": "abdullah_ibn_umar",
+    "name": "Abdullah bin Umar r.a.",
+    "fullName": "Abu Abdul Rahman Abdullah bin Umar bin al-Khattab r.a.",
+    "title": "Sahabat Rasulullah SAW dan Perawi Hadis",
+    "shortBiography": "Abdullah bin Umar r.a. ialah putera kepada Umar bin al-Khattab r.a. dan salah seorang sahabat Rasulullah SAW. Beliau terkenal dengan kesungguhan mengikuti sunnah Nabi SAW serta sikap berhati-hati ketika meriwayatkan hadis. Beliau juga menjadi antara sahabat yang banyak meriwayatkan hadis dan menjadi rujukan dalam ilmu hadis serta fiqh.",
+    "tags": [
+      "Sahabat Rasulullah SAW",
+      "Putera Umar al-Khattab",
+      "Perawi Hadis",
+      "Mengikuti Sunnah"
+    ],
+    "source": "Semakan kandungan biografi e-Hadis40",
+    "verified": true
+  },
+  "reference": "Hadis ini diriwayatkan oleh Imam al-Bukhari dan Imam Muslim.",
+  "explanations": [
+    "Hadis ini menerangkan lima rukun yang menjadi asas tegaknya kehidupan seorang Muslim.",
+    "Dua kalimah syahadah ialah pengakuan terhadap keesaan Allah SWT dan kerasulan Nabi Muhammad SAW.",
+    "Solat ialah ibadah yang dimulakan dengan takbiratul ihram dan disudahi dengan salam mengikut syarat serta rukun yang ditetapkan.",
+    "Zakat ialah pengeluaran sebahagian harta tertentu kepada golongan yang berhak menerimanya mengikut ketetapan syarak.",
+    "Puasa Ramadan mendidik seorang Muslim menahan diri daripada perkara yang membatalkan puasa dari terbit fajar hingga terbenam matahari dan membina ketakwaan.",
+    "Haji ialah ibadah mengunjungi Baitullah pada masa tertentu untuk melaksanakan amalan tertentu dan diwajibkan sekali seumur hidup bagi orang yang berkemampuan.",
+    "Kelima-lima rukun saling melengkapi hubungan manusia dengan Allah SWT serta tanggungjawab terhadap masyarakat."
+  ],
+  "quranEvidence": {
+    "surah": "Ali ‘Imran",
+    "verse": 19,
+    "translationMalay": "Sesungguhnya agama yang benar dan diredai di sisi Allah ialah Islam."
+  },
+  "learningIntentionExample": "",
+  "lessons": [
+    "Islam ialah cara hidup yang menyeluruh dan membimbing manusia menuju kesejahteraan dunia serta akhirat.",
+    "Keyakinan dalam hati perlu dibuktikan melalui pelaksanaan tuntutan rukun Islam.",
+    "Solat perlu dipelihara kerana ia merupakan ibadah utama yang dilaksanakan setiap hari.",
+    "Zakat membina sikap prihatin, kasih sayang dan saling membantu dalam masyarakat.",
+    "Setiap Muslim hendaklah berusaha mengamalkan kelima-lima rukun Islam dengan ikhlas dan istiqamah."
+  ],
+  "appreciation": [
+    "Memahami bahawa Islam umpama sebuah binaan yang mempunyai lima asas utama.",
+    "Mengamalkan rukun Islam secara istiqamah, bukan sekadar mengetahui namanya.",
+    "Menjaga solat, berpuasa pada Ramadan, menunaikan zakat dan melaksanakan haji apabila memenuhi syarat.",
+    "Membuktikan keyakinan kepada Allah SWT melalui ketaatan dan amalan yang konsisten.",
+    "Menghormati serta membantu orang lain melalui penghayatan ibadah yang membina kesejahteraan bersama."
+  ],
+  "focusValues": [
+    "Keyakinan",
+    "Kesejahteraan"
+  ],
+  "suggestedActivities": [
+    {
+      "title": "Pengucapan awam",
+      "description": "Sampaikan penerangan ringkas tentang satu rukun Islam dalam perhimpunan harian, mingguan atau bulanan."
+    },
+    {
+      "title": "Halaqah ilmu lima minit",
+      "description": "Bincangkan maksud, tujuan dan contoh penghayatan setiap rukun Islam."
+    },
+    {
+      "title": "Sudut informasi Rukun Islam",
+      "description": "Hasilkan paparan kelas yang menerangkan lima rukun Islam secara ringkas, tepat dan menarik."
+    },
+    {
+      "title": "Doa keteguhan iman",
+      "description": "Baca dan hayati doa dalam Surah Ali ‘Imran ayat 8 supaya hati dikekalkan di atas petunjuk Allah SWT."
+    }
+  ],
+  "reflectionQuestions": [
+    "Mengapakah rukun Islam diumpamakan sebagai asas sebuah binaan?",
+    "Rukun Islam yang manakah perlu saya perbaiki penghayatannya sekarang?",
+    "Bagaimanakah solat membentuk disiplin harian seorang Muslim?",
+    "Bagaimanakah zakat menyumbang kepada kesejahteraan masyarakat?",
+    "Apakah bukti bahawa keyakinan dalam hati perlu disertai tindakan?"
+  ],
+  "quiz": [
+    {
+      "id": "h03_q01",
+      "question": "Berapakah jumlah rukun Islam yang disebut dalam hadis ini?",
+      "options": [
+        "Tiga",
+        "Empat",
+        "Lima",
+        "Enam"
+      ],
+      "correctAnswerIndex": 2,
+      "explanation": "Hadis ini menyatakan bahawa Islam dibina atas lima rukun."
+    },
+    {
+      "id": "h03_q02",
+      "question": "Apakah asas pertama yang disebut dalam hadis?",
+      "options": [
+        "Menunaikan zakat",
+        "Mengucapkan dua kalimah syahadah",
+        "Berpuasa Ramadan",
+        "Menunaikan haji"
+      ],
+      "correctAnswerIndex": 1,
+      "explanation": "Hadis mendahulukan syahadah sebagai pengakuan terhadap keesaan Allah SWT dan kerasulan Nabi Muhammad SAW."
+    },
+    {
+      "id": "h03_q03",
+      "question": "Apakah tujuan utama puasa Ramadan yang ditekankan dalam modul?",
+      "options": [
+        "Membina ketakwaan",
+        "Menambah kekayaan",
+        "Mengurangkan waktu belajar",
+        "Menggantikan kewajipan solat"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Puasa mendidik pengawalan diri dan membina ketakwaan."
+    },
+    {
+      "id": "h03_q04",
+      "question": "Siapakah golongan yang wajib menunaikan haji?",
+      "options": [
+        "Semua kanak-kanak",
+        "Orang yang berkemampuan dan memenuhi syarat",
+        "Orang yang tinggal berhampiran masjid",
+        "Mereka yang tidak berpuasa"
+      ],
+      "correctAnswerIndex": 1,
+      "explanation": "Haji diwajibkan sekali seumur hidup bagi Muslim yang berkemampuan dan memenuhi syarat."
+    },
+    {
+      "id": "h03_q05",
+      "question": "Apakah kesan sosial yang dibina melalui zakat?",
+      "options": [
+        "Persaingan harta",
+        "Pengasingan masyarakat",
+        "Kasih sayang dan saling membantu",
+        "Menghapuskan kewajipan bekerja"
+      ],
+      "correctAnswerIndex": 2,
+      "explanation": "Zakat membantu golongan yang berhak serta membina rasa prihatin dan saling membantu."
+    },
+    {
+      "id": "h03_q06",
+      "question": "Apakah dua nilai fokus Hadis 3?",
+      "options": [
+        "Keberanian dan kekayaan",
+        "Keyakinan dan kesejahteraan",
+        "Persaingan dan kemasyhuran",
+        "Kecepatan dan ketegasan"
+      ],
+      "correctAnswerIndex": 1,
+      "explanation": "Modul menekankan nilai Keyakinan dan Kesejahteraan bagi Hadis 3."
+    },
+    {
+      "id": "h03_q07",
+      "question": "Apakah hubungan keyakinan dan amalan menurut pengajaran hadis?",
+      "options": [
+        "Keyakinan tidak memerlukan tindakan",
+        "Amalan hanya penting ketika dilihat orang",
+        "Keyakinan perlu dibuktikan melalui ketaatan dan amalan",
+        "Amalan boleh menggantikan syahadah"
+      ],
+      "correctAnswerIndex": 2,
+      "explanation": "Keyakinan seorang Muslim perlu diterjemahkan melalui ketaatan kepada Allah SWT dan pelaksanaan rukun Islam."
+    }
+  ],
+  "progressRules": {
+    "completeWhen": [
+      "Pengguna telah membuka teks hadis",
+      "Pengguna telah memainkan atau membuka bahagian audio",
+      "Pengguna telah membaca terjemahan",
+      "Pengguna telah melihat huraian dan pengajaran",
+      "Pengguna telah menjawab kuiz"
+    ],
+    "passingScorePercent": 80
+  },
+  "audio": {
+    "arabicRecitation": "assets/audio/hadith_03.mp3",
+    "translationMalay": "",
+    "durationMs": 29808,
+    "syncOffsetMs": 0,
+    "timingMethod": "phrase_alignment_from_detected_pauses",
+    "timedSegments": [
+      {
+        "startMs": 0,
+        "endMs": 2153,
+        "text": "عَنْ أَبِي عَبْدِ الرَّحْمَنِ"
+      },
+      {
+        "startMs": 3041,
+        "endMs": 5539,
+        "text": "عَبْدِ اللَّهِ بْنِ عُمَرَ بْنِ الْخَطَّابِ"
+      },
+      {
+        "startMs": 6573,
+        "endMs": 8637,
+        "text": "رَضِيَ اللَّهُ عَنْهُمَا قَالَ:"
+      },
+      {
+        "startMs": 9371,
+        "endMs": 13836,
+        "text": "سَمِعْتُ رَسُولَ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ يَقُولُ:"
+      },
+      {
+        "startMs": 14209,
+        "endMs": 16577,
+        "text": "بُنِيَ الْإِسْلَامُ عَلَى خَمْسٍ:"
+      },
+      {
+        "startMs": 17309,
+        "endMs": 19963,
+        "text": "شَهَادَةِ أَنْ لَا إِلَهَ إِلَّا اللَّهُ"
+      },
+      {
+        "startMs": 20491,
+        "endMs": 22849,
+        "text": "وَأَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ،"
+      },
+      {
+        "startMs": 23786,
+        "endMs": 24991,
+        "text": "وَإِقَامِ الصَّلَاةِ، وَإِيتَاءِ الزَّكَاةِ،"
+      },
+      {
+        "startMs": 25586,
+        "endMs": 29808,
+        "text": "وَحَجِّ الْبَيْتِ، وَصَوْمِ رَمَضَانَ."
+      }
+    ]
+  },
+  "source": {
+    "document": "Draf aplikasi berasaskan Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua, Hadis 3, halaman 12–16.",
+    "hadith": 3,
+    "pages": [
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "verificationNote": "Teks Arab dan struktur isi dirujuk kepada Hadis 3 al-Arba‘in al-Nawawiyyah serta Modul Penghayatan KPM. Terjemahan aplikasi, soalan refleksi dan kuiz perlu melalui semakan ilmiah sebelum penerbitan awam."
+  }
+}

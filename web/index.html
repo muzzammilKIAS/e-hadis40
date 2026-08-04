@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <base href="$FLUTTER_BASE_HREF">
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="application-name" content="e-Hadis40">
+  <meta name="description" content="e-Hadis40 - Platform Pengajaran dan Pembelajaran Interaktif Modul Penghayatan Hadis 40 Imam al-Nawawi Kementerian Pendidikan Malaysia.">
+  <meta name="theme-color" content="#0A1110">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="e-Hadis40">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="manifest" href="manifest.json">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #0A1110;
+      height: 100%;
+      overflow: hidden;
+    }
+    #loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      width: 100vw;
+      background: linear-gradient(135deg, #0A1110 0%, #0F1815 35%, #111822 70%, #16211D 100%);
+      font-family: 'Poppins', 'Inter', 'Noto Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      flex-direction: column;
+      gap: 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+    }
+    .splash-logo {
+      width: 88px;
+      height: 88px;
+      border-radius: 24px;
+      background: rgba(94, 196, 154, 0.08);
+      border: 1.5px solid rgba(94, 196, 154, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      box-shadow: 0 0 40px rgba(94, 196, 154, 0.08);
+    }
+    .splash-logo img {
+      width: 88px;
+      height: 88px;
+      border-radius: 24px;
+    }
+    .splash-title {
+      color: #F0EEE7;
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+    .splash-subtitle {
+      color: rgba(94, 196, 154, 0.85);
+      font-size: 14px;
+      font-weight: 500;
+      text-align: center;
+      background: rgba(94, 196, 154, 0.08);
+      border: 1px solid rgba(94, 196, 154, 0.15);
+      border-radius: 999px;
+      padding: 8px 20px;
+    }
+    .splash-loader {
+      margin-top: 40px;
+      width: 24px;
+      height: 24px;
+      border: 2.5px solid rgba(94, 196, 154, 0.2);
+      border-top-color: rgba(94, 196, 154, 0.7);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+  <script>
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        var loading = document.getElementById('loading');
+        if (loading) {
+          loading.style.transition = 'opacity 0.3s ease-out';
+          loading.style.opacity = '0';
+          setTimeout(function() { loading.remove(); }, 350);
+        }
+      }, 300);
+    });
+    window.addEventListener('flutter-first-frame', function() {
+      var loading = document.getElementById('loading');
+      if (loading) {
+        loading.style.transition = 'opacity 0.2s ease-out';
+        loading.style.opacity = '0';
+        setTimeout(function() { loading.remove(); }, 250);
+      }
+    });
+  </script>
+  <title>e-Hadis40</title>
+</head>
+<body>
+  <div id="loading">
+    <div class="splash-logo">
+      <img src="icons/Icon-192.png" alt="e-Hadis40" />
+    </div>
+    <div class="splash-title">e-Hadis40</div>
+    <div class="splash-subtitle">Modul Penghayatan Hadis 40<br/>Imam al-Nawawi</div>
+    <div class="splash-loader"></div>
+  </div>
+  <noscript>Aplikasi ini memerlukan JavaScript untuk berfungsi.</noscript>
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>
