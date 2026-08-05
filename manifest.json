@@ -1,0 +1,35 @@
+{
+  "name": "e-Hadis40",
+  "short_name": "e-Hadis40",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#0A1110",
+  "theme_color": "#0A1110",
+  "description": "Platform Pengajaran dan Pembelajaran Interaktif Modul Penghayatan Hadis 40 Imam al-Nawawi Kementerian Pendidikan Malaysia.",
+  "orientation": "portrait-primary",
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "icons/Icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/Icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/Icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/Icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
