@@ -33,7 +33,7 @@ class _NarratorInfoTriggerState extends State<NarratorInfoTrigger> {
     _overlayEntry?.remove();
     _overlayEntry = null;
     _hovering = false;
-    setState(() {});
+    if (mounted) setState(() {});
   }
 
   OverlayEntry _buildOverlayEntry() {
@@ -192,6 +192,36 @@ class _NarratorInfoTriggerState extends State<NarratorInfoTrigger> {
                               fontSize: 11,
                               fontWeight: FontWeight.w600,
                               color: scheme.onTertiaryContainer,
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  else
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 10,
+                        vertical: 4,
+                      ),
+                      decoration: BoxDecoration(
+                        color: scheme.secondaryContainer.withValues(alpha: 0.4),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(
+                            Icons.edit_note_rounded,
+                            size: 14,
+                            color: scheme.onSecondaryContainer,
+                          ),
+                          const SizedBox(width: 4),
+                          Text(
+                            'Draf biografi — semakan ilmiah diperlukan',
+                            style: TextStyle(
+                              fontSize: 10,
+                              fontWeight: FontWeight.w600,
+                              color: scheme.onSecondaryContainer,
                             ),
                           ),
                         ],
@@ -445,6 +475,38 @@ class _NarratorInfoTriggerState extends State<NarratorInfoTrigger> {
                           style: TextStyle(
                             fontWeight: FontWeight.w600,
                             color: scheme.onTertiaryContainer,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+                if (!narrator.verified &&
+                    narrator.shortBiography.isNotEmpty) ...[
+                  const SizedBox(height: 12),
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 12,
+                      vertical: 6,
+                    ),
+                    decoration: BoxDecoration(
+                      color: scheme.secondaryContainer.withValues(alpha: 0.35),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Icon(Icons.edit_note_rounded,
+                            size: 16, color: scheme.onSecondaryContainer),
+                        const SizedBox(width: 6),
+                        Flexible(
+                          child: Text(
+                            'Draf biografi — semakan ilmiah diperlukan',
+                            style: TextStyle(
+                              fontWeight: FontWeight.w600,
+                              fontSize: 12,
+                              color: scheme.onSecondaryContainer,
+                            ),
                           ),
                         ),
                       ],

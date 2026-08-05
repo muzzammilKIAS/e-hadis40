@@ -24,6 +24,10 @@ class Hadith {
     required this.audioDurationMs,
     required this.audioSyncOffsetMs,
     required this.audioTimings,
+    required this.learningObjectives,
+    required this.supplications,
+    required this.supplementaryHadiths,
+    required this.copyrightNotice,
     required this.sourceNote,
   });
 
@@ -51,6 +55,10 @@ class Hadith {
   final int audioDurationMs;
   final int audioSyncOffsetMs;
   final List<AudioTextSegment> audioTimings;
+  final List<String> learningObjectives;
+  final List<Supplication> supplications;
+  final List<SupplementaryHadith> supplementaryHadiths;
+  final String copyrightNotice;
   final String sourceNote;
 
   String get displayNumber => number.toString().padLeft(2, '0');
@@ -95,6 +103,14 @@ class Hadith {
       audioTimings: _list(audioJson['timedSegments'])
           .map((item) => AudioTextSegment.fromJson(_map(item)))
           .toList(growable: false),
+      learningObjectives: _stringList(json['learningObjectives']),
+      supplications: _list(json['supplications'])
+          .map((item) => Supplication.fromJson(_map(item)))
+          .toList(growable: false),
+      supplementaryHadiths: _list(json['supplementaryHadiths'])
+          .map((item) => SupplementaryHadith.fromJson(_map(item)))
+          .toList(growable: false),
+      copyrightNotice: json['copyrightNotice'] as String? ?? '',
       sourceNote: sourceJson['verificationNote'] as String? ?? '',
     );
   }
@@ -198,17 +214,28 @@ class QuranEvidence {
   const QuranEvidence({
     required this.surah,
     required this.verse,
+    required this.verseEnd,
+    required this.arabicText,
     required this.translationMalay,
   });
 
   final String surah;
   final int verse;
+  final int verseEnd;
+  final String arabicText;
   final String translationMalay;
+
+  String get verseLabel {
+    if (verseEnd > verse) return 'ayat $verse–$verseEnd';
+    return 'ayat $verse';
+  }
 
   factory QuranEvidence.fromJson(Map<String, dynamic> json) {
     return QuranEvidence(
       surah: json['surah'] as String? ?? '',
       verse: json['verse'] is int ? json['verse'] as int : 0,
+      verseEnd: json['verseEnd'] is int ? json['verseEnd'] as int : 0,
+      arabicText: json['arabicText'] as String? ?? '',
       translationMalay: json['translationMalay'] as String? ?? '',
     );
   }
@@ -257,6 +284,61 @@ class QuizQuestion {
           ? json['correctAnswerIndex'] as int
           : 0,
       explanation: json['explanation'] as String? ?? '',
+    );
+  }
+}
+
+class Supplication {
+  const Supplication({
+    required this.id,
+    required this.title,
+    required this.arabic,
+    required this.translationMalay,
+    required this.reference,
+  });
+
+  final String id;
+  final String title;
+  final String arabic;
+  final String translationMalay;
+  final String reference;
+
+  factory Supplication.fromJson(Map<String, dynamic> json) {
+    return Supplication(
+      id: json['id'] as String? ?? '',
+      title: json['title'] as String? ?? '',
+      arabic: json['arabic'] as String? ?? '',
+      translationMalay: json['translationMalay'] as String? ?? '',
+      reference: json['reference'] as String? ?? '',
+    );
+  }
+}
+
+class SupplementaryHadith {
+  const SupplementaryHadith({
+    required this.id,
+    required this.title,
+    required this.narrator,
+    required this.arabic,
+    required this.translationMalay,
+    required this.reference,
+  });
+
+  final String id;
+  final String title;
+  final String narrator;
+  final String arabic;
+  final String translationMalay;
+  final String reference;
+
+  factory SupplementaryHadith.fromJson(Map<String, dynamic> json) {
+    return SupplementaryHadith(
+      id: json['id'] as String? ?? '',
+      title: json['title'] as String? ?? '',
+      narrator: json['narrator'] as String? ?? '',
+      arabic: json['arabic'] as String? ?? '',
+      translationMalay: json['translationMalay'] as String? ?? '',
+      reference: json['reference'] as String? ?? '',
     );
   }
 }

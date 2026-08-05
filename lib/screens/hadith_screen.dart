@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../core/constants/app_constants.dart';
 import '../core/theme/app_spacing.dart';
 import '../core/utils/app_breakpoints.dart';
 import '../core/utils/responsive.dart';
@@ -91,6 +92,14 @@ class _HadithScreenState extends State<HadithScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               _HadithHero(hadith: hadith, completed: completed),
+              if (hadith.learningObjectives.isNotEmpty) ...[
+                const SizedBox(height: AppSpacing.xl),
+                HadithSection(
+                  title: 'Objektif Pembelajaran',
+                  icon: Icons.track_changes_rounded,
+                  child: ElegantBulletList(items: hadith.learningObjectives),
+                ),
+              ],
               const SizedBox(height: AppSpacing.xl),
               HadithSection(
                 title: 'Baca Bersama Audio',
@@ -170,14 +179,35 @@ class _HadithScreenState extends State<HadithScreen> {
               HadithSection(
                 title: 'Dalil al-Quran',
                 subtitle:
-                    'Surah ${hadith.quranEvidence.surah}, ayat ${hadith.quranEvidence.verse}',
+                    'Surah ${hadith.quranEvidence.surah}, ${hadith.quranEvidence.verseLabel}',
                 icon: Icons.menu_book_rounded,
                 accent: true,
-                child: Text(
-                  '"${hadith.quranEvidence.translationMalay}"',
-                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                        height: 1.8,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    if (hadith.quranEvidence.arabicText.isNotEmpty) ...[
+                      Directionality(
+                        textDirection: TextDirection.rtl,
+                        child: Text(
+                          hadith.quranEvidence.arabicText,
+                          textAlign: TextAlign.right,
+                          style: TextStyle(
+                            fontSize: 22 * controller.arabicScale,
+                            height: 2.0,
+                            fontFamily: AppConstants.arabicFontFamily,
+                            fontFamilyFallback: AppConstants.arabicFontFallback,
+                          ),
+                        ),
                       ),
+                      const SizedBox(height: AppSpacing.lg),
+                    ],
+                    Text(
+                      '"${hadith.quranEvidence.translationMalay}"',
+                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                            height: 1.8,
+                          ),
+                    ),
+                  ],
                 ),
               ),
               if (hadith.learningIntentionExample.trim().isNotEmpty) ...[
@@ -188,6 +218,32 @@ class _HadithScreenState extends State<HadithScreen> {
                   child: Text(
                     hadith.learningIntentionExample,
                     style: Theme.of(context).textTheme.bodyLarge,
+                  ),
+                ),
+              ],
+              if (hadith.supplications.isNotEmpty) ...[
+                const SizedBox(height: AppSpacing.xl),
+                HadithSection(
+                  title: 'Doa Pilihan',
+                  icon: Icons.hail_rounded,
+                  child: Column(
+                    children: [
+                      for (final dua in hadith.supplications)
+                        _SupplicationCard(dua: dua),
+                    ],
+                  ),
+                ),
+              ],
+              if (hadith.supplementaryHadiths.isNotEmpty) ...[
+                const SizedBox(height: AppSpacing.xl),
+                HadithSection(
+                  title: 'Hadis Berkaitan Rahmat Allah',
+                  icon: Icons.collections_bookmark_rounded,
+                  child: Column(
+                    children: [
+                      for (final h in hadith.supplementaryHadiths)
+                        _SupplementaryHadithCard(hadith: h),
+                    ],
                   ),
                 ),
               ],
@@ -602,6 +658,154 @@ class _HadithPrevNext extends StatelessWidget {
   void _navigateReplace(BuildContext context, Hadith target) {
     Navigator.of(context).pushReplacement(
       MaterialPageRoute<void>(builder: (_) => HadithScreen(hadith: target)),
+    );
+  }
+}
+
+class _SupplicationCard extends StatelessWidget {
+  const _SupplicationCard({required this.dua});
+
+  final Supplication dua;
+
+  @override
+  Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+
+    return Padding(
+      padding: const EdgeInsets.only(bottom: AppSpacing.lg),
+      child: Card(
+        child: Padding(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Text(
+                dua.title,
+                style: Theme.of(context)
+                    .textTheme
+                    .titleMedium
+                    ?.copyWith(fontWeight: FontWeight.w700),
+              ),
+              const SizedBox(height: AppSpacing.lg),
+              Directionality(
+                textDirection: TextDirection.rtl,
+                child: SelectableText(
+                  dua.arabic,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontSize: 22,
+                    height: 2.0,
+                    fontFamily: AppConstants.arabicFontFamily,
+                    fontFamilyFallback: AppConstants.arabicFontFallback,
+                  ),
+                ),
+              ),
+              const SizedBox(height: AppSpacing.lg),
+              Text(
+                dua.translationMalay,
+                style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                      height: 1.7,
+                    ),
+              ),
+              if (dua.reference.isNotEmpty) ...[
+                const SizedBox(height: AppSpacing.md),
+                Text(
+                  'Rujukan: ${dua.reference}',
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: scheme.onSurfaceVariant,
+                    fontStyle: FontStyle.italic,
+                  ),
+                ),
+              ],
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _SupplementaryHadithCard extends StatelessWidget {
+  const _SupplementaryHadithCard({required this.hadith});
+
+  final SupplementaryHadith hadith;
+
+  @override
+  Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+
+    return Padding(
+      padding: const EdgeInsets.only(bottom: AppSpacing.lg),
+      child: Card(
+        color: scheme.secondaryContainer.withValues(alpha: 0.2),
+        child: Padding(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Row(
+                children: [
+                  Icon(Icons.mosque_rounded, size: 18, color: scheme.primary),
+                  const SizedBox(width: AppSpacing.sm),
+                  Expanded(
+                    child: Text(
+                      hadith.title,
+                      style: Theme.of(context)
+                          .textTheme
+                          .titleMedium
+                          ?.copyWith(fontWeight: FontWeight.w700),
+                    ),
+                  ),
+                ],
+              ),
+              if (hadith.narrator.isNotEmpty) ...[
+                const SizedBox(height: AppSpacing.xs),
+                Text(
+                  'Daripada: ${hadith.narrator}',
+                  style: TextStyle(
+                    fontSize: 13,
+                    fontWeight: FontWeight.w500,
+                    color: scheme.onSurfaceVariant,
+                  ),
+                ),
+              ],
+              const SizedBox(height: AppSpacing.lg),
+              Directionality(
+                textDirection: TextDirection.rtl,
+                child: SelectableText(
+                  hadith.arabic,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontSize: 20,
+                    height: 1.9,
+                    fontFamily: AppConstants.arabicFontFamily,
+                    fontFamilyFallback: AppConstants.arabicFontFallback,
+                  ),
+                ),
+              ),
+              const SizedBox(height: AppSpacing.lg),
+              Text(
+                'Maksud: ${hadith.translationMalay}',
+                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                      height: 1.6,
+                    ),
+              ),
+              if (hadith.reference.isNotEmpty) ...[
+                const SizedBox(height: AppSpacing.md),
+                Text(
+                  hadith.reference,
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: scheme.onSurfaceVariant,
+                    fontStyle: FontStyle.italic,
+                  ),
+                ),
+              ],
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
