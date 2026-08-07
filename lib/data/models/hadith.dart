@@ -24,9 +24,11 @@ class Hadith {
     required this.audioDurationMs,
     required this.audioSyncOffsetMs,
     required this.audioTimings,
+    required this.audioTranscriptNote,
     required this.learningObjectives,
     required this.supplications,
     required this.supplementaryHadiths,
+    required this.supportingExample,
     required this.copyrightNotice,
     required this.sourceNote,
   });
@@ -55,9 +57,11 @@ class Hadith {
   final int audioDurationMs;
   final int audioSyncOffsetMs;
   final List<AudioTextSegment> audioTimings;
+  final String audioTranscriptNote;
   final List<String> learningObjectives;
   final List<Supplication> supplications;
   final List<SupplementaryHadith> supplementaryHadiths;
+  final SupportingExample? supportingExample;
   final String copyrightNotice;
   final String sourceNote;
 
@@ -103,6 +107,8 @@ class Hadith {
       audioTimings: _list(audioJson['timedSegments'])
           .map((item) => AudioTextSegment.fromJson(_map(item)))
           .toList(growable: false),
+      audioTranscriptNote:
+          json['audioTranscriptNote'] as String? ?? '',
       learningObjectives: _stringList(json['learningObjectives']),
       supplications: _list(json['supplications'])
           .map((item) => Supplication.fromJson(_map(item)))
@@ -110,6 +116,9 @@ class Hadith {
       supplementaryHadiths: _list(json['supplementaryHadiths'])
           .map((item) => SupplementaryHadith.fromJson(_map(item)))
           .toList(growable: false),
+      supportingExample: json['supportingExample'] != null
+          ? SupportingExample.fromJson(_map(json['supportingExample']))
+          : null,
       copyrightNotice: json['copyrightNotice'] as String? ?? '',
       sourceNote: sourceJson['verificationNote'] as String? ?? '',
     );
@@ -339,6 +348,29 @@ class SupplementaryHadith {
       arabic: json['arabic'] as String? ?? '',
       translationMalay: json['translationMalay'] as String? ?? '',
       reference: json['reference'] as String? ?? '',
+    );
+  }
+}
+
+class SupportingExample {
+  const SupportingExample({
+    required this.title,
+    required this.description,
+    required this.reference,
+    required this.sourceNote,
+  });
+
+  final String title;
+  final String description;
+  final String reference;
+  final String sourceNote;
+
+  factory SupportingExample.fromJson(Map<String, dynamic> json) {
+    return SupportingExample(
+      title: json['title'] as String? ?? '',
+      description: json['description'] as String? ?? '',
+      reference: json['reference'] as String? ?? '',
+      sourceNote: json['sourceNote'] as String? ?? '',
     );
   }
 }

@@ -35,16 +35,9 @@ class SettingsScreen extends StatelessWidget {
               child: Column(
                 children: [
                   _ThemeModeChoice(
-                    value: ThemeMode.system,
-                    title: 'Ikut tetapan sistem',
-                    icon: Icons.brightness_auto_rounded,
-                    groupValue: controller.themeMode,
-                    onChanged: controller.setThemeMode,
-                  ),
-                  const SizedBox(height: AppSpacing.sm),
-                  _ThemeModeChoice(
                     value: ThemeMode.light,
                     title: 'Mod Cerah',
+                    subtitle: 'Sentiasa gunakan paparan cerah.',
                     icon: Icons.light_mode_rounded,
                     groupValue: controller.themeMode,
                     onChanged: controller.setThemeMode,
@@ -53,7 +46,18 @@ class SettingsScreen extends StatelessWidget {
                   _ThemeModeChoice(
                     value: ThemeMode.dark,
                     title: 'Mod Gelap',
+                    subtitle: 'Sentiasa gunakan paparan gelap.',
                     icon: Icons.dark_mode_rounded,
+                    groupValue: controller.themeMode,
+                    onChanged: controller.setThemeMode,
+                  ),
+                  const SizedBox(height: AppSpacing.sm),
+                  _ThemeModeChoice(
+                    value: ThemeMode.system,
+                    title: 'Ikut Sistem',
+                    subtitle:
+                        'Tema berubah mengikut tetapan peranti atau sistem operasi.',
+                    icon: Icons.settings_suggest_rounded,
                     groupValue: controller.themeMode,
                     onChanged: controller.setThemeMode,
                   ),
@@ -209,6 +213,7 @@ class _ThemeModeChoice extends StatelessWidget {
   const _ThemeModeChoice({
     required this.value,
     required this.title,
+    required this.subtitle,
     required this.icon,
     required this.groupValue,
     required this.onChanged,
@@ -216,6 +221,7 @@ class _ThemeModeChoice extends StatelessWidget {
 
   final ThemeMode value;
   final String title;
+  final String subtitle;
   final IconData icon;
   final ThemeMode groupValue;
   final ValueChanged<ThemeMode> onChanged;
@@ -235,22 +241,42 @@ class _ThemeModeChoice extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
           child: Row(
             children: [
-              Icon(
-                icon,
-                color: selected
-                    ? scheme.onSecondaryContainer
-                    : scheme.onSurfaceVariant,
+              ConstrainedBox(
+                constraints: const BoxConstraints.tightFor(width: 44, height: 44),
+                child: Icon(
+                  icon,
+                  color: selected
+                      ? scheme.onSecondaryContainer
+                      : scheme.onSurfaceVariant,
+                ),
               ),
               const SizedBox(width: 12),
               Expanded(
-                child: Text(
-                  title,
-                  style: TextStyle(
-                    color: selected
-                        ? scheme.onSecondaryContainer
-                        : scheme.onSurface,
-                    fontWeight: selected ? FontWeight.w600 : FontWeight.normal,
-                  ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      title,
+                      style: TextStyle(
+                        color: selected
+                            ? scheme.onSecondaryContainer
+                            : scheme.onSurface,
+                        fontWeight: selected ? FontWeight.w600 : FontWeight.normal,
+                      ),
+                    ),
+                    const SizedBox(height: 2),
+                    Text(
+                      subtitle,
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: selected
+                            ? scheme.onSecondaryContainer.withValues(alpha: 0.8)
+                            : scheme.onSurfaceVariant,
+                        height: 1.3,
+                      ),
+                    ),
+                  ],
                 ),
               ),
               if (selected)

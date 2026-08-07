@@ -24,20 +24,22 @@ class AppFooter extends StatelessWidget {
               const SizedBox(width: AppSpacing.md),
               Expanded(
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text(
-                      '\u00a9 2026 e-Hadis40. Hak cipta terpelihara.',
-                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                            color: scheme.onSurfaceVariant,
-                            fontWeight: FontWeight.w500,
-                          ),
-                    ),
-                    const SizedBox(height: 4),
-                    Text(
-                      'Kandungan pembelajaran dibangunkan berasaskan Modul '
-                      'Penghayatan Hadis 40 Imam Nawawi Edisi Kedua, '
-                      'Kementerian Pendidikan Malaysia.',
+                     Text(
+                       '\u00a9 2026 e-Hadis40. Hak cipta terpelihara.',
+                       textAlign: TextAlign.center,
+                       style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                             color: scheme.onSurfaceVariant,
+                             fontWeight: FontWeight.w500,
+                           ),
+                     ),
+                     const SizedBox(height: 4),
+                     Text(
+                       'Kandungan pembelajaran dibangunkan berasaskan Modul '
+                       'Penghayatan Hadis 40 Imam Nawawi Edisi Kedua, '
+                       'Kementerian Pendidikan Malaysia.',
+                       textAlign: TextAlign.center,
                       style: Theme.of(context).textTheme.bodySmall?.copyWith(
                             color: scheme.onSurfaceVariant,
                             fontSize: 11,

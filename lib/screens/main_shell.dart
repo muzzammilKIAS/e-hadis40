@@ -11,6 +11,7 @@ import 'bookmarks_screen.dart';
 import 'hadith_screen.dart';
 import 'home_screen.dart';
 import 'modules_screen.dart';
+import 'hadith_playlist_screen.dart';
 import 'settings_screen.dart';
 
 class MainShell extends StatefulWidget {
@@ -98,6 +99,13 @@ class _MainShellState extends State<MainShell> {
         ),
         actions: [
           Tooltip(
+            message: 'Buka pemain audio',
+            child: IconButton(
+              onPressed: _openPlaylist,
+              icon: const Icon(Icons.headphones_rounded),
+            ),
+          ),
+          Tooltip(
             message: 'Cari hadis',
             child: IconButton(
               onPressed: _openSearch,
@@ -155,6 +163,12 @@ class _MainShellState extends State<MainShell> {
 
   void _selectTab(int index) {
     setState(() => _selectedIndex = index);
+  }
+
+  void _openPlaylist() {
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(builder: (_) => const HadithPlaylistScreen()),
+    );
   }
 
   Future<void> _openSearch() async {
@@ -221,7 +235,7 @@ class _ThemeModeMenu extends StatelessWidget {
     final icon = switch (controller.themeMode) {
       ThemeMode.light => Icons.light_mode_rounded,
       ThemeMode.dark => Icons.dark_mode_rounded,
-      ThemeMode.system => Icons.brightness_auto_rounded,
+      ThemeMode.system => Icons.settings_suggest_rounded,
     };
 
     return PopupMenuButton<ThemeMode>(
@@ -233,8 +247,8 @@ class _ThemeModeMenu extends StatelessWidget {
         PopupMenuItem(
           value: ThemeMode.system,
           child: ListTile(
-            leading: Icon(Icons.brightness_auto_rounded),
-            title: Text('Ikut sistem'),
+            leading: Icon(Icons.settings_suggest_rounded),
+            title: Text('Ikut Sistem'),
             contentPadding: EdgeInsets.zero,
           ),
         ),

@@ -60,11 +60,17 @@ class _HadithScreenState extends State<HadithScreen> {
             Tooltip(
               message: 'Mod Projektor',
               child: IconButton(
-                onPressed: () => Navigator.of(context).push(
-                  MaterialPageRoute<void>(
-                    builder: (_) => ProjectorScreen(hadith: hadith),
-                  ),
-                ),
+                onPressed: () {
+                  final repo = context.read<HadithRepository>();
+                  Navigator.of(context).push(
+                    MaterialPageRoute<void>(
+                      builder: (_) => ProjectorScreen(
+                        hadith: hadith,
+                        repository: repo,
+                      ),
+                    ),
+                  );
+                },
                 icon: const Icon(Icons.present_to_all_rounded),
               ),
             ),
@@ -143,9 +149,44 @@ class _HadithScreenState extends State<HadithScreen> {
               HadithSection(
                 title: 'Maksud Hadis',
                 icon: Icons.translate_rounded,
-                child: SelectableText(
-                  hadith.translationMalay,
-                  style: Theme.of(context).textTheme.bodyLarge,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SelectableText(
+                      hadith.translationMalay,
+                      style: Theme.of(context).textTheme.bodyLarge,
+                    ),
+                    if (hadith.audioTranscriptNote.isNotEmpty) ...[
+                      const SizedBox(height: AppSpacing.md),
+                      Container(
+                        padding: const EdgeInsets.all(12),
+                        decoration: BoxDecoration(
+                          color: scheme.secondaryContainer.withValues(alpha: 0.3),
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Icon(
+                              Icons.info_outline_rounded,
+                              size: 18,
+                              color: scheme.onSecondaryContainer,
+                            ),
+                            const SizedBox(width: 10),
+                            Expanded(
+                              child: Text(
+                                hadith.audioTranscriptNote,
+                                style: TextStyle(
+                                  color: scheme.onSecondaryContainer,
+                                  fontSize: 13,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ],
                 ),
               ),
               const SizedBox(height: AppSpacing.xl),
@@ -175,41 +216,71 @@ class _HadithScreenState extends State<HadithScreen> {
                 icon: Icons.auto_stories_rounded,
                 child: ElegantBulletList(items: hadith.explanations),
               ),
-              const SizedBox(height: AppSpacing.xl),
-              HadithSection(
-                title: 'Dalil al-Quran',
-                subtitle:
-                    'Surah ${hadith.quranEvidence.surah}, ${hadith.quranEvidence.verseLabel}',
-                icon: Icons.menu_book_rounded,
-                accent: true,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    if (hadith.quranEvidence.arabicText.isNotEmpty) ...[
-                      Directionality(
-                        textDirection: TextDirection.rtl,
-                        child: Text(
-                          hadith.quranEvidence.arabicText,
-                          textAlign: TextAlign.right,
-                          style: TextStyle(
-                            fontSize: 22 * controller.arabicScale,
-                            height: 2.0,
-                            fontFamily: AppConstants.arabicFontFamily,
-                            fontFamilyFallback: AppConstants.arabicFontFallback,
+              if (hadith.supportingExample != null) ...[
+                const SizedBox(height: AppSpacing.xl),
+                HadithSection(
+                  title: hadith.supportingExample!.title,
+                  subtitle: hadith.supportingExample!.reference,
+                  icon: Icons.history_edu_rounded,
+                  accent: true,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        hadith.supportingExample!.description,
+                        style: Theme.of(context).textTheme.bodyLarge,
+                      ),
+                      if (hadith.supportingExample!.sourceNote.isNotEmpty) ...[
+                        const SizedBox(height: AppSpacing.md),
+                        Text(
+                          hadith.supportingExample!.sourceNote,
+                          style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                                color: scheme.onSurfaceVariant,
+                              ),
+                        ),
+                      ],
+                    ],
+                  ),
+                ),
+              ],
+              if (hadith.quranEvidence.surah.isNotEmpty) ...[
+                const SizedBox(height: AppSpacing.xl),
+                HadithSection(
+                  title: 'Dalil al-Quran',
+                  subtitle:
+                      'Surah ${hadith.quranEvidence.surah}, ${hadith.quranEvidence.verseLabel}',
+                  icon: Icons.menu_book_rounded,
+                  accent: true,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      if (hadith.quranEvidence.arabicText.isNotEmpty) ...[
+                        Directionality(
+                          textDirection: TextDirection.rtl,
+                          child: Text(
+                            hadith.quranEvidence.arabicText,
+                            textAlign: TextAlign.right,
+                            style: TextStyle(
+                              fontSize: 22 * controller.arabicScale,
+                              height: 2.0,
+                              fontFamily: AppConstants.arabicFontFamily,
+                              fontFamilyFallback: AppConstants.arabicFontFallback,
+                            ),
                           ),
                         ),
-                      ),
-                      const SizedBox(height: AppSpacing.lg),
+                        const SizedBox(height: AppSpacing.lg),
+                      ],
+                      if (hadith.quranEvidence.translationMalay.isNotEmpty)
+                        Text(
+                          '"${hadith.quranEvidence.translationMalay}"',
+                          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                                height: 1.8,
+                              ),
+                        ),
                     ],
-                    Text(
-                      '"${hadith.quranEvidence.translationMalay}"',
-                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                            height: 1.8,
-                          ),
-                    ),
-                  ],
+                  ),
                 ),
-              ),
+              ],
               if (hadith.learningIntentionExample.trim().isNotEmpty) ...[
                 const SizedBox(height: AppSpacing.xl),
                 HadithSection(

@@ -106,7 +106,10 @@ class HomeScreen extends StatelessWidget {
               onToggle: controller.setTeacherMode,
               onProjector: () => Navigator.of(context).push(
                 MaterialPageRoute<void>(
-                  builder: (_) => ProjectorScreen(hadith: firstHadith),
+                  builder: (_) => ProjectorScreen(
+                    hadith: firstHadith,
+                    repository: hadithRepository,
+                  ),
                 ),
               ),
             ),
