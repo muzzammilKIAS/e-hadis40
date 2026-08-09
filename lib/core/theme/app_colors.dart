@@ -3,46 +3,32 @@ import 'package:flutter/material.dart';
 class AppColors {
   const AppColors._();
 
-  static const lightBackground = Color(0xFFF8FAFC);
-  static const lightSurface = Color(0xFFFFFFFF);
-  static const lightSecondarySurface = Color(0xFFEEF4FA);
+  static const warmIvory = Color(0xFFFCFAF5);
+  static const lightBackground = Color(0xFFF7F5EF);
+  static const deepEmerald = Color(0xFF124A3A);
+  static const emerald = Color(0xFF1E6A52);
+  static const midnightNavy = Color(0xFF142238);
+  static const antiqueGold = Color(0xFFB69246);
+  static const softGold = Color(0xFFD7C08A);
+  static const warmStone = Color(0xFFE8E2D7);
+  static const lightText = Color(0xFF1E2925);
+  static const lightMuted = Color(0xFF68736E);
 
-  static const lightPrimary = Color(0xFF355C8A);
-  static const lightPrimaryHover = Color(0xFF294A73);
-  static const lightSecondary = Color(0xFF4A90E2);
-  static const lightAccent = Color(0xFF7BB8F5);
-
-  static const lightBorder = Color(0xFFD6E2F0);
-  static const lightTextPrimary = Color(0xFF24364A);
-  static const lightTextSecondary = Color(0xFF6E7C8F);
-
-  static const lightHighlightPhrase = Color(0x337BB8F5);
-  static const lightHighlightWordBg = Color(0xFF355C8A);
-  static const lightHighlightWordText = Color(0xFFFFFFFF);
-
-  static const lightCompletedBg = Color(0xFFEEF4FA);
-  static const lightCompletedText = Color(0xFF6E7C8F);
-
-  static const darkBackground = Color(0xFF101827);
-  static const darkSurface = Color(0xFF1E2E47);
-  static const darkSecondarySurface = Color(0xFF17243A);
-  static const darkElevatedSurface = Color(0xFF263B59);
-
-  static const darkPrimary = Color(0xFF78AEEF);
-  static const darkPrimaryHover = Color(0xFF91C2F7);
-  static const darkSecondary = Color(0xFF5E9FE6);
-  static const darkAccent = Color(0xFF8CC8F8);
-
-  static const darkBorder = Color(0xFF344B68);
-  static const darkTextPrimary = Color(0xFFF1F5F9);
-  static const darkTextSecondary = Color(0xFFB6C4D5);
-
-  static const darkHighlightPhrase = Color(0x338CC8F8);
-  static const darkHighlightWordBg = Color(0xFF78AEEF);
-  static const darkHighlightWordText = Color(0xFF101827);
-
-  static const darkCompletedBg = Color(0xFF17243A);
-  static const darkCompletedText = Color(0xFFB6C4D5);
+  static const darkBackground = Color(0xFF0A1110);
+  static const darkSurface = Color(0xFF0F1815);
+  static const darkSurfaceTwo = Color(0xFF16211D);
+  static const darkSurfaceThree = Color(0xFF1C2A25);
+  static const darkNavySurface = Color(0xFF111822);
+  static const darkEmeraldAccent = Color(0xFF5EC49A);
+  static const darkEmeraldMuted = Color(0xFF2D6B50);
+  static const darkGold = Color(0xFFD2B46C);
+  static const darkGoldMuted = Color(0xFF5C4A1E);
+  static const darkText = Color(0xFFF0EEE7);
+  static const darkMuted = Color(0xFFA8B3AD);
+  static const darkBorder = Color(0xFF2A3A33);
+  static const darkActiveHighlightBg = Color(0xFF1A332A);
+  static const darkActiveWordBg = Color(0xFF3D6B55);
+  static const darkCompletedBg = Color(0xFF25251A);
 
   static const success = Color(0xFF4CAF7D);
   static const successContainer = Color(0xFF1A3328);

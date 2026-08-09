@@ -49,14 +49,14 @@ class _AppSplashScreenState extends State<AppSplashScreen>
         width: double.infinity,
         height: double.infinity,
         decoration: const BoxDecoration(
-          gradient: const LinearGradient(
+          gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors: [
               AppColors.darkBackground,
               AppColors.darkSurface,
-              AppColors.darkSecondarySurface,
-              AppColors.darkElevatedSurface,
+              AppColors.darkNavySurface,
+              AppColors.darkSurfaceTwo,
             ],
             stops: [0.0, 0.35, 0.7, 1.0],
           ),
@@ -71,7 +71,7 @@ class _AppSplashScreenState extends State<AppSplashScreen>
                 child: Icon(
                   Icons.mosque_rounded,
                   size: 380,
-                  color: AppColors.darkPrimary,
+                  color: AppColors.darkEmeraldAccent,
                 ),
               ),
             ),
@@ -83,7 +83,7 @@ class _AppSplashScreenState extends State<AppSplashScreen>
                 child: Icon(
                   Icons.auto_stories_rounded,
                   size: 280,
-                  color: AppColors.darkSecondary,
+                  color: AppColors.darkGold,
                 ),
               ),
             ),
@@ -113,21 +113,21 @@ class _AppSplashScreenState extends State<AppSplashScreen>
                                       begin: Alignment.topLeft,
                                       end: Alignment.bottomRight,
                                       colors: [
-                                        AppColors.darkPrimary
+                                        AppColors.darkEmeraldAccent
                                             .withValues(alpha: 0.25),
-                                        AppColors.darkPrimaryHover
+                                        AppColors.darkEmeraldMuted
                                             .withValues(alpha: 0.15),
                                       ],
                                     ),
-                                      border: Border.all(
-                                        color: AppColors.darkPrimary
-                                            .withValues(alpha: 0.3),
-                                        width: 1.5,
-                                      ),
-                                      boxShadow: [
-                                        BoxShadow(
-                                          color: AppColors.darkPrimary
-                                              .withValues(alpha: 0.12),
+                                    border: Border.all(
+                                      color: AppColors.darkEmeraldAccent
+                                          .withValues(alpha: 0.3),
+                                      width: 1.5,
+                                    ),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: AppColors.darkEmeraldAccent
+                                            .withValues(alpha: 0.12),
                                         blurRadius: 40,
                                         spreadRadius: 2,
                                       ),
@@ -157,7 +157,7 @@ class _AppSplashScreenState extends State<AppSplashScreen>
                                       fontSize: 34,
                                       fontWeight: FontWeight.w700,
                                       letterSpacing: -0.5,
-                                       color: AppColors.darkTextPrimary,
+                                      color: AppColors.darkText,
                                       height: 1.15,
                                     ),
                                   ),
@@ -169,8 +169,8 @@ class _AppSplashScreenState extends State<AppSplashScreen>
                                       fontSize: 12,
                                       fontWeight: FontWeight.w600,
                                       letterSpacing: 1.8,
-                                       color: AppColors.darkSecondary
-                                           .withValues(alpha: 0.7),
+                                      color: AppColors.darkGold
+                                          .withValues(alpha: 0.7),
                                     ),
                                   ),
                                   const SizedBox(height: 14),
@@ -180,11 +180,11 @@ class _AppSplashScreenState extends State<AppSplashScreen>
                                       vertical: 10,
                                     ),
                                     decoration: BoxDecoration(
-                                      color: AppColors.darkPrimary
+                                      color: AppColors.darkEmeraldAccent
                                           .withValues(alpha: 0.08),
                                       borderRadius: BorderRadius.circular(999),
                                       border: Border.all(
-                                        color: AppColors.darkPrimary
+                                        color: AppColors.darkEmeraldAccent
                                             .withValues(alpha: 0.18),
                                       ),
                                     ),
@@ -194,7 +194,7 @@ class _AppSplashScreenState extends State<AppSplashScreen>
                                       style: TextStyle(
                                         fontSize: 14,
                                         fontWeight: FontWeight.w500,
-                                        color: AppColors.darkPrimary
+                                        color: AppColors.darkEmeraldAccent
                                             .withValues(alpha: 0.9),
                                         height: 1.4,
                                       ),
@@ -210,7 +210,7 @@ class _AppSplashScreenState extends State<AppSplashScreen>
                               child: CircularProgressIndicator(
                                 strokeWidth: 2.5,
                                 valueColor: AlwaysStoppedAnimation(
-                                  AppColors.darkPrimary
+                                  AppColors.darkEmeraldAccent
                                       .withValues(alpha: 0.7),
                                 ),
                               ),
@@ -223,7 +223,7 @@ class _AppSplashScreenState extends State<AppSplashScreen>
                                 fontSize: 11,
                                 height: 1.5,
                                 color:
-                                    AppColors.darkTextPrimary.withValues(alpha: 0.3),
+                                    AppColors.darkText.withValues(alpha: 0.3),
                               ),
                             ),
                             const SizedBox(height: 16),
@@ -234,7 +234,7 @@ class _AppSplashScreenState extends State<AppSplashScreen>
                                 fontSize: 11,
                                 fontWeight: FontWeight.w500,
                                 color:
-                                    AppColors.darkTextPrimary.withValues(alpha: 0.35),
+                                    AppColors.darkText.withValues(alpha: 0.35),
                               ),
                             ),
                           ],
