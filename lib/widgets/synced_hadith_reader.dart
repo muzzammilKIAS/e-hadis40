@@ -2,10 +2,11 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:provider/provider.dart';
 
 import '../core/constants/app_constants.dart';
 import '../data/models/hadith.dart';
-import '../services/hadith_audio_service.dart';
+import '../services/global_audio_controller.dart';
 
 class SyncedHadithReader extends StatefulWidget {
   const SyncedHadithReader({
@@ -22,21 +23,21 @@ class SyncedHadithReader extends StatefulWidget {
 }
 
 class _SyncedHadithReaderState extends State<SyncedHadithReader> {
-  late final HadithAudioService _service;
   late final ScrollController _scrollController;
   late List<GlobalKey> _segmentKeys;
+  late final GlobalHadithAudioController _audio;
 
   bool _followAudio = true;
-  int _manualOffsetMs = 0;
   int _lastScrolledIndex = -1;
 
   @override
   void initState() {
     super.initState();
-    _service = HadithAudioService()..addListener(_refresh);
+    _audio = context.read<GlobalHadithAudioController>();
     _scrollController = ScrollController();
     _segmentKeys = _buildSegmentKeys();
-    _service.load(widget.hadith.audioAsset);
+    _audio.addListener(_refresh);
+    _syncToCurrentHadith();
   }
 
   @override
@@ -44,12 +45,19 @@ class _SyncedHadithReaderState extends State<SyncedHadithReader> {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.hadith.id != widget.hadith.id ||
         oldWidget.hadith.audioTimings.length !=
-            widget.hadith.audioTimings.length ||
-        oldWidget.hadith.audioAsset != widget.hadith.audioAsset) {
+            widget.hadith.audioTimings.length) {
       _segmentKeys = _buildSegmentKeys();
       _lastScrolledIndex = -1;
-      _manualOffsetMs = 0;
-      _service.load(widget.hadith.audioAsset);
+      _syncToCurrentHadith();
+    }
+  }
+
+  void _syncToCurrentHadith() {
+    final playlist = _audio.playlist;
+    final idx = playlist.indexWhere((h) => h.id == widget.hadith.id);
+    if (idx >= 0 && _audio.currentIndex != idx) {
+      _audio.seek(Duration.zero);
+      _audio.player.seek(Duration.zero, index: idx);
     }
   }
 
@@ -66,9 +74,8 @@ class _SyncedHadithReaderState extends State<SyncedHadithReader> {
 
   @override
   void dispose() {
-    _service.removeListener(_refresh);
+    _audio.removeListener(_refresh);
     _scrollController.dispose();
-    _service.dispose();
     super.dispose();
   }
 
@@ -76,7 +83,7 @@ class _SyncedHadithReaderState extends State<SyncedHadithReader> {
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
 
-    if (_service.loading) {
+    if (_audio.loading && !_audio.ready) {
       return const Padding(
         padding: EdgeInsets.symmetric(vertical: 18),
         child: Row(
@@ -93,7 +100,7 @@ class _SyncedHadithReaderState extends State<SyncedHadithReader> {
       );
     }
 
-    if (!_service.ready) {
+    if (!_audio.ready) {
       return _unavailableState(context);
     }
 
@@ -102,7 +109,7 @@ class _SyncedHadithReaderState extends State<SyncedHadithReader> {
     }
 
     return StreamBuilder<PlayerState>(
-      stream: _service.player.playerStateStream,
+      stream: _audio.player.playerStateStream,
       builder: (context, stateSnapshot) {
         final playerState = stateSnapshot.data;
         final playing = playerState?.playing ?? false;
@@ -110,20 +117,19 @@ class _SyncedHadithReaderState extends State<SyncedHadithReader> {
             playerState?.processingState == ProcessingState.completed;
 
         return StreamBuilder<Duration?>(
-          stream: _service.player.durationStream,
+          stream: _audio.player.durationStream,
           builder: (context, durationSnapshot) {
             final duration = durationSnapshot.data ??
                 Duration(milliseconds: widget.hadith.audioDurationMs);
 
             return StreamBuilder<Duration>(
-              stream: _service.player.positionStream,
+              stream: _audio.player.positionStream,
               builder: (context, positionSnapshot) {
                 final position = positionSnapshot.data ?? Duration.zero;
                 final effectiveMs = math.max(
                   0,
                   position.inMilliseconds +
-                      widget.hadith.audioSyncOffsetMs +
-                      _manualOffsetMs,
+                      widget.hadith.audioSyncOffsetMs,
                 );
                 final activeIndex = _activeSegmentIndex(effectiveMs);
                 _scheduleAutoScroll(activeIndex, completed: completed);
@@ -190,8 +196,6 @@ class _SyncedHadithReaderState extends State<SyncedHadithReader> {
                       position: position,
                       duration: duration,
                     ),
-                    const SizedBox(height: 12),
-                    _syncControls(context),
                     const SizedBox(height: 8),
                     Text(
                       'Tekan mana-mana petikan untuk terus memainkan bacaan '
@@ -216,7 +220,6 @@ class _SyncedHadithReaderState extends State<SyncedHadithReader> {
     required bool completed,
     required int activeIndex,
   }) {
-    final scheme = Theme.of(context).colorScheme;
     final current = activeIndex >= 0
         ? '${activeIndex + 1}/${widget.hadith.audioTimings.length}'
         : '—';
@@ -260,13 +263,6 @@ class _SyncedHadithReaderState extends State<SyncedHadithReader> {
             });
           },
         ),
-        if (_manualOffsetMs != 0)
-          Chip(
-            avatar: Icon(Icons.tune_rounded, size: 18, color: scheme.primary),
-            label: Text(
-              'Larasan ${(_manualOffsetMs / 1000).toStringAsFixed(2)} saat',
-            ),
-          ),
       ],
     );
   }
@@ -286,7 +282,7 @@ class _SyncedHadithReaderState extends State<SyncedHadithReader> {
         .toDouble();
 
     final mainLabel = playing
-        ? 'Pause'
+        ? 'Jeda'
         : completed
             ? 'Main semula'
             : 'Mainkan';
@@ -305,24 +301,27 @@ class _SyncedHadithReaderState extends State<SyncedHadithReader> {
           crossAxisAlignment: WrapCrossAlignment.center,
           children: [
             FilledButton.tonalIcon(
-              onPressed: _service.togglePlay,
+              onPressed: _audio.togglePlay,
               icon: Icon(mainIcon),
               label: Text(mainLabel),
             ),
             Tooltip(
               message: 'Mainkan semula dari awal',
               child: IconButton(
-                onPressed: _service.replay,
+                onPressed: () async {
+                  await _audio.player.seek(Duration.zero);
+                  await _audio.player.play();
+                },
                 icon: const Icon(Icons.restart_alt_rounded),
               ),
             ),
             Tooltip(
-              message: _service.repeat
-                  ? 'Matikan ulangan automatik'
-                  : 'Aktifkan ulangan automatik',
+              message: _audio.repeatMode == GlobalRepeatMode.one
+                  ? 'Matikan ulangan'
+                  : 'Ulang satu',
               child: IconButton(
-                onPressed: _service.toggleRepeat,
-                isSelected: _service.repeat,
+                onPressed: _audio.cycleRepeatMode,
+                isSelected: _audio.repeatMode == GlobalRepeatMode.one,
                 icon: const Icon(Icons.repeat_rounded),
               ),
             ),
@@ -341,11 +340,11 @@ class _SyncedHadithReaderState extends State<SyncedHadithReader> {
                   const Text('Kelajuan'),
                   const SizedBox(width: 8),
                   DropdownButton<double>(
-                    value: _service.speed,
+                    value: _audio.speed,
                     underline: const SizedBox.shrink(),
                     borderRadius: BorderRadius.circular(14),
                     onChanged: (value) {
-                      if (value != null) _service.setSpeed(value);
+                      if (value != null) _audio.setSpeed(value);
                     },
                     items: const [
                       DropdownMenuItem(value: 0.75, child: Text('0.75×')),
@@ -365,7 +364,7 @@ class _SyncedHadithReaderState extends State<SyncedHadithReader> {
           semanticFormatterCallback: (value) =>
               _formatDuration(Duration(milliseconds: value.round())),
           onChanged: (value) {
-            _service.seek(Duration(milliseconds: value.round()));
+            _audio.seek(Duration(milliseconds: value.round()));
           },
         ),
         Row(
@@ -373,43 +372,6 @@ class _SyncedHadithReaderState extends State<SyncedHadithReader> {
             Text(_formatDuration(position)),
             const Spacer(),
             Text(_formatDuration(duration)),
-          ],
-        ),
-      ],
-    );
-  }
-
-  Widget _syncControls(BuildContext context) {
-    return ExpansionTile(
-      tilePadding: EdgeInsets.zero,
-      childrenPadding: const EdgeInsets.only(bottom: 4),
-      leading: const Icon(Icons.tune_rounded),
-      title: const Text('Laraskan ketepatan sorotan teks'),
-      subtitle: const Text(
-        'Gunakan jika sorotan teks kelihatan sedikit terlalu awal atau lewat.',
-      ),
-      children: [
-        Wrap(
-          spacing: 8,
-          runSpacing: 8,
-          children: [
-            OutlinedButton.icon(
-              onPressed: () => setState(() => _manualOffsetMs += 250),
-              icon: const Icon(Icons.fast_forward_rounded),
-              label: const Text('Teks lebih awal'),
-            ),
-            OutlinedButton.icon(
-              onPressed: () => setState(() => _manualOffsetMs -= 250),
-              icon: const Icon(Icons.fast_rewind_rounded),
-              label: const Text('Teks lebih lewat'),
-            ),
-            TextButton.icon(
-              onPressed: _manualOffsetMs == 0
-                  ? null
-                  : () => setState(() => _manualOffsetMs = 0),
-              icon: const Icon(Icons.restart_alt_rounded),
-              label: const Text('Kembali ke asal'),
-            ),
           ],
         ),
       ],
@@ -433,7 +395,7 @@ class _SyncedHadithReaderState extends State<SyncedHadithReader> {
           const SizedBox(width: 12),
           Expanded(
             child: Text(
-              _service.errorMessage ?? 'Audio bacaan sedang disediakan.',
+              _audio.errorMessage ?? 'Audio bacaan sedang disediakan.',
               style: TextStyle(color: scheme.onSecondaryContainer),
             ),
           ),
@@ -463,7 +425,6 @@ class _SyncedHadithReaderState extends State<SyncedHadithReader> {
     final segments = widget.hadith.audioTimings;
     if (segments.isEmpty) return -1;
     if (positionMs < segments.first.startMs) return 0;
-
     for (var index = segments.length - 1; index >= 0; index--) {
       if (positionMs >= segments[index].startMs) return index;
     }
@@ -479,17 +440,14 @@ class _SyncedHadithReaderState extends State<SyncedHadithReader> {
     if (words.isEmpty) return -1;
     if (positionMs <= segment.startMs) return 0;
     if (positionMs >= segment.endMs) return words.length - 1;
-
     final duration = math.max(1, segment.endMs - segment.startMs);
     final progress =
         ((positionMs - segment.startMs) / duration).clamp(0.0, 1.0);
-
     final weights = words
         .map((word) => math.max(1, _arabicLetterWeight(word)))
         .toList(growable: false);
     final totalWeight = weights.fold<int>(0, (sum, value) => sum + value);
     final target = progress * totalWeight;
-
     var cumulative = 0;
     for (var index = 0; index < weights.length; index++) {
       cumulative += weights[index];
@@ -500,9 +458,7 @@ class _SyncedHadithReaderState extends State<SyncedHadithReader> {
 
   int _arabicLetterWeight(String word) {
     final withoutMarks = word.replaceAll(
-      RegExp(
-        r'[\u0610-\u061A\u064B-\u065F\u0670\u06D6-\u06ED،؛؟.:]',
-      ),
+      RegExp(r'[\u0610-\u061A\u064B-\u065F\u0670\u06D6-\u06ED،؛؟.:]'),
       '',
     );
     return withoutMarks.runes.length;
@@ -516,7 +472,6 @@ class _SyncedHadithReaderState extends State<SyncedHadithReader> {
         activeIndex == _lastScrolledIndex) {
       return;
     }
-
     _lastScrolledIndex = activeIndex;
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!mounted || !_scrollController.hasClients) return;
@@ -532,9 +487,9 @@ class _SyncedHadithReaderState extends State<SyncedHadithReader> {
   }
 
   Future<void> _seekToSegment(AudioTextSegment segment) async {
-    await _service.seek(segment.start);
-    if (!_service.player.playing) {
-      await _service.player.play();
+    await _audio.seek(segment.start);
+    if (!_audio.player.playing) {
+      await _audio.player.play();
     }
   }
 
@@ -615,20 +570,15 @@ class _SyncedSegmentTile extends StatelessWidget {
                             : scheme.surfaceContainerHighest,
                   ),
                   child: isCompleted && !isActive
-                      ? Icon(
-                          Icons.check_rounded,
-                          size: 18,
-                          color: scheme.onSecondaryContainer,
-                        )
-                      : Text(
-                          '$number',
+                      ? Icon(Icons.check_rounded,
+                          size: 18, color: scheme.onSecondaryContainer)
+                      : Text('$number',
                           style: TextStyle(
                             color: isActive
                                 ? scheme.onPrimary
                                 : scheme.onSurfaceVariant,
                             fontWeight: FontWeight.w800,
-                          ),
-                        ),
+                          )),
                 ),
                 const SizedBox(width: 14),
                 Expanded(
@@ -650,11 +600,12 @@ class _SyncedSegmentTile extends StatelessWidget {
                                     index == activeWordIndex && isActive
                                         ? scheme.tertiaryContainer
                                         : Colors.transparent,
-                                fontWeight: index == activeWordIndex && isActive
-                                    ? FontWeight.w900
-                                    : isActive && index < activeWordIndex
-                                        ? FontWeight.w700
-                                        : FontWeight.w500,
+                                fontWeight:
+                                    index == activeWordIndex && isActive
+                                        ? FontWeight.w900
+                                        : isActive && index < activeWordIndex
+                                            ? FontWeight.w700
+                                            : FontWeight.w500,
                               ),
                             ),
                         ],

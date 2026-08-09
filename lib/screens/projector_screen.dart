@@ -2,11 +2,12 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:provider/provider.dart';
 
 import '../core/constants/app_constants.dart';
 import '../data/models/hadith.dart';
 import '../data/repositories/hadith_repository.dart';
-import '../services/hadith_audio_service.dart';
+import '../services/global_audio_controller.dart';
 
 class ProjectorScreen extends StatefulWidget {
   const ProjectorScreen({
@@ -24,7 +25,7 @@ class ProjectorScreen extends StatefulWidget {
 
 class _ProjectorScreenState extends State<ProjectorScreen> {
   late PageController _pageController;
-  late HadithAudioService _audioService;
+  late GlobalHadithAudioController _audio;
   late Hadith _currentHadith;
   int _index = 0;
 
@@ -37,15 +38,22 @@ class _ProjectorScreenState extends State<ProjectorScreen> {
     super.initState();
     _pageController = PageController();
     _currentHadith = widget.hadith;
-    _audioService = HadithAudioService()..addListener(_refresh);
-    _audioService.load(_currentHadith.audioAsset);
+    _audio = context.read<GlobalHadithAudioController>()..addListener(_refresh);
+    _syncToHadith();
+  }
+
+  void _syncToHadith() {
+    final playlist = _audio.playlist;
+    final idx = playlist.indexWhere((h) => h.id == _currentHadith.id);
+    if (idx >= 0 && _audio.currentIndex != idx) {
+      _audio.player.seek(Duration.zero, index: idx);
+    }
   }
 
   @override
   void dispose() {
+    _audio.removeListener(_refresh);
     _pageController.dispose();
-    _audioService.removeListener(_refresh);
-    _audioService.dispose();
     super.dispose();
   }
 
@@ -76,8 +84,12 @@ class _ProjectorScreenState extends State<ProjectorScreen> {
   Future<void> _switchHadith(Hadith hadith) async {
     _currentHadith = hadith;
     _index = 0;
-    await _audioService.player.stop();
-    await _audioService.load(hadith.audioAsset);
+    final playlist = _audio.playlist;
+    final idx = playlist.indexWhere((h) => h.id == hadith.id);
+    if (idx >= 0) {
+      await _audio.player.seek(Duration.zero, index: idx);
+      await _audio.player.play();
+    }
     setState(() {});
     _pageController.jumpToPage(0);
   }
@@ -172,7 +184,6 @@ class _ProjectorScreenState extends State<ProjectorScreen> {
             return _SyncedProjectorPage(
               data: data,
               hadith: hadith,
-              audioService: _audioService,
             );
           }
           return _ProjectorPage(data: data);
@@ -181,7 +192,7 @@ class _ProjectorScreenState extends State<ProjectorScreen> {
       bottomNavigationBar: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          if (_index == 0) _ProjectorAudioBar(service: _audioService),
+          if (_index == 0) const _ProjectorAudioBar(),
           SafeArea(
             child: Padding(
               padding: const EdgeInsets.all(16),
@@ -330,11 +341,9 @@ class _SyncedProjectorPage extends StatefulWidget {
   const _SyncedProjectorPage({
     required this.data,
     required this.hadith,
-    required this.audioService,
   });
   final _ProjectorPageData data;
   final Hadith hadith;
-  final HadithAudioService audioService;
 
   @override
   State<_SyncedProjectorPage> createState() => _SyncedProjectorPageState();
@@ -342,11 +351,13 @@ class _SyncedProjectorPage extends StatefulWidget {
 
 class _SyncedProjectorPageState extends State<_SyncedProjectorPage> {
   late final List<_TimedWord> _timedWords;
+  late final GlobalHadithAudioController _audio;
 
   @override
   void initState() {
     super.initState();
     _timedWords = _buildTimedWords();
+    _audio = context.read<GlobalHadithAudioController>();
   }
 
   List<_TimedWord> _buildTimedWords() {
@@ -421,7 +432,7 @@ class _SyncedProjectorPageState extends State<_SyncedProjectorPage> {
               ],
               const SizedBox(height: 36),
               StreamBuilder<Duration>(
-                stream: widget.audioService.player.positionStream,
+                stream: _audio.player.positionStream,
                 builder: (context, snapshot) {
                   final posMs = (snapshot.data ?? Duration.zero).inMilliseconds;
                   var activeSegIdx = -1;
@@ -501,28 +512,28 @@ class _TimedWord {
 }
 
 class _ProjectorAudioBar extends StatelessWidget {
-  const _ProjectorAudioBar({required this.service});
-  final HadithAudioService service;
+  const _ProjectorAudioBar() : super(key: null);
 
   @override
   Widget build(BuildContext context) {
-    if (!service.ready) return const SizedBox.shrink();
+    final audio = context.watch<GlobalHadithAudioController>();
+    if (!audio.ready) return const SizedBox.shrink();
 
     final scheme = Theme.of(context).colorScheme;
 
     return StreamBuilder<PlayerState>(
-      stream: service.player.playerStateStream,
+      stream: audio.player.playerStateStream,
       builder: (context, stateSnapshot) {
         final playing = stateSnapshot.data?.playing ?? false;
         final isCompleted =
             stateSnapshot.data?.processingState == ProcessingState.completed;
 
         return StreamBuilder<Duration?>(
-          stream: service.player.durationStream,
+          stream: audio.player.durationStream,
           builder: (context, durationSnapshot) {
             final duration = durationSnapshot.data ?? Duration.zero;
             return StreamBuilder<Duration>(
-              stream: service.player.positionStream,
+              stream: audio.player.positionStream,
               builder: (context, positionSnapshot) {
                 final position = positionSnapshot.data ?? Duration.zero;
                 final safePosition =
@@ -560,7 +571,7 @@ class _ProjectorAudioBar extends StatelessWidget {
                               .clamp(0.0, maxMs),
                           max: maxMs,
                           onChanged: (value) {
-                            service.seek(
+                            audio.seek(
                                 Duration(milliseconds: value.round()));
                           },
                         ),
@@ -575,11 +586,13 @@ class _ProjectorAudioBar extends StatelessWidget {
                           Tooltip(
                             message: 'Ulang audio',
                             child: IconButton(
-                              onPressed: service.toggleRepeat,
-                              isSelected: service.repeat,
+                              onPressed: audio.cycleRepeatMode,
+                              isSelected:
+                                  audio.repeatMode == GlobalRepeatMode.one,
                               icon: const Icon(Icons.repeat_rounded,
                                   size: 20),
-                              color: service.repeat
+                              color: audio.repeatMode ==
+                                      GlobalRepeatMode.one
                                   ? scheme.primary
                                   : null,
                             ),
@@ -592,8 +605,12 @@ class _ProjectorAudioBar extends StatelessWidget {
                             ),
                             child: IconButton(
                               onPressed: isCompleted
-                                  ? service.replay
-                                  : service.togglePlay,
+                                  ? () async {
+                                      await audio.player
+                                          .seek(Duration.zero);
+                                      await audio.player.play();
+                                    }
+                                  : audio.togglePlay,
                               icon: Icon(
                                 isCompleted
                                     ? Icons.replay_rounded
@@ -606,7 +623,7 @@ class _ProjectorAudioBar extends StatelessWidget {
                             ),
                           ),
                           const SizedBox(width: 12),
-                          _SpeedToggle(service: service, scheme: scheme),
+                          _SpeedToggleGlobal(audio: audio, scheme: scheme),
                           const Spacer(),
                           Text(_fmt(duration),
                               style: TextStyle(
@@ -632,22 +649,22 @@ class _ProjectorAudioBar extends StatelessWidget {
   }
 }
 
-class _SpeedToggle extends StatelessWidget {
-  const _SpeedToggle({required this.service, required this.scheme});
-  final HadithAudioService service;
+class _SpeedToggleGlobal extends StatelessWidget {
+  const _SpeedToggleGlobal({required this.audio, required this.scheme});
+  final GlobalHadithAudioController audio;
   final ColorScheme scheme;
 
   @override
   Widget build(BuildContext context) {
-    final speed = service.speed;
+    final speed = audio.speed;
     return GestureDetector(
       onTap: () {
         if (speed == 0.75) {
-          service.setSpeed(1.0);
+          audio.setSpeed(1.0);
         } else if (speed == 1.0) {
-          service.setSpeed(1.25);
+          audio.setSpeed(1.25);
         } else {
-          service.setSpeed(0.75);
+          audio.setSpeed(0.75);
         }
       },
       child: Container(

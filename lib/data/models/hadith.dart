@@ -159,20 +159,51 @@ class AudioTextSegment {
     required this.startMs,
     required this.endMs,
     required this.text,
+    this.words = const [],
   });
 
   final int startMs;
   final int endMs;
   final String text;
+  final List<TimedWord> words;
 
   Duration get start => Duration(milliseconds: startMs);
   Duration get end => Duration(milliseconds: endMs);
 
+  bool get hasWordTimings => words.isNotEmpty;
+
   factory AudioTextSegment.fromJson(Map<String, dynamic> json) {
+    final wordsList = Hadith._list(json['words']);
     return AudioTextSegment(
       startMs: Hadith._int(json['startMs']),
       endMs: Hadith._int(json['endMs']),
       text: json['text'] as String? ?? '',
+      words: wordsList
+          .map((item) => TimedWord.fromJson(Hadith._map(item)))
+          .toList(growable: false),
+    );
+  }
+}
+
+class TimedWord {
+  const TimedWord({
+    required this.text,
+    required this.startMs,
+    required this.endMs,
+  });
+
+  final String text;
+  final int startMs;
+  final int endMs;
+
+  Duration get start => Duration(milliseconds: startMs);
+  Duration get end => Duration(milliseconds: endMs);
+
+  factory TimedWord.fromJson(Map<String, dynamic> json) {
+    return TimedWord(
+      text: json['text'] as String? ?? '',
+      startMs: Hadith._int(json['startMs']),
+      endMs: Hadith._int(json['endMs']),
     );
   }
 }

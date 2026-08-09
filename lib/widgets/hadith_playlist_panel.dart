@@ -129,8 +129,7 @@ class _DecorativeBackground extends StatelessWidget {
             const SizedBox(height: 160),
             Opacity(
               opacity: isDark ? 0.04 : 0.06,
-              child: const Icon(Icons.mosque_rounded, size: 200,
-                  color: AppColors.deepEmerald),
+              child: Icon(Icons.mosque_rounded, size: 200, color: isDark ? AppColors.darkPrimary : AppColors.lightPrimary),
             ),
             const Spacer(),
             Opacity(
@@ -138,8 +137,7 @@ class _DecorativeBackground extends StatelessWidget {
               child: Transform(
                 alignment: Alignment.center,
                 transform: Matrix4.rotationZ(pi),
-                child: const Icon(Icons.headphones_rounded, size: 240,
-                    color: AppColors.deepEmerald),
+                child: Icon(Icons.headphones_rounded, size: 240, color: isDark ? AppColors.darkPrimary : AppColors.lightPrimary),
               ),
             ),
             const SizedBox(height: 60),

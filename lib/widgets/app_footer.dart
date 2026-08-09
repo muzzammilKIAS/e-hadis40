@@ -12,49 +12,39 @@ class AppFooter extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(top: AppSpacing.xxl),
       child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const Divider(height: 1),
           const SizedBox(height: AppSpacing.xl),
-          Row(
-            children: [
-              Icon(Icons.auto_stories_rounded,
-                  size: 28, color: scheme.primary.withValues(alpha: 0.5)),
-              const SizedBox(width: AppSpacing.md),
-              Expanded(
-                child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                     Text(
-                       '\u00a9 2026 e-Hadis40. Hak cipta terpelihara.',
-                       textAlign: TextAlign.center,
-                       style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                             color: scheme.onSurfaceVariant,
-                             fontWeight: FontWeight.w500,
-                           ),
-                     ),
-                     const SizedBox(height: 4),
-                     Text(
-                       'Kandungan pembelajaran dibangunkan berasaskan Modul '
-                       'Penghayatan Hadis 40 Imam Nawawi Edisi Kedua, '
-                       'Kementerian Pendidikan Malaysia.',
-                       textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                            color: scheme.onSurfaceVariant,
-                            fontSize: 11,
-                            height: 1.4,
-                          ),
-                    ),
-                  ],
+          Icon(Icons.auto_stories_rounded,
+              size: 28, color: scheme.primary.withValues(alpha: 0.5)),
+          const SizedBox(height: AppSpacing.md),
+          Text(
+            '\u00a9 2026 e-Hadis40. Hak cipta terpelihara.',
+            textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                  color: scheme.onSurfaceVariant,
+                  fontWeight: FontWeight.w500,
                 ),
-              ),
-            ],
+          ),
+          const SizedBox(height: 4),
+          ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 520),
+            child: Text(
+              'Kandungan pembelajaran dibangunkan berasaskan Modul '
+              'Penghayatan Hadis 40 Imam Nawawi Edisi Kedua, '
+              'Kementerian Pendidikan Malaysia.',
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                    color: scheme.onSurfaceVariant,
+                    fontSize: 11,
+                    height: 1.4,
+                  ),
+            ),
           ),
           const SizedBox(height: AppSpacing.lg),
           TextButton.icon(
             onPressed: () {
-              // Navigate using named route or directly
               Navigator.of(context).push(
                 MaterialPageRoute<void>(
                   builder: (_) => const _AboutPage(),

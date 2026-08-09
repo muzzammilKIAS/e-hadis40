@@ -7,6 +7,7 @@ import '../core/utils/responsive.dart';
 import '../data/models/hadith.dart';
 import '../data/repositories/hadith_repository.dart';
 import '../services/app_controller.dart';
+import '../widgets/mini_player.dart';
 import 'bookmarks_screen.dart';
 import 'hadith_screen.dart';
 import 'home_screen.dart';
@@ -116,46 +117,71 @@ class _MainShellState extends State<MainShell> {
           const SizedBox(width: 8),
         ],
       ),
-      body: desktop
-          ? Row(
+      body: Column(
+        children: [
+          Expanded(
+            child: desktop
+                ? Row(
+                    children: [
+                      NavigationRail(
+                        selectedIndex: _selectedIndex,
+                        onDestinationSelected: _selectTab,
+                        labelType: NavigationRailLabelType.all,
+                        groupAlignment: -0.88,
+                        indicatorColor: scheme.primaryContainer,
+                        destinations: [
+                          for (final item in _destinations)
+                            NavigationRailDestination(
+                              icon: Icon(item.icon),
+                              selectedIcon:
+                                  Icon(item.icon, color: scheme.primary),
+                              label: Text(item.label),
+                            ),
+                        ],
+                      ),
+                      VerticalDivider(
+                          width: 1, color: scheme.outlineVariant),
+                      Expanded(
+                        child: IndexedStack(
+                          index: _selectedIndex,
+                          children: pages,
+                        ),
+                      ),
+                    ],
+                  )
+                : IndexedStack(index: _selectedIndex, children: pages),
+          ),
+          const MiniPlayer(),
+        ],
+      ),
+      bottomNavigationBar: desktop
+          ? null
+          : Column(
+              mainAxisSize: MainAxisSize.min,
               children: [
-                NavigationRail(
+                const MiniPlayer(),
+                NavigationBar(
                   selectedIndex: _selectedIndex,
                   onDestinationSelected: _selectTab,
-                  labelType: NavigationRailLabelType.all,
-                  groupAlignment: -0.88,
+                  height: 72,
                   indicatorColor: scheme.primaryContainer,
+                  labelTextStyle: WidgetStatePropertyAll(
+                    TextStyle(
+                      color: scheme.onSurface,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 12,
+                    ),
+                  ),
                   destinations: [
                     for (final item in _destinations)
-                      NavigationRailDestination(
+                      NavigationDestination(
                         icon: Icon(item.icon),
-                        selectedIcon: Icon(item.icon, color: scheme.primary),
-                        label: Text(item.label),
+                        selectedIcon:
+                            Icon(item.icon, color: scheme.primary),
+                        label: item.label,
                       ),
                   ],
                 ),
-                VerticalDivider(width: 1, color: scheme.outlineVariant),
-                Expanded(
-                  child: IndexedStack(
-                    index: _selectedIndex,
-                    children: pages,
-                  ),
-                ),
-              ],
-            )
-          : IndexedStack(index: _selectedIndex, children: pages),
-      bottomNavigationBar: desktop
-          ? null
-          : NavigationBar(
-              selectedIndex: _selectedIndex,
-              onDestinationSelected: _selectTab,
-              destinations: [
-                for (final item in _destinations)
-                  NavigationDestination(
-                    icon: Icon(item.icon),
-                    selectedIcon: Icon(item.icon, color: scheme.primary),
-                    label: item.label,
-                  ),
               ],
             ),
     );
