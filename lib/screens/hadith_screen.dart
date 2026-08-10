@@ -7,6 +7,7 @@ import '../core/utils/app_breakpoints.dart';
 import '../core/utils/responsive.dart';
 import '../data/models/hadith.dart';
 import '../data/repositories/hadith_repository.dart';
+import '../data/repositories/narrator_repository.dart';
 import '../services/app_controller.dart';
 import '../widgets/synced_hadith_reader.dart';
 import '../widgets/app_footer.dart';
@@ -190,26 +191,29 @@ class _HadithScreenState extends State<HadithScreen> {
                 ),
               ),
               const SizedBox(height: AppSpacing.xl),
-              HadithSection(
-                title: 'Kenali Perawi',
-                icon: Icons.person_search_rounded,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Arahkan penuding tetikus atau tekan nama perawi:',
-                      style: TextStyle(color: scheme.onSurfaceVariant),
-                    ),
-                    const SizedBox(height: AppSpacing.sm),
-                    NarratorInfoTrigger(narrator: hadith.narrator),
-                    const SizedBox(height: AppSpacing.lg),
-                    Text(
-                      hadith.reference,
-                      style: Theme.of(context).textTheme.bodyLarge,
-                    ),
-                  ],
+              if (hadith.narratorId != null &&
+                  context.read<NarratorRepository>().byId(hadith.narratorId!) !=
+                      null)
+                HadithSection(
+                  title: 'Kenali Perawi',
+                  icon: Icons.person_search_rounded,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Arahkan penuding tetikus atau tekan nama perawi:',
+                        style: TextStyle(color: scheme.onSurfaceVariant),
+                      ),
+                      const SizedBox(height: AppSpacing.sm),
+                      NarratorInfoTrigger(narrator: hadith.narrator),
+                      const SizedBox(height: AppSpacing.lg),
+                      Text(
+                        hadith.reference,
+                        style: Theme.of(context).textTheme.bodyLarge,
+                      ),
+                    ],
+                  ),
                 ),
-              ),
               const SizedBox(height: AppSpacing.xl),
               HadithSection(
                 title: 'Huraian Hadis',

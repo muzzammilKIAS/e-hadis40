@@ -253,9 +253,21 @@
         "endMs": 16129,
         "text": "وَفِي رِوَايَةٍ لِمُسْلِمٍ:",
         "words": [
-          { "text": "وَفِي", "startMs": 15224, "endMs": 15380 },
-          { "text": "رِوَايَةٍ", "startMs": 15380, "endMs": 15640 },
-          { "text": "لِمُسْلِمٍ:", "startMs": 15640, "endMs": 16129 }
+          {
+            "text": "وَفِي",
+            "startMs": 15224,
+            "endMs": 15380
+          },
+          {
+            "text": "رِوَايَةٍ",
+            "startMs": 15380,
+            "endMs": 15640
+          },
+          {
+            "text": "لِمُسْلِمٍ:",
+            "startMs": 15640,
+            "endMs": 16129
+          }
         ]
       },
       {
@@ -294,5 +306,6 @@
     "adaptationStatus": "Prototaip pembelajaran interaktif",
     "verificationNote": "Kandungan teras diadaptasi daripada halaman Hadis 5 dalam Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua. Objektif digital, refleksi, kuiz, biografi ringkas dan timing audio ialah bahan tambahan aplikasi yang perlu melalui semakan ilmiah sebelum penerbitan awam. e-Hadis40 bukan aplikasi rasmi KPM."
   },
-  "copyrightNotice": "© 2026 e-Hadis40 bagi reka bentuk aplikasi, interaksi, audio, kuiz dan kod sumber prototaip. Hak cipta kandungan asal Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua kekal milik Kementerian Pendidikan Malaysia dan pemegang hak masing-masing."
+  "copyrightNotice": "© 2026 e-Hadis40 bagi reka bentuk aplikasi, interaksi, audio, kuiz dan kod sumber prototaip. Hak cipta kandungan asal Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua kekal milik Kementerian Pendidikan Malaysia dan pemegang hak masing-masing.",
+  "narratorId": "aishah_bint_abu_bakr"
 }

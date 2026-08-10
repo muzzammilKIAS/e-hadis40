@@ -1,0 +1,97 @@
+{
+  "umar_ibn_al_khattab": {
+    "id": "umar_ibn_al_khattab",
+    "name": "Umar bin al-Khattab r.a.",
+    "fullName": "Abu Hafs Umar bin al-Khattab r.a.",
+    "kunyah": "",
+    "title": "Amirul Mukminin dan al-Faruq",
+    "biography": "Umar bin al-Khattab r.a. ialah salah seorang sahabat utama Rasulullah SAW. Beliau dikenali dengan kunyah Abu Hafs dan gelaran al-Faruq, serta menjadi khalifah kedua selepas Abu Bakr al-Siddiq r.a. Beliau terkenal dengan ketegasan, keadilan dan kebijaksanaan dalam menguruskan kepentingan umat Islam.",
+    "highlights": [],
+    "tags": [
+      "Sahabat Rasulullah SAW",
+      "Khalifah Kedua",
+      "al-Faruq"
+    ],
+    "source": {
+      "document": "Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua",
+      "publisher": "Kementerian Pendidikan Malaysia",
+      "hadithNumbers": [
+        1,
+        2
+      ],
+      "page": "Hadis 1, Hadis 2"
+    },
+    "verified": true
+  },
+  "abdullah_ibn_umar": {
+    "id": "abdullah_ibn_umar",
+    "name": "Abdullah bin Umar r.a.",
+    "fullName": "Abu Abdul Rahman Abdullah bin Umar bin al-Khattab r.a.",
+    "kunyah": "",
+    "title": "Sahabat Rasulullah SAW dan Perawi Hadis",
+    "biography": "Abdullah bin Umar r.a. ialah putera kepada Umar bin al-Khattab r.a. dan salah seorang sahabat Rasulullah SAW. Beliau terkenal dengan kesungguhan mengikuti sunnah Nabi SAW serta sikap berhati-hati ketika meriwayatkan hadis. Beliau juga menjadi antara sahabat yang banyak meriwayatkan hadis dan menjadi rujukan dalam ilmu hadis serta fiqh.",
+    "highlights": [],
+    "tags": [
+      "Sahabat Rasulullah SAW",
+      "Putera Umar al-Khattab",
+      "Perawi Hadis",
+      "Mengikuti Sunnah"
+    ],
+    "source": {
+      "document": "Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua",
+      "publisher": "Kementerian Pendidikan Malaysia",
+      "hadithNumbers": [
+        3,
+        8
+      ],
+      "page": "Hadis 3, Hadis 8"
+    },
+    "verified": true
+  },
+  "abdullah_ibn_masud": {
+    "id": "abdullah_ibn_masud",
+    "name": "Abdullah bin Mas‘ud r.a.",
+    "fullName": "Abu Abdul Rahman Abdullah bin Mas‘ud r.a.",
+    "kunyah": "",
+    "title": "Sahabat Rasulullah SAW dan Ahli al-Quran",
+    "biography": "Abdullah bin Mas‘ud r.a. ialah salah seorang sahabat Rasulullah SAW yang awal menerima Islam. Beliau terkenal dengan kefahaman yang mendalam terhadap al-Quran dan ilmu agama serta menjadi antara sahabat yang menyampaikan ilmu kepada generasi selepasnya.",
+    "highlights": [],
+    "tags": [
+      "Sahabat Rasulullah SAW",
+      "Ahli al-Quran",
+      "Perawi Hadis"
+    ],
+    "source": {
+      "document": "Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua",
+      "publisher": "Kementerian Pendidikan Malaysia",
+      "hadithNumbers": [
+        4
+      ],
+      "page": "Hadis 4"
+    },
+    "verified": true
+  },
+  "aishah_bint_abu_bakr": {
+    "id": "aishah_bint_abu_bakr",
+    "name": "‘Aisyah r.a.",
+    "fullName": "Ummul Mukminin Ummu Abdillah ‘Aisyah r.a.",
+    "kunyah": "",
+    "title": "Ummul Mukminin, Tokoh Ilmu dan Perawi Hadis",
+    "biography": "Saidatina ‘Aisyah r.a. ialah isteri Rasulullah SAW dan salah seorang Ummul Mukminin. Beliau terkenal dengan kecerdasan, kefahaman yang mendalam terhadap agama serta peranannya menyampaikan ilmu dan hadis kepada generasi selepasnya.",
+    "highlights": [],
+    "tags": [
+      "Ummul Mukminin",
+      "Tokoh Ilmu",
+      "Perawi Hadis"
+    ],
+    "source": {
+      "document": "Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua",
+      "publisher": "Kementerian Pendidikan Malaysia",
+      "hadithNumbers": [
+        5
+      ],
+      "page": "Hadis 5"
+    },
+    "verified": true
+  }
+}

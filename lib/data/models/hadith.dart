@@ -1,6 +1,7 @@
 class Hadith {
   const Hadith({
     required this.id,
+    this.narratorId,
     required this.moduleId,
     required this.number,
     required this.title,
@@ -34,6 +35,7 @@ class Hadith {
   });
 
   final String id;
+  final String? narratorId;
   final String moduleId;
   final int number;
   final String title;
@@ -76,6 +78,7 @@ class Hadith {
 
     return Hadith(
       id: json['id'] as String? ?? '',
+      narratorId: json['narratorId'] as String?,
       moduleId: json['moduleId'] as String? ?? '',
       number: _int(json['hadithNumber']),
       title: json['title'] as String? ?? '',
