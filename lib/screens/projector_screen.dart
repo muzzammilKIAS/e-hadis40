@@ -30,7 +30,7 @@ class _ProjectorScreenState extends State<ProjectorScreen> {
   int _index = 0;
 
   List<Hadith> get _allHadiths => widget.repository.availableHadiths
-      .where((h) => h.number <= 6)
+      .where((h) => h.number <= 7)
       .toList();
 
   @override
