@@ -33,8 +33,10 @@
     "Kelima-lima rukun saling melengkapi hubungan manusia dengan Allah SWT serta tanggungjawab terhadap masyarakat."
   ],
   "quranEvidence": {
-    "surah": "Ali ‘Imran",
+    "surah": "Ali 'Imran",
     "verse": 19,
+    "verseEnd": 19,
+    "arabicText": "إِنَّ الدِّينَ عِنْدَ اللَّهِ الْإِسْلَامُ",
     "translationMalay": "Sesungguhnya agama yang benar dan diredai di sisi Allah ialah Islam."
   },
   "learningIntentionExample": "",

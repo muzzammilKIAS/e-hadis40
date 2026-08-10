@@ -252,19 +252,22 @@ class _HadithScreenState extends State<HadithScreen> {
                   icon: Icons.menu_book_rounded,
                   accent: true,
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       if (hadith.quranEvidence.arabicText.isNotEmpty) ...[
-                        Directionality(
-                          textDirection: TextDirection.rtl,
-                          child: Text(
-                            hadith.quranEvidence.arabicText,
-                            textAlign: TextAlign.right,
-                            style: TextStyle(
-                              fontSize: 22 * controller.arabicScale,
-                              height: 2.0,
-                              fontFamily: AppConstants.arabicFontFamily,
-                              fontFamilyFallback: AppConstants.arabicFontFallback,
+                        SizedBox(
+                          width: double.infinity,
+                          child: Directionality(
+                            textDirection: TextDirection.rtl,
+                            child: Text(
+                              hadith.quranEvidence.arabicText,
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 22 * controller.arabicScale,
+                                height: 2.0,
+                                fontFamily: AppConstants.arabicFontFamily,
+                                fontFamilyFallback: AppConstants.arabicFontFallback,
+                              ),
                             ),
                           ),
                         ),
@@ -273,6 +276,7 @@ class _HadithScreenState extends State<HadithScreen> {
                       if (hadith.quranEvidence.translationMalay.isNotEmpty)
                         Text(
                           '"${hadith.quranEvidence.translationMalay}"',
+                          textAlign: TextAlign.center,
                           style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                                 height: 1.8,
                               ),
