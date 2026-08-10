@@ -7,6 +7,7 @@ import '../core/utils/responsive.dart';
 import '../data/models/hadith.dart';
 import '../data/repositories/hadith_repository.dart';
 import '../services/app_controller.dart';
+import '../services/global_audio_controller.dart';
 import 'bookmarks_screen.dart';
 import 'hadith_screen.dart';
 import 'home_screen.dart';
@@ -98,13 +99,7 @@ class _MainShellState extends State<MainShell> {
           ],
         ),
         actions: [
-          Tooltip(
-            message: 'Buka pemain audio',
-            child: IconButton(
-              onPressed: _openPlaylist,
-              icon: const Icon(Icons.headphones_rounded),
-            ),
-          ),
+          const _AudioAppBarControls(),
           Tooltip(
             message: 'Cari hadis',
             child: IconButton(
@@ -350,6 +345,62 @@ class _HadithSearchDelegate extends SearchDelegate<Hadith?> {
           ),
         );
       },
+    );
+  }
+}
+
+class _AudioAppBarControls extends StatelessWidget {
+  const _AudioAppBarControls();
+
+  @override
+  Widget build(BuildContext context) {
+    final audio = context.watch<GlobalHadithAudioController>();
+
+    return AnimatedSize(
+      duration: const Duration(milliseconds: 200),
+      curve: Curves.easeOut,
+      alignment: Alignment.centerRight,
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          if (audio.playing) ...[
+            Tooltip(
+              message: 'Hadis sebelumnya',
+              child: IconButton(
+                onPressed: audio.hasPrev ? audio.previous : null,
+                icon: const Icon(Icons.skip_previous_rounded, size: 22),
+              ),
+            ),
+            Tooltip(
+              message: 'Jeda',
+              child: IconButton(
+                onPressed: audio.togglePlay,
+                icon: const Icon(Icons.pause_rounded, size: 22),
+              ),
+            ),
+            Tooltip(
+              message: 'Hadis seterusnya',
+              child: IconButton(
+                onPressed: audio.hasNext ? audio.next : null,
+                icon: const Icon(Icons.skip_next_rounded, size: 22),
+              ),
+            ),
+          ],
+          Tooltip(
+            message: 'Pemain Audio',
+            child: IconButton(
+              onPressed: () => _openPlaylistStatic(context),
+              icon: const Icon(Icons.headphones_rounded),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  static void _openPlaylistStatic(BuildContext context) {
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(builder: (_) => const HadithPlaylistScreen()),
     );
   }
 }
