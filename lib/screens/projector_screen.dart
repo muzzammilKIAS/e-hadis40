@@ -30,7 +30,7 @@ class _ProjectorScreenState extends State<ProjectorScreen> {
   int _index = 0;
 
   List<Hadith> get _allHadiths => widget.repository.availableHadiths
-      .where((h) => h.number <= 5)
+      .where((h) => h.number <= 6)
       .toList();
 
   @override
@@ -61,25 +61,41 @@ class _ProjectorScreenState extends State<ProjectorScreen> {
     if (mounted) setState(() {});
   }
 
-  List<_ProjectorPageData> _buildPages(Hadith h) => [
-        _ProjectorPageData(
-          title: 'Hadis ${h.displayNumber} · ${h.title}',
-          subtitle: h.theme,
-          arabic: h.arabicText,
-          isFirstPage: true,
-        ),
-        _ProjectorPageData(
-            title: 'Maksud Hadis', paragraphs: [h.translationMalay]),
-        _ProjectorPageData(
-            title: 'Huraian Hadis', paragraphs: h.explanations),
-        _ProjectorPageData(title: 'Pengajaran', paragraphs: h.lessons),
-        _ProjectorPageData(
-            title: 'Penghayatan', paragraphs: h.appreciation),
-        _ProjectorPageData(
-            title: 'Fokus Nilai', paragraphs: h.focusValues),
-        _ProjectorPageData(
-            title: 'Soalan Refleksi', paragraphs: h.reflectionQuestions),
-      ];
+  List<_ProjectorPageData> _buildPages(Hadith h) {
+    final pages = <_ProjectorPageData>[
+      _ProjectorPageData(
+        title: 'Hadis ${h.displayNumber} · ${h.title}',
+        subtitle: h.theme,
+        arabic: h.arabicText,
+        isFirstPage: true,
+      ),
+      _ProjectorPageData(
+          title: 'Maksud Hadis', paragraphs: [h.translationMalay]),
+      _ProjectorPageData(
+          title: 'Huraian Hadis', paragraphs: h.explanations),
+    ];
+
+    if (h.quranEvidence.surah.isNotEmpty) {
+      pages.add(_ProjectorPageData(
+        title: 'Dalil al-Quran',
+        subtitle: 'Surah ${h.quranEvidence.surah}, ${h.quranEvidence.verseLabel}',
+        arabic: h.quranEvidence.arabicText,
+        paragraphs: h.quranEvidence.translationMalay.isNotEmpty
+            ? ['"${h.quranEvidence.translationMalay}"']
+            : [],
+      ));
+    }
+
+    pages.addAll([
+      _ProjectorPageData(title: 'Pengajaran', paragraphs: h.lessons),
+      _ProjectorPageData(title: 'Penghayatan', paragraphs: h.appreciation),
+      _ProjectorPageData(title: 'Fokus Nilai', paragraphs: h.focusValues),
+      _ProjectorPageData(
+          title: 'Soalan Refleksi', paragraphs: h.reflectionQuestions),
+    ]);
+
+    return pages;
+  }
 
   Future<void> _switchHadith(Hadith hadith) async {
     _currentHadith = hadith;
