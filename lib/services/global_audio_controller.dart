@@ -116,24 +116,28 @@ class GlobalHadithAudioController extends ChangeNotifier {
       }
       await player.play();
     }
+    notifyListeners();
   }
 
   Future<void> next() async {
     if (!_ready || !hasNext) return;
     await player.seekToNext();
     await player.play();
+    notifyListeners();
   }
 
   Future<void> previous() async {
     if (!_ready || !hasPrev) return;
     await player.seekToPrevious();
     await player.play();
+    notifyListeners();
   }
 
   Future<void> skipTo(int index) async {
     if (!_ready || index < 0 || index >= _playlist.length) return;
     await player.seek(Duration.zero, index: index);
     await player.play();
+    notifyListeners();
   }
 
   Future<void> seek(Duration position) async {
