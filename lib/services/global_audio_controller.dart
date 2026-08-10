@@ -106,6 +106,19 @@ class GlobalHadithAudioController extends ChangeNotifier {
     notifyListeners();
   }
 
+  Future<void> playHadith(Hadith hadith) async {
+    if (!_ready) return;
+    final idx = _playlist.indexWhere((h) => h.id == hadith.id);
+    if (idx < 0) return;
+    if (_currentIndex != idx) {
+      await player.seek(Duration.zero, index: idx);
+    } else if (player.processingState == ProcessingState.completed) {
+      await player.seek(Duration.zero);
+    }
+    await player.play();
+    notifyListeners();
+  }
+
   Future<void> togglePlay() async {
     if (!_ready) return;
     if (player.playing) {

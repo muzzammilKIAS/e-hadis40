@@ -37,7 +37,6 @@ class _SyncedHadithReaderState extends State<SyncedHadithReader> {
     _scrollController = ScrollController();
     _segmentKeys = _buildSegmentKeys();
     _audio.addListener(_refresh);
-    _syncToCurrentHadith();
   }
 
   @override
@@ -48,18 +47,11 @@ class _SyncedHadithReaderState extends State<SyncedHadithReader> {
             widget.hadith.audioTimings.length) {
       _segmentKeys = _buildSegmentKeys();
       _lastScrolledIndex = -1;
-      _syncToCurrentHadith();
     }
   }
 
-  void _syncToCurrentHadith() {
-    final playlist = _audio.playlist;
-    final idx = playlist.indexWhere((h) => h.id == widget.hadith.id);
-    if (idx >= 0 && _audio.currentIndex != idx) {
-      _audio.seek(Duration.zero);
-      _audio.player.seek(Duration.zero, index: idx);
-    }
-  }
+  bool get _isCurrentTrack =>
+      _audio.currentHadithId == widget.hadith.id;
 
   List<GlobalKey> _buildSegmentKeys() {
     return List<GlobalKey>.generate(
@@ -301,7 +293,7 @@ class _SyncedHadithReaderState extends State<SyncedHadithReader> {
           crossAxisAlignment: WrapCrossAlignment.center,
           children: [
             FilledButton.tonalIcon(
-              onPressed: _audio.togglePlay,
+              onPressed: () => _audio.playHadith(widget.hadith),
               icon: Icon(mainIcon),
               label: Text(mainLabel),
             ),
@@ -309,8 +301,8 @@ class _SyncedHadithReaderState extends State<SyncedHadithReader> {
               message: 'Mainkan semula dari awal',
               child: IconButton(
                 onPressed: () async {
+                  await _audio.playHadith(widget.hadith);
                   await _audio.player.seek(Duration.zero);
-                  await _audio.player.play();
                 },
                 icon: const Icon(Icons.restart_alt_rounded),
               ),
@@ -487,6 +479,9 @@ class _SyncedHadithReaderState extends State<SyncedHadithReader> {
   }
 
   Future<void> _seekToSegment(AudioTextSegment segment) async {
+    if (!_isCurrentTrack) {
+      await _audio.playHadith(widget.hadith);
+    }
     await _audio.seek(segment.start);
     if (!_audio.player.playing) {
       await _audio.player.play();

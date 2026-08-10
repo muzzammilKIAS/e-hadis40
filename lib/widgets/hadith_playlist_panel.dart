@@ -8,63 +8,25 @@ import '../core/theme/app_colors.dart';
 import '../core/theme/app_shadows.dart';
 import '../core/theme/app_spacing.dart';
 import '../data/models/hadith.dart';
-import '../data/repositories/hadith_repository.dart';
-import '../services/hadith_playlist_service.dart';
+import '../services/global_audio_controller.dart';
 
-class HadithPlaylistPanel extends StatefulWidget {
+class HadithPlaylistPanel extends StatelessWidget {
   const HadithPlaylistPanel({super.key});
-
-  @override
-  State<HadithPlaylistPanel> createState() => _HadithPlaylistPanelState();
-}
-
-class _HadithPlaylistPanelState extends State<HadithPlaylistPanel> {
-  HadithPlaylistService? _service;
-  bool _initializing = true;
-
-  @override
-  void initState() {
-    super.initState();
-    _initService();
-  }
-
-  void _initService() {
-    final repository = context.read<HadithRepository>();
-    final hadiths = repository.availableHadiths;
-    final service = HadithPlaylistService(hadiths: hadiths)
-      ..addListener(_refresh);
-    _service = service;
-    service.load().then((_) {
-      if (mounted) setState(() => _initializing = false);
-    });
-  }
-
-  void _refresh() {
-    if (mounted) setState(() {});
-  }
-
-  @override
-  void dispose() {
-    _service?.removeListener(_refresh);
-    _service?.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
     final isDark = Theme.of(context).brightness == Brightness.dark;
+    final audio = context.watch<GlobalHadithAudioController>();
 
-    if (_initializing || _service == null || _service!.loading) {
+    if (audio.loading && !audio.ready) {
       return Container(
         padding: const EdgeInsets.all(AppSpacing.xxl),
         child: const Center(child: CircularProgressIndicator()),
       );
     }
 
-    final service = _service!;
-
-    if (!service.ready) {
+    if (!audio.ready) {
       return Container(
         padding: const EdgeInsets.all(AppSpacing.xxl),
         child: Column(
@@ -73,7 +35,7 @@ class _HadithPlaylistPanelState extends State<HadithPlaylistPanel> {
             Icon(Icons.volume_off_rounded,
                 size: 48, color: scheme.onSurfaceVariant),
             const SizedBox(height: AppSpacing.lg),
-            Text(service.errorMessage ?? 'Audio tidak tersedia.',
+            Text(audio.errorMessage ?? 'Audio tidak tersedia.',
                 textAlign: TextAlign.center,
                 style: TextStyle(color: scheme.onSurfaceVariant)),
           ],
@@ -81,7 +43,7 @@ class _HadithPlaylistPanelState extends State<HadithPlaylistPanel> {
       );
     }
 
-    final tracks = service.validHadiths;
+    final tracks = audio.playlist;
 
     return Stack(
       children: [
@@ -90,21 +52,16 @@ class _HadithPlaylistPanelState extends State<HadithPlaylistPanel> {
           padding: const EdgeInsets.all(AppSpacing.lg),
           child: Column(
             children: [
-              _ElegantHeader(
-                  scheme: scheme, service: service, tracks: tracks),
+              _ElegantHeader(scheme: scheme, audio: audio, tracks: tracks),
               const SizedBox(height: AppSpacing.xl),
-              _NowPlayingCard(
-                  scheme: scheme, service: service, tracks: tracks),
+              _NowPlayingCard(scheme: scheme, audio: audio, tracks: tracks),
               const SizedBox(height: AppSpacing.xl),
               Flexible(
                 child: _ElegantTrackList(
                   scheme: scheme,
                   tracks: tracks,
-                  currentIndex: service.currentIndex,
-                  onTap: (index) {
-                    service.skipTo(index);
-                    Navigator.pop(context);
-                  },
+                  currentIndex: audio.currentIndex,
+                  onTap: (index) => audio.skipTo(index),
                 ),
               ),
             ],
@@ -152,10 +109,10 @@ class _DecorativeBackground extends StatelessWidget {
 
 class _ElegantHeader extends StatelessWidget {
   const _ElegantHeader({
-    required this.scheme, required this.service, required this.tracks,
+    required this.scheme, required this.audio, required this.tracks,
   });
   final ColorScheme scheme;
-  final HadithPlaylistService service;
+  final GlobalHadithAudioController audio;
   final List<Hadith> tracks;
 
   @override
@@ -204,7 +161,7 @@ class _ElegantHeader extends StatelessWidget {
               ],
             ),
           ),
-          _RepeatModePill(service: service, scheme: scheme),
+          _RepeatModePill(audio: audio, scheme: scheme),
         ],
       ),
     );
@@ -212,18 +169,18 @@ class _ElegantHeader extends StatelessWidget {
 }
 
 class _RepeatModePill extends StatelessWidget {
-  const _RepeatModePill({required this.service, required this.scheme});
-  final HadithPlaylistService service;
+  const _RepeatModePill({required this.audio, required this.scheme});
+  final GlobalHadithAudioController audio;
   final ColorScheme scheme;
 
   @override
   Widget build(BuildContext context) {
-    final mode = service.repeatMode;
-    final isActive = mode != LoopMode.off;
-    final isOne = mode == LoopMode.one;
-    final label = mode == LoopMode.off
+    final mode = audio.repeatMode;
+    final isActive = mode != GlobalRepeatMode.off;
+    final isOne = mode == GlobalRepeatMode.one;
+    final label = mode == GlobalRepeatMode.off
         ? 'Tiada ulangan'
-        : mode == LoopMode.one
+        : mode == GlobalRepeatMode.one
             ? 'Ulang satu'
             : 'Ulang semua';
 
@@ -231,7 +188,7 @@ class _RepeatModePill extends StatelessWidget {
       color: isActive ? scheme.primary.withValues(alpha: 0.12) : Colors.transparent,
       borderRadius: BorderRadius.circular(999),
       child: InkWell(
-        onTap: service.cycleRepeatMode,
+        onTap: audio.cycleRepeatMode,
         borderRadius: BorderRadius.circular(999),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
@@ -274,15 +231,15 @@ class _RepeatModePill extends StatelessWidget {
 
 class _NowPlayingCard extends StatelessWidget {
   const _NowPlayingCard({
-    required this.scheme, required this.service, required this.tracks,
+    required this.scheme, required this.audio, required this.tracks,
   });
   final ColorScheme scheme;
-  final HadithPlaylistService service;
+  final GlobalHadithAudioController audio;
   final List<Hadith> tracks;
 
   @override
   Widget build(BuildContext context) {
-    final hadith = service.currentHadith;
+    final hadith = audio.currentHadith;
     if (hadith == null) return const SizedBox.shrink();
 
     return Container(
@@ -370,9 +327,9 @@ class _NowPlayingCard extends StatelessWidget {
             ],
           ),
           const SizedBox(height: AppSpacing.xl),
-          _NowPlayingControls(service: service, scheme: scheme),
+          _NowPlayingControls(audio: audio, scheme: scheme),
           const SizedBox(height: AppSpacing.lg),
-          _ProgressSlider(service: service, scheme: scheme),
+          _ProgressSlider(audio: audio, scheme: scheme),
         ],
       ),
     );
@@ -380,14 +337,14 @@ class _NowPlayingCard extends StatelessWidget {
 }
 
 class _NowPlayingControls extends StatelessWidget {
-  const _NowPlayingControls({required this.service, required this.scheme});
-  final HadithPlaylistService service;
+  const _NowPlayingControls({required this.audio, required this.scheme});
+  final GlobalHadithAudioController audio;
   final ColorScheme scheme;
 
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<PlayerState>(
-      stream: service.player.playerStateStream,
+      stream: audio.player.playerStateStream,
       builder: (context, snapshot) {
         final playing = snapshot.data?.playing ?? false;
         final isCompleted =
@@ -397,7 +354,7 @@ class _NowPlayingControls extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             _ControlButton(
-              onTap: service.previous,
+              onTap: audio.hasPrev ? audio.previous : null,
               icon: Icons.skip_previous_rounded,
               size: 28,
               scheme: scheme,
@@ -406,12 +363,12 @@ class _NowPlayingControls extends StatelessWidget {
             _MainPlayPause(
               isCompleted: isCompleted,
               playing: playing,
-              service: service,
+              audio: audio,
               scheme: scheme,
             ),
             const SizedBox(width: AppSpacing.xl),
             _ControlButton(
-              onTap: service.next,
+              onTap: audio.hasNext ? audio.next : null,
               icon: Icons.skip_next_rounded,
               size: 28,
               scheme: scheme,
@@ -427,12 +384,12 @@ class _MainPlayPause extends StatelessWidget {
   const _MainPlayPause({
     required this.isCompleted,
     required this.playing,
-    required this.service,
+    required this.audio,
     required this.scheme,
   });
   final bool isCompleted;
   final bool playing;
-  final HadithPlaylistService service;
+  final GlobalHadithAudioController audio;
   final ColorScheme scheme;
 
   @override
@@ -465,7 +422,7 @@ class _MainPlayPause extends StatelessWidget {
         color: Colors.transparent,
         shape: const CircleBorder(),
         child: InkWell(
-          onTap: isCompleted ? () => service.skipTo(0) : service.togglePlay,
+          onTap: audio.togglePlay,
           customBorder: const CircleBorder(),
           child: Center(
             child: Icon(
@@ -491,7 +448,7 @@ class _ControlButton extends StatelessWidget {
     required this.size,
     required this.scheme,
   });
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
   final IconData icon;
   final double size;
   final ColorScheme scheme;
@@ -526,18 +483,18 @@ class _ControlButton extends StatelessWidget {
 }
 
 class _ProgressSlider extends StatelessWidget {
-  const _ProgressSlider({required this.service, required this.scheme});
-  final HadithPlaylistService service;
+  const _ProgressSlider({required this.audio, required this.scheme});
+  final GlobalHadithAudioController audio;
   final ColorScheme scheme;
 
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<Duration?>(
-      stream: service.player.durationStream,
+      stream: audio.player.durationStream,
       builder: (context, durationSnapshot) {
         final duration = durationSnapshot.data ?? Duration.zero;
         return StreamBuilder<Duration>(
-          stream: service.player.positionStream,
+          stream: audio.player.positionStream,
           builder: (context, positionSnapshot) {
             final position = positionSnapshot.data ?? Duration.zero;
             final safePosition =
@@ -554,8 +511,7 @@ class _ProgressSlider extends StatelessWidget {
                     thumbShape:
                         const RoundSliderThumbShape(enabledThumbRadius: 7),
                     activeTrackColor: scheme.primary,
-                    inactiveTrackColor:
-                        scheme.surfaceContainerHighest,
+                    inactiveTrackColor: scheme.surfaceContainerHighest,
                     thumbColor: scheme.primary,
                     overlayColor: scheme.primary.withValues(alpha: 0.12),
                   ),
@@ -565,7 +521,7 @@ class _ProgressSlider extends StatelessWidget {
                         .clamp(0.0, maxMs),
                     max: maxMs,
                     onChanged: (value) {
-                      service.seek(Duration(milliseconds: value.round()));
+                      audio.seek(Duration(milliseconds: value.round()));
                     },
                   ),
                 ),
@@ -579,11 +535,11 @@ class _ProgressSlider extends StatelessWidget {
                               color: scheme.onSurfaceVariant, fontSize: 11)),
                       Row(
                         children: [
-                          _SpeedDot(0.75, service, scheme),
+                          _SpeedDot(0.75, audio, scheme),
                           const SizedBox(width: 8),
-                          _SpeedDot(1.0, service, scheme),
+                          _SpeedDot(1.0, audio, scheme),
                           const SizedBox(width: 8),
-                          _SpeedDot(1.25, service, scheme),
+                          _SpeedDot(1.25, audio, scheme),
                         ],
                       ),
                       Text(_fmt(duration),
@@ -608,16 +564,16 @@ class _ProgressSlider extends StatelessWidget {
 }
 
 class _SpeedDot extends StatelessWidget {
-  const _SpeedDot(this.speed, this.service, this.scheme);
+  const _SpeedDot(this.speed, this.audio, this.scheme);
   final double speed;
-  final HadithPlaylistService service;
+  final GlobalHadithAudioController audio;
   final ColorScheme scheme;
 
   @override
   Widget build(BuildContext context) {
-    final selected = service.speed == speed;
+    final selected = audio.speed == speed;
     return GestureDetector(
-      onTap: () => service.setSpeed(speed),
+      onTap: () => audio.setSpeed(speed),
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
@@ -743,18 +699,8 @@ class _TrackCard extends StatelessWidget {
                   ),
                   child: Center(
                     child: isActive
-                        ? Stack(
-                            alignment: Alignment.center,
-                            children: [
-                              Icon(Icons.volume_up_rounded,
-                                  color: scheme.onPrimary, size: 20),
-                              Positioned(
-                                right: 6,
-                                bottom: 8,
-                                child: _EqBars(scheme: scheme),
-                              ),
-                            ],
-                          )
+                        ? Icon(Icons.volume_up_rounded,
+                            color: scheme.onPrimary, size: 20)
                         : Text(hadith.displayNumber,
                             style: TextStyle(
                                 fontWeight: FontWeight.w700,
@@ -794,59 +740,6 @@ class _TrackCard extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-}
-
-class _EqBars extends StatefulWidget {
-  const _EqBars({required this.scheme});
-  final ColorScheme scheme;
-
-  @override
-  State<_EqBars> createState() => _EqBarsState();
-}
-
-class _EqBarsState extends State<_EqBars>
-    with SingleTickerProviderStateMixin {
-  late final AnimationController _ctrl;
-
-  @override
-  void initState() {
-    super.initState();
-    _ctrl = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 400),
-    )..repeat(reverse: true);
-  }
-
-  @override
-  void dispose() {
-    _ctrl.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return AnimatedBuilder(
-      animation: _ctrl,
-      builder: (context, child) {
-        return Row(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [0.6, 1.0, 0.4].map((scale) {
-            final h = 5.0 + 3.0 * (_ctrl.value * scale);
-            return Container(
-              width: 2,
-              height: h,
-              margin: const EdgeInsets.only(left: 1),
-              decoration: BoxDecoration(
-                color: widget.scheme.onPrimary.withValues(alpha: 0.9),
-                borderRadius: BorderRadius.circular(1),
-              ),
-            );
-          }).toList(),
-        );
-      },
     );
   }
 }
