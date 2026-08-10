@@ -1,0 +1,305 @@
+{
+  "id": "hadith_08",
+  "moduleId": "module_02",
+  "hadithNumber": 8,
+  "title": "Kehormatan Seorang Muslim",
+  "subtitle": "Memahami kehormatan manusia, batas kuasa dan keutamaan kedamaian berdasarkan konteks syariat.",
+  "theme": "Kehormatan, keamanan, dakwah berhikmah, tanggungjawab pemerintah dan perlindungan nyawa serta harta",
+  "learningObjectives": [
+    "Membaca dan memahami maksud umum Hadis 8.",
+    "Menjelaskan konteks perkataan قَاتَلَ seperti dihuraikan dalam modul.",
+    "Menjelaskan bahawa keputusan berkaitan peperangan bukan kuasa individu.",
+    "Menghubungkan Hadis 8 dengan Surah al-Baqarah ayat 190.",
+    "Menghayati kepentingan menjaga kehormatan, nyawa, harta dan keharmonian masyarakat.",
+    "Menjawab kuiz dengan markah sekurang-kurangnya 80%."
+  ],
+  "arabicText": "عَنِ ابْنِ عُمَرَ رَضِيَ اللَّهُ عَنْهُمَا أَنَّ رَسُولَ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ قَالَ:\n\nأُمِرْتُ أَنْ أُقَاتِلَ النَّاسَ حَتَّى يَشْهَدُوا أَنْ لَا إِلَهَ إِلَّا اللَّهُ وَأَنَّ مُحَمَّدًا رَسُولُ اللَّهِ، وَيُقِيمُوا الصَّلَاةَ، وَيُؤْتُوا الزَّكَاةَ، فَإِذَا فَعَلُوا ذَلِكَ عَصَمُوا مِنِّي دِمَاءَهُمْ وَأَمْوَالَهُمْ إِلَّا بِحَقِّ الْإِسْلَامِ، وَحِسَابُهُمْ عَلَى اللَّهِ تَعَالَى.",
+  "audioTranscriptText": "عَنِ ابْنِ عُمَرَ رَضِيَ اللَّهُ عَنْهُمَا أَنَّ رَسُولَ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ قَالَ:\n\nأُمِرْتُ أَنْ أُقَاتِلَ النَّاسَ حَتَّى يَشْهَدُوا أَنْ لَا إِلَهَ إِلَّا اللَّهُ وَأَنَّ مُحَمَّدًا رَسُولُ اللَّهِ، وَيُقِيمُوا الصَّلَاةَ، وَيُؤْتُوا الزَّكَاةَ، فَإِذَا فَعَلُوا ذَلِكَ عَصَمُوا مِنِّي دِمَاءَهُمْ وَأَمْوَالَهُمْ إِلَّا بِحَقِّ الْإِسْلَامِ، وَحِسَابُهُمْ عَلَى اللَّهِ تَعَالَى.",
+  "translationMalay": "Daripada Saiyidina Ibn Umar r.a. bahawa Rasulullah SAW bersabda: “Aku diperintahkan untuk memerangi manusia sehingga mereka bersaksi bahawa tiada tuhan selain Allah dan bahawa Muhammad ialah utusan Allah, mendirikan solat dan menunaikan zakat. Apabila mereka melakukan demikian, terpeliharalah daripada aku darah dan harta mereka kecuali dengan hak Islam, dan perhitungan mereka terserah kepada Allah SWT.”",
+  "contextNotice": "Hadis ini wajib dibaca bersama huraian konteks dalam modul. Ia bukan arahan kepada individu untuk melakukan keganasan. Modul menegaskan dakwah secara berhikmah, keputusan peperangan oleh pemerintah, larangan melampaui batas dan keutamaan kedamaian.",
+  "narrator": {
+    "id": "abdullah_ibn_umar",
+    "name": "Ibn Umar r.a.",
+    "fullName": "Saiyidina Abdullah bin Umar r.a.",
+    "title": "Sahabat Rasulullah SAW dan Perawi Hadis",
+    "shortBiography": "",
+    "tags": [
+      "Sahabat Rasulullah SAW",
+      "Perawi Hadis"
+    ],
+    "source": "",
+    "verified": false
+  },
+  "referenceArabic": "رَوَاهُ الْبُخَارِيُّ وَمُسْلِمٌ.",
+  "reference": "Hadis ini diriwayatkan oleh Imam al-Bukhari dan Imam Muslim.",
+  "explanations": [
+    "Perkataan قَاتَلَ dalam huraian modul difahami dalam konteks peperangan yang berlaku sebagai tindak balas antara dua pihak, bukan seruan tindakan individu.",
+    "Peperangan tidak boleh dimulakan sesuka hati; modul menegaskan proses dakwah dengan hikmah serta bahawa keputusan berkaitan peperangan ditentukan oleh pemerintah, bukan individu.",
+    "Hadis ini dijelaskan dalam konteks Rasulullah SAW dan kaum Muslimin mempertahankan diri ketika dianiayai dan dizalimi.",
+    "Surah al-Baqarah ayat 190 dijadikan panduan bahawa peperangan hanya terhadap pihak yang memerangi dan larangan melampaui batas.",
+    "Modul menegaskan hadis ini tidak menyeru serangan terhadap kaum atau agama lain yang tidak melakukan kezaliman atau serangan.",
+    "Kedamaian diberikan keutamaan, dan salah faham terhadap hadis ini boleh membawa kepada tindakan melulu serta melampau yang bertentangan dengan nilai Islam.",
+    "Islam memelihara agama, nyawa, akal, keturunan dan harta; hukuman seperti hukuman mati atau diyat hanya boleh diputuskan oleh pihak kehakiman yang berautoriti."
+  ],
+  "quranEvidence": {
+    "surah": "al-Baqarah",
+    "verse": 190,
+    "verseEnd": 190,
+    "arabicText": "وَقَاتِلُوا فِي سَبِيلِ اللَّهِ الَّذِينَ يُقَاتِلُونَكُمْ وَلَا تَعْتَدُوا ۚ إِنَّ اللَّهَ لَا يُحِبُّ الْمُعْتَدِينَ",
+    "translationMalay": "Dan perangilah kerana (menegakkan dan mempertahankan) agama Allah akan orang yang memerangi kamu, dan janganlah kamu menceroboh (dengan memulakan peperangan); kerana sesungguhnya Allah tidak suka kepada orang yang menceroboh."
+  },
+  "lessons": [
+    "Islam menekankan kepentingan dakwah secara berhikmah tanpa sebarang paksaan mahupun tekanan.",
+    "Kehormatan manusia wajib dipelihara kerana Allah SWT telah mengangkat kemuliaan insan dalam kalangan manusia.",
+    "Semangat masyarakat majmuk yang harmoni menuntut kita menyantuni kepelbagaian dengan penuh kemesraan berpandukan syariat.",
+    "Setiap Muslim hendaklah memelihara nyawa dan harta saudara Muslim yang lain selagi mereka menunaikan tanggungjawab dan kewajipan dalam Islam.",
+    "Setiap manusia hanyalah dihukum berdasarkan perkara yang zahir pada diri mereka."
+  ],
+  "appreciation": [
+    "Murid perlu berpegang teguh kepada ajaran Islam yang berteraskan al-Quran dan al-Sunah.",
+    "Murid perlu berkasih sayang sesama insan tanpa mengira latar belakang, agama dan bangsa.",
+    "Murid perlu saling menghormati perbezaan termasuk dalam beragama kerana hidayah agama merupakan ketentuan Allah SWT.",
+    "Murid perlu jelas bahawa prinsip Islam konsisten dalam mendaulatkan kepentingan menjaga kehormatan diri, agama dan harta."
+  ],
+  "focusValues": [
+    "Kemampanan",
+    "Kesejahteraan",
+    "Hormat"
+  ],
+  "suggestedActivities": [
+    {
+      "title": "Halaqah ilmu",
+      "description": "Bincangkan konteks hadis, prinsip dakwah berhikmah, larangan melampaui batas dan kepentingan keamanan."
+    },
+    {
+      "title": "Dakwah rakan sebaya",
+      "description": "Sampaikan mesej kehormatan manusia, kasih sayang dan hidup harmoni secara berhikmah."
+    }
+  ],
+  "reflectionQuestions": [
+    "Mengapakah Hadis 8 perlu difahami bersama konteks huraian modul?",
+    "Apakah perbezaan antara tindakan pemerintah dengan tindakan individu dalam isu peperangan?",
+    "Bagaimanakah Surah al-Baqarah ayat 190 membimbing kefahaman terhadap hadis ini?",
+    "Mengapakah kedamaian menjadi keutamaan dalam hubungan masyarakat?",
+    "Bagaimanakah saya boleh menjaga kehormatan, nyawa dan harta orang lain dalam kehidupan harian?",
+    "Apakah satu amalan yang boleh saya lakukan untuk menyantuni kepelbagaian masyarakat dengan lebih baik?"
+  ],
+  "quiz": [
+    {
+      "id": "h08_q01",
+      "question": "Apakah tajuk Hadis 8 dalam Modul Penghayatan Hadis 40 Imam Nawawi?",
+      "options": [
+        "Kehormatan Seorang Muslim",
+        "Nasihat Tonggak Agama",
+        "Rukun Islam",
+        "Menjauhi Sifat Pemarah"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Hadis 8 bertajuk “Kehormatan Seorang Muslim”."
+    },
+    {
+      "id": "h08_q02",
+      "question": "Siapakah perawi Hadis 8?",
+      "options": [
+        "Ibn Umar r.a.",
+        "Abu Hurairah r.a.",
+        "Tamim al-Dari r.a.",
+        "Aisyah r.a."
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Hadis ini diriwayatkan daripada Saiyidina Ibn Umar r.a."
+    },
+    {
+      "id": "h08_q03",
+      "question": "Bagaimanakah modul menerangkan perkataan قَاتَلَ dalam konteks hadis ini?",
+      "options": [
+        "Tindakan individu tanpa kebenaran",
+        "Peperangan yang berlaku dalam konteks tindak balas antara dua pihak",
+        "Pertengkaran lisan biasa",
+        "Persaingan dalam perniagaan"
+      ],
+      "correctAnswerIndex": 1,
+      "explanation": "Modul menjelaskan قَاتَلَ dalam konteks peperangan yang berlaku kerana tindak balas antara dua pihak."
+    },
+    {
+      "id": "h08_q04",
+      "question": "Siapakah yang menentukan keputusan untuk berperang menurut huraian modul?",
+      "options": [
+        "Setiap individu",
+        "Mana-mana kumpulan",
+        "Pemerintah",
+        "Rakan sebaya"
+      ],
+      "correctAnswerIndex": 2,
+      "explanation": "Modul menegaskan keputusan untuk berperang ditentukan oleh pemerintah, bukan individu."
+    },
+    {
+      "id": "h08_q05",
+      "question": "Surah dan ayat apakah yang dijadikan dalil dalam huraian Hadis 8?",
+      "options": [
+        "al-Baqarah 190",
+        "al-Nisa’ 59",
+        "al-Baqarah 172",
+        "al-A‘raf 187"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Modul merujuk Surah al-Baqarah ayat 190."
+    },
+    {
+      "id": "h08_q06",
+      "question": "Apakah prinsip penting yang ditekankan oleh Surah al-Baqarah ayat 190 dalam modul?",
+      "options": [
+        "Memulakan peperangan tanpa sebab",
+        "Memerangi semua pihak",
+        "Tidak melampaui batas dan hanya menghadapi pihak yang memerangi",
+        "Keputusan perang dibuat oleh individu"
+      ],
+      "correctAnswerIndex": 2,
+      "explanation": "Ayat tersebut melarang pencerobohan dan melampaui batas."
+    },
+    {
+      "id": "h08_q07",
+      "question": "Apakah keutamaan yang ditekankan dalam huraian Hadis 8?",
+      "options": [
+        "Kedamaian",
+        "Permusuhan",
+        "Paksaan",
+        "Pertikaian"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Modul menegaskan bahawa kedamaian ialah keutamaan."
+    },
+    {
+      "id": "h08_q08",
+      "question": "Yang manakah termasuk fokus nilai Hadis 8?",
+      "options": [
+        "Kemampanan, Kesejahteraan dan Hormat",
+        "Ihsan dan Hormat sahaja",
+        "Keyakinan dan Ikhlas sahaja",
+        "Daya cipta sahaja"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Fokus nilai Hadis 8 ialah Kemampanan, Kesejahteraan dan Hormat."
+    },
+    {
+      "id": "h08_q09",
+      "question": "Apakah cadangan aktiviti yang dinyatakan dalam modul untuk Hadis 8?",
+      "options": [
+        "Halaqah ilmu dan Dakwah rakan sebaya",
+        "Kursus sembelihan",
+        "Forum hijrah sahaja",
+        "Gotong-royong sahaja"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Modul mencadangkan Halaqah ilmu dan Dakwah rakan sebaya."
+    },
+    {
+      "id": "h08_q10",
+      "question": "Apakah sikap yang paling selaras dengan penghayatan Hadis 8?",
+      "options": [
+        "Menghormati manusia tanpa mengira latar belakang, agama dan bangsa",
+        "Memaksa orang lain menerima pandangan kita",
+        "Mengambil tindakan sendiri terhadap orang lain",
+        "Menyebarkan permusuhan"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Penghayatan modul menekankan kasih sayang, penghormatan dan keharmonian."
+    }
+  ],
+  "progressRules": {
+    "completeWhen": [
+      "Pengguna telah membuka teks hadis",
+      "Pengguna telah memainkan atau membuka bahagian audio",
+      "Pengguna telah membaca maksud hadis dan nota konteks",
+      "Pengguna telah melihat huraian dan Surah al-Baqarah ayat 190",
+      "Pengguna telah melihat pengajaran dan penghayatan",
+      "Pengguna telah menjawab kuiz"
+    ],
+    "passingScorePercent": 80
+  },
+  "audioTranscriptNote": "Rakaman pengguna berdurasi kira-kira 29.36 saat. Fail asal menggunakan kontena WAV PCM walaupun namanya .mp3; pakej ini menukarnya kepada MP3 sebenar untuk Flutter Web/PWA. Sembilan timedSegments dipadankan pada jeda utama waveform. Rujukan رَوَاهُ الْبُخَارِيُّ وَمُسْلِمٌ. tidak dimasukkan ke dalam teks audio atau timedSegments kerana rakaman berakhir selepas badan hadis.",
+  "audio": {
+    "arabicRecitation": "assets/audio/hadith_08.mp3",
+    "translationMalay": "",
+    "durationMs": 29424,
+    "syncOffsetMs": 0,
+    "timingMethod": "waveform_major_pause_phrase_alignment",
+    "wordHighlightMode": "phraseOnly",
+    "timingReviewNote": "Phrase-level timing berdasarkan jeda utama waveform sebenar. Jangan agihkan masa perkataan mengikut panjang huruf. Sahkan semula secara pendengaran selepas integrasi; exact word-level timing belum diukur.",
+    "timedSegments": [
+      {
+        "startMs": 149,
+        "endMs": 2426,
+        "text": "عَنِ ابْنِ عُمَرَ رَضِيَ اللَّهُ عَنْهُمَا"
+      },
+      {
+        "startMs": 3497,
+        "endMs": 7143,
+        "text": "أَنَّ رَسُولَ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ قَالَ:"
+      },
+      {
+        "startMs": 8210,
+        "endMs": 12530,
+        "text": "أُمِرْتُ أَنْ أُقَاتِلَ النَّاسَ حَتَّى يَشْهَدُوا أَنْ لَا إِلَهَ إِلَّا اللَّهُ"
+      },
+      {
+        "startMs": 13554,
+        "endMs": 15750,
+        "text": "وَأَنَّ مُحَمَّدًا رَسُولُ اللَّهِ،"
+      },
+      {
+        "startMs": 16756,
+        "endMs": 17879,
+        "text": "وَيُقِيمُوا الصَّلَاةَ،"
+      },
+      {
+        "startMs": 18257,
+        "endMs": 19184,
+        "text": "وَيُؤْتُوا الزَّكَاةَ،"
+      },
+      {
+        "startMs": 20199,
+        "endMs": 21544,
+        "text": "فَإِذَا فَعَلُوا ذَلِكَ"
+      },
+      {
+        "startMs": 22801,
+        "endMs": 26438,
+        "text": "عَصَمُوا مِنِّي دِمَاءَهُمْ وَأَمْوَالَهُمْ إِلَّا بِحَقِّ الْإِسْلَامِ،"
+      },
+      {
+        "startMs": 26999,
+        "endMs": 29190,
+        "text": "وَحِسَابُهُمْ عَلَى اللَّهِ تَعَالَى."
+      }
+    ]
+  },
+  "supplications": [],
+  "supplementaryHadiths": [],
+  "supportingExample": null,
+  "source": {
+    "document": "Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua, KPM.",
+    "hadith": 8,
+    "printedPages": [
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42
+    ],
+    "pdfPages": [
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58
+    ],
+    "adaptationStatus": "Prototaip pembelajaran interaktif",
+    "verificationNote": "Tajuk, kerangka huraian, Surah al-Baqarah ayat 190, pengajaran, penghayatan, fokus nilai dan cadangan aktiviti disusun berdasarkan Hadis 8 dalam modul KPM. Objektif digital, refleksi, kuiz dan timing audio ialah bahan tambahan aplikasi. Terjemahan aplikasi dan tanda baca teks Arab perlu melalui semakan ilmiah sebelum penerbitan awam."
+  },
+  "copyrightNotice": "© 2026 e-Hadis40 bagi reka bentuk aplikasi, interaksi, audio, kuiz dan kod sumber prototaip. Hak cipta kandungan asal Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua kekal milik Kementerian Pendidikan Malaysia dan pemegang hak masing-masing."
+}
