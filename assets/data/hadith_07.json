@@ -28,7 +28,7 @@
     "source": "",
     "verified": false
   },
-  "reference": "Hadis ini diriwayatkan oleh Imam Muslim.",
+  "reference": "رَوَاهُ مُسْلِمٌ.",
   "explanations": [
     "Nasihat merupakan asas dalam agama.",
     "Menurut Ibn Daqiq al-Id, nasihat ialah segala bentuk kebaikan yang disampaikan kepada seseorang demi kebaikan dirinya.",
@@ -221,50 +221,44 @@
     ],
     "passingScorePercent": 80
   },
-  "audioTranscriptNote": "Audio sebenar Hadis 7 berdurasi kira-kira 22.85 saat. TimedSegments dibina daripada jeda utama waveform. Segmen akhir 'رَوَاهُ مُسْلِمٌ.' perlu disahkan secara pendengaran sebelum penerbitan kerana alignment ini berasaskan aktiviti suara dan susunan teks, bukan speech-to-text automatik.",
+  "audioTranscriptNote": "Audio sebenar Hadis 07 berdurasi kira-kira 22.85 saat. TimedSegments dibina daripada jeda utama waveform. Segmen audio tamat pada 'وَعَامَّتِهِمْ.' – rujukan 'رَوَاهُ مُسْلِمٌ.' tidak dibaca dalam audio dan dipaparkan sebagai rujukan statik sahaja.",
   "audio": {
     "arabicRecitation": "assets/audio/hadith_07.mp3",
     "translationMalay": "",
     "durationMs": 22848,
     "syncOffsetMs": 0,
     "timingMethod": "waveform_major_pause_phrase_alignment",
-    "timingReviewNote": "7 phrase-level segments berdasarkan jeda utama audio sebenar. Sorotan perkataan individu masih anggaran jika aplikasi membahagikan tempoh berdasarkan panjang perkataan.",
+    "timingReviewNote": "6 phrase-level segments berdasarkan jeda utama audio sebenar. Segmen akhir audio tamat pada وَعَامَّتِهِمْ. Rujukan رَوَاهُ مُسْلِمٌ. tidak disorot/dibaca — dipaparkan sebagai teks statik.",
     "timedSegments": [
       {
         "startMs": 127,
         "endMs": 3459,
-        "text": "عَنْ أَبِي رُقَيَّةَ تَمِيمِ بْنِ أَوْسٍ الدَّارِيِّ رَضِيَ اللَّهُ عَنْهُ"
+        "text": "عَنْ أَبِي رُقَيَّةَ تَمِيمِ بْنِ أَوْسٍ الدَّارِيِّ رَضِيَ اللَّهُ عَنْهُ"
       },
       {
         "startMs": 4110,
-        "endMs": 5853,
-        "text": "أَنَّ النَّبِيَّ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ قَالَ:"
+        "endMs": 5819,
+        "text": "أَنَّ النَّبِيَّ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ قَالَ:"
       },
       {
         "startMs": 6451,
-        "endMs": 10446,
-        "text": "الدِّينُ النَّصِيحَةُ. قُلْنَا: لِمَنْ؟ قَالَ:"
+        "endMs": 10200,
+        "text": "الدِّينُ النَّصِيحَةُ. قُلْنَا: لِمَنْ؟ قَالَ:"
       },
       {
         "startMs": 11121,
-        "endMs": 12788,
-        "text": "لِلَّهِ، وَلِكِتَابِهِ،"
+        "endMs": 12760,
+        "text": "لِلَّهِ، وَلِكِتَابِهِ،"
       },
       {
         "startMs": 13742,
-        "endMs": 14496,
+        "endMs": 14475,
         "text": "وَلِرَسُولِهِ،"
       },
       {
         "startMs": 15400,
-        "endMs": 18939,
-        "text": "وَلِأَئِمَّةِ الْمُسْلِمِينَ، وَعَامَّتِهِمْ."
-      },
-      {
-        "startMs": 20114,
-        "endMs": 22800,
-        "text": "رَوَاهُ مُسْلِمٌ.",
-        "reviewRequired": true
+        "endMs": 18915,
+        "text": "وَلِأَئِمَّةِ الْمُسْلِمِينَ، وَعَامَّتِهِمْ."
       }
     ]
   },
