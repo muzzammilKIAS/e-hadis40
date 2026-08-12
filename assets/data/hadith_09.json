@@ -1,0 +1,295 @@
+{
+  "id": "hadith_09",
+  "moduleId": "module_02",
+  "hadithNumber": 9,
+  "title": "Larangan Pertanyaan dan Pertikaian Melampau",
+  "subtitle": "Mematuhi suruhan dan larangan serta menjaga adab ketika bertanya.",
+  "theme": "Ketaatan, kemampuan, adab bertanya dan mengelakkan pertikaian melampau",
+  "arabicText": "عَنْ أَبِي هُرَيْرَةَ عَبْدِ الرَّحْمَنِ بْنِ صَخْرٍ رَضِيَ اللَّهُ عَنْهُ قَالَ: سَمِعْتُ رَسُولَ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ يَقُولُ: مَا نَهَيْتُكُمْ عَنْهُ فَاجْتَنِبُوهُ، وَمَا أَمَرْتُكُمْ بِهِ فَافْعَلُوا مِنْهُ مَا اسْتَطَعْتُمْ، فَإِنَّمَا أَهْلَكَ الَّذِينَ مِنْ قَبْلِكُمْ كَثْرَةُ مَسَائِلِهِمْ وَاخْتِلَافُهُمْ عَلَى أَنْبِيَائِهِمْ.",
+  "audioTranscriptText": "عَنْ أَبِي هُرَيْرَةَ عَبْدِ الرَّحْمَنِ بْنِ صَخْرٍ رَضِيَ اللَّهُ عَنْهُ قَالَ: سَمِعْتُ رَسُولَ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ يَقُولُ: مَا نَهَيْتُكُمْ عَنْهُ فَاجْتَنِبُوهُ، وَمَا أَمَرْتُكُمْ بِهِ فَافْعَلُوا مِنْهُ مَا اسْتَطَعْتُمْ، فَإِنَّمَا أَهْلَكَ الَّذِينَ مِنْ قَبْلِكُمْ كَثْرَةُ مَسَائِلِهِمْ وَاخْتِلَافُهُمْ عَلَى أَنْبِيَائِهِمْ.",
+  "translationMalay": "Daripada Saiyidina Abu Hurairah ‘Abdul Rahman bin Sakhr r.a. beliau berkata, aku mendengar Rasulullah SAW bersabda: “Apa-apa sahaja yang aku larang kamu daripada melakukannya, maka jauhilah dan apa sahaja yang aku perintahkan kamu melakukannya, maka tunaikanlah sedaya upaya kamu. Kerana sesungguhnya, perkara yang membinasakan umat yang terdahulu adalah banyak bertanya dan mempertikai para nabi mereka.”",
+  "narratorId": "abu_hurairah",
+  "narrator": {
+    "id": "abu_hurairah",
+    "name": "Abu Hurairah r.a.",
+    "fullName": "Abu Hurairah ‘Abdul Rahman bin Sakhr r.a.",
+    "title": "Perawi hadis",
+    "shortBiography": "",
+    "tags": [],
+    "source": "Modul KPM memaparkan QR 'Kenali Perawi' tetapi tidak memuatkan teks biografi pada halaman hadis ini.",
+    "verified": false,
+    "detailedProfilePolicy": "skip_until_verified_kpm_content"
+  },
+  "referenceArabic": "رَوَاهُ الْبُخَارِيُّ وَمُسْلِمٌ.",
+  "reference": "Hadis ini diriwayatkan oleh Imam al-Bukhari dan Imam Muslim.",
+  "learningObjectives": [],
+  "explanations": [
+    "Hadis ini menjelaskan bahawa kita mestilah sedaya upaya meninggalkan perkara yang dilarang dan melaksanakan perkara yang disuruh mengikut kemampuan.",
+    "Suatu masa Rasulullah SAW berkhutbah: “Wahai manusia! Allah telah mewajibkan kepada kamu menunaikan haji, maka tunaikanlah.” Seorang sahabat telah bertanya: “Apakah haji itu setiap tahun wahai Rasulullah?” Rasulullah diam sehingga sahabat itu mengulang soalan sebanyak tiga kali. Maka, Rasulullah pun bersabda: “Kalaulah saya jawab ya, tentu haji itu menjadi wajib setiap tahun, lalu kamu tidak mampu melaksanakannya.” Baginda menyambung, “Janganlah kamu bertanya apa yang tidak aku sebutkan, kerana binasanya orang sebelum kamu disebabkan mereka banyak bertanya dan tidak mematuhi para nabi mereka. Apabila aku perintahkan kamu sesuatu, laksanakanlah mengikut kemampuan kamu. Apabila aku melarang kamu sesuatu, maka tinggalkanlah.”",
+    "Suruhan dan larangan yang ditetapkan oleh Allah SWT merupakan peraturan hidup bagi kebaikan manusia itu sendiri. Tanpa peraturan, kehidupan manusia akan menjadi sukar dan tidak terurus bahkan akan berlaku banyak keburukan. Ketaatan kepada perintah Allah SWT dan Rasul-Nya adalah faktor kejayaan sesuatu kaum.",
+    "Bertanya adalah digalakkan agar lebih jelas dan difahami sesuatu perkara bagi melaksanakannya. Namun, sikap bertanya kerana mencari helah tidak mahu melaksanakan suruhan adalah sikap yang buruk. Apatah lagi jika bertanya hanya dengan tujuan sinis dan mempermainkan serta bermatlamat menimbulkan permusuhan dan pergaduhan."
+  ],
+  "quranEvidence": {
+    "surah": "al-Ma’idah",
+    "verse": 101,
+    "verseEnd": 101,
+    "arabicText": "يَا أَيُّهَا الَّذِينَ آمَنُوا لَا تَسْأَلُوا عَنْ أَشْيَاءَ إِنْ تُبْدَ لَكُمْ تَسُؤْكُمْ وَإِنْ تَسْأَلُوا عَنْهَا حِينَ يُنَزَّلُ الْقُرْآنُ تُبْدَ لَكُمْ عَفَا اللَّهُ عَنْهَا ۗ وَاللَّهُ غَفُورٌ حَلِيمٌ",
+    "translationMalay": "Wahai orang yang beriman! Janganlah kamu bertanyakan (kepada Nabi) perkara yang jika diterangkan kepada kamu akan menyusahkan kamu, dan jika kamu bertanya mengenainya ketika diturunkan al-Quran, tentulah akan diterangkan kepada kamu. Allah maafkan (kamu) daripada (kesalahan bertanyakan) perkara itu (yang tidak dinyatakan dalam al-Quran); kerana Allah Maha Pengampun, lagi Maha Penyabar.",
+    "displayAlignment": "center",
+    "moduleDisplay": "full_verse"
+  },
+  "lessons": [
+    "Suruhan dalam agama merupakan peraturan yang menyusun kehidupan manusia menuju kejayaan.",
+    "Larangan dalam agama bukanlah perkara yang menyekat kebebasan bahkan memberi kebaikan kepada manusia.",
+    "Tidak mempertikaikan perkara yang telah ditetapkan dalam agama.",
+    "Soalan yang dilontarkan hendaklah memberi manfaat dan maslahah buat individu demi kepentingan umum."
+  ],
+  "appreciation": [
+    "Murid wajib mentaati perintah Rasulullah SAW dan menjauhi larangannya.",
+    "Murid perlu menjauhi sikap sering mempersoal perintah dan larangan secara keterlaluan sehingga menimbulkan kesulitan untuk melaksanakannya.",
+    "Murid mestilah sentiasa menjaga adab ketika mengemukakan soalan.",
+    "Murid mestilah akur dengan peraturan yang ditetapkan oleh pihak sekolah.",
+    "Murid perlu meraikan pandangan yang dikemukakan oleh rakan tanpa mengira latar belakang agama dan kaum."
+  ],
+  "focusValues": [
+    "Hormat",
+    "Kesejahteraan"
+  ],
+  "suggestedActivities": [
+    {
+      "title": "Forum",
+      "description": ""
+    },
+    {
+      "title": "Bacaan hadis selepas solat",
+      "description": ""
+    },
+    {
+      "title": "Perbincangan ilmiah",
+      "description": ""
+    }
+  ],
+  "reflectionQuestions": [],
+  "quiz": [
+    {
+      "id": "h09_q01",
+      "question": "Apakah tajuk Hadis 9 dalam modul KPM?",
+      "options": [
+        "Larangan Pertanyaan dan Pertikaian Melampau",
+        "Rezeki Halal Asas Penerimaan Doa",
+        "Kehormatan Seorang Muslim",
+        "Nasihat Tonggak Agama"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Tajuk Hadis 9 ialah Larangan Pertanyaan dan Pertikaian Melampau."
+    },
+    {
+      "id": "h09_q02",
+      "question": "Siapakah perawi Hadis 9?",
+      "options": [
+        "Abu Hurairah ‘Abdul Rahman bin Sakhr r.a.",
+        "Abdullah bin Umar r.a.",
+        "Tamim al-Dari r.a.",
+        "al-Hasan bin Ali r.a."
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Hadis 9 diriwayatkan daripada Abu Hurairah ‘Abdul Rahman bin Sakhr r.a."
+    },
+    {
+      "id": "h09_q03",
+      "question": "Apakah yang perlu dilakukan terhadap perkara yang dilarang Rasulullah SAW?",
+      "options": [
+        "Dijauhi",
+        "Dilakukan sekali sahaja",
+        "Dipertikaikan",
+        "Ditangguhkan tanpa sebab"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Hadis memerintahkan supaya menjauhi perkara yang dilarang."
+    },
+    {
+      "id": "h09_q04",
+      "question": "Bagaimanakah suruhan Rasulullah SAW perlu dilaksanakan?",
+      "options": [
+        "Mengikut kemampuan",
+        "Hanya apabila mudah",
+        "Tanpa ilmu",
+        "Mengikut kehendak sendiri"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Hadis menyebut supaya melaksanakan suruhan sedaya upaya."
+    },
+    {
+      "id": "h09_q05",
+      "question": "Apakah yang membinasakan umat terdahulu sebagaimana disebut dalam hadis?",
+      "options": [
+        "Banyak bertanya dan mempertikai para nabi mereka",
+        "Kurang bermusafir",
+        "Tidak berniaga",
+        "Kurang bercakap"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Hadis menyebut banyak pertanyaan dan pertikaian terhadap para nabi."
+    },
+    {
+      "id": "h09_q06",
+      "question": "Apakah contoh pertanyaan yang dibincangkan dalam huraian modul?",
+      "options": [
+        "Adakah haji diwajibkan setiap tahun?",
+        "Bilakah waktu tidur?",
+        "Berapa kali makan sehari?",
+        "Apakah warna pakaian?"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Modul membawa contoh seorang sahabat bertanya sama ada haji diwajibkan setiap tahun."
+    },
+    {
+      "id": "h09_q07",
+      "question": "Surah dan ayat apakah yang dirujuk dalam huraian Hadis 9?",
+      "options": [
+        "al-Ma’idah ayat 101",
+        "al-Baqarah ayat 172",
+        "Qaf ayat 16",
+        "al-Nisa’ ayat 59"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Modul merujuk Surah al-Ma’idah ayat 101."
+    },
+    {
+      "id": "h09_q08",
+      "question": "Apakah fokus nilai Hadis 9?",
+      "options": [
+        "Hormat dan Kesejahteraan",
+        "Ihsan dan Daya Cipta",
+        "Keyakinan dan Hormat",
+        "Ikhlas dan Ihsan"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Fokus nilai Hadis 9 ialah Hormat dan Kesejahteraan."
+    },
+    {
+      "id": "h09_q09",
+      "question": "Yang manakah cadangan aktiviti Hadis 9?",
+      "options": [
+        "Forum",
+        "Kursus sembelihan",
+        "Khidmat masyarakat sahaja",
+        "Gotong-royong sahaja"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Antara aktiviti yang dinyatakan ialah Forum."
+    },
+    {
+      "id": "h09_q10",
+      "question": "Bagaimanakah soalan yang baik menurut pengajaran modul?",
+      "options": [
+        "Memberi manfaat dan maslahah",
+        "Bertujuan sinis",
+        "Mencari helah untuk tidak melaksanakan suruhan",
+        "Menimbulkan permusuhan"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Modul menegaskan soalan hendaklah memberi manfaat dan maslahah."
+    }
+  ],
+  "progressRules": {
+    "completeWhen": [
+      "Pengguna telah membuka teks hadis",
+      "Pengguna telah memainkan atau membuka bahagian audio",
+      "Pengguna telah membaca maksud hadis",
+      "Pengguna telah melihat huraian dan dalil al-Quran",
+      "Pengguna telah melihat pengajaran dan penghayatan",
+      "Pengguna telah menjawab kuiz"
+    ],
+    "passingScorePercent": 80
+  },
+  "audioTranscriptNote": "Teks audio menggunakan badan hadis KPM sahaja. Rujukan hadis dipisahkan sebagai teks statik dan tidak dimasukkan ke timedSegments. Timing ialah alignment awal peringkat frasa daripada jeda waveform rakaman terbaru; Kimi K3 wajib mendengar dan fine-tune sebelum menganggapnya final.",
+  "audio": {
+    "arabicRecitation": "assets/audio/hadith_09.mp3",
+    "translationMalay": "",
+    "durationMs": 26784,
+    "syncOffsetMs": 0,
+    "timingMethod": "latest_audio_waveform_pause_phrase_alignment",
+    "wordHighlightMode": "phraseOnly",
+    "timingReviewNote": "Phrase-level sahaja. Jangan guna proportional character/word timing. Semak audio sebenar dan laras sempadan frasa jika perlu.",
+    "timedSegments": [
+      {
+        "startMs": 100,
+        "endMs": 3176,
+        "text": "عَنْ أَبِي هُرَيْرَةَ عَبْدِ الرَّحْمَنِ بْنِ صَخْرٍ"
+      },
+      {
+        "startMs": 4140,
+        "endMs": 5966,
+        "text": "رَضِيَ اللَّهُ عَنْهُ قَالَ:"
+      },
+      {
+        "startMs": 6464,
+        "endMs": 11218,
+        "text": "سَمِعْتُ رَسُولَ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ يَقُولُ:"
+      },
+      {
+        "startMs": 12016,
+        "endMs": 14158,
+        "text": "مَا نَهَيْتُكُمْ عَنْهُ فَاجْتَنِبُوهُ،"
+      },
+      {
+        "startMs": 14903,
+        "endMs": 16341,
+        "text": "وَمَا أَمَرْتُكُمْ بِهِ"
+      },
+      {
+        "startMs": 16677,
+        "endMs": 18563,
+        "text": "فَافْعَلُوا مِنْهُ مَا اسْتَطَعْتُمْ،"
+      },
+      {
+        "startMs": 18961,
+        "endMs": 21748,
+        "text": "فَإِنَّمَا أَهْلَكَ الَّذِينَ مِنْ قَبْلِكُمْ"
+      },
+      {
+        "startMs": 22312,
+        "endMs": 23742,
+        "text": "كَثْرَةُ مَسَائِلِهِمْ"
+      },
+      {
+        "startMs": 24205,
+        "endMs": 26650,
+        "text": "وَاخْتِلَافُهُمْ عَلَى أَنْبِيَائِهِمْ."
+      }
+    ]
+  },
+  "supplications": [],
+  "supplementaryHadiths": [],
+  "supportingExample": null,
+  "source": {
+    "document": "Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua, KPM.",
+    "hadith": 9,
+    "printedPages": [
+      43,
+      44,
+      45,
+      46,
+      47
+    ],
+    "pdfPages": [
+      59,
+      60,
+      61,
+      62,
+      63
+    ],
+    "coreContentPolicy": "Teks hadis, maksud, huraian, dalil, pengajaran, penghayatan, fokus nilai dan aktiviti berpandukan halaman KPM yang dinyatakan. Tiada biografi perawi luaran ditambah.",
+    "appDerivedFields": [
+      "subtitle",
+      "theme",
+      "quiz",
+      "progressRules",
+      "timedSegments"
+    ],
+    "adaptationStatus": "Prototaip pembelajaran interaktif",
+    "verificationNote": "Kuiz dan timing ialah lapisan aplikasi yang dibina hanya daripada fakta modul. Kandungan teras tidak boleh ditambah dengan fakta luar tanpa pengesahan."
+  },
+  "copyrightNotice": "© 2026 e-Hadis40 bagi reka bentuk aplikasi, interaksi, audio, kuiz dan kod sumber prototaip. Hak cipta kandungan asal Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua kekal milik Kementerian Pendidikan Malaysia dan pemegang hak masing-masing."
+}

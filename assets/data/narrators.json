@@ -71,9 +71,9 @@
     },
     "verified": true
   },
-  "aishah_bint_abu_bakr": {
-    "id": "aishah_bint_abu_bakr",
-    "name": "‘Aisyah r.a.",
+  "aisyah": {
+    "id": "aisyah",
+    "name": "Saidatina ‘Aisyah r.a.",
     "fullName": "Ummul Mukminin Ummu Abdillah ‘Aisyah r.a.",
     "kunyah": "",
     "title": "Ummul Mukminin, Tokoh Ilmu dan Perawi Hadis",
@@ -93,5 +93,82 @@
       "page": "Hadis 5"
     },
     "verified": true
+  },
+  "al_numan_ibn_bashir": {
+    "id": "al_numan_ibn_bashir",
+    "name": "al-Nu‘man bin Basyir r.a.",
+    "fullName": "",
+    "kunyah": "",
+    "title": "",
+    "biography": "",
+    "highlights": [],
+    "tags": [],
+    "source": {
+      "document": "Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua",
+      "publisher": "Kementerian Pendidikan Malaysia",
+      "hadithNumbers": [
+        6
+      ],
+      "page": ""
+    },
+    "verified": false
+  },
+  "tamim_al_dari": {
+    "id": "tamim_al_dari",
+    "name": "Tamim bin Aus al-Dari r.a.",
+    "fullName": "",
+    "kunyah": "",
+    "title": "",
+    "biography": "",
+    "highlights": [],
+    "tags": [],
+    "source": {
+      "document": "Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua",
+      "publisher": "Kementerian Pendidikan Malaysia",
+      "hadithNumbers": [
+        7
+      ],
+      "page": ""
+    },
+    "verified": false
+  },
+  "abu_hurairah": {
+    "id": "abu_hurairah",
+    "name": "Abu Hurairah r.a.",
+    "fullName": "",
+    "kunyah": "",
+    "title": "",
+    "biography": "",
+    "highlights": [],
+    "tags": [],
+    "source": {
+      "document": "Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua",
+      "publisher": "Kementerian Pendidikan Malaysia",
+      "hadithNumbers": [
+        9,
+        10
+      ],
+      "page": ""
+    },
+    "verified": false
+  },
+  "al_hasan_ibn_ali": {
+    "id": "al_hasan_ibn_ali",
+    "name": "al-Hasan bin Ali r.a.",
+    "fullName": "",
+    "kunyah": "",
+    "title": "",
+    "biography": "",
+    "highlights": [],
+    "tags": [],
+    "source": {
+      "document": "Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua",
+      "publisher": "Kementerian Pendidikan Malaysia",
+      "hadithNumbers": [
+        11
+      ],
+      "page": ""
+    },
+    "verified": false
   }
 }
