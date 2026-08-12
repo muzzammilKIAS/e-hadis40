@@ -69,6 +69,8 @@ class GlobalHadithAudioController extends ChangeNotifier {
       if (state.processingState == ProcessingState.completed) {
         _onTrackCompleted();
       }
+      // Setiap perubahan play/pause mesti memberitahu UI (AppBar quick controls)
+      notifyListeners();
     });
 
     _loadPlaylist();
