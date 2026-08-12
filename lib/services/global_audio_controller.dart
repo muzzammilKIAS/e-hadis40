@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:just_audio/just_audio.dart';
 
 import '../data/models/hadith.dart';
+import 'audio_arbitration.dart';
 
 enum GlobalRepeatMode { off, one, all }
 
@@ -53,6 +54,8 @@ class GlobalHadithAudioController extends ChangeNotifier {
     _playlist = hadiths
         .where((h) => h.audioAsset.isNotEmpty)
         .toList(growable: false);
+
+    AudioArbitration.registerGlobalPauser(pauseForLocal);
 
     _currentIndexSub?.cancel();
     _currentIndexSub = player.currentIndexStream.listen((index) {
@@ -106,10 +109,20 @@ class GlobalHadithAudioController extends ChangeNotifier {
     notifyListeners();
   }
 
+  /// Dipanggil arbitration apabila LOCAL audio mahu bermain.
+  /// Pause global TANPA reset position (resume boleh berlaku kemudian).
+  Future<void> pauseForLocal() async {
+    if (player.playing) {
+      await player.pause();
+      notifyListeners();
+    }
+  }
+
   Future<void> playHadith(Hadith hadith) async {
     if (!_ready) return;
     final idx = _playlist.indexWhere((h) => h.id == hadith.id);
     if (idx < 0) return;
+    await AudioArbitration.globalStarting();
     if (_currentIndex != idx) {
       await player.seek(Duration.zero, index: idx);
     } else if (player.processingState == ProcessingState.completed) {
@@ -127,6 +140,7 @@ class GlobalHadithAudioController extends ChangeNotifier {
       if (player.processingState == ProcessingState.completed) {
         await player.seek(Duration.zero);
       }
+      await AudioArbitration.globalStarting();
       await player.play();
     }
     notifyListeners();
@@ -134,6 +148,7 @@ class GlobalHadithAudioController extends ChangeNotifier {
 
   Future<void> next() async {
     if (!_ready || !hasNext) return;
+    await AudioArbitration.globalStarting();
     await player.seekToNext();
     await player.play();
     notifyListeners();
@@ -141,6 +156,7 @@ class GlobalHadithAudioController extends ChangeNotifier {
 
   Future<void> previous() async {
     if (!_ready || !hasPrev) return;
+    await AudioArbitration.globalStarting();
     await player.seekToPrevious();
     await player.play();
     notifyListeners();
@@ -148,6 +164,7 @@ class GlobalHadithAudioController extends ChangeNotifier {
 
   Future<void> skipTo(int index) async {
     if (!_ready || index < 0 || index >= _playlist.length) return;
+    await AudioArbitration.globalStarting();
     await player.seek(Duration.zero, index: index);
     await player.play();
     notifyListeners();

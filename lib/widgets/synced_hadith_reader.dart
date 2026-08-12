@@ -2,11 +2,10 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
-import 'package:provider/provider.dart';
 
 import '../core/constants/app_constants.dart';
 import '../data/models/hadith.dart';
-import '../services/global_audio_controller.dart';
+import '../services/hadith_local_audio_controller.dart';
 
 class SyncedHadithReader extends StatefulWidget {
   const SyncedHadithReader({
@@ -25,7 +24,7 @@ class SyncedHadithReader extends StatefulWidget {
 class _SyncedHadithReaderState extends State<SyncedHadithReader> {
   late final ScrollController _scrollController;
   late List<GlobalKey> _segmentKeys;
-  late final GlobalHadithAudioController _audio;
+  late final HadithLocalAudioController _audio;
 
   bool _followAudio = true;
   int _lastScrolledIndex = -1;
@@ -33,10 +32,11 @@ class _SyncedHadithReaderState extends State<SyncedHadithReader> {
   @override
   void initState() {
     super.initState();
-    _audio = context.read<GlobalHadithAudioController>();
+    _audio = HadithLocalAudioController();
     _scrollController = ScrollController();
     _segmentKeys = _buildSegmentKeys();
     _audio.addListener(_refresh);
+    _audio.load(widget.hadith.audioAsset);
   }
 
   @override
@@ -47,11 +47,9 @@ class _SyncedHadithReaderState extends State<SyncedHadithReader> {
             widget.hadith.audioTimings.length) {
       _segmentKeys = _buildSegmentKeys();
       _lastScrolledIndex = -1;
+      _audio.load(widget.hadith.audioAsset);
     }
   }
-
-  bool get _isCurrentTrack =>
-      _audio.currentHadithId == widget.hadith.id;
 
   List<GlobalKey> _buildSegmentKeys() {
     return List<GlobalKey>.generate(
@@ -67,6 +65,8 @@ class _SyncedHadithReaderState extends State<SyncedHadithReader> {
   @override
   void dispose() {
     _audio.removeListener(_refresh);
+    _audio.stop();
+    _audio.dispose();
     _scrollController.dispose();
     super.dispose();
   }
@@ -293,27 +293,24 @@ class _SyncedHadithReaderState extends State<SyncedHadithReader> {
           crossAxisAlignment: WrapCrossAlignment.center,
           children: [
             FilledButton.tonalIcon(
-              onPressed: () => _audio.playHadith(widget.hadith),
+              onPressed: _audio.togglePlay,
               icon: Icon(mainIcon),
               label: Text(mainLabel),
             ),
             Tooltip(
               message: 'Mainkan semula dari awal',
               child: IconButton(
-                onPressed: () async {
-                  await _audio.playHadith(widget.hadith);
-                  await _audio.player.seek(Duration.zero);
-                },
+                onPressed: _audio.replay,
                 icon: const Icon(Icons.restart_alt_rounded),
               ),
             ),
             Tooltip(
-              message: _audio.repeatMode == GlobalRepeatMode.one
+              message: _audio.repeat
                   ? 'Matikan ulangan'
                   : 'Ulang satu',
               child: IconButton(
-                onPressed: _audio.cycleRepeatMode,
-                isSelected: _audio.repeatMode == GlobalRepeatMode.one,
+                onPressed: _audio.toggleRepeat,
+                isSelected: _audio.repeat,
                 icon: const Icon(Icons.repeat_rounded),
               ),
             ),
@@ -479,13 +476,7 @@ class _SyncedHadithReaderState extends State<SyncedHadithReader> {
   }
 
   Future<void> _seekToSegment(AudioTextSegment segment) async {
-    if (!_isCurrentTrack) {
-      await _audio.playHadith(widget.hadith);
-    }
-    await _audio.seek(segment.start);
-    if (!_audio.player.playing) {
-      await _audio.player.play();
-    }
+    await _audio.seekAndPlay(segment.start);
   }
 
   String _formatDuration(Duration value) {
