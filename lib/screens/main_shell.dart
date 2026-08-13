@@ -69,9 +69,11 @@ class _MainShellState extends State<MainShell> {
             ClipRRect(
               borderRadius: BorderRadius.circular(12),
               child: Image.asset(
-                'assets/images/logo_e_hadis40.png',
+                'assets/images/e_hadis40_logo_official.png',
                 width: 42,
                 height: 42,
+                fit: BoxFit.contain,
+                filterQuality: FilterQuality.high,
               ),
             ),
             const SizedBox(width: 12),

@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../core/curriculum/app_curriculum_structure.dart';
 import '../data/models/learning_module.dart';
 
 class AppController extends ChangeNotifier {
@@ -40,7 +41,9 @@ class AppController extends ChangeNotifier {
   bool get disclaimerAccepted => _disclaimerAccepted;
 
   double get overallProgress =>
-      (_completed.length / 40).clamp(0.0, 1.0).toDouble();
+      (_completed.length / AppCurriculumStructure.totalHadiths)
+          .clamp(0.0, 1.0)
+          .toDouble();
 
   Future<void> initialize() async {
     _preferences = await SharedPreferences.getInstance();

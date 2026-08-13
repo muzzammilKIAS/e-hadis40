@@ -1,0 +1,263 @@
+{
+  "id": "hadith_12",
+  "moduleId": "module_03",
+  "hadithNumber": 12,
+  "title": "Meninggalkan Perkara yang Tidak Berfaedah",
+  "subtitle": "Mengisi kehidupan dengan perkara bermanfaat dan meninggalkan perkara sia-sia.",
+  "theme": "Manfaat, muhasabah diri, penjagaan lisan dan pengurusan masa",
+  "learningObjectives": [
+    "Menjelaskan maksud meninggalkan perkara yang tidak berkaitan dan tidak bermanfaat.",
+    "Menghubungkan penjagaan lisan dan pengurusan masa dengan penghayatan hadis.",
+    "Menerangkan mesej Surah al-Nisa’ ayat 114 yang digunakan dalam modul.",
+    "Mengenal pasti contoh penghayatan hadis dalam penggunaan media sosial dan kehidupan murid.",
+    "Menjawab kuiz dengan markah sekurang-kurangnya 80%."
+  ],
+  "arabicText": "عَنْ أَبِي هُرَيْرَةَ رَضِيَ اللَّهُ عَنْهُ قَالَ: قَالَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ: مِنْ حُسْنِ إِسْلَامِ الْمَرْءِ تَرْكُهُ مَا لَا يَعْنِيهِ.",
+  "audioTranscriptText": "عَنْ أَبِي هُرَيْرَةَ رَضِيَ اللَّهُ عَنْهُ قَالَ: قَالَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ: مِنْ حُسْنِ إِسْلَامِ الْمَرْءِ تَرْكُهُ مَا لَا يَعْنِيهِ.",
+  "translationMalay": "Daripada Saiyidina Abu Hurairah r.a., beliau berkata, Rasulullah SAW bersabda: “Antara keindahan Islam seseorang ialah dia meninggalkan sesuatu yang tidak berkaitan dengan dirinya.”",
+  "narratorId": "abu_hurairah",
+  "narrator": {
+    "id": "abu_hurairah",
+    "name": "Abu Hurairah r.a.",
+    "fullName": "Abu Hurairah r.a.",
+    "title": "Perawi Hadis",
+    "shortBiography": "",
+    "tags": [
+      "Sahabat Rasulullah SAW",
+      "Perawi Hadis"
+    ],
+    "source": "Gunakan profil canonical sedia ada daripada NarratorRepository; jangan cipta profil kedua.",
+    "verified": false
+  },
+  "referenceArabic": "حَدِيثٌ حَسَنٌ، رَوَاهُ التِّرْمِذِيُّ وَغَيْرُهُ.",
+  "reference": "Hadis hasan. Hadis ini diriwayatkan oleh Imam al-Tirmizi dan imam yang lain.",
+  "explanations": [
+    "Hadis ini mengingatkan kita agar melakukan perkara yang bermanfaat dalam kehidupan sebagai bekalan di akhirat.",
+    "Hadis ini telah disebut oleh ulama sebagai hadis yang menghimpunkan nilai ajaran Islam dan menjadi dalil larangan melakukan perkara sia-sia.",
+    "Meninggalkan perkara yang tidak mendatangkan faedah termasuk menjaga lisan daripada kata-kata yang melalaikan.",
+    "Khalifah Umar bin Abdul Aziz mengingatkan agar banyak beramal dan mengurangkan percakapan kecuali perkara yang perlu.",
+    "Surah al-Nisa’ ayat 114 menerangkan bahawa kebanyakan bisikan tidak membawa kebaikan kecuali yang menyuruh bersedekah, berbuat kebaikan atau mendamaikan manusia.",
+    "Modul menerangkan bahawa berkata-kata yang tiada manfaat perlu ditinggalkan dan menukilkan nasihat Luqman al-Hakim tentang berkata benar serta banyak mendiamkan diri daripada perkara yang tiada manfaat."
+  ],
+  "quranEvidence": {
+    "surah": "al-Nisa’",
+    "verse": 114,
+    "verseEnd": 114,
+    "arabicText": "لَا خَيْرَ فِي كَثِيرٍ مِنْ نَجْوَاهُمْ إِلَّا مَنْ أَمَرَ بِصَدَقَةٍ أَوْ مَعْرُوفٍ أَوْ إِصْلَاحٍ بَيْنَ النَّاسِ ۚ وَمَنْ يَفْعَلْ ذَٰلِكَ ابْتِغَاءَ مَرْضَاتِ اللَّهِ فَسَوْفَ نُؤْتِيهِ أَجْرًا عَظِيمًا",
+    "translationMalay": "Tiada kebaikan pada kebanyakan bisikan-bisikan mereka, kecuali (bisikan) orang yang menyuruh bersedekah atau berbuat kebaikan atau mendamaikan antara manusia. Dan sesiapa yang berbuat demikian dengan maksud mencari keredaan Allah, tentulah Kami akan memberi kepadanya pahala yang amat besar."
+  },
+  "quranEvidences": [
+    {
+      "surah": "al-Nisa’",
+      "verse": 114,
+      "verseEnd": 114,
+      "arabicText": "لَا خَيْرَ فِي كَثِيرٍ مِنْ نَجْوَاهُمْ إِلَّا مَنْ أَمَرَ بِصَدَقَةٍ أَوْ مَعْرُوفٍ أَوْ إِصْلَاحٍ بَيْنَ النَّاسِ ۚ وَمَنْ يَفْعَلْ ذَٰلِكَ ابْتِغَاءَ مَرْضَاتِ اللَّهِ فَسَوْفَ نُؤْتِيهِ أَجْرًا عَظِيمًا",
+      "translationMalay": "Tiada kebaikan pada kebanyakan bisikan-bisikan mereka, kecuali (bisikan) orang yang menyuruh bersedekah atau berbuat kebaikan atau mendamaikan antara manusia. Dan sesiapa yang berbuat demikian dengan maksud mencari keredaan Allah, tentulah Kami akan memberi kepadanya pahala yang amat besar."
+    }
+  ],
+  "lessons": [
+    "Sentiasa muhasabah diri terhadap amalan harian.",
+    "Seorang Muslim seharusnya mengutamakan dirinya dengan urusan diri sendiri dan tidak campur tangan dalam urusan orang lain melainkan yang dibenarkan oleh Islam.",
+    "Seorang Muslim sentiasa mengisi ruang waktu dengan mempelajari ilmu dan kemahiran baharu yang memberi manfaat."
+  ],
+  "appreciation": [
+    "Murid hendaklah berusaha meninggalkan perkara yang sia-sia dan tiada kaitan dengan dirinya seperti berlebih-lebihan dengan media sosial.",
+    "Murid yang baik sentiasa mengamalkan pengurusan masa yang berhemah.",
+    "Murid hendaklah menjaga tutur kata agar dapat mewujudkan suasana harmoni di sekolah seterusnya dapat melahirkan kemuliaan insan."
+  ],
+  "focusValues": [
+    "Ihsan",
+    "Hormat"
+  ],
+  "suggestedActivities": [
+    {
+      "title": "Pengucapan Awam",
+      "description": "Laksanakan pengucapan ringkas tentang cara meninggalkan perkara sia-sia dan memilih perkara bermanfaat."
+    },
+    {
+      "title": "Pengurusan masa",
+      "description": "Susun jadual harian yang mengutamakan pembelajaran, ibadah, keluarga dan rehat secara berhemah."
+    },
+    {
+      "title": "Forum",
+      "description": "Bincangkan contoh perkara bermanfaat dan tidak bermanfaat dalam kehidupan murid dengan bimbingan guru."
+    }
+  ],
+  "reflectionQuestions": [
+    "Apakah maksud meninggalkan perkara yang tidak berkaitan dengan diri?",
+    "Apakah satu perkara sia-sia yang boleh saya kurangkan mulai hari ini?",
+    "Bagaimanakah saya boleh menjaga lisan ketika berbual atau menggunakan media sosial?",
+    "Apakah hubungan pengurusan masa dengan penghayatan Hadis 12?",
+    "Apakah tiga bentuk percakapan bermanfaat yang disebut dalam Surah al-Nisa’ ayat 114?",
+    "Apakah satu ilmu atau kemahiran baharu yang boleh saya pelajari untuk mengisi masa dengan manfaat?"
+  ],
+  "quiz": [
+    {
+      "id": "h12_q01",
+      "question": "Apakah tajuk Hadis 12 dalam modul?",
+      "options": [
+        "Meninggalkan Perkara yang Tidak Berfaedah",
+        "Meninggalkan Keraguan adalah Ciri Warak",
+        "Nasihat Tonggak Agama",
+        "Berkata Baik serta Menghormati Jiran dan Tetamu"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Tajuk Hadis 12 ialah “Meninggalkan Perkara yang Tidak Berfaedah”."
+    },
+    {
+      "id": "h12_q02",
+      "question": "Siapakah perawi Hadis 12?",
+      "options": [
+        "Abu Hurairah r.a.",
+        "Anas bin Malik r.a.",
+        "Abdullah bin Mas‘ud r.a.",
+        "al-Hasan bin Ali r.a."
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Hadis 12 diriwayatkan daripada Saiyidina Abu Hurairah r.a."
+    },
+    {
+      "id": "h12_q03",
+      "question": "Apakah antara keindahan Islam seseorang menurut hadis?",
+      "options": [
+        "Meninggalkan perkara yang tidak berkaitan dengan dirinya",
+        "Banyak bercakap dalam semua perkara",
+        "Mencampuri semua urusan orang lain",
+        "Menghabiskan masa dengan hiburan"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Hadis menekankan meninggalkan perkara yang tidak berkaitan dan tidak bermanfaat."
+    },
+    {
+      "id": "h12_q04",
+      "question": "Apakah aspek yang ditekankan dalam huraian sebagai contoh meninggalkan perkara tidak bermanfaat?",
+      "options": [
+        "Menjaga lisan daripada kata-kata melalaikan",
+        "Mengurangkan pembelajaran",
+        "Mengelakkan semua pergaulan",
+        "Menolak nasihat"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Modul menekankan penjagaan lisan daripada kata-kata yang melalaikan."
+    },
+    {
+      "id": "h12_q05",
+      "question": "Surah dan ayat apakah yang digunakan dalam huraian Hadis 12?",
+      "options": [
+        "al-Nisa’ 114",
+        "al-Hujurat 10",
+        "al-Isra’ 32",
+        "Qaf 16"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Modul merujuk Surah al-Nisa’ ayat 114."
+    },
+    {
+      "id": "h12_q06",
+      "question": "Antara berikut, yang manakah termasuk percakapan yang dikecualikan sebagai kebaikan dalam ayat tersebut?",
+      "options": [
+        "Mendamaikan antara manusia",
+        "Mengumpat",
+        "Mengejek",
+        "Menyebarkan khabar tanpa faedah"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Surah al-Nisa’ ayat 114 menyebut sedekah, kebaikan dan mendamaikan manusia."
+    },
+    {
+      "id": "h12_q07",
+      "question": "Apakah salah satu pengajaran Hadis 12?",
+      "options": [
+        "Sentiasa muhasabah diri terhadap amalan harian",
+        "Mengabaikan masa",
+        "Mencampuri semua urusan orang lain",
+        "Mengutamakan percakapan yang melalaikan"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Modul mengajar supaya sentiasa bermuhasabah terhadap amalan harian."
+    },
+    {
+      "id": "h12_q08",
+      "question": "Apakah fokus nilai Hadis 12?",
+      "options": [
+        "Ihsan dan Hormat",
+        "Hormat dan Kesejahteraan",
+        "Keyakinan dan Ihsan",
+        "Kesejahteraan dan Keyakinan"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Fokus nilai Hadis 12 ialah Ihsan dan Hormat."
+    },
+    {
+      "id": "h12_q09",
+      "question": "Yang manakah cadangan aktiviti Hadis 12?",
+      "options": [
+        "Pengurusan masa",
+        "Kursus sembelihan",
+        "Latihan qisas",
+        "Eksperimen sains"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Pengurusan masa ialah antara aktiviti yang dicadangkan dalam modul."
+    },
+    {
+      "id": "h12_q10",
+      "question": "Apakah penghayatan yang berkaitan penggunaan media sosial?",
+      "options": [
+        "Tidak berlebih-lebihan dengan media sosial",
+        "Menggunakan media sosial sepanjang masa",
+        "Menyebarkan semua maklumat tanpa semakan",
+        "Mencampuri urusan peribadi orang lain"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Modul meminta murid meninggalkan perkara sia-sia seperti berlebih-lebihan dengan media sosial."
+    }
+  ],
+  "progressRules": {
+    "passingScorePercent": 80
+  },
+  "audio": {
+    "arabicRecitation": "assets/audio/hadith_12.mp3",
+    "durationMs": 13008,
+    "syncOffsetMs": 0,
+    "wordHighlightMode": "phraseOnly",
+    "timingMethod": "waveform/silence-derived phrase timing starting point",
+    "timingReviewNote": "Timing frasa ialah padanan awal daripada jeda rakaman. Dengar audio sebenar dan fine-tune startMs/endMs. Jangan dakwa word-level exact. Rujukan hadis kekal statik kecuali pendengaran mengesahkan ia dibaca.",
+    "referenceAudioVerificationRequired": true,
+    "timedSegments": [
+      {
+        "startMs": 130,
+        "endMs": 3220,
+        "text": "عَنْ أَبِي هُرَيْرَةَ رَضِيَ اللَّهُ عَنْهُ قَالَ:"
+      },
+      {
+        "startMs": 3600,
+        "endMs": 7815,
+        "text": "قَالَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ:"
+      },
+      {
+        "startMs": 8160,
+        "endMs": 10424,
+        "text": "مِنْ حُسْنِ إِسْلَامِ الْمَرْءِ"
+      },
+      {
+        "startMs": 10804,
+        "endMs": 12759,
+        "text": "تَرْكُهُ مَا لَا يَعْنِيهِ."
+      }
+    ]
+  },
+  "source": {
+    "document": "Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua, KPM.",
+    "hadith": 12,
+    "printedPages": [
+      56,
+      57,
+      58,
+      59
+    ],
+    "adaptationStatus": "Prototaip pembelajaran interaktif",
+    "verificationNote": "Tajuk, teks hadis, maksud, huraian, Surah al-Nisa’ ayat 114, pengajaran, penghayatan, fokus nilai dan tajuk aktiviti berasaskan Hadis 12 dalam modul KPM. Objektif digital, penerangan aktiviti, refleksi, kuiz dan timing audio ialah bahan tambahan aplikasi."
+  },
+  "copyrightNotice": "© 2026 e-Hadis40 bagi reka bentuk aplikasi, interaksi, audio, kuiz dan kod sumber prototaip. Hak cipta kandungan asal Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua kekal milik Kementerian Pendidikan Malaysia dan pemegang hak masing-masing."
+}

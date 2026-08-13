@@ -247,47 +247,64 @@ class _HadithScreenState extends State<HadithScreen> {
                   ),
                 ),
               ],
-              if (hadith.quranEvidence.surah.isNotEmpty) ...[
+              if (hadith.contextNotice.trim().isNotEmpty) ...[
                 const SizedBox(height: AppSpacing.xl),
                 HadithSection(
-                  title: 'Dalil al-Quran',
-                  subtitle:
-                      'Surah ${hadith.quranEvidence.surah}, ${hadith.quranEvidence.verseLabel}',
-                  icon: Icons.menu_book_rounded,
-                  accent: true,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      if (hadith.quranEvidence.arabicText.isNotEmpty) ...[
-                        SizedBox(
-                          width: double.infinity,
-                          child: Directionality(
-                            textDirection: TextDirection.rtl,
-                            child: Text(
-                              hadith.quranEvidence.arabicText,
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontSize: 22 * controller.arabicScale,
-                                height: 2.0,
-                                fontFamily: AppConstants.arabicFontFamily,
-                                fontFamilyFallback: AppConstants.arabicFontFallback,
+                  title: 'Peringatan Penting',
+                  icon: Icons.info_outline_rounded,
+                  child: Text(
+                    hadith.contextNotice,
+                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                          height: 1.7,
+                          color: scheme.onSurface,
+                        ),
+                  ),
+                ),
+              ],
+              if (hadith.allQuranEvidences.isNotEmpty) ...[
+                const SizedBox(height: AppSpacing.xl),
+                for (var i = 0; i < hadith.allQuranEvidences.length; i++) ...[
+                  HadithSection(
+                    title: i == 0 ? 'Dalil al-Quran' : 'Dalil al-Quran',
+                    subtitle: 'Surah ${hadith.allQuranEvidences[i].surah}, '
+                        '${hadith.allQuranEvidences[i].verseLabel}',
+                    icon: Icons.menu_book_rounded,
+                    accent: true,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        if (hadith.allQuranEvidences[i].arabicText.isNotEmpty) ...[
+                          SizedBox(
+                            width: double.infinity,
+                            child: Directionality(
+                              textDirection: TextDirection.rtl,
+                              child: Text(
+                                hadith.allQuranEvidences[i].arabicText,
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: 22 * controller.arabicScale,
+                                  height: 2.0,
+                                  fontFamily: AppConstants.arabicFontFamily,
+                                  fontFamilyFallback: AppConstants.arabicFontFallback,
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                        const SizedBox(height: AppSpacing.lg),
+                          const SizedBox(height: AppSpacing.lg),
+                        ],
+                        if (hadith.allQuranEvidences[i].translationMalay.isNotEmpty)
+                          Text(
+                            '"${hadith.allQuranEvidences[i].translationMalay}"',
+                            textAlign: TextAlign.center,
+                            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                                  height: 1.8,
+                                ),
+                          ),
                       ],
-                      if (hadith.quranEvidence.translationMalay.isNotEmpty)
-                        Text(
-                          '"${hadith.quranEvidence.translationMalay}"',
-                          textAlign: TextAlign.center,
-                          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                                height: 1.8,
-                              ),
-                        ),
-                    ],
+                    ),
                   ),
-                ),
+                  const SizedBox(height: AppSpacing.xl),
+                ],
               ],
               if (hadith.learningIntentionExample.trim().isNotEmpty) ...[
                 const SizedBox(height: AppSpacing.xl),

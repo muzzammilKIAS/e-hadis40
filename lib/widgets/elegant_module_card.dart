@@ -104,7 +104,7 @@ class _ElegantModuleCardState extends State<ElegantModuleCard> {
                       ),
                       const Spacer(),
                       Text(
-                        '${widget.availableCount}/5 kandungan',
+                        '${widget.availableCount}/${widget.module.hadithNumbers.length} kandungan',
                         style: Theme.of(context).textTheme.bodySmall?.copyWith(
                               color: scheme.onSurfaceVariant,
                             ),

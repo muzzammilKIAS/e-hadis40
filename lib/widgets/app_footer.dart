@@ -84,9 +84,11 @@ class _AboutPage extends StatelessWidget {
                   ClipRRect(
                     borderRadius: BorderRadius.circular(20),
                     child: Image.asset(
-                      'assets/images/logo_e_hadis40.png',
+                      'assets/images/e_hadis40_logo_official.png',
                       width: 80,
                       height: 80,
+                      fit: BoxFit.contain,
+                      filterQuality: FilterQuality.high,
                     ),
                   ),
                   const SizedBox(height: 20),

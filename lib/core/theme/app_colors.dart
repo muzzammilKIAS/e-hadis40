@@ -30,6 +30,18 @@ class AppColors {
   static const darkActiveWordBg = Color(0xFF3D6B55);
   static const darkCompletedBg = Color(0xFF25251A);
 
+  static const splashLightBg = Color(0xFFF6FBF9);
+  static const splashDarkBg = Color(0xFF081B17);
+  static const splashPrimaryEmerald = Color(0xFF0F9D7A);
+  static const splashDeepEmerald = Color(0xFF0A7E63);
+  static const splashRichEmerald = Color(0xFF149E7C);
+  static const splashMint = Color(0xFF60C7A9);
+  static const splashEmeraldGlow = Color(0xFF85E0C3);
+  static const splashAqua = Color(0xFF7EDBD0);
+  static const splashSoftBlue = Color(0xFF76C7FF);
+  static const splashSoftJade = Color(0xFF8ADFA7);
+  static const splashLightText = Color(0xFFEAF8F4);
+
   static const success = Color(0xFF4CAF7D);
   static const successContainer = Color(0xFF1A3328);
   static const warning = Color(0xFFD4A843);

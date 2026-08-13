@@ -170,5 +170,24 @@
       "page": ""
     },
     "verified": false
+  },
+  "anas_ibn_malik": {
+    "id": "anas_ibn_malik",
+    "name": "Anas bin Malik r.a.",
+    "fullName": "Abu Hamzah Anas bin Malik r.a.",
+    "kunyah": "",
+    "title": "Pembantu Rasulullah SAW",
+    "biography": "",
+    "highlights": [],
+    "tags": [],
+    "source": {
+      "document": "Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua",
+      "publisher": "Kementerian Pendidikan Malaysia",
+      "hadithNumbers": [
+        13
+      ],
+      "page": ""
+    },
+    "verified": false
   }
 }

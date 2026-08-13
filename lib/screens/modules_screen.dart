@@ -31,7 +31,7 @@ class ModulesScreen extends StatelessWidget {
             ),
             const SizedBox(height: AppSpacing.sm),
             Text(
-              'Hadis 1 hingga 40 disusun dalam lapan modul. Kandungan akan '
+              'Hadis 1 hingga 42 disusun dalam lapan modul. Kandungan akan '
               'ditambah secara berperingkat selepas semakan.',
               style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                     color: Theme.of(context).colorScheme.onSurfaceVariant,

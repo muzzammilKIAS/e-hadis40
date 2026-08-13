@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../core/curriculum/app_curriculum_structure.dart';
 import '../core/theme/app_spacing.dart';
 import '../core/utils/app_breakpoints.dart';
 
@@ -23,7 +24,7 @@ class ProgressOverview extends StatelessWidget {
       _MetricData(
         icon: Icons.task_alt_rounded,
         label: 'Hadis selesai',
-        value: '$completedHadiths/40',
+        value: '$completedHadiths/${AppCurriculumStructure.totalHadiths}',
       ),
       _MetricData(
         icon: Icons.bookmark_rounded,

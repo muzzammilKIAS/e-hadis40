@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 
 import '../core/constants/app_constants.dart';
+import '../core/curriculum/app_curriculum_structure.dart';
 import '../data/models/hadith.dart';
 import '../data/repositories/hadith_repository.dart';
 import '../services/hadith_local_audio_controller.dart';
@@ -28,9 +29,10 @@ class _ProjectorScreenState extends State<ProjectorScreen> {
   late Hadith _currentHadith;
   int _index = 0;
 
-  List<Hadith> get _allHadiths => widget.repository.availableHadiths
-      .where((h) => h.number <= 11)
-      .toList();
+  List<Hadith> get _allHadiths =>
+      widget.repository.availableHadiths
+          .where((h) => h.number <= AppCurriculumStructure.totalHadiths)
+          .toList();
 
   @override
   void initState() {
@@ -68,13 +70,20 @@ class _ProjectorScreenState extends State<ProjectorScreen> {
           title: 'Huraian Hadis', paragraphs: h.explanations),
     ];
 
-    if (h.quranEvidence.surah.isNotEmpty) {
+    if (h.contextNotice.trim().isNotEmpty) {
+      pages.add(_ProjectorPageData(
+        title: 'Peringatan Penting',
+        paragraphs: [h.contextNotice],
+      ));
+    }
+
+    for (final evidence in h.allQuranEvidences) {
       pages.add(_ProjectorPageData(
         title: 'Dalil al-Quran',
-        subtitle: 'Surah ${h.quranEvidence.surah}, ${h.quranEvidence.verseLabel}',
-        arabic: h.quranEvidence.arabicText,
-        paragraphs: h.quranEvidence.translationMalay.isNotEmpty
-            ? ['"${h.quranEvidence.translationMalay}"']
+        subtitle: 'Surah ${evidence.surah}, ${evidence.verseLabel}',
+        arabic: evidence.arabicText,
+        paragraphs: evidence.translationMalay.isNotEmpty
+            ? ['"${evidence.translationMalay}"']
             : [],
       ));
     }

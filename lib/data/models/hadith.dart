@@ -13,6 +13,8 @@ class Hadith {
     required this.reference,
     required this.explanations,
     required this.quranEvidence,
+    required this.quranEvidences,
+    required this.contextNotice,
     required this.learningIntentionExample,
     required this.lessons,
     required this.appreciation,
@@ -47,6 +49,8 @@ class Hadith {
   final String reference;
   final List<String> explanations;
   final QuranEvidence quranEvidence;
+  final List<QuranEvidence> quranEvidences;
+  final String contextNotice;
   final String learningIntentionExample;
   final List<String> lessons;
   final List<String> appreciation;
@@ -69,6 +73,13 @@ class Hadith {
 
   String get displayNumber => number.toString().padLeft(2, '0');
 
+  /// Dalil al-Quran: jika quranEvidences wujud → guna semua; jika tidak → fallback quranEvidence tunggal.
+  List<QuranEvidence> get allQuranEvidences {
+    if (quranEvidences.isNotEmpty) return quranEvidences;
+    if (quranEvidence.surah.isNotEmpty) return [quranEvidence];
+    return const [];
+  }
+
   factory Hadith.fromJson(Map<String, dynamic> json) {
     final narratorJson = _map(json['narrator']);
     final evidenceJson = _map(json['quranEvidence']);
@@ -90,6 +101,10 @@ class Hadith {
       reference: json['reference'] as String? ?? '',
       explanations: _stringList(json['explanations']),
       quranEvidence: QuranEvidence.fromJson(evidenceJson),
+      quranEvidences: _list(json['quranEvidences'])
+          .map((item) => QuranEvidence.fromJson(_map(item)))
+          .toList(growable: false),
+      contextNotice: json['contextNotice'] as String? ?? '',
       learningIntentionExample:
           json['learningIntentionExample'] as String? ?? '',
       lessons: _stringList(json['lessons']),

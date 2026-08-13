@@ -6,7 +6,7 @@ class AppConstants {
   static const appDescription =
       'Platform Pengajaran dan Pembelajaran Interaktif Modul Penghayatan '
       'Hadis 40 Imam al-Nawawi Kementerian Pendidikan Malaysia';
-  static const totalHadiths = 40;
+  static const totalHadiths = 42;
   static const totalModules = 8;
   static const maxContentWidth = 1240.0;
 

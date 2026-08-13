@@ -18,18 +18,6 @@ class _EHadis40AppState extends State<EHadis40App> {
   bool _showSplash = true;
 
   @override
-  void initState() {
-    super.initState();
-    _startSplashTimer();
-  }
-
-  void _startSplashTimer() {
-    Future<void>.delayed(const Duration(milliseconds: 1600), () {
-      if (mounted) setState(() => _showSplash = false);
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
     final controller = context.watch<AppController>();
 
@@ -39,7 +27,11 @@ class _EHadis40AppState extends State<EHadis40App> {
       theme: AppTheme.light,
       darkTheme: AppTheme.dark,
       themeMode: controller.themeMode,
-      home: _showSplash ? const AppSplashScreen() : const MainShell(),
+      home: _showSplash
+          ? AppSplashScreen(onComplete: () {
+              if (mounted) setState(() => _showSplash = false);
+            })
+          : const MainShell(),
     );
   }
 }

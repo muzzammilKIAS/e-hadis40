@@ -1,0 +1,291 @@
+{
+  "id": "hadith_14",
+  "moduleId": "module_03",
+  "hadithNumber": 14,
+  "title": "Kesan Jenayah Berat dalam Islam",
+  "subtitle": "Memahami penjagaan akidah, maruah dan nyawa serta kedudukan kuasa pemerintah dalam huraian hukum jenayah.",
+  "theme": "Maqasid syariah, perlindungan nyawa dan kesalahan jenayah berat",
+  "contextNotice": "Bahagian ini menerangkan kandungan Modul KPM dalam konteks hukum jenayah Islam. Hukuman yang disebut dalam huraian modul diletakkan di bawah kuasa pemerintah/kehakiman dan bukan tindakan individu. Aplikasi ini tidak membenarkan pengguna mengambil tindakan sendiri terhadap sesiapa.",
+  "learningObjectives": [
+    "Menjelaskan maksud umum Hadis 14 dan tiga kategori yang disebut dalam teks hadis.",
+    "Menjelaskan bahawa pelaksanaan hukuman yang dihuraikan modul berada di bawah kuasa pemerintah/kehakiman, bukan individu.",
+    "Menghubungkan huraian hadis dengan Surah al-Isra’ ayat 32 dan Surah al-Baqarah ayat 178.",
+    "Menyatakan lima tujuan pensyariatan (maqasid syariah) yang disebut dalam penghayatan modul.",
+    "Menjawab kuiz dengan markah sekurang-kurangnya 80%."
+  ],
+  "arabicText": "عَنِ ابْنِ مَسْعُودٍ رَضِيَ اللَّهُ عَنْهُ قَالَ: قَالَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ: لَا يَحِلُّ دَمُ امْرِئٍ مُسْلِمٍ إِلَّا بِإِحْدَى ثَلَاثٍ: الثَّيِّبُ الزَّانِي، وَالنَّفْسُ بِالنَّفْسِ، وَالتَّارِكُ لِدِينِهِ الْمُفَارِقُ لِلْجَمَاعَةِ.",
+  "audioTranscriptText": "عَنِ ابْنِ مَسْعُودٍ رَضِيَ اللَّهُ عَنْهُ قَالَ: قَالَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ: لَا يَحِلُّ دَمُ امْرِئٍ مُسْلِمٍ إِلَّا بِإِحْدَى ثَلَاثٍ: الثَّيِّبُ الزَّانِي، وَالنَّفْسُ بِالنَّفْسِ، وَالتَّارِكُ لِدِينِهِ الْمُفَارِقُ لِلْجَمَاعَةِ.",
+  "translationMalay": "Daripada Saiyidina Ibnu Mas‘ud r.a berkata, Rasulullah SAW bersabda: “Tidak halal (menumpahkan) darah seorang Muslim kecuali disebabkan satu daripada tiga perkara; berzina setelah berkahwin, membunuh orang (tanpa hak), dan meninggalkan agama serta memisahkan diri daripada jemaah orang Islam.”",
+  "narratorId": "abdullah_ibn_masud",
+  "narrator": {
+    "id": "abdullah_ibn_masud",
+    "name": "Abdullah bin Mas‘ud r.a.",
+    "fullName": "Abdullah bin Mas‘ud r.a.",
+    "title": "Perawi Hadis",
+    "shortBiography": "",
+    "tags": [
+      "Sahabat Rasulullah SAW",
+      "Perawi Hadis"
+    ],
+    "source": "Gunakan profil canonical sedia ada daripada NarratorRepository kerana perawi yang sama telah digunakan pada Hadis 4. Jangan cipta profil kedua.",
+    "verified": false
+  },
+  "referenceArabic": "رَوَاهُ الْبُخَارِيُّ وَمُسْلِمٌ.",
+  "reference": "Hadis ini diriwayatkan oleh Imam al-Bukhari dan Imam Muslim.",
+  "explanations": [
+    "Modul menerangkan bahawa Islam menetapkan hukuman tegas terhadap jenayah yang sangat berat dan menyatakan pemerintah sebagai pihak yang berhak menjatuhkan hukuman.",
+    "Tiga kesalahan utama yang dihuraikan modul ialah penzina yang telah berkahwin, pembunuh dan orang yang murtad.",
+    "Modul menghuraikan zina selepas berkahwin sebagai jenayah yang sangat berat serta menyebut syarat-syarat pelaksanaan hukum dalam kerangka hukum jenayah Islam.",
+    "Larangan menghampiri zina dirujuk kepada Surah al-Isra’ ayat 32.",
+    "Modul menerangkan hukuman terhadap pembunuhan sengaja dalam kerangka qisas dan merujuk Surah al-Baqarah ayat 178.",
+    "Modul menghuraikan isu keluar daripada agama Islam serta menyebut aspek keyakinan, perbuatan dan perkataan, bersama syarat mengetahui kesan perbuatan, sengaja dan tidak dipaksa.",
+    "Semua penerangan hukuman dalam aplikasi mesti kekal dalam konteks kuasa pemerintah/kehakiman dan tidak boleh dipersembahkan sebagai kuasa individu."
+  ],
+  "quranEvidence": {
+    "surah": "al-Isra’",
+    "verse": 32,
+    "verseEnd": 32,
+    "arabicText": "وَلَا تَقْرَبُوا الزِّنَىٰ إِنَّهُ كَانَ فَاحِشَةً وَسَاءَ سَبِيلًا",
+    "translationMalay": "Dan janganlah kamu menghampiri zina, sesungguhnya zina itu adalah satu perbuatan yang keji dan satu jalan yang jahat (yang membawa kerosakan).",
+    "isExcerpt": false
+  },
+  "quranEvidences": [
+    {
+      "surah": "al-Isra’",
+      "verse": 32,
+      "verseEnd": 32,
+      "arabicText": "وَلَا تَقْرَبُوا الزِّنَىٰ إِنَّهُ كَانَ فَاحِشَةً وَسَاءَ سَبِيلًا",
+      "translationMalay": "Dan janganlah kamu menghampiri zina, sesungguhnya zina itu adalah satu perbuatan yang keji dan satu jalan yang jahat (yang membawa kerosakan).",
+      "isExcerpt": false
+    },
+    {
+      "surah": "al-Baqarah",
+      "verse": 178,
+      "verseEnd": 178,
+      "arabicText": "يَا أَيُّهَا الَّذِينَ آمَنُوا كُتِبَ عَلَيْكُمُ الْقِصَاصُ فِي الْقَتْلَى ۖ الْحُرُّ بِالْحُرِّ وَالْعَبْدُ بِالْعَبْدِ …",
+      "translationMalay": "Wahai orang-orang yang beriman! Diwajibkan kamu menjalankan hukuman Qisas (balasan yang seimbang) dalam perkara orang yang mati dibunuh iaitu; orang merdeka dengan orang merdeka, dan hamba dengan hamba...",
+      "isExcerpt": true
+    }
+  ],
+  "lessons": [
+    "Agama Islam menekankan pentingnya menjaga akidah, maruah dan nyawa.",
+    "Zina merupakan dosa besar dalam Islam. Perbuatan zina setelah berkahwin adalah jenayah berat yang boleh dikenakan hukuman bunuh.",
+    "Membunuh manusia secara sengaja merupakan kesalahan berat yang menyebabkan boleh dihukum bunuh, kecuali pembunuh telah dimaafkan oleh keluarga mangsa.",
+    "Orang yang murtad hendaklah diberikan peluang untuk kembali kepada Islam. Jika dia menolak, boleh dikenakan hukuman bunuh."
+  ],
+  "appreciation": [
+    "Murid hendaklah patuh kepada sesuatu hukuman yang ditetapkan Allah SWT.",
+    "Murid hendaklah mengetahui dan memahami tujuan pensyariatan (maqasid syariah) iaitu untuk menjaga agama, nyawa, akal, harta dan keturunan.",
+    "Murid hendaklah menjauhi dosa besar seperti berzina, membunuh dan murtad.",
+    "Murid hendaklah tidak melayari laman sesawang berunsur lucah, ganas dan menjauhi golongan yang tidak mempercayai agama.",
+    "Murid hendaklah menghargai nyawa manusia dengan menjauhi perkara yang merosakkan diri sendiri atau orang lain.",
+    "Murid boleh mengisi masa lapang dengan aktiviti yang berfaedah seperti mendalami ilmu agama, membantu ibu bapa di rumah, beriadah dan aktiviti kemasyarakatan."
+  ],
+  "focusValues": [
+    "Kesejahteraan",
+    "Hormat"
+  ],
+  "suggestedActivities": [
+    {
+      "title": "Kempen jauhi pergaulan bebas",
+      "description": "Hasilkan kempen pendidikan yang menekankan maruah, batas pergaulan dan keselamatan diri tanpa kandungan eksplisit."
+    },
+    {
+      "title": "Khidmat masyarakat",
+      "description": "Laksanakan aktiviti kemasyarakatan yang membina penghargaan terhadap nyawa, kesejahteraan dan tanggungjawab sosial."
+    }
+  ],
+  "reflectionQuestions": [
+    "Mengapakah modul meletakkan pelaksanaan hukuman berat di bawah kuasa pemerintah?",
+    "Apakah nilai yang boleh dihayati daripada larangan menghampiri zina dalam Surah al-Isra’ ayat 32?",
+    "Apakah maksud qisas secara umum berdasarkan huraian modul?",
+    "Apakah lima perkara yang dijaga dalam maqasid syariah seperti disebut dalam penghayatan Hadis 14?",
+    "Bagaimanakah saya boleh menghargai nyawa diri sendiri dan orang lain dalam kehidupan harian?",
+    "Apakah aktiviti berfaedah yang boleh saya pilih untuk mengelakkan perkara yang merosakkan diri?"
+  ],
+  "quiz": [
+    {
+      "id": "h14_q01",
+      "question": "Apakah tajuk Hadis 14?",
+      "options": [
+        "Kesan Jenayah Berat dalam Islam",
+        "Meninggalkan Perkara yang Tidak Berfaedah",
+        "Menyukai Kebaikan Sesama Muslim Tanda Kesempurnaan Iman",
+        "Kesempurnaan dalam Perkara Kebaikan"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Tajuk Hadis 14 ialah “Kesan Jenayah Berat dalam Islam”."
+    },
+    {
+      "id": "h14_q02",
+      "question": "Siapakah perawi Hadis 14?",
+      "options": [
+        "Abdullah bin Mas‘ud r.a.",
+        "Anas bin Malik r.a.",
+        "Abu Hurairah r.a.",
+        "Tamim al-Dari r.a."
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Hadis 14 diriwayatkan daripada Saiyidina Ibnu Mas‘ud r.a."
+    },
+    {
+      "id": "h14_q03",
+      "question": "Menurut huraian modul, siapakah yang berhak menjatuhkan hukuman berat yang dibincangkan?",
+      "options": [
+        "Pemerintah melalui autoriti yang sah",
+        "Setiap individu",
+        "Rakan sebaya",
+        "Mana-mana kumpulan persendirian"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Modul menyebut pemerintah sebagai pihak yang berhak menjatuhkan hukuman; ia bukan tindakan individu."
+    },
+    {
+      "id": "h14_q04",
+      "question": "Surah dan ayat apakah yang digunakan untuk larangan menghampiri zina?",
+      "options": [
+        "al-Isra’ 32",
+        "al-Nisa’ 114",
+        "al-Hujurat 10",
+        "Qaf 16"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Modul merujuk Surah al-Isra’ ayat 32."
+    },
+    {
+      "id": "h14_q05",
+      "question": "Surah dan ayat apakah yang dirujuk dalam huraian qisas?",
+      "options": [
+        "al-Baqarah 178",
+        "al-Baqarah 172",
+        "al-Nisa’ 59",
+        "Ali ‘Imran 19"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Modul merujuk Surah al-Baqarah ayat 178 dalam huraian qisas."
+    },
+    {
+      "id": "h14_q06",
+      "question": "Yang manakah termasuk lima perkara maqasid syariah yang disebut dalam penghayatan?",
+      "options": [
+        "Agama, nyawa, akal, harta dan keturunan",
+        "Harta, pangkat, populariti, hiburan dan sukan",
+        "Makanan, pakaian, kenderaan, rumah dan telefon",
+        "Bahasa, bangsa, negara, pekerjaan dan hobi"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Penghayatan modul menyebut menjaga agama, nyawa, akal, harta dan keturunan."
+    },
+    {
+      "id": "h14_q07",
+      "question": "Apakah fokus nilai Hadis 14?",
+      "options": [
+        "Kesejahteraan dan Hormat",
+        "Ihsan dan Hormat",
+        "Keyakinan dan Kesejahteraan",
+        "Ikhlas dan Keyakinan"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Fokus nilai Hadis 14 ialah Kesejahteraan dan Hormat."
+    },
+    {
+      "id": "h14_q08",
+      "question": "Apakah penghayatan yang berkaitan dengan nyawa manusia?",
+      "options": [
+        "Menghargai nyawa dan menjauhi perkara yang merosakkan diri atau orang lain",
+        "Mengambil tindakan hukuman sendiri",
+        "Mencari konflik",
+        "Mengabaikan keselamatan"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Modul mengajar murid menghargai nyawa manusia dan menjauhi perkara yang merosakkan diri sendiri atau orang lain."
+    },
+    {
+      "id": "h14_q09",
+      "question": "Yang manakah cadangan aktiviti Hadis 14?",
+      "options": [
+        "Khidmat masyarakat",
+        "Latihan penggunaan senjata",
+        "Simulasi hukuman",
+        "Pertandingan pergaduhan"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Khidmat masyarakat ialah salah satu aktiviti yang dicadangkan."
+    },
+    {
+      "id": "h14_q10",
+      "question": "Bagaimanakah aplikasi perlu memaparkan isu hukuman dalam Hadis 14?",
+      "options": [
+        "Sebagai kandungan pendidikan dalam konteks kuasa pemerintah/kehakiman, bukan arahan individu",
+        "Sebagai arahan kepada pengguna untuk bertindak sendiri",
+        "Sebagai latihan tindakan fizikal",
+        "Tanpa sebarang konteks"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Kandungan perlu kekal dalam konteks pendidikan dan autoriti pemerintah/kehakiman; pengguna tidak diberi kuasa bertindak sendiri."
+    }
+  ],
+  "progressRules": {
+    "passingScorePercent": 80
+  },
+  "audio": {
+    "arabicRecitation": "assets/audio/hadith_14.mp3",
+    "durationMs": 20448,
+    "syncOffsetMs": 0,
+    "wordHighlightMode": "phraseOnly",
+    "timingMethod": "waveform/silence-derived phrase timing starting point",
+    "timingReviewNote": "Timing frasa ialah padanan awal daripada jeda rakaman. Dengar audio sebenar dan fine-tune startMs/endMs. Jangan gunakan proportional word timing. Rujukan hadis kekal statik kecuali pendengaran mengesahkan ia dibaca.",
+    "referenceAudioVerificationRequired": true,
+    "timedSegments": [
+      {
+        "startMs": 100,
+        "endMs": 3214,
+        "text": "عَنِ ابْنِ مَسْعُودٍ رَضِيَ اللَّهُ عَنْهُ قَالَ:"
+      },
+      {
+        "startMs": 3523,
+        "endMs": 7182,
+        "text": "قَالَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ:"
+      },
+      {
+        "startMs": 7710,
+        "endMs": 10099,
+        "text": "لَا يَحِلُّ دَمُ امْرِئٍ مُسْلِمٍ"
+      },
+      {
+        "startMs": 11057,
+        "endMs": 12734,
+        "text": "إِلَّا بِإِحْدَى ثَلَاثٍ:"
+      },
+      {
+        "startMs": 13307,
+        "endMs": 14693,
+        "text": "الثَّيِّبُ الزَّانِي،"
+      },
+      {
+        "startMs": 15208,
+        "endMs": 16604,
+        "text": "وَالنَّفْسُ بِالنَّفْسِ،"
+      },
+      {
+        "startMs": 17226,
+        "endMs": 20216,
+        "text": "وَالتَّارِكُ لِدِينِهِ الْمُفَارِقُ لِلْجَمَاعَةِ."
+      }
+    ]
+  },
+  "source": {
+    "document": "Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua, KPM.",
+    "hadith": 14,
+    "printedPages": [
+      64,
+      65,
+      66,
+      67,
+      68
+    ],
+    "adaptationStatus": "Prototaip pembelajaran interaktif",
+    "verificationNote": "Tajuk, teks hadis, maksud, huraian, Surah al-Isra’ ayat 32, Surah al-Baqarah ayat 178, pengajaran, penghayatan, fokus nilai dan tajuk aktiviti berasaskan Hadis 14 dalam modul KPM. contextNotice, objektif digital, penerangan aktiviti, refleksi, kuiz dan timing audio ialah lapisan aplikasi untuk pembelajaran dan keselamatan konteks."
+  },
+  "copyrightNotice": "© 2026 e-Hadis40 bagi reka bentuk aplikasi, interaksi, audio, kuiz dan kod sumber prototaip. Hak cipta kandungan asal Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua kekal milik Kementerian Pendidikan Malaysia dan pemegang hak masing-masing."
+}

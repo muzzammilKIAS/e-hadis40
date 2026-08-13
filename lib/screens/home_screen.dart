@@ -66,7 +66,7 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(height: AppSpacing.xxxl),
             _SectionHeading(
               title: 'Modul pembelajaran',
-              subtitle: '40 hadis disusun dalam lapan modul pembelajaran.',
+              subtitle: '42 hadis disusun dalam lapan modul pembelajaran.',
               actionLabel: 'Lihat semua',
               onAction: () => onSelectTab(1),
             ),
@@ -81,7 +81,7 @@ class HomeScreen extends StatelessWidget {
                   spacing: gap,
                   runSpacing: gap,
                   children: [
-                    for (final module in modules.take(4))
+                    for (final module in modules)
                       SizedBox(
                         width: cardWidth,
                         child: ElegantModuleCard(
