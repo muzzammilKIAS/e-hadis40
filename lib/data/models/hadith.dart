@@ -26,6 +26,7 @@ class Hadith {
     required this.audioAsset,
     required this.audioDurationMs,
     required this.audioSyncOffsetMs,
+    required this.wordHighlightMode,
     required this.audioTimings,
     required this.audioTranscriptNote,
     required this.learningObjectives,
@@ -62,6 +63,7 @@ class Hadith {
   final String audioAsset;
   final int audioDurationMs;
   final int audioSyncOffsetMs;
+  final String wordHighlightMode;
   final List<AudioTextSegment> audioTimings;
   final String audioTranscriptNote;
   final List<String> learningObjectives;
@@ -122,6 +124,7 @@ class Hadith {
       audioAsset: audioJson['arabicRecitation'] as String? ?? '',
       audioDurationMs: _int(audioJson['durationMs']),
       audioSyncOffsetMs: _int(audioJson['syncOffsetMs']),
+      wordHighlightMode: audioJson['wordHighlightMode'] as String? ?? '',
       audioTimings: _list(audioJson['timedSegments'])
           .map((item) => AudioTextSegment.fromJson(_map(item)))
           .toList(growable: false),

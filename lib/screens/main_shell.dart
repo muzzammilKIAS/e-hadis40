@@ -180,12 +180,6 @@ class _MainShellState extends State<MainShell> {
     setState(() => _selectedIndex = index);
   }
 
-  void _openPlaylist() {
-    Navigator.of(context).push(
-      MaterialPageRoute<void>(builder: (_) => const HadithPlaylistScreen()),
-    );
-  }
-
   Future<void> _openSearch() async {
     final repository = context.read<HadithRepository>();
     final selected = await showSearch<Hadith?>(

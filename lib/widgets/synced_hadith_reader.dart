@@ -162,9 +162,16 @@ class _SyncedHadithReaderState extends State<SyncedHadithReader> {
                             final isCompleted = completed ||
                                 effectiveMs >= segment.endMs ||
                                 index < activeIndex;
-                            final activeWordIndex = isActive
-                                ? _activeWordIndex(segment, effectiveMs)
-                                : -1;
+                            // phraseOnly: tiada word-level highlight proportional.
+                            // Hanya exact `words` timing (jika wujud) dibenarkan.
+                            final bool wordHighlightAllowed =
+                                widget.hadith.wordHighlightMode !=
+                                        'phraseOnly' ||
+                                    segment.hasWordTimings;
+                            final activeWordIndex =
+                                (isActive && wordHighlightAllowed)
+                                    ? _activeWordIndex(segment, effectiveMs)
+                                    : -1;
 
                             return _SyncedSegmentTile(
                               key: _segmentKeys[index],
@@ -429,6 +436,16 @@ class _SyncedHadithReaderState extends State<SyncedHadithReader> {
     if (words.isEmpty) return -1;
     if (positionMs <= segment.startMs) return 0;
     if (positionMs >= segment.endMs) return words.length - 1;
+
+    // Exact word timing jika tersedia (e.g. Hadis 5).
+    if (segment.hasWordTimings) {
+      for (var i = segment.words.length - 1; i >= 0; i--) {
+        if (positionMs >= segment.words[i].startMs) return i;
+      }
+      return 0;
+    }
+
+    // Fallback proportional (hanya jika BUKAN phraseOnly).
     final duration = math.max(1, segment.endMs - segment.startMs);
     final progress =
         ((positionMs - segment.startMs) / duration).clamp(0.0, 1.0);
