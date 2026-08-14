@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../core/constants/app_constants.dart';
 import '../core/theme/app_colors.dart';
 
 /// e-Hadis40 Emerald Motion Splash (SILENT).
@@ -25,8 +24,10 @@ class AppSplashScreen extends StatefulWidget {
 }
 
 class _AppSplashScreenState extends State<AppSplashScreen>
-    with SingleTickerProviderStateMixin {
+    with TickerProviderStateMixin {
   late final AnimationController _controller;
+  late final AnimationController _breatheController;
+  late final Animation<double> _breathe;
   late final Animation<double> _aurora;
   late final Animation<double> _markOpacity;
   late final Animation<double> _markScale;
@@ -34,8 +35,6 @@ class _AppSplashScreenState extends State<AppSplashScreen>
   late final Animation<double> _wordOpacity;
   late final Animation<double> _badgeOpacity;
   late final Animation<double> _badgeScale;
-  late final Animation<double> _subtitleOpacity;
-  late final Animation<double> _subtitleSlide;
   late final Animation<double> _sweep;
 
   bool _reducedMotion = false;
@@ -51,76 +50,75 @@ class _AppSplashScreenState extends State<AppSplashScreen>
 
     _aurora = CurvedAnimation(
       parent: _controller,
-      curve: const Interval(0.00, 0.35, curve: Curves.easeOut),
+      curve: const Interval(0.00, 0.42, curve: Curves.easeInOut),
     );
 
     _markOpacity = CurvedAnimation(
       parent: _controller,
-      curve: const Interval(0.05, 0.30, curve: Curves.easeOutCubic),
+      curve: const Interval(0.04, 0.28, curve: Curves.easeOutCubic),
     );
     _markScale = TweenSequence<double>([
       TweenSequenceItem(
-        tween: Tween(begin: 0.72, end: 1.07)
-            .chain(CurveTween(curve: Curves.easeOutBack)),
-        weight: 70,
+        tween: Tween(begin: 0.86, end: 1.03)
+            .chain(CurveTween(curve: Curves.easeOutCubic)),
+        weight: 65,
       ),
       TweenSequenceItem(
-        tween: Tween(begin: 1.07, end: 1.0)
-            .chain(CurveTween(curve: Curves.easeOut)),
-        weight: 30,
+        tween: Tween(begin: 1.03, end: 1.0)
+            .chain(CurveTween(curve: Curves.easeInOut)),
+        weight: 35,
       ),
     ]).animate(
       CurvedAnimation(
         parent: _controller,
-        curve: const Interval(0.05, 0.40, curve: Curves.easeOut),
+        curve: const Interval(0.04, 0.44, curve: Curves.easeInOut),
       ),
     );
-    _markRotateY = Tween<double>(begin: -0.10, end: 0.0).animate(
+    _markRotateY = Tween<double>(begin: -0.07, end: 0.0).animate(
       CurvedAnimation(
         parent: _controller,
-        curve: const Interval(0.05, 0.40, curve: Curves.easeOutCubic),
+        curve: const Interval(0.04, 0.44, curve: Curves.easeOutCubic),
       ),
     );
 
     _wordOpacity = CurvedAnimation(
       parent: _controller,
-      curve: const Interval(0.24, 0.44, curve: Curves.easeOutCubic),
+      curve: const Interval(0.30, 0.50, curve: Curves.easeOutCubic),
     );
 
     _badgeOpacity = CurvedAnimation(
       parent: _controller,
-      curve: const Interval(0.34, 0.52, curve: Curves.easeOutCubic),
+      curve: const Interval(0.40, 0.58, curve: Curves.easeOutCubic),
     );
     _badgeScale = TweenSequence<double>([
       TweenSequenceItem(
-        tween: Tween(begin: 0.82, end: 1.03)
-            .chain(CurveTween(curve: Curves.easeOutBack)),
-        weight: 70,
+        tween: Tween(begin: 0.88, end: 1.02)
+            .chain(CurveTween(curve: Curves.easeOutCubic)),
+        weight: 65,
       ),
       TweenSequenceItem(
-        tween: Tween(begin: 1.03, end: 1.0)
-            .chain(CurveTween(curve: Curves.easeOut)),
-        weight: 30,
+        tween: Tween(begin: 1.02, end: 1.0)
+            .chain(CurveTween(curve: Curves.easeInOut)),
+        weight: 35,
       ),
     ]).animate(
       CurvedAnimation(
         parent: _controller,
-        curve: const Interval(0.34, 0.56, curve: Curves.easeOut),
+        curve: const Interval(0.40, 0.60, curve: Curves.easeInOut),
       ),
-    );
-
-    _subtitleOpacity = CurvedAnimation(
-      parent: _controller,
-      curve: const Interval(0.48, 0.66, curve: Curves.easeOutCubic),
-    );
-    _subtitleSlide = CurvedAnimation(
-      parent: _controller,
-      curve: const Interval(0.48, 0.66, curve: Curves.easeOutCubic),
     );
 
     _sweep = CurvedAnimation(
       parent: _controller,
-      curve: const Interval(0.66, 0.84, curve: Curves.easeInOut),
+      curve: const Interval(0.66, 0.86, curve: Curves.easeInOut),
+    );
+
+    _breatheController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 2400),
+    )..repeat(reverse: true);
+    _breathe = Tween<double>(begin: 0.0, end: -8.0).animate(
+      CurvedAnimation(parent: _breatheController, curve: Curves.easeInOut),
     );
 
     _controller.forward().whenComplete(() {
@@ -140,6 +138,7 @@ class _AppSplashScreenState extends State<AppSplashScreen>
 
   @override
   void dispose() {
+    _breatheController.dispose();
     _controller.dispose();
     super.dispose();
   }
@@ -173,7 +172,7 @@ class _AppSplashScreenState extends State<AppSplashScreen>
       backgroundColor: bg,
       body: SizedBox.expand(
         child: AnimatedBuilder(
-          animation: _controller,
+          animation: Listenable.merge([_controller, _breatheController]),
           builder: (context, child) {
             return Stack(
               children: [
@@ -188,10 +187,9 @@ class _AppSplashScreenState extends State<AppSplashScreen>
                     wordOpacity: _wordOpacity.value,
                     badgeOpacity: _badgeOpacity.value,
                     badgeScale: _badgeScale.value,
-                    subtitleOpacity: _subtitleOpacity.value,
-                    subtitleSlide: _subtitleSlide.value,
                     sweepProgress: _sweep.value,
                     reducedMotion: _reducedMotion,
+                    breathe: _reducedMotion ? 0 : _breathe.value,
                   ),
                 ),
               ],
@@ -277,10 +275,9 @@ class _SplashLockup extends StatelessWidget {
     required this.wordOpacity,
     required this.badgeOpacity,
     required this.badgeScale,
-    required this.subtitleOpacity,
-    required this.subtitleSlide,
     required this.sweepProgress,
     required this.reducedMotion,
+    required this.breathe,
   });
 
   final bool isDark;
@@ -291,15 +288,12 @@ class _SplashLockup extends StatelessWidget {
   final double wordOpacity;
   final double badgeOpacity;
   final double badgeScale;
-  final double subtitleOpacity;
-  final double subtitleSlide;
   final double sweepProgress;
   final bool reducedMotion;
+  final double breathe;
 
   @override
   Widget build(BuildContext context) {
-    const subtitle = AppConstants.appDescription;
-
     return LayoutBuilder(
       builder: (context, constraints) {
         final width = constraints.maxWidth;
@@ -311,19 +305,21 @@ class _SplashLockup extends StatelessWidget {
         final wordmarkSize =
             width < 420 ? 50.0 : width < 800 ? 64.0 : 80.0;
         final badgeSize = width < 420 ? 30.0 : 38.0;
-        final subtitleSize = width < 420 ? 15.0 : 18.0;
 
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 32),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              _ThreeDLogoMark(
-                size: logoSize,
-                opacity: markOpacity,
-                scale: markScale,
-                rotateY: markRotateY,
-                isDark: isDark,
+              Transform.translate(
+                offset: Offset(0, breathe),
+                child: _ThreeDLogoMark(
+                  size: logoSize,
+                  opacity: markOpacity,
+                  scale: markScale,
+                  rotateY: markRotateY,
+                  isDark: isDark,
+                ),
               ),
               const SizedBox(height: 30),
               _BrandLockup(
@@ -334,27 +330,6 @@ class _SplashLockup extends StatelessWidget {
                 badgeOpacity: badgeOpacity,
                 badgeScale: badgeScale,
                 sweepProgress: sweepProgress,
-              ),
-              const SizedBox(height: 26),
-              Opacity(
-                opacity: subtitleOpacity,
-                child: Transform.translate(
-                  offset: Offset(0, 10 * (1 - subtitleSlide)),
-                  child: ConstrainedBox(
-                    constraints: const BoxConstraints(maxWidth: 680),
-                    child: Text(
-                      subtitle,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: subtitleSize,
-                        fontWeight: FontWeight.w500,
-                        letterSpacing: 0.3,
-                        color: onBg.withValues(alpha: 0.78),
-                        height: 1.5,
-                      ),
-                    ),
-                  ),
-                ),
               ),
             ],
           ),
