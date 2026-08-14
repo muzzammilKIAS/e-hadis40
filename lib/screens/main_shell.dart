@@ -5,6 +5,7 @@ import '../core/constants/app_constants.dart';
 import '../core/utils/responsive.dart';
 import '../services/app_controller.dart';
 import '../services/global_audio_controller.dart';
+import '../widgets/dashboard/islamic_atmosphere.dart';
 import 'bookmarks_screen.dart';
 import 'home_screen.dart';
 import 'modules_screen.dart';
@@ -43,56 +44,100 @@ class _MainShellState extends State<MainShell> {
     ];
 
     return Scaffold(
-      body: desktop
-          ? Row(
-              children: [
-                _DashboardSidebar(
-                  selectedIndex: _selectedIndex,
-                  destinations: _destinations,
-                  onSelect: _selectTab,
-                ),
-                VerticalDivider(width: 1, color: scheme.outlineVariant),
-                Expanded(
-                  child: IndexedStack(
-                    index: _selectedIndex,
-                    children: pages,
+      backgroundColor: Colors.transparent,
+      extendBody: true,
+      body: IslamicAtmosphere(
+        child: desktop
+            ? Row(
+                children: [
+                  _DashboardSidebar(
+                    selectedIndex: _selectedIndex,
+                    destinations: _destinations,
+                    onSelect: _selectTab,
                   ),
-                ),
-              ],
-            )
-          : SafeArea(
-              bottom: false,
-              child: IndexedStack(index: _selectedIndex, children: pages),
-            ),
+                  Container(
+                      width: 1,
+                      color: scheme.outlineVariant.withValues(alpha: 0.6)),
+                  Expanded(
+                    child: IndexedStack(
+                      index: _selectedIndex,
+                      children: pages,
+                    ),
+                  ),
+                ],
+              )
+            : SafeArea(
+                bottom: false,
+                child: IndexedStack(index: _selectedIndex, children: pages),
+              ),
+      ),
       bottomNavigationBar: desktop
           ? null
-          : NavigationBar(
+          : _MobileNavBar(
               selectedIndex: _selectedIndex,
-              onDestinationSelected: _selectTab,
-              height: 68,
-              indicatorColor: scheme.primaryContainer,
-              labelTextStyle: WidgetStatePropertyAll(
-                TextStyle(
-                  color: scheme.onSurface,
-                  fontWeight: FontWeight.w600,
-                  fontSize: 11,
-                ),
-              ),
-              destinations: [
-                for (final item in _destinations)
-                  NavigationDestination(
-                    icon: Icon(item.icon),
-                    selectedIcon:
-                        Icon(item.icon, color: scheme.primary),
-                    label: item.label,
-                  ),
-              ],
+              destinations: _destinations,
+              onSelect: _selectTab,
             ),
     );
   }
 
   void _selectTab(int index) {
     setState(() => _selectedIndex = index);
+  }
+}
+
+class _MobileNavBar extends StatelessWidget {
+  const _MobileNavBar({
+    required this.selectedIndex,
+    required this.destinations,
+    required this.onSelect,
+  });
+
+  final int selectedIndex;
+  final List<_ShellDestination> destinations;
+  final ValueChanged<int> onSelect;
+
+  @override
+  Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+    final dark = scheme.brightness == Brightness.dark;
+
+    return SafeArea(
+      top: false,
+      child: Container(
+        margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+        decoration: BoxDecoration(
+          color: dark ? scheme.surface.withValues(alpha: 0.96) : scheme.surface,
+          border: Border(
+            top: BorderSide(
+              color: scheme.outlineVariant.withValues(alpha: dark ? 0.6 : 1),
+            ),
+          ),
+        ),
+        child: NavigationBar(
+          selectedIndex: selectedIndex,
+          onDestinationSelected: onSelect,
+          height: 68,
+          backgroundColor: Colors.transparent,
+          indicatorColor: scheme.primaryContainer,
+          labelTextStyle: WidgetStatePropertyAll(
+            TextStyle(
+              color: scheme.onSurface,
+              fontWeight: FontWeight.w600,
+              fontSize: 11,
+            ),
+          ),
+          destinations: [
+            for (final item in destinations)
+              NavigationDestination(
+                icon: Icon(item.icon),
+                selectedIcon: Icon(item.icon, color: scheme.primary),
+                label: item.label,
+              ),
+          ],
+        ),
+      ),
+    );
   }
 }
 
@@ -117,11 +162,16 @@ class _DashboardSidebarState extends State<_DashboardSidebar> {
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
+    final dark = scheme.brightness == Brightness.dark;
     final collapsed = _collapsed;
 
-    return Container(
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 200),
+      curve: Curves.easeOut,
       width: collapsed ? 92 : 264,
-      color: scheme.surface,
+      color: dark
+          ? scheme.surface.withValues(alpha: 0.92)
+          : scheme.surface.withValues(alpha: 0.96),
       child: Column(
         children: [
           SizedBox(
@@ -172,7 +222,8 @@ class _DashboardSidebarState extends State<_DashboardSidebar> {
               ),
             ),
           ),
-          Divider(height: 1, color: scheme.outlineVariant),
+          Divider(
+              height: 1, color: scheme.outlineVariant.withValues(alpha: 0.6)),
           Expanded(
             child: ListView(
               padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
@@ -187,7 +238,8 @@ class _DashboardSidebarState extends State<_DashboardSidebar> {
               ],
             ),
           ),
-          Divider(height: 1, color: scheme.outlineVariant),
+          Divider(
+              height: 1, color: scheme.outlineVariant.withValues(alpha: 0.6)),
           SizedBox(
             height: 56,
             child: Padding(
@@ -213,7 +265,7 @@ class _DashboardSidebarState extends State<_DashboardSidebar> {
   }
 }
 
-class _SidebarItem extends StatelessWidget {
+class _SidebarItem extends StatefulWidget {
   const _SidebarItem({
     required this.destination,
     required this.selected,
@@ -227,61 +279,80 @@ class _SidebarItem extends StatelessWidget {
   final VoidCallback onTap;
 
   @override
+  State<_SidebarItem> createState() => _SidebarItemState();
+}
+
+class _SidebarItemState extends State<_SidebarItem> {
+  bool _hovered = false;
+
+  @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
+    final selected = widget.selected;
     final fg = selected ? scheme.primary : scheme.onSurfaceVariant;
 
     return Padding(
       padding: const EdgeInsets.only(bottom: 6),
-      child: Material(
-        color: selected ? scheme.primaryContainer : Colors.transparent,
-        borderRadius: BorderRadius.circular(14),
-        child: InkWell(
-          onTap: onTap,
-          borderRadius: BorderRadius.circular(14),
-            child: Tooltip(
-              message: collapsed ? destination.label : '',
-              waitDuration: const Duration(milliseconds: 300),
-              child: SizedBox(
-              height: 48,
-              child: Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: collapsed ? 0 : 16,
-                ),
-                child: Row(
-                  mainAxisAlignment: collapsed
-                      ? MainAxisAlignment.center
-                      : MainAxisAlignment.start,
-                  children: [
-                    Icon(
-                      destination.icon,
-                      color: fg,
-                      size: 22,
+      child: MouseRegion(
+        onEnter: (_) => setState(() => _hovered = true),
+        onExit: (_) => setState(() => _hovered = false),
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 160),
+          decoration: BoxDecoration(
+            color: selected
+                ? scheme.primaryContainer
+                : _hovered
+                    ? scheme.primaryContainer.withValues(alpha: 0.35)
+                    : Colors.transparent,
+            borderRadius: BorderRadius.circular(14),
+          ),
+          child: Material(
+            type: MaterialType.transparency,
+            child: InkWell(
+              onTap: widget.onTap,
+              borderRadius: BorderRadius.circular(14),
+              child: Tooltip(
+                message: widget.collapsed ? widget.destination.label : '',
+                waitDuration: const Duration(milliseconds: 300),
+                child: SizedBox(
+                  height: 48,
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: widget.collapsed ? 0 : 16,
                     ),
-                    if (!collapsed) ...[
-                      const SizedBox(width: 14),
-                      Expanded(
-                        child: Text(
-                          destination.label,
-                          style: TextStyle(
-                            color: fg,
-                            fontWeight:
-                                selected ? FontWeight.w700 : FontWeight.w500,
-                            fontSize: 14,
+                    child: Row(
+                      mainAxisAlignment: widget.collapsed
+                          ? MainAxisAlignment.center
+                          : MainAxisAlignment.start,
+                      children: [
+                        Icon(widget.destination.icon, color: fg, size: 22),
+                        if (!widget.collapsed) ...[
+                          const SizedBox(width: 14),
+                          Expanded(
+                            child: Text(
+                              widget.destination.label,
+                              style: TextStyle(
+                                color: fg,
+                                fontWeight: selected
+                                    ? FontWeight.w700
+                                    : FontWeight.w500,
+                                fontSize: 14,
+                              ),
+                            ),
                           ),
-                        ),
-                      ),
-                      if (selected)
-                        Container(
-                          width: 6,
-                          height: 6,
-                          decoration: BoxDecoration(
-                            color: scheme.primary,
-                            shape: BoxShape.circle,
-                          ),
-                        ),
-                    ],
-                  ],
+                          if (selected)
+                            Container(
+                              width: 6,
+                              height: 6,
+                              decoration: BoxDecoration(
+                                color: scheme.primary,
+                                shape: BoxShape.circle,
+                              ),
+                            ),
+                        ],
+                      ],
+                    ),
+                  ),
                 ),
               ),
             ),

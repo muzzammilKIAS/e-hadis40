@@ -131,8 +131,7 @@ class _AppSplashScreenState extends State<AppSplashScreen>
     super.didChangeDependencies();
     if (!_reducedMotionResolved) {
       _reducedMotionResolved = true;
-      _reducedMotion =
-          MediaQuery.maybeOf(context)?.disableAnimations ?? false;
+      _reducedMotion = MediaQuery.maybeOf(context)?.disableAnimations ?? false;
     }
   }
 
@@ -165,8 +164,7 @@ class _AppSplashScreenState extends State<AppSplashScreen>
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
     final bg = isDark ? AppColors.splashDarkBg : AppColors.splashLightBg;
-    final onBg =
-        isDark ? AppColors.splashLightText : const Color(0xFF0A2A20);
+    final onBg = isDark ? AppColors.splashLightText : const Color(0xFF0A2A20);
 
     return Scaffold(
       backgroundColor: bg,
@@ -208,9 +206,7 @@ class _IridescentAurora extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final base = isDark
-        ? AppColors.splashDarkBg
-        : const Color(0xFF0F513F);
+    final base = isDark ? AppColors.splashDarkBg : const Color(0xFF0F513F);
     return Container(
       decoration: BoxDecoration(
         gradient: RadialGradient(
@@ -302,8 +298,11 @@ class _SplashLockup extends StatelessWidget {
             : width < 800
                 ? 200.0
                 : 240.0;
-        final wordmarkSize =
-            width < 420 ? 50.0 : width < 800 ? 64.0 : 80.0;
+        final wordmarkSize = width < 420
+            ? 50.0
+            : width < 800
+                ? 64.0
+                : 80.0;
         final badgeSize = width < 420 ? 30.0 : 38.0;
 
         return Padding(
@@ -393,7 +392,8 @@ class _ThreeDLogoMark extends StatelessWidget {
                 shape: BoxShape.circle,
                 boxShadow: [
                   BoxShadow(
-                    color: AppColors.splashPrimaryEmerald.withValues(alpha: 0.30),
+                    color:
+                        AppColors.splashPrimaryEmerald.withValues(alpha: 0.30),
                     blurRadius: 60,
                     spreadRadius: 10,
                   ),
@@ -425,7 +425,8 @@ class _ThreeDLogoMark extends StatelessWidget {
     );
   }
 
-  Widget _extrusion(double size, double dy, double dx, double alpha, bool isDark) {
+  Widget _extrusion(
+      double size, double dy, double dx, double alpha, bool isDark) {
     return Transform.translate(
       offset: Offset(dx, dy),
       child: Opacity(

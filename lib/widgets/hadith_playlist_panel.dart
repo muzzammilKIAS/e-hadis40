@@ -86,8 +86,8 @@ class _DecorativeBackground extends StatelessWidget {
             const SizedBox(height: 160),
             Opacity(
               opacity: isDark ? 0.04 : 0.06,
-              child: const Icon(Icons.mosque_rounded, size: 200,
-                  color: AppColors.primary),
+              child: const Icon(Icons.mosque_rounded,
+                  size: 200, color: AppColors.primary),
             ),
             const Spacer(),
             Opacity(
@@ -95,8 +95,8 @@ class _DecorativeBackground extends StatelessWidget {
               child: Transform(
                 alignment: Alignment.center,
                 transform: Matrix4.rotationZ(pi),
-                child: const Icon(Icons.headphones_rounded, size: 240,
-                    color: AppColors.primary),
+                child: const Icon(Icons.headphones_rounded,
+                    size: 240, color: AppColors.primary),
               ),
             ),
             const SizedBox(height: 60),
@@ -109,7 +109,9 @@ class _DecorativeBackground extends StatelessWidget {
 
 class _ElegantHeader extends StatelessWidget {
   const _ElegantHeader({
-    required this.scheme, required this.audio, required this.tracks,
+    required this.scheme,
+    required this.audio,
+    required this.tracks,
   });
   final ColorScheme scheme;
   final GlobalHadithAudioController audio;
@@ -121,7 +123,10 @@ class _ElegantHeader extends StatelessWidget {
       padding: const EdgeInsets.all(AppSpacing.lg),
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [scheme.primaryContainer.withValues(alpha: 0.8), scheme.surface],
+          colors: [
+            scheme.primaryContainer.withValues(alpha: 0.8),
+            scheme.surface
+          ],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
@@ -145,8 +150,8 @@ class _ElegantHeader extends StatelessWidget {
                 ),
               ],
             ),
-            child:
-                Icon(Icons.headphones_rounded, color: scheme.onPrimary, size: 24),
+            child: Icon(Icons.headphones_rounded,
+                color: scheme.onPrimary, size: 24),
           ),
           const SizedBox(width: AppSpacing.md),
           Expanded(
@@ -185,7 +190,9 @@ class _RepeatModePill extends StatelessWidget {
             : 'Ulang semua';
 
     return Material(
-      color: isActive ? scheme.primary.withValues(alpha: 0.12) : Colors.transparent,
+      color: isActive
+          ? scheme.primary.withValues(alpha: 0.12)
+          : Colors.transparent,
       borderRadius: BorderRadius.circular(999),
       child: InkWell(
         onTap: audio.cycleRepeatMode,
@@ -201,8 +208,11 @@ class _RepeatModePill extends StatelessWidget {
                 child: Stack(
                   alignment: Alignment.center,
                   children: [
-                    Icon(Icons.repeat_rounded, size: 16,
-                        color: isActive ? scheme.primary : scheme.onSurfaceVariant),
+                    Icon(Icons.repeat_rounded,
+                        size: 16,
+                        color: isActive
+                            ? scheme.primary
+                            : scheme.onSurfaceVariant),
                     if (isOne)
                       Positioned(
                         top: 0,
@@ -220,7 +230,8 @@ class _RepeatModePill extends StatelessWidget {
                   style: TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.w600,
-                      color: isActive ? scheme.primary : scheme.onSurfaceVariant)),
+                      color:
+                          isActive ? scheme.primary : scheme.onSurfaceVariant)),
             ],
           ),
         ),
@@ -231,7 +242,9 @@ class _RepeatModePill extends StatelessWidget {
 
 class _NowPlayingCard extends StatelessWidget {
   const _NowPlayingCard({
-    required this.scheme, required this.audio, required this.tracks,
+    required this.scheme,
+    required this.audio,
+    required this.tracks,
   });
   final ColorScheme scheme;
   final GlobalHadithAudioController audio;
@@ -317,7 +330,8 @@ class _NowPlayingCard extends StatelessWidget {
                         Flexible(
                           child: Text(hadith.theme,
                               style: TextStyle(
-                                  color: scheme.onSurfaceVariant, fontSize: 12)),
+                                  color: scheme.onSurfaceVariant,
+                                  fontSize: 12)),
                         ),
                       ],
                     ),
@@ -497,8 +511,9 @@ class _ProgressSlider extends StatelessWidget {
           stream: audio.player.positionStream,
           builder: (context, positionSnapshot) {
             final position = positionSnapshot.data ?? Duration.zero;
-            final safePosition =
-                position > duration && duration > Duration.zero ? duration : position;
+            final safePosition = position > duration && duration > Duration.zero
+                ? duration
+                : position;
             final maxMs = duration.inMilliseconds <= 0
                 ? 1.0
                 : duration.inMilliseconds.toDouble();
@@ -526,7 +541,8 @@ class _ProgressSlider extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: AppSpacing.md),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: AppSpacing.md),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -649,7 +665,9 @@ class _TrackCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: isActive ? scheme.primaryContainer.withValues(alpha: 0.7) : scheme.surface,
+        color: isActive
+            ? scheme.primaryContainer.withValues(alpha: 0.7)
+            : scheme.surface,
         borderRadius: BorderRadius.circular(14),
         boxShadow: isActive
             ? [
@@ -714,8 +732,9 @@ class _TrackCard extends StatelessWidget {
                     children: [
                       Text(hadith.title,
                           style: TextStyle(
-                              fontWeight:
-                                  isActive ? FontWeight.w600 : FontWeight.normal,
+                              fontWeight: isActive
+                                  ? FontWeight.w600
+                                  : FontWeight.normal,
                               color: isActive
                                   ? scheme.onPrimaryContainer
                                   : scheme.onSurface)),
@@ -724,7 +743,8 @@ class _TrackCard extends StatelessWidget {
                           style: TextStyle(
                               fontSize: 11,
                               color: isActive
-                                  ? scheme.onPrimaryContainer.withValues(alpha: 0.65)
+                                  ? scheme.onPrimaryContainer
+                                      .withValues(alpha: 0.65)
                                   : scheme.onSurfaceVariant)),
                     ],
                   ),

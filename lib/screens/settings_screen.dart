@@ -242,7 +242,8 @@ class _ThemeModeChoice extends StatelessWidget {
           child: Row(
             children: [
               ConstrainedBox(
-                constraints: const BoxConstraints.tightFor(width: 44, height: 44),
+                constraints:
+                    const BoxConstraints.tightFor(width: 44, height: 44),
                 child: Icon(
                   icon,
                   color: selected
@@ -262,7 +263,8 @@ class _ThemeModeChoice extends StatelessWidget {
                         color: selected
                             ? scheme.onSecondaryContainer
                             : scheme.onSurface,
-                        fontWeight: selected ? FontWeight.w600 : FontWeight.normal,
+                        fontWeight:
+                            selected ? FontWeight.w600 : FontWeight.normal,
                       ),
                     ),
                     const SizedBox(height: 2),

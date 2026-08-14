@@ -128,8 +128,7 @@ class Hadith {
       audioTimings: _list(audioJson['timedSegments'])
           .map((item) => AudioTextSegment.fromJson(_map(item)))
           .toList(growable: false),
-      audioTranscriptNote:
-          json['audioTranscriptNote'] as String? ?? '',
+      audioTranscriptNote: json['audioTranscriptNote'] as String? ?? '',
       learningObjectives: _stringList(json['learningObjectives']),
       supplications: _list(json['supplications'])
           .map((item) => Supplication.fromJson(_map(item)))

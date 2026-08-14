@@ -29,10 +29,9 @@ class _ProjectorScreenState extends State<ProjectorScreen> {
   late Hadith _currentHadith;
   int _index = 0;
 
-  List<Hadith> get _allHadiths =>
-      widget.repository.availableHadiths
-          .where((h) => h.number <= AppCurriculumStructure.totalHadiths)
-          .toList();
+  List<Hadith> get _allHadiths => widget.repository.availableHadiths
+      .where((h) => h.number <= AppCurriculumStructure.totalHadiths)
+      .toList();
 
   @override
   void initState() {
@@ -66,8 +65,7 @@ class _ProjectorScreenState extends State<ProjectorScreen> {
       ),
       _ProjectorPageData(
           title: 'Maksud Hadis', paragraphs: [h.translationMalay]),
-      _ProjectorPageData(
-          title: 'Huraian Hadis', paragraphs: h.explanations),
+      _ProjectorPageData(title: 'Huraian Hadis', paragraphs: h.explanations),
     ];
 
     if (h.contextNotice.trim().isNotEmpty) {
@@ -170,9 +168,7 @@ class _ProjectorScreenState extends State<ProjectorScreen> {
             const SizedBox(width: 4),
             IconButton(
               icon: Icon(
-                _hasNext
-                    ? Icons.skip_next_rounded
-                    : Icons.skip_next_rounded,
+                _hasNext ? Icons.skip_next_rounded : Icons.skip_next_rounded,
                 color: _hasNext ? null : Theme.of(context).disabledColor,
               ),
               tooltip: _hasNext ? 'Hadis ${hadith.number + 1}' : '',
@@ -214,8 +210,7 @@ class _ProjectorScreenState extends State<ProjectorScreen> {
               child: Row(
                 children: [
                   OutlinedButton.icon(
-                    onPressed:
-                        _index == 0 ? null : () => _goTo(_index - 1),
+                    onPressed: _index == 0 ? null : () => _goTo(_index - 1),
                     icon: const Icon(Icons.arrow_back_rounded),
                     label: const Text('Sebelumnya'),
                   ),
@@ -405,7 +400,8 @@ class _SyncedProjectorPageState extends State<_SyncedProjectorPage> {
     var segIdx = 0;
     for (var i = 0; i < result.length; i++) {
       final seg = widget.hadith.audioTimings[segIdx];
-      if (result[i].startMs >= seg.endMs && segIdx + 1 < widget.hadith.audioTimings.length) {
+      if (result[i].startMs >= seg.endMs &&
+          segIdx + 1 < widget.hadith.audioTimings.length) {
         segIdx++;
       }
       result[i] = result[i].copyWith(segmentIndex: segIdx);
@@ -476,7 +472,8 @@ class _SyncedProjectorPageState extends State<_SyncedProjectorPage> {
                               text: '${_timedWords[i].text} ',
                               style: TextStyle(
                                 fontFamily: AppConstants.arabicFontFamily,
-                                fontFamilyFallback: AppConstants.arabicFontFallback,
+                                fontFamilyFallback:
+                                    AppConstants.arabicFontFallback,
                                 fontSize: 46,
                                 height: 2,
                                 color: i == activeWordIdx
@@ -522,8 +519,11 @@ class _TimedWord {
   final int endMs;
   final int segmentIndex;
 
-  _TimedWord copyWith({int? segmentIndex}) =>
-      _TimedWord(text: text, startMs: startMs, endMs: endMs, segmentIndex: segmentIndex ?? this.segmentIndex);
+  _TimedWord copyWith({int? segmentIndex}) => _TimedWord(
+      text: text,
+      startMs: startMs,
+      endMs: endMs,
+      segmentIndex: segmentIndex ?? this.segmentIndex);
 }
 
 class _ProjectorAudioBar extends StatelessWidget {
@@ -560,12 +560,12 @@ class _ProjectorAudioBar extends StatelessWidget {
                     : duration.inMilliseconds.toDouble();
 
                 return Container(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 16, vertical: 10),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
                   decoration: BoxDecoration(
                     color: scheme.surface,
-                    border: Border(
-                        top: BorderSide(color: scheme.outlineVariant)),
+                    border:
+                        Border(top: BorderSide(color: scheme.outlineVariant)),
                   ),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
@@ -576,8 +576,7 @@ class _ProjectorAudioBar extends StatelessWidget {
                           thumbShape: const RoundSliderThumbShape(
                               enabledThumbRadius: 6),
                           activeTrackColor: scheme.primary,
-                          inactiveTrackColor:
-                              scheme.surfaceContainerHighest,
+                          inactiveTrackColor: scheme.surfaceContainerHighest,
                           thumbColor: scheme.primary,
                         ),
                         child: Slider(
@@ -586,8 +585,7 @@ class _ProjectorAudioBar extends StatelessWidget {
                               .clamp(0.0, maxMs),
                           max: maxMs,
                           onChanged: (value) {
-                            audio.seek(
-                                Duration(milliseconds: value.round()));
+                            audio.seek(Duration(milliseconds: value.round()));
                           },
                         ),
                       ),
@@ -603,11 +601,8 @@ class _ProjectorAudioBar extends StatelessWidget {
                             child: IconButton(
                               onPressed: audio.toggleRepeat,
                               isSelected: audio.repeat,
-                              icon: const Icon(Icons.repeat_rounded,
-                                  size: 20),
-                              color: audio.repeat
-                                  ? scheme.primary
-                                  : null,
+                              icon: const Icon(Icons.repeat_rounded, size: 20),
+                              color: audio.repeat ? scheme.primary : null,
                             ),
                           ),
                           const SizedBox(width: 12),
@@ -617,9 +612,8 @@ class _ProjectorAudioBar extends StatelessWidget {
                               shape: BoxShape.circle,
                             ),
                             child: IconButton(
-                              onPressed: isCompleted
-                                  ? audio.replay
-                                  : audio.togglePlay,
+                              onPressed:
+                                  isCompleted ? audio.replay : audio.togglePlay,
                               icon: Icon(
                                 isCompleted
                                     ? Icons.replay_rounded
@@ -688,9 +682,8 @@ class _SpeedToggleGlobal extends StatelessWidget {
             style: TextStyle(
                 fontSize: 12,
                 fontWeight: FontWeight.w600,
-                color: speed != 1.0
-                    ? scheme.primary
-                    : scheme.onSurfaceVariant)),
+                color:
+                    speed != 1.0 ? scheme.primary : scheme.onSurfaceVariant)),
       ),
     );
   }

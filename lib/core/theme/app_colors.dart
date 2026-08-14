@@ -50,6 +50,15 @@ class AppColors {
   static const gold = Color(0xFFB69246);
   static const softGold = Color(0xFFD7C08A);
   static const darkGold = Color(0xFFD2B46C);
+  static const goldAccent = Color(0xFFD8B55B);
+
+  // ── Atmosphere (background berlapis) ──────────────────
+  /// Emerald pekat untuk base layer dark mode.
+  static const deepEmerald = Color(0xFF0F513F);
+  static const darkAtmosphereBase = Color(0xFF091311);
+  static const darkAtmosphereGlow = Color(0xFF14503C);
+  static const lightAtmosphereBase = Color(0xFFF2F9F5);
+  static const lightAtmosphereGlow = Color(0xFFCFEADD);
 
   // ── Splash (kept compatible) ──────────────────────────
   static const splashLightBg = Color(0xFFF6FBF9);

@@ -120,8 +120,7 @@ class _SyncedHadithReaderState extends State<SyncedHadithReader> {
                 final position = positionSnapshot.data ?? Duration.zero;
                 final effectiveMs = math.max(
                   0,
-                  position.inMilliseconds +
-                      widget.hadith.audioSyncOffsetMs,
+                  position.inMilliseconds + widget.hadith.audioSyncOffsetMs,
                 );
                 final activeIndex = _activeSegmentIndex(effectiveMs);
                 _scheduleAutoScroll(activeIndex, completed: completed);
@@ -312,9 +311,7 @@ class _SyncedHadithReaderState extends State<SyncedHadithReader> {
               ),
             ),
             Tooltip(
-              message: _audio.repeat
-                  ? 'Matikan ulangan'
-                  : 'Ulang satu',
+              message: _audio.repeat ? 'Matikan ulangan' : 'Ulang satu',
               child: IconButton(
                 onPressed: _audio.toggleRepeat,
                 isSelected: _audio.repeat,
@@ -603,12 +600,11 @@ class _SyncedSegmentTile extends StatelessWidget {
                                     index == activeWordIndex && isActive
                                         ? scheme.tertiaryContainer
                                         : Colors.transparent,
-                                fontWeight:
-                                    index == activeWordIndex && isActive
-                                        ? FontWeight.w900
-                                        : isActive && index < activeWordIndex
-                                            ? FontWeight.w700
-                                            : FontWeight.w500,
+                                fontWeight: index == activeWordIndex && isActive
+                                    ? FontWeight.w900
+                                    : isActive && index < activeWordIndex
+                                        ? FontWeight.w700
+                                        : FontWeight.w500,
                               ),
                             ),
                         ],

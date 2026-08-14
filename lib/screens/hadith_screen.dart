@@ -162,7 +162,8 @@ class _HadithScreenState extends State<HadithScreen> {
                       Container(
                         padding: const EdgeInsets.all(12),
                         decoration: BoxDecoration(
-                          color: scheme.secondaryContainer.withValues(alpha: 0.3),
+                          color:
+                              scheme.secondaryContainer.withValues(alpha: 0.3),
                           borderRadius: BorderRadius.circular(12),
                         ),
                         child: Row(
@@ -238,9 +239,10 @@ class _HadithScreenState extends State<HadithScreen> {
                         const SizedBox(height: AppSpacing.md),
                         Text(
                           hadith.supportingExample!.sourceNote,
-                          style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                                color: scheme.onSurfaceVariant,
-                              ),
+                          style:
+                              Theme.of(context).textTheme.bodySmall?.copyWith(
+                                    color: scheme.onSurfaceVariant,
+                                  ),
                         ),
                       ],
                     ],
@@ -273,7 +275,8 @@ class _HadithScreenState extends State<HadithScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        if (hadith.allQuranEvidences[i].arabicText.isNotEmpty) ...[
+                        if (hadith
+                            .allQuranEvidences[i].arabicText.isNotEmpty) ...[
                           SizedBox(
                             width: double.infinity,
                             child: Directionality(
@@ -285,20 +288,23 @@ class _HadithScreenState extends State<HadithScreen> {
                                   fontSize: 22 * controller.arabicScale,
                                   height: 2.0,
                                   fontFamily: AppConstants.arabicFontFamily,
-                                  fontFamilyFallback: AppConstants.arabicFontFallback,
+                                  fontFamilyFallback:
+                                      AppConstants.arabicFontFallback,
                                 ),
                               ),
                             ),
                           ),
                           const SizedBox(height: AppSpacing.lg),
                         ],
-                        if (hadith.allQuranEvidences[i].translationMalay.isNotEmpty)
+                        if (hadith
+                            .allQuranEvidences[i].translationMalay.isNotEmpty)
                           Text(
                             '"${hadith.allQuranEvidences[i].translationMalay}"',
                             textAlign: TextAlign.center,
-                            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                                  height: 1.8,
-                                ),
+                            style:
+                                Theme.of(context).textTheme.bodyLarge?.copyWith(
+                                      height: 1.8,
+                                    ),
                           ),
                       ],
                     ),

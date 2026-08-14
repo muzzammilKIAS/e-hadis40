@@ -51,9 +51,8 @@ class GlobalHadithAudioController extends ChangeNotifier {
   bool get hasNext => _currentIndex < _playlist.length - 1;
 
   void init(List<Hadith> hadiths) {
-    _playlist = hadiths
-        .where((h) => h.audioAsset.isNotEmpty)
-        .toList(growable: false);
+    _playlist =
+        hadiths.where((h) => h.audioAsset.isNotEmpty).toList(growable: false);
 
     AudioArbitration.registerGlobalPauser(pauseForLocal);
 

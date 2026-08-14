@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../core/theme/app_colors.dart';
-import '../core/theme/app_spacing.dart';
-import '../core/utils/responsive.dart';
+import '../core/utils/dashboard_layout.dart';
 import '../data/models/hadith.dart';
 import '../data/models/learning_module.dart';
 import '../data/repositories/hadith_repository.dart';
 import '../services/app_controller.dart';
 import '../widgets/app_footer.dart';
+import '../widgets/dashboard/dashboard_activity_tile.dart';
+import '../widgets/dashboard/islamic_atmosphere.dart';
+import '../widgets/dashboard/module_identity.dart';
 import 'hadith_screen.dart';
 
 class ModuleDetailScreen extends StatelessWidget {
@@ -21,65 +23,87 @@ class ModuleDetailScreen extends StatelessWidget {
     final repository = context.read<HadithRepository>();
     final controller = context.watch<AppController>();
     final progress = controller.moduleProgress(module);
+    final scheme = Theme.of(context).colorScheme;
 
-    final hadiths = module.hadithNumbers
-        .map((n) => repository.byNumber(n))
-        .toList();
+    final hadiths =
+        module.hadithNumbers.map((n) => repository.byNumber(n)).toList();
 
-    final completedCount = hadiths
-        .where((h) =>
-            h != null && controller.isCompleted(h.id))
-        .length;
+    final completedCount =
+        hadiths.where((h) => h != null && controller.isCompleted(h.id)).length;
 
     return Scaffold(
+      backgroundColor: Colors.transparent,
       appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        surfaceTintColor: Colors.transparent,
         title: Text('${module.title} · ${module.rangeLabel}'),
       ),
-      body: Column(
-        children: [
-          Expanded(
-            child: ListView(
-              padding: Responsive.pagePadding(context),
-              children: [
-                Responsive.constrainedPage(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+      body: IslamicAtmosphere(
+        intensity: 0.7,
+        child: Column(
+          children: [
+            Expanded(
+              child: LayoutBuilder(
+                builder: (context, constraints) {
+                  final layout = DashboardLayout.of(constraints);
+                  return ListView(
+                    padding: layout.pagePadding,
                     children: [
-                      _ModuleHero(
-                        module: module,
-                        progress: progress,
-                        completedCount: completedCount,
-                        totalCount: module.hadithNumbers.length,
-                      ),
-                      const SizedBox(height: AppSpacing.xxl),
-                      Text(
-                        'Senarai Hadis',
-                        style: Theme.of(context).textTheme.titleLarge,
-                      ),
-                      const SizedBox(height: AppSpacing.lg),
-                      for (final hadith in hadiths)
-                        Padding(
-                          padding: const EdgeInsets.only(
-                              bottom: AppSpacing.md),
-                          child: _HadithCard(
-                            number: hadith?.number ??
-                                (hadiths.indexOf(hadith) +
-                                    module.startHadith),
-                            hadith: hadith,
-                            completed: hadith != null &&
-                                controller.isCompleted(hadith.id),
-                            bookmarked: hadith != null &&
-                                controller.isBookmarked(hadith.id),
+                      Align(
+                        alignment: Alignment.topCenter,
+                        child: SizedBox(
+                          width: layout.contentWidth,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              _ModuleHero(
+                                module: module,
+                                progress: progress,
+                                completedCount: completedCount,
+                                totalCount: module.hadithNumbers.length,
+                              ),
+                              SizedBox(height: layout.sectionGap),
+                              Row(
+                                children: [
+                                  Icon(Icons.format_list_bulleted_rounded,
+                                      size: 18, color: scheme.primary),
+                                  const SizedBox(width: 8),
+                                  Text(
+                                    'Senarai Hadis',
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .titleLarge
+                                        ?.copyWith(fontWeight: FontWeight.w700),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(height: layout.gap + 4),
+                              for (var i = 0; i < hadiths.length; i++)
+                                Padding(
+                                  padding: EdgeInsets.only(bottom: layout.gap),
+                                  child: _HadithCard(
+                                    module: module,
+                                    number: hadiths[i]?.number ??
+                                        (module.startHadith + i),
+                                    hadith: hadiths[i],
+                                    completed: hadiths[i] != null &&
+                                        controller.isCompleted(hadiths[i]!.id),
+                                    bookmarked: hadiths[i] != null &&
+                                        controller.isBookmarked(hadiths[i]!.id),
+                                  ),
+                                ),
+                            ],
                           ),
                         ),
+                      ),
                     ],
-                  ),
-                ),
-              ],
+                  );
+                },
+              ),
             ),
-          ),
-          const AppFooter(),
-        ],
+            const AppFooter(),
+          ],
+        ),
       ),
     );
   }
@@ -101,93 +125,102 @@ class _ModuleHero extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
+    final dark = scheme.brightness == Brightness.dark;
+    final accent = ModuleIdentity.accentFor(scheme, module.number);
+
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.all(AppSpacing.xxl),
+      clipBehavior: Clip.antiAlias,
+      padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          colors: [
-            scheme.primary,
-            Color.lerp(scheme.primary, scheme.secondary, 0.55)!,
-          ],
+          colors: dark
+              ? [AppColors.deepEmerald, accent.withValues(alpha: 0.9)]
+              : [scheme.primary, Color.lerp(scheme.primary, accent, 0.6)!],
         ),
         borderRadius: BorderRadius.circular(28),
+        border: Border.all(
+          color: AppColors.goldAccent.withValues(alpha: 0.28),
+        ),
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      child: Stack(
         children: [
-          Row(
+          Positioned.fill(
+            child: IslamicCardPattern(
+              color: Colors.white,
+              seed: module.number,
+              opacity: 1.4,
+            ),
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                width: 52,
-                height: 52,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: Colors.white.withValues(alpha: 0.18),
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                child: Text(
-                  module.number.toString().padLeft(2, '0'),
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w800,
-                    fontSize: 20,
-                  ),
-                ),
-              ),
-              const SizedBox(width: AppSpacing.lg),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              Row(
                 children: [
-                  Text(
-                    module.title,
-                    style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w800,
+                  ModuleGlyph(moduleNumber: module.number, size: 56),
+                  const SizedBox(width: 16),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          module.title,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: Theme.of(context)
+                              .textTheme
+                              .headlineSmall
+                              ?.copyWith(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w800,
+                              ),
                         ),
-                  ),
-                  const SizedBox(height: 2),
-                  Text(
-                    module.rangeLabel,
-                    style: TextStyle(
-                      color: Colors.white.withValues(alpha: 0.85),
+                        const SizedBox(height: 2),
+                        Text(
+                          module.rangeLabel,
+                          style: TextStyle(
+                            color: Colors.white.withValues(alpha: 0.85),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
               ),
-            ],
-          ),
-          const SizedBox(height: AppSpacing.xl),
-          Row(
-            children: [
-              Text(
-                '$completedCount / $totalCount selesai',
-                style: const TextStyle(
+              const SizedBox(height: 22),
+              Row(
+                children: [
+                  Text(
+                    '$completedCount / $totalCount selesai',
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  const Spacer(),
+                  Text(
+                    '${(progress * 100).round()}%',
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w800,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 8),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(999),
+                child: LinearProgressIndicator(
+                  value: progress,
+                  minHeight: 8,
+                  backgroundColor: Colors.white.withValues(alpha: 0.25),
                   color: Colors.white,
-                  fontWeight: FontWeight.w600,
                 ),
               ),
-              const Spacer(),
-              Text(
-                '${(progress * 100).round()}%',
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w800,
-                ),
-              ),
             ],
-          ),
-          const SizedBox(height: AppSpacing.sm),
-          ClipRRect(
-            borderRadius: BorderRadius.circular(999),
-            child: LinearProgressIndicator(
-              value: progress,
-              minHeight: 8,
-              backgroundColor: Colors.white.withValues(alpha: 0.25),
-              color: Colors.white,
-            ),
           ),
         ],
       ),
@@ -197,12 +230,14 @@ class _ModuleHero extends StatelessWidget {
 
 class _HadithCard extends StatelessWidget {
   const _HadithCard({
+    required this.module,
     required this.number,
     required this.hadith,
     required this.completed,
     required this.bookmarked,
   });
 
+  final LearningModule module;
   final int number;
   final Hadith? hadith;
   final bool completed;
@@ -212,6 +247,7 @@ class _HadithCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final available = hadith != null;
     final scheme = Theme.of(context).colorScheme;
+    final accent = ModuleIdentity.accentFor(scheme, module.number);
 
     final statusLabel = completed
         ? 'Selesai'
@@ -221,115 +257,58 @@ class _HadithCard extends StatelessWidget {
     final statusColor = completed
         ? scheme.primary
         : available
-            ? scheme.secondary
+            ? accent
             : scheme.onSurfaceVariant;
+    final hasAudio = available && hadith!.audioAsset.isNotEmpty;
 
-    return Container(
-      padding: const EdgeInsets.all(AppSpacing.lg),
-      decoration: BoxDecoration(
-        color: scheme.surface,
-        borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: scheme.outlineVariant),
-      ),
-      child: Row(
-        children: [
-          Container(
-            width: 46,
-            height: 46,
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              color: available
-                  ? scheme.primaryContainer
-                  : scheme.surfaceContainerHighest,
-              borderRadius: BorderRadius.circular(14),
-            ),
-            child: Text(
-              number.toString().padLeft(2, '0'),
-              style: TextStyle(
-                color: available
-                    ? scheme.primary
-                    : scheme.onSurfaceVariant,
-                fontWeight: FontWeight.w800,
-                fontSize: 16,
-              ),
-            ),
-          ),
-          const SizedBox(width: AppSpacing.lg),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  available ? hadith!.title : 'Hadis $number',
-                  style: const TextStyle(
-                    fontWeight: FontWeight.w700,
-                    fontSize: 15,
-                  ),
-                ),
-                const SizedBox(height: 3),
-                Text(
-                  available
-                      ? hadith!.theme
-                      : 'Kandungan sedang disediakan.',
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    color: scheme.onSurfaceVariant,
-                    fontSize: 12,
-                  ),
-                ),
-                const SizedBox(height: 6),
-                Row(
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 8, vertical: 3),
-                      decoration: BoxDecoration(
-                        color: statusColor.withValues(alpha: 0.12),
-                        borderRadius: BorderRadius.circular(999),
-                      ),
-                      child: Text(
-                        statusLabel,
-                        style: TextStyle(
-                          color: statusColor,
-                          fontSize: 11,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ),
-                    if (completed) ...[
-                      const SizedBox(width: 6),
-                      Icon(Icons.check_circle_rounded,
-                          size: 14, color: scheme.primary),
-                    ],
-                    if (bookmarked) ...[
-                      const SizedBox(width: 6),
-                      const Icon(Icons.bookmark_rounded,
-                          size: 14, color: AppColors.gold),
-                    ],
-                  ],
-                ),
-              ],
-            ),
-          ),
-          const SizedBox(width: AppSpacing.md),
-          if (available)
-            FilledButton(
-              onPressed: () => Navigator.of(context).push(
+    return DashboardActivityTile(
+      icon: Icons.auto_stories_rounded,
+      leadingLabel: number.toString().padLeft(2, '0'),
+      title: available ? hadith!.title : 'Hadis $number',
+      subtitle: available ? hadith!.theme : 'Kandungan sedang disediakan.',
+      accent: accent,
+      onTap: available
+          ? () => Navigator.of(context).push(
                 MaterialPageRoute<void>(
                   builder: (_) => HadithScreen(hadith: hadith!),
                 ),
+              )
+          : null,
+      trailing: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+            decoration: BoxDecoration(
+              color: statusColor.withValues(alpha: 0.12),
+              borderRadius: BorderRadius.circular(999),
+            ),
+            child: Text(
+              statusLabel,
+              style: TextStyle(
+                color: statusColor,
+                fontSize: 11,
+                fontWeight: FontWeight.w600,
               ),
-              style: FilledButton.styleFrom(
-                visualDensity: VisualDensity.compact,
-                padding: const EdgeInsets.symmetric(
-                    horizontal: AppSpacing.lg, vertical: 10),
-              ),
-              child: const Text('Buka'),
-            )
-          else
-            const Icon(Icons.lock_outline_rounded,
-                color: Color(0xFF9AA39F)),
+            ),
+          ),
+          if (hasAudio) ...[
+            const SizedBox(width: 6),
+            Icon(Icons.graphic_eq_rounded, size: 14, color: scheme.tertiary),
+          ],
+          if (completed) ...[
+            const SizedBox(width: 6),
+            Icon(Icons.check_circle_rounded, size: 14, color: scheme.primary),
+          ],
+          if (bookmarked) ...[
+            const SizedBox(width: 6),
+            const Icon(Icons.bookmark_rounded, size: 14, color: AppColors.gold),
+          ],
+          if (!available) ...[
+            const SizedBox(width: 6),
+            Icon(Icons.lock_outline_rounded,
+                size: 15, color: scheme.onSurfaceVariant),
+          ],
         ],
       ),
     );
