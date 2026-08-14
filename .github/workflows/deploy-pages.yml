@@ -37,7 +37,10 @@ jobs:
         run: flutter pub get
 
       - name: Build e-Hadis40
-        run: flutter build web --release --base-href "/e-hadis40/"
+        run: flutter build web --release --base-href "/"
+
+      - name: Add custom domain CNAME
+        run: echo "www.ehadis40.my" > build/web/CNAME
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5

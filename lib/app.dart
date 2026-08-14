@@ -27,6 +27,21 @@ class _EHadis40AppState extends State<EHadis40App> {
       theme: AppTheme.light,
       darkTheme: AppTheme.dark,
       themeMode: controller.themeMode,
+      // Pada telefon (Android/iOS), kecilkan teks supaya paparan selesa.
+      builder: (context, child) {
+        final width = MediaQuery.sizeOf(context).width;
+        final mq = MediaQuery.of(context);
+        // Kecilkan teks pada skrin kecil (telefon): ~12% lebih kecil.
+        final double scaleFactor = width < 600 ? 0.88 : 1.0;
+        return MediaQuery(
+          data: mq.copyWith(
+            textScaler: TextScaler.linear(
+              mq.textScaler.scale(1.0) * scaleFactor,
+            ),
+          ),
+          child: child ?? const SizedBox.shrink(),
+        );
+      },
       home: _showSplash
           ? AppSplashScreen(onComplete: () {
               if (mounted) setState(() => _showSplash = false);
