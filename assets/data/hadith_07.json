@@ -221,14 +221,14 @@
     ],
     "passingScorePercent": 80
   },
-  "audioTranscriptNote": "Audio sebenar Hadis 07 berdurasi kira-kira 22.85 saat. TimedSegments dibina daripada jeda utama waveform. Segmen audio tamat pada 'وَعَامَّتِهِمْ.' – rujukan 'رَوَاهُ مُسْلِمٌ.' tidak dibaca dalam audio dan dipaparkan sebagai rujukan statik sahaja.",
+  "audioTranscriptNote": "Audio Hadis 07 (22.848s). 6 frasa hadis. Segmen akhir \"وَلِأَئِمَّةِ الْمُسْلِمِينَ، وَعَامَّتِهِمْ.\" dibaca sehingga 22.65s (pengulangan/penekanan penghujung). Rujukan رَوَاهُ مُسْلِمٌ. TIDAK dibaca dalam audio — dipaparkan statik sahaja.",
   "audio": {
     "arabicRecitation": "assets/audio/hadith_07.mp3",
     "translationMalay": "",
     "durationMs": 22848,
     "syncOffsetMs": 0,
     "timingMethod": "waveform_major_pause_phrase_alignment",
-    "timingReviewNote": "6 phrase-level segments berdasarkan jeda utama audio sebenar. Segmen akhir audio tamat pada وَعَامَّتِهِمْ. Rujukan رَوَاهُ مُسْلِمٌ. tidak disorot/dibaca — dipaparkan sebagai teks statik.",
+    "timingReviewNote": "6 phrase segments. Segmen 6 endMs diperpanjang 18915->22650 untuk liputi sebutan penuh \"وَعَامَّتِهِمْ\" yang berulang/berpanjangan (disahkan waveform 20.12-22.65s). Rujukan رَوَاهُ مُسْلِمٌ. tiada dalam audio.",
     "timedSegments": [
       {
         "startMs": 127,
@@ -257,7 +257,7 @@
       },
       {
         "startMs": 15400,
-        "endMs": 18915,
+        "endMs": 22650,
         "text": "وَلِأَئِمَّةِ الْمُسْلِمِينَ، وَعَامَّتِهِمْ."
       }
     ]
