@@ -72,6 +72,13 @@ class AppController extends ChangeNotifier {
     return completedCount / module.hadithNumbers.length;
   }
 
+  int moduleCompletedCount(LearningModule module) {
+    return module.hadithNumbers
+        .where((number) =>
+            _completed.contains('hadith_${number.toString().padLeft(2, '0')}'))
+        .length;
+  }
+
   Future<void> setThemeMode(ThemeMode mode) async {
     _themeMode = mode;
     notifyListeners();

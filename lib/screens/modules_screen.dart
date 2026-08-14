@@ -58,6 +58,8 @@ class ModulesScreen extends StatelessWidget {
                         child: ElegantModuleCard(
                           module: module,
                           progress: controller.moduleProgress(module),
+                          completedCount:
+                              controller.moduleCompletedCount(module),
                           availableCount: repository.availableHadiths
                               .where(
                                 (h) => module.hadithNumbers.contains(h.number),

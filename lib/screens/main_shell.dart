@@ -2,14 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../core/constants/app_constants.dart';
-import '../core/utils/app_breakpoints.dart';
 import '../core/utils/responsive.dart';
-import '../data/models/hadith.dart';
-import '../data/repositories/hadith_repository.dart';
 import '../services/app_controller.dart';
 import '../services/global_audio_controller.dart';
 import 'bookmarks_screen.dart';
-import 'hadith_screen.dart';
 import 'home_screen.dart';
 import 'modules_screen.dart';
 import 'hadith_playlist_screen.dart';
@@ -24,143 +20,62 @@ class MainShell extends StatefulWidget {
 
 class _MainShellState extends State<MainShell> {
   int _selectedIndex = 0;
-  bool _disclaimerShown = false;
 
   static const _destinations = <_ShellDestination>[
-    _ShellDestination(Icons.home_rounded, 'Utama'),
+    _ShellDestination(Icons.space_dashboard_rounded, 'Dashboard'),
     _ShellDestination(Icons.grid_view_rounded, 'Modul'),
-    _ShellDestination(Icons.bookmark_rounded, 'Pilihan'),
+    _ShellDestination(Icons.bookmark_rounded, 'Bookmark'),
+    _ShellDestination(Icons.headphones_rounded, 'Audio'),
     _ShellDestination(Icons.settings_rounded, 'Tetapan'),
   ];
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    if (!_disclaimerShown) {
-      _disclaimerShown = true;
-      final controller = context.read<AppController>();
-      if (!controller.disclaimerAccepted) {
-        WidgetsBinding.instance.addPostFrameCallback((_) {
-          _showDisclaimer(context, controller);
-        });
-      }
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
     final desktop = Responsive.isDesktop(context);
     final scheme = Theme.of(context).colorScheme;
-    final width = MediaQuery.sizeOf(context).width;
 
     final pages = <Widget>[
       HomeScreen(onSelectTab: _selectTab),
       const ModulesScreen(),
       const BookmarksScreen(),
+      const HadithPlaylistScreen(),
       const SettingsScreen(),
     ];
 
     return Scaffold(
-      appBar: AppBar(
-        titleSpacing: desktop ? 28 : 12,
-        title: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(12),
-              child: Image.asset(
-                'assets/images/e_hadis40_logo_official.png',
-                width: 42,
-                height: 42,
-                fit: BoxFit.contain,
-                filterQuality: FilterQuality.high,
-              ),
-            ),
-            const SizedBox(width: 12),
-            Flexible(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    AppConstants.appName,
-                    style: Theme.of(context).textTheme.titleLarge,
-                    overflow: TextOverflow.ellipsis,
+      body: desktop
+          ? Row(
+              children: [
+                _DashboardSidebar(
+                  selectedIndex: _selectedIndex,
+                  destinations: _destinations,
+                  onSelect: _selectTab,
+                ),
+                VerticalDivider(width: 1, color: scheme.outlineVariant),
+                Expanded(
+                  child: IndexedStack(
+                    index: _selectedIndex,
+                    children: pages,
                   ),
-                  if (width >= AppBreakpoints.appBarSubtitle)
-                    Text(
-                      AppConstants.appShortDescription,
-                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                            color: scheme.onSurfaceVariant,
-                          ),
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                ],
-              ),
+                ),
+              ],
+            )
+          : SafeArea(
+              bottom: false,
+              child: IndexedStack(index: _selectedIndex, children: pages),
             ),
-          ],
-        ),
-        actions: [
-          const _AudioAppBarControls(),
-          Tooltip(
-            message: 'Cari hadis',
-            child: IconButton(
-              onPressed: _openSearch,
-              icon: const Icon(Icons.search_rounded),
-            ),
-          ),
-          const _ThemeModeMenu(),
-          const SizedBox(width: 8),
-        ],
-      ),
-      body: Column(
-        children: [
-          Expanded(
-            child: desktop
-                ? Row(
-                    children: [
-                      NavigationRail(
-                        selectedIndex: _selectedIndex,
-                        onDestinationSelected: _selectTab,
-                        labelType: NavigationRailLabelType.all,
-                        groupAlignment: -0.88,
-                        indicatorColor: scheme.primaryContainer,
-                        destinations: [
-                          for (final item in _destinations)
-                            NavigationRailDestination(
-                              icon: Icon(item.icon),
-                              selectedIcon:
-                                  Icon(item.icon, color: scheme.primary),
-                              label: Text(item.label),
-                            ),
-                        ],
-                      ),
-                      VerticalDivider(
-                          width: 1, color: scheme.outlineVariant),
-                      Expanded(
-                        child: IndexedStack(
-                          index: _selectedIndex,
-                          children: pages,
-                        ),
-                      ),
-                    ],
-                  )
-                : IndexedStack(index: _selectedIndex, children: pages),
-          ),
-        ],
-      ),
       bottomNavigationBar: desktop
           ? null
           : NavigationBar(
               selectedIndex: _selectedIndex,
               onDestinationSelected: _selectTab,
-              height: 72,
+              height: 68,
               indicatorColor: scheme.primaryContainer,
               labelTextStyle: WidgetStatePropertyAll(
                 TextStyle(
                   color: scheme.onSurface,
                   fontWeight: FontWeight.w600,
-                  fontSize: 12,
+                  fontSize: 11,
                 ),
               ),
               destinations: [
@@ -179,52 +94,222 @@ class _MainShellState extends State<MainShell> {
   void _selectTab(int index) {
     setState(() => _selectedIndex = index);
   }
+}
 
-  Future<void> _openSearch() async {
-    final repository = context.read<HadithRepository>();
-    final selected = await showSearch<Hadith?>(
-      context: context,
-      delegate: _HadithSearchDelegate(repository),
-    );
-    if (!mounted || selected == null) return;
-    await Navigator.of(context).push(
-      MaterialPageRoute<void>(builder: (_) => HadithScreen(hadith: selected)),
+class _DashboardSidebar extends StatefulWidget {
+  const _DashboardSidebar({
+    required this.selectedIndex,
+    required this.destinations,
+    required this.onSelect,
+  });
+
+  final int selectedIndex;
+  final List<_ShellDestination> destinations;
+  final ValueChanged<int> onSelect;
+
+  @override
+  State<_DashboardSidebar> createState() => _DashboardSidebarState();
+}
+
+class _DashboardSidebarState extends State<_DashboardSidebar> {
+  bool _collapsed = false;
+
+  @override
+  Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+    final collapsed = _collapsed;
+
+    return Container(
+      width: collapsed ? 92 : 264,
+      color: scheme.surface,
+      child: Column(
+        children: [
+          SizedBox(
+            height: 88,
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: collapsed ? 18 : 20,
+                vertical: 16,
+              ),
+              child: Row(
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(12),
+                    child: Image.asset(
+                      'assets/images/e_hadis40_logo_official.png',
+                      width: 40,
+                      height: 40,
+                      fit: BoxFit.contain,
+                      filterQuality: FilterQuality.high,
+                    ),
+                  ),
+                  if (!collapsed) ...[
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Text(
+                            AppConstants.appName,
+                            style: TextStyle(
+                              fontWeight: FontWeight.w800,
+                              fontSize: 17,
+                            ),
+                          ),
+                          Text(
+                            'Pembelajaran Hadis',
+                            style: TextStyle(
+                              fontSize: 11,
+                              color: scheme.onSurfaceVariant,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ],
+              ),
+            ),
+          ),
+          Divider(height: 1, color: scheme.outlineVariant),
+          Expanded(
+            child: ListView(
+              padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
+              children: [
+                for (var i = 0; i < widget.destinations.length; i++)
+                  _SidebarItem(
+                    destination: widget.destinations[i],
+                    selected: widget.selectedIndex == i,
+                    collapsed: collapsed,
+                    onTap: () => widget.onSelect(i),
+                  ),
+              ],
+            ),
+          ),
+          Divider(height: 1, color: scheme.outlineVariant),
+          SizedBox(
+            height: 56,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12),
+              child: Row(
+                children: [
+                  _CollapseToggle(
+                    collapsed: collapsed,
+                    onToggle: () => setState(() => _collapsed = !_collapsed),
+                  ),
+                  if (!collapsed) ...[
+                    const SizedBox(width: 4),
+                    const _AudioAppBarControls(),
+                    const _ThemeModeMenu(),
+                  ],
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
+}
 
-  Future<void> _showDisclaimer(
-      BuildContext context, AppController controller) async {
-    await showDialog<void>(
-      context: context,
-      barrierDismissible: false,
-      builder: (context) {
-        final scheme = Theme.of(context).colorScheme;
-        return AlertDialog(
-          title: const Text('Makluman Prototaip'),
-          content: Text(
-            'e-Hadis40 ialah prototaip pembelajaran interaktif yang '
-            'dibangunkan berasaskan Modul Penghayatan Hadis 40 Imam Nawawi '
-            'Edisi Kedua. Aplikasi ini bukan aplikasi rasmi Kementerian '
-            'Pendidikan Malaysia.',
-            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  height: 1.6,
-                  color: scheme.onSurface,
+class _SidebarItem extends StatelessWidget {
+  const _SidebarItem({
+    required this.destination,
+    required this.selected,
+    required this.collapsed,
+    required this.onTap,
+  });
+
+  final _ShellDestination destination;
+  final bool selected;
+  final bool collapsed;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+    final fg = selected ? scheme.primary : scheme.onSurfaceVariant;
+
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 6),
+      child: Material(
+        color: selected ? scheme.primaryContainer : Colors.transparent,
+        borderRadius: BorderRadius.circular(14),
+        child: InkWell(
+          onTap: onTap,
+          borderRadius: BorderRadius.circular(14),
+            child: Tooltip(
+              message: collapsed ? destination.label : '',
+              waitDuration: const Duration(milliseconds: 300),
+              child: SizedBox(
+              height: 48,
+              child: Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: collapsed ? 0 : 16,
                 ),
-          ),
-          actions: [
-            FilledButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: const Text('Saya Faham'),
+                child: Row(
+                  mainAxisAlignment: collapsed
+                      ? MainAxisAlignment.center
+                      : MainAxisAlignment.start,
+                  children: [
+                    Icon(
+                      destination.icon,
+                      color: fg,
+                      size: 22,
+                    ),
+                    if (!collapsed) ...[
+                      const SizedBox(width: 14),
+                      Expanded(
+                        child: Text(
+                          destination.label,
+                          style: TextStyle(
+                            color: fg,
+                            fontWeight:
+                                selected ? FontWeight.w700 : FontWeight.w500,
+                            fontSize: 14,
+                          ),
+                        ),
+                      ),
+                      if (selected)
+                        Container(
+                          width: 6,
+                          height: 6,
+                          decoration: BoxDecoration(
+                            color: scheme.primary,
+                            shape: BoxShape.circle,
+                          ),
+                        ),
+                    ],
+                  ],
+                ),
+              ),
             ),
-          ],
-        );
-      },
+          ),
+        ),
+      ),
     );
-    if (mounted) {
-      await controller.acceptDisclaimer();
-    }
+  }
+}
+
+class _CollapseToggle extends StatelessWidget {
+  const _CollapseToggle({required this.collapsed, required this.onToggle});
+
+  final bool collapsed;
+  final VoidCallback onToggle;
+
+  @override
+  Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+    return IconButton(
+      onPressed: onToggle,
+      tooltip: collapsed ? 'Kembangkan' : 'Kecilkan',
+      icon: Icon(
+        collapsed ? Icons.menu_rounded : Icons.menu_open_rounded,
+        color: scheme.onSurfaceVariant,
+        size: 22,
+      ),
+    );
   }
 }
 
@@ -282,69 +367,6 @@ class _ThemeModeMenu extends StatelessWidget {
   }
 }
 
-class _HadithSearchDelegate extends SearchDelegate<Hadith?> {
-  _HadithSearchDelegate(this.repository)
-      : super(searchFieldLabel: 'Cari nombor, tajuk, tema atau nilai');
-
-  final HadithRepository repository;
-
-  @override
-  List<Widget>? buildActions(BuildContext context) {
-    return [
-      if (query.isNotEmpty)
-        IconButton(
-          tooltip: 'Kosongkan carian',
-          onPressed: () => query = '',
-          icon: const Icon(Icons.clear_rounded),
-        ),
-    ];
-  }
-
-  @override
-  Widget? buildLeading(BuildContext context) {
-    return IconButton(
-      tooltip: 'Kembali',
-      onPressed: () => close(context, null),
-      icon: const Icon(Icons.arrow_back_rounded),
-    );
-  }
-
-  @override
-  Widget buildResults(BuildContext context) => _results(context);
-
-  @override
-  Widget buildSuggestions(BuildContext context) => _results(context);
-
-  Widget _results(BuildContext context) {
-    final results = repository.search(query);
-    if (results.isEmpty) {
-      return const Center(
-        child: Padding(
-          padding: EdgeInsets.all(24),
-          child: Text('Tiada hadis tersedia yang sepadan dengan carian.'),
-        ),
-      );
-    }
-    return ListView.separated(
-      padding: const EdgeInsets.all(16),
-      itemCount: results.length,
-      separatorBuilder: (_, __) => const SizedBox(height: 10),
-      itemBuilder: (context, index) {
-        final hadith = results[index];
-        return Card(
-          child: ListTile(
-            leading: CircleAvatar(child: Text(hadith.displayNumber)),
-            title: Text(hadith.title),
-            subtitle: Text(hadith.theme),
-            trailing: const Icon(Icons.arrow_forward_rounded),
-            onTap: () => close(context, hadith),
-          ),
-        );
-      },
-    );
-  }
-}
-
 class _AudioAppBarControls extends StatelessWidget {
   const _AudioAppBarControls();
 
@@ -360,41 +382,33 @@ class _AudioAppBarControls extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           if (audio.playing) ...[
-            Tooltip(
-              message: 'Hadis sebelumnya',
-              child: IconButton(
-                onPressed: audio.hasPrev ? audio.previous : null,
-                icon: const Icon(Icons.skip_previous_rounded, size: 22),
-              ),
+            IconButton(
+              tooltip: 'Hadis sebelumnya',
+              onPressed: audio.hasPrev ? audio.previous : null,
+              icon: const Icon(Icons.skip_previous_rounded, size: 20),
             ),
-            Tooltip(
-              message: 'Jeda',
-              child: IconButton(
-                onPressed: audio.togglePlay,
-                icon: const Icon(Icons.pause_rounded, size: 22),
-              ),
+            IconButton(
+              tooltip: 'Jeda',
+              onPressed: audio.togglePlay,
+              icon: const Icon(Icons.pause_rounded, size: 20),
             ),
-            Tooltip(
-              message: 'Hadis seterusnya',
-              child: IconButton(
-                onPressed: audio.hasNext ? audio.next : null,
-                icon: const Icon(Icons.skip_next_rounded, size: 22),
-              ),
+            IconButton(
+              tooltip: 'Hadis seterusnya',
+              onPressed: audio.hasNext ? audio.next : null,
+              icon: const Icon(Icons.skip_next_rounded, size: 20),
             ),
           ],
-          Tooltip(
-            message: 'Pemain Audio',
-            child: IconButton(
-              onPressed: () => _openPlaylistStatic(context),
-              icon: const Icon(Icons.headphones_rounded),
-            ),
+          IconButton(
+            tooltip: 'Pemain Audio',
+            onPressed: () => _openPlaylist(context),
+            icon: const Icon(Icons.headphones_rounded),
           ),
         ],
       ),
     );
   }
 
-  static void _openPlaylistStatic(BuildContext context) {
+  static void _openPlaylist(BuildContext context) {
     Navigator.of(context).push(
       MaterialPageRoute<void>(builder: (_) => const HadithPlaylistScreen()),
     );

@@ -1,35 +1,57 @@
 import 'package:flutter/material.dart';
 
+/// eHadis40 — Emerald Sage design system.
 class AppColors {
   const AppColors._();
 
-  static const warmIvory = Color(0xFFFCFAF5);
-  static const lightBackground = Color(0xFFF7F5EF);
-  static const deepEmerald = Color(0xFF124A3A);
-  static const emerald = Color(0xFF1E6A52);
-  static const midnightNavy = Color(0xFF142238);
-  static const antiqueGold = Color(0xFFB69246);
+  // ── Light ─────────────────────────────────────────────
+  static const lightBackground = Color(0xFFF6FBF8);
+  static const lightSurface = Color(0xFFFFFFFF);
+  static const lightSecondarySurface = Color(0xFFECF6F1);
+  static const lightElevatedSurface = Color(0xFFF2F8F5);
+
+  static const primary = Color(0xFF18795A);
+  static const primaryHover = Color(0xFF13664B);
+  static const primarySoft = Color(0xFFDDF1E8);
+  static const secondary = Color(0xFF2E9C74);
+  static const accent = Color(0xFF78C9A7);
+
+  static const border = Color(0xFFD7E8DF);
+  static const textPrimary = Color(0xFF1F352D);
+  static const textSecondary = Color(0xFF64756E);
+  static const textMuted = Color(0xFF899891);
+
+  // ── Dark ──────────────────────────────────────────────
+  static const darkBackground = Color(0xFF0C1714);
+  static const darkSurface = Color(0xFF13231E);
+  static const darkSecondarySurface = Color(0xFF183129);
+  static const darkElevatedSurface = Color(0xFF1E3B31);
+
+  static const darkPrimary = Color(0xFF5CC89A);
+  static const darkPrimaryHover = Color(0xFF75D5AA);
+  static const darkPrimarySoft = Color(0xFF1D493A);
+  static const darkSecondary = Color(0xFF43B887);
+  static const darkAccent = Color(0xFF8EE0BF);
+
+  static const darkBorder = Color(0xFF2C4C40);
+  static const darkTextPrimary = Color(0xFFEDF7F2);
+  static const darkTextSecondary = Color(0xFFA9C1B7);
+  static const darkTextMuted = Color(0xFF829A90);
+
+  // ── Semantic ──────────────────────────────────────────
+  static const success = Color(0xFF4CAF7D);
+  static const successContainer = Color(0xFFDDF1E8);
+  static const warning = Color(0xFFD4A843);
+  static const warningContainer = Color(0xFFF6EFD8);
+  static const error = Color(0xFFE06C6C);
+  static const errorContainer = Color(0xFFFBE4E4);
+
+  // Gold accent (logo identity) — small accents only.
+  static const gold = Color(0xFFB69246);
   static const softGold = Color(0xFFD7C08A);
-  static const warmStone = Color(0xFFE8E2D7);
-  static const lightText = Color(0xFF1E2925);
-  static const lightMuted = Color(0xFF68736E);
-
-  static const darkBackground = Color(0xFF0A1110);
-  static const darkSurface = Color(0xFF0F1815);
-  static const darkSurfaceTwo = Color(0xFF16211D);
-  static const darkSurfaceThree = Color(0xFF1C2A25);
-  static const darkNavySurface = Color(0xFF111822);
-  static const darkEmeraldAccent = Color(0xFF5EC49A);
-  static const darkEmeraldMuted = Color(0xFF2D6B50);
   static const darkGold = Color(0xFFD2B46C);
-  static const darkGoldMuted = Color(0xFF5C4A1E);
-  static const darkText = Color(0xFFF0EEE7);
-  static const darkMuted = Color(0xFFA8B3AD);
-  static const darkBorder = Color(0xFF2A3A33);
-  static const darkActiveHighlightBg = Color(0xFF1A332A);
-  static const darkActiveWordBg = Color(0xFF3D6B55);
-  static const darkCompletedBg = Color(0xFF25251A);
 
+  // ── Splash (kept compatible) ──────────────────────────
   static const splashLightBg = Color(0xFFF6FBF9);
   static const splashDarkBg = Color(0xFF081B17);
   static const splashPrimaryEmerald = Color(0xFF0F9D7A);
@@ -41,11 +63,4 @@ class AppColors {
   static const splashSoftBlue = Color(0xFF76C7FF);
   static const splashSoftJade = Color(0xFF8ADFA7);
   static const splashLightText = Color(0xFFEAF8F4);
-
-  static const success = Color(0xFF4CAF7D);
-  static const successContainer = Color(0xFF1A3328);
-  static const warning = Color(0xFFD4A843);
-  static const warningContainer = Color(0xFF332918);
-  static const error = Color(0xFFE06C6C);
-  static const errorContainer = Color(0xFF3A1C1C);
 }

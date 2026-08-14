@@ -7,6 +7,7 @@ class ElegantModuleCard extends StatefulWidget {
   const ElegantModuleCard({
     required this.module,
     required this.progress,
+    required this.completedCount,
     required this.availableCount,
     required this.onTap,
     super.key,
@@ -14,6 +15,7 @@ class ElegantModuleCard extends StatefulWidget {
 
   final LearningModule module;
   final double progress;
+  final int completedCount;
   final int availableCount;
   final VoidCallback onTap;
 
@@ -90,8 +92,8 @@ class _ElegantModuleCardState extends State<ElegantModuleCard> {
                   ),
                   const SizedBox(height: AppSpacing.xs),
                   Text(
-                    widget.module.rangeLabel,
-                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                    '${widget.module.hadithNumbers.length} Hadis',
+                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
                           color: scheme.onSurfaceVariant,
                         ),
                   ),
@@ -104,7 +106,7 @@ class _ElegantModuleCardState extends State<ElegantModuleCard> {
                       ),
                       const Spacer(),
                       Text(
-                        '${widget.availableCount}/${widget.module.hadithNumbers.length} kandungan',
+                        '${widget.completedCount}/${widget.module.hadithNumbers.length} selesai',
                         style: Theme.of(context).textTheme.bodySmall?.copyWith(
                               color: scheme.onSurfaceVariant,
                             ),
