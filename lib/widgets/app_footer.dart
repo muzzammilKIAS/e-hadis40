@@ -28,6 +28,16 @@ class AppFooter extends StatelessWidget {
                 ),
           ),
           const SizedBox(height: 4),
+          Text(
+            'Muzzammil Najib | Saied Ramadhan | Adam Abd. Azid',
+            textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                  color: scheme.onSurfaceVariant,
+                  fontSize: 11,
+                  height: 1.4,
+                ),
+          ),
+          const SizedBox(height: 4),
           ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 520),
             child: Text(
@@ -170,6 +180,23 @@ class _AboutPage extends StatelessWidget {
               'masing-masing.',
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                     height: 1.6,
+                    color: scheme.onSurface,
+                  ),
+            ),
+            const SizedBox(height: 32),
+            const Divider(),
+            const SizedBox(height: 24),
+            Text(
+              'Pembangun Aplikasi',
+              style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                    fontWeight: FontWeight.w600,
+                  ),
+            ),
+            const SizedBox(height: 12),
+            Text(
+              'Muzzammil Najib | Saied Ramadhan | Adam Abd. Azid',
+              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                    height: 1.7,
                     color: scheme.onSurface,
                   ),
             ),
