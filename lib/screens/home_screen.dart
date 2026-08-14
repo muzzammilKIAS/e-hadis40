@@ -277,16 +277,29 @@ class _DashboardSearchFieldState extends State<_DashboardSearchField> {
                 : scheme.surface,
             border: Border.all(
               color: _hovered
-                  ? scheme.primary.withValues(alpha: 0.6)
+                  ? (dark
+                      ? AppColors.darkGold.withValues(alpha: 0.85)
+                      : scheme.primary.withValues(alpha: 0.6))
                   : scheme.outlineVariant.withValues(alpha: dark ? 0.6 : 1),
             ),
+            boxShadow: _hovered && dark
+                ? [
+                    BoxShadow(
+                      color: AppColors.darkGold.withValues(alpha: 0.18),
+                      blurRadius: 16,
+                      offset: const Offset(0, 4),
+                    ),
+                  ]
+                : null,
           ),
           child: Row(
             children: [
               Icon(
                 Icons.search_rounded,
                 size: 20,
-                color: _hovered ? scheme.primary : scheme.onSurfaceVariant,
+                color: _hovered
+                    ? (dark ? AppColors.darkGold : scheme.primary)
+                    : scheme.onSurfaceVariant,
               ),
               const SizedBox(width: 10),
               Expanded(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../core/theme/app_colors.dart';
 import '../../data/models/learning_module.dart';
 import 'islamic_atmosphere.dart';
 import 'module_identity.dart';
@@ -86,21 +87,27 @@ class _ModuleLearningCardState extends State<ModuleLearningCard> {
                     scheme.surfaceContainerLowest.withValues(alpha: 0.9),
                   ]
                 : [
-                    scheme.surface,
-                    Color.lerp(scheme.surface, accent, 0.05)!,
+                    Color.lerp(scheme.surface, AppColors.deepSage,
+                        _hovered ? 0.1 : 0.045)!,
+                    Color.lerp(scheme.surfaceContainerHighest,
+                        AppColors.deepSage, _hovered ? 0.08 : 0.03)!,
                   ],
           ),
           border: Border.all(
             color: _hovered
-                ? accent.withValues(alpha: 0.75)
+                ? (dark
+                    ? AppColors.darkGold.withValues(alpha: 0.85)
+                    : accent.withValues(alpha: 0.75))
                 : scheme.outlineVariant.withValues(alpha: dark ? 0.6 : 1),
             width: _hovered ? 1.4 : 1,
           ),
           boxShadow: [
             BoxShadow(
               color: dark
-                  ? Colors.black.withValues(alpha: _hovered ? 0.36 : 0.24)
-                  : scheme.shadow.withValues(alpha: _hovered ? 0.09 : 0.05),
+                  ? (_hovered
+                      ? AppColors.darkGold.withValues(alpha: 0.22)
+                      : Colors.black.withValues(alpha: 0.24))
+                  : scheme.shadow.withValues(alpha: _hovered ? 0.16 : 0.06),
               blurRadius: _hovered ? 24 : 14,
               offset: Offset(0, _hovered ? 10 : 4),
             ),

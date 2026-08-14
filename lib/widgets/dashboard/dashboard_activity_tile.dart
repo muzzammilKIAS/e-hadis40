@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../core/theme/app_colors.dart';
+
 /// Baris kandungan padat: ikon kiri → teks → anak panah kanan.
 ///
 /// Digunakan untuk senarai sekunder dashboard (terakhir dibaca, bookmark,
@@ -61,9 +63,20 @@ class _DashboardActivityTileState extends State<DashboardActivityTile> {
               : scheme.surface,
           border: Border.all(
             color: active
-                ? tone.withValues(alpha: 0.6)
+                ? (dark
+                    ? AppColors.darkGold.withValues(alpha: 0.85)
+                    : tone.withValues(alpha: 0.6))
                 : scheme.outlineVariant.withValues(alpha: dark ? 0.5 : 1),
           ),
+          boxShadow: active && dark
+              ? [
+                  BoxShadow(
+                    color: AppColors.darkGold.withValues(alpha: 0.18),
+                    blurRadius: 16,
+                    offset: const Offset(0, 4),
+                  ),
+                ]
+              : null,
         ),
         child: Material(
           type: MaterialType.transparency,

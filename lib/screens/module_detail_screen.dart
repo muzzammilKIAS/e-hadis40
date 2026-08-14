@@ -33,15 +33,24 @@ class ModuleDetailScreen extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: Colors.transparent,
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         surfaceTintColor: Colors.transparent,
+        elevation: 0,
+        foregroundColor: scheme.onSurface,
+        iconTheme: IconThemeData(color: scheme.onSurface),
+        titleTextStyle: Theme.of(context).textTheme.titleLarge?.copyWith(
+              fontWeight: FontWeight.w700,
+              color: scheme.onSurface,
+            ),
         title: Text('${module.title} · ${module.rangeLabel}'),
       ),
       body: IslamicAtmosphere(
         intensity: 0.7,
         child: Column(
           children: [
+            SizedBox(height: kToolbarHeight + MediaQuery.of(context).padding.top),
             Expanded(
               child: LayoutBuilder(
                 builder: (context, constraints) {

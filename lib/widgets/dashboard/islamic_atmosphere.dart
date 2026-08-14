@@ -65,6 +65,7 @@ class IslamicAtmosphere extends StatelessWidget {
                     : AppColors.lightAtmosphereGlow,
                 line: dark ? AppColors.darkAccent : AppColors.primary,
                 gold: dark ? AppColors.darkGold : AppColors.gold,
+                sage: AppColors.deepSage,
               ),
               isComplex: true,
               willChange: false,
@@ -84,6 +85,7 @@ class _AtmospherePainter extends CustomPainter {
     required this.glow,
     required this.line,
     required this.gold,
+    required this.sage,
   });
 
   final bool dark;
@@ -91,6 +93,7 @@ class _AtmospherePainter extends CustomPainter {
   final Color glow;
   final Color line;
   final Color gold;
+  final Color sage;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -99,9 +102,107 @@ class _AtmospherePainter extends CustomPainter {
     canvas.clipRect(bounds);
 
     _paintGlow(canvas, size);
+    _paintRainbowWhisper(canvas, size);
+    _paintGoldGlow(canvas, size);
+    _paintSageAccent(canvas, size);
     _paintArches(canvas, size);
     _paintTessellation(canvas, size);
     _paintGoldMotes(canvas, size);
+  }
+
+  /// Aksen sage gelap — hanya ketara dalam light mode supaya latar siang
+  /// ada "berat" dan kedalaman tanpa jadi gelap keseluruhan.
+  void _paintSageAccent(Canvas canvas, Size size) {
+    if (dark) return;
+    final strength = 0.22 * intensity;
+    if (strength <= 0) return;
+
+    void blob(Offset center, double radius, double alpha) {
+      final rect = Rect.fromCircle(center: center, radius: radius);
+      canvas.drawRect(
+        rect,
+        Paint()
+          ..shader = RadialGradient(
+            colors: [
+              sage.withValues(alpha: alpha * strength),
+              sage.withValues(alpha: 0),
+            ],
+          ).createShader(rect),
+      );
+    }
+
+    // Dijauhkan daripada bucu atas supaya kawasan app bar / tajuk kekal
+    // cerah — hanya bahagian bawah skrin dapat sedikit "berat" sage.
+    blob(Offset(size.width * -0.05, size.height * 0.62), size.shortestSide * 0.4,
+        0.16);
+    blob(Offset(size.width * 1.02, size.height * 1.02), size.shortestSide * 0.5,
+        0.14);
+  }
+
+  /// Kilauan emas lembut — hanya ketara dalam dark mode supaya dashboard
+  /// malam "naik seri" tanpa menenggelamkan emerald sebagai warna utama.
+  void _paintGoldGlow(Canvas canvas, Size size) {
+    if (!dark) return;
+    final strength = 0.32 * intensity;
+    if (strength <= 0) return;
+
+    void blob(Offset center, double radius, double alpha) {
+      final rect = Rect.fromCircle(center: center, radius: radius);
+      canvas.drawRect(
+        rect,
+        Paint()
+          ..blendMode = BlendMode.plus
+          ..shader = RadialGradient(
+            colors: [
+              gold.withValues(alpha: alpha * strength),
+              gold.withValues(alpha: 0),
+            ],
+          ).createShader(rect),
+      );
+    }
+
+    blob(Offset(size.width * 0.5, size.height * 1.02), size.shortestSide * 0.7,
+        1);
+    blob(Offset(size.width * 0.96, size.height * 0.85), size.shortestSide * 0.5,
+        0.65);
+  }
+
+  /// Lapisan tambahan — kilauan pelangi yang sangat halus, berlapis di atas
+  /// glow emerald supaya hijau kekal dominan. Setiap blob warna dilukis pada
+  /// alpha rendah (≤ ~0.05) menggunakan radial gradient sahaja — tiada blur —
+  /// jadi kesannya adalah "bayang warna", bukan warna solid yang menonjol.
+  void _paintRainbowWhisper(Canvas canvas, Size size) {
+    final strength = (dark ? 0.55 : 0.4) * intensity;
+    if (strength <= 0) return;
+
+    const colors = AppColors.rainbowWhisper;
+    final anchors = <Offset>[
+      Offset(size.width * 0.14, size.height * 0.16),
+      Offset(size.width * 0.5, size.height * 0.02),
+      Offset(size.width * 0.86, size.height * 0.22),
+      Offset(size.width * 0.94, size.height * 0.58),
+      Offset(size.width * 0.78, size.height * 0.92),
+      Offset(size.width * 0.28, size.height * 0.86),
+      Offset(size.width * 0.02, size.height * 0.46),
+    ];
+
+    for (var i = 0; i < colors.length; i++) {
+      final center = anchors[i % anchors.length];
+      final radius = size.shortestSide * 0.34;
+      final rect = Rect.fromCircle(center: center, radius: radius);
+      final alpha = 0.05 * strength;
+      canvas.drawRect(
+        rect,
+        Paint()
+          ..blendMode = BlendMode.plus
+          ..shader = RadialGradient(
+            colors: [
+              colors[i].withValues(alpha: alpha),
+              colors[i].withValues(alpha: 0),
+            ],
+          ).createShader(rect),
+      );
+    }
   }
 
   /// Lapisan 3 — glow emerald/mint menggunakan radial gradient (bukan blur).
@@ -235,15 +336,18 @@ class _AtmospherePainter extends CustomPainter {
 
   /// Lapisan 4 — titik cahaya emas yang sangat halus.
   void _paintGoldMotes(Canvas canvas, Size size) {
-    final alpha = (dark ? 0.24 : 0.14) * intensity;
+    final alpha = (dark ? 0.38 : 0.14) * intensity;
     if (alpha <= 0.01) return;
 
     final random = math.Random(40);
     final paint = Paint();
-    for (var i = 0; i < 22; i++) {
+    final count = dark ? 34 : 22;
+    for (var i = 0; i < count; i++) {
       final dx = random.nextDouble() * size.width;
       final dy = random.nextDouble() * size.height;
-      final radius = 0.8 + random.nextDouble() * 1.4;
+      final radius = dark
+          ? 0.9 + random.nextDouble() * 1.9
+          : 0.8 + random.nextDouble() * 1.4;
       paint.color = gold.withValues(
         alpha: alpha * (0.35 + random.nextDouble() * 0.65),
       );
@@ -257,7 +361,8 @@ class _AtmospherePainter extends CustomPainter {
       old.intensity != intensity ||
       old.glow != glow ||
       old.line != line ||
-      old.gold != gold;
+      old.gold != gold ||
+      old.sage != sage;
 }
 
 /// Lengkung ogival (mihrab) yang muat dalam [rect].

@@ -21,6 +21,10 @@ class AppColors {
   static const textSecondary = Color(0xFF64756E);
   static const textMuted = Color(0xFF899891);
 
+  /// Sage gelap — aksen glow halus untuk light mode sahaja, supaya latar
+  /// tidak rata dan ada "berat" tanpa menggelapkan keseluruhan skrin.
+  static const deepSage = Color(0xFF2F4A3D);
+
   // ── Dark ──────────────────────────────────────────────
   static const darkBackground = Color(0xFF0C1714);
   static const darkSurface = Color(0xFF13231E);
@@ -59,6 +63,27 @@ class AppColors {
   static const darkAtmosphereGlow = Color(0xFF14503C);
   static const lightAtmosphereBase = Color(0xFFF2F9F5);
   static const lightAtmosphereGlow = Color(0xFFCFEADD);
+
+  // ── Rainbow whisper (aksen pelangi sangat halus) ───────
+  /// Digunakan pada opacity sangat rendah sahaja (≤ 0.08) sebagai
+  /// glow tambahan di atas latar emerald — bukan warna solid.
+  static const rainbowRed = Color(0xFFE8798A);
+  static const rainbowOrange = Color(0xFFE8A968);
+  static const rainbowYellow = Color(0xFFDFC85E);
+  static const rainbowGreen = Color(0xFF6FCB9F);
+  static const rainbowBlue = Color(0xFF6FB6E0);
+  static const rainbowIndigo = Color(0xFF8C93E0);
+  static const rainbowViolet = Color(0xFFB98CDA);
+
+  static const rainbowWhisper = [
+    rainbowRed,
+    rainbowOrange,
+    rainbowYellow,
+    rainbowGreen,
+    rainbowBlue,
+    rainbowIndigo,
+    rainbowViolet,
+  ];
 
   // ── Splash (kept compatible) ──────────────────────────
   static const splashLightBg = Color(0xFFF6FBF9);
