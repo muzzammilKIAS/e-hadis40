@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Penciptaan Manusia - Hadis 4 3D</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="./lib/three.min.js"></script>
+    <script src="./lib/gsap.min.js"></script>
+    <style>
+        @import url('./lib/fonts.css');
+
+        body { margin: 0; overflow: hidden; background-color: #0f0514; font-family: 'Baloo 2', sans-serif; }
+        #canvas-container { position: absolute; top: 0; left: 0; width: 100%; height: 100vh; z-index: 1; }
+
+        /* Latar belakang metafora rahim / ruang kosmik */
+        .womb-bg {
+            background: radial-gradient(circle at 50% 50%, #2a0a29 0%, #0a0210 80%);
+        }
+
+        .ui-layer { position: relative; z-index: 10; pointer-events: none; height: 100vh; display: flex; flex-direction: column; justify-content: space-between; padding: 2.5rem; }
+
+        /* =====================================================
+           RESPONSIF — telefon & tablet
+           Panel kaca dikecilkan supaya simulasi 3D (anatomi) kekal
+           jelas di tengah skrin dan tidak tertutup kotak-kotak teks.
+           Panel yang terlalu panjang boleh diskrol di dalam kotaknya
+           sendiri, jadi tiada kandungan hilang.
+           ===================================================== */
+
+        /* --- Tablet --- */
+        @media (max-width: 1024px) {
+            .ui-layer { padding: 1.15rem; padding-top: 4.25rem; }
+
+            /* Bar skrol halus — tanda jelas panel ini boleh diskrol apabila
+               kandungannya lebih panjang daripada ruang yang ada. */
+            .ui-layer .glass-panel {
+                scrollbar-width: thin;
+                scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+                overscroll-behavior: contain;
+            }
+            .ui-layer .glass-panel::-webkit-scrollbar { width: 3px; }
+            .ui-layer .glass-panel::-webkit-scrollbar-track { background: transparent; }
+            .ui-layer .glass-panel::-webkit-scrollbar-thumb {
+                background: rgba(255, 255, 255, 0.3);
+                border-radius: 3px;
+            }
+            .ui-layer .glass-panel { border-radius: 1.25rem !important; }
+            .ui-layer .p-8 { padding: 1.1rem !important; }
+            .ui-layer .p-6 { padding: 1rem !important; }
+            .ui-layer header.glass-panel { max-width: 56%; max-height: 62vh; overflow-y: auto; }
+            .ui-layer > .glass-panel:not(header) { max-width: 44%; max-height: 46vh; overflow-y: auto; }
+
+            .ui-layer .text-4xl { font-size: 1.75rem !important; line-height: 2.1rem !important; }
+            .ui-layer .text-3xl { font-size: 1.45rem !important; line-height: 1.9rem !important; }
+            .ui-layer .text-2xl { font-size: 1.25rem !important; line-height: 1.65rem !important; }
+            .ui-layer .text-xl  { font-size: 1.1rem !important; }
+            .ui-layer .text-lg  { font-size: 1rem !important; }
+        }
+
+        /* --- Telefon --- */
+        @media (max-width: 640px) {
+            /* Panel jadi jalur penuh-lebar di atas & bawah; jalur tengah
+               dibiarkan lapang supaya model 3D kelihatan sepenuhnya.
+               padding-top memberi ruang untuk butang kembali. */
+            .ui-layer { padding: 0.6rem; padding-top: 3.9rem; }
+            .ui-layer .glass-panel { border-radius: 0.95rem !important; }
+            .ui-layer .p-8 { padding: 0.8rem !important; }
+            .ui-layer .p-6 { padding: 0.75rem !important; }
+
+            .ui-layer header.glass-panel { max-width: 100%; max-height: 31vh; overflow-y: auto; }
+            .ui-layer > .glass-panel:not(header) {
+                max-width: 100%; margin-left: 0; max-height: 38vh; overflow-y: auto;
+            }
+            /* Senarai butang dirapatkan supaya simulasi dengan banyak pilihan
+               (cth. 5 paksi nasihat) tetap muat tanpa terpotong. */
+            .ui-layer .gap-3 { gap: 0.35rem !important; }
+            .ui-layer .gap-2 { gap: 0.3rem !important; }
+
+            /* Saiz teks dikecilkan supaya panel kekal nipis */
+            .ui-layer .text-4xl { font-size: 1.35rem !important; line-height: 1.7rem !important; }
+            .ui-layer .text-3xl { font-size: 1.15rem !important; line-height: 1.55rem !important; }
+            .ui-layer .text-2xl { font-size: 1.05rem !important; line-height: 1.4rem !important; }
+            .ui-layer .text-xl  { font-size: 0.98rem !important; }
+            .ui-layer .text-lg  { font-size: 0.92rem !important; }
+            .ui-layer .text-sm  { font-size: 0.8rem !important; line-height: 1.15rem !important; }
+            .ui-layer .text-xs  { font-size: 0.72rem !important; line-height: 1.02rem !important; }
+
+            /* Jarak dalam panel dirapatkan */
+            .ui-layer .mb-4 { margin-bottom: 0.5rem !important; }
+            .ui-layer .my-4 { margin-top: 0.5rem !important; margin-bottom: 0.5rem !important; }
+            .ui-layer .mt-4 { margin-top: 0.5rem !important; }
+            .ui-layer .mt-3 { margin-top: 0.4rem !important; }
+            .ui-layer .mb-3 { margin-bottom: 0.4rem !important; }
+            .ui-layer .pt-4 { padding-top: 0.5rem !important; }
+            .ui-layer .py-2 { padding-top: 0.3rem !important; padding-bottom: 0.3rem !important; }
+
+            /* Butang kawalan lebih padat supaya muat tanpa skrol */
+            .ui-layer .btn-action { padding: 0.42rem 0.7rem !important; font-size: 0.76rem !important; }
+            .ui-layer .btn-action:hover { transform: none; }
+        }
+
+
+        .glass-panel {
+            background: rgba(20, 5, 25, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(236, 72, 153, 0.2);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            pointer-events: auto;
+        }
+
+        .text-arabic { font-family: 'Amiri', serif; }
+
+        /* ===== Arah teks =====
+           Semua teks Rumi mengalir kiri->kanan (LTR) dan dijajar kiri.
+           Hanya teks Arab mengalir kanan->kiri (RTL) dan dijajar kanan.
+           `unicode-bidi: isolate` mengasingkan petikan Arab supaya ia tidak
+           mengganggu susunan teks Rumi di sekelilingnya. */
+        .ui-layer { direction: ltr; text-align: left; }
+        .ui-layer .text-arabic {
+            direction: rtl;
+            text-align: right;
+            unicode-bidi: isolate;
+        }
+
+        /* Butang interaktif */
+        .btn-fasa { transition: all 0.4s ease; border: 1px solid rgba(255,255,255,0.1); }
+        .btn-fasa:hover { transform: translateX(-5px); background: rgba(255,255,255,0.1); }
+        .btn-active { border-color: #ec4899; box-shadow: 0 0 15px rgba(236, 72, 153, 0.4); }
+    </style>
+</head>
+<body class="womb-bg">
+    <!-- Butang kembali — sebahagian daripada HTML ini sendiri (bukan lapisan
+         Flutter berasingan), supaya klik sentiasa berfungsi (tiada isu
+         platform-view iframe) dan tiada jalur/kotak tambahan di atas
+         simulasi. Menghantar mesej ke app induk melalui postMessage. -->
+    <button id="anatomi-back-btn" onclick="window.parent.postMessage('anatomi-sunnah-back', window.location.origin)" aria-label="Kembali" style="position:fixed; top:16px; left:16px; z-index:9999; width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.35); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); display:flex; align-items:center; justify-content:center; cursor:pointer; color:#fff; transition:background 0.2s; padding:0;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+    </button>
+    <style>#anatomi-back-btn:hover { background: rgba(255,255,255,0.2) !important; }</style>
+
+
+    <!-- Lapisan Antara Muka (UI) -->
+    <div class="ui-layer">
+        <header class="glass-panel p-8 rounded-3xl max-w-xl relative overflow-hidden">
+            <!-- Hiasan Cahaya -->
+            <div class="absolute top-0 right-0 w-32 h-32 bg-pink-600 rounded-bl-full opacity-10 blur-xl"></div>
+
+            <div class="inline-block px-4 py-1.5 bg-fuchsia-900/50 rounded-full mb-3 border border-fuchsia-500/30">
+                <span class="text-fuchsia-300 font-bold tracking-widest uppercase text-[12px]">Penghayatan Hadis 40 • Hadis 4</span>
+            </div>
+
+            <h1 class="text-4xl font-light text-white mb-1">Penciptaan & <span class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-500">Takdir</span></h1>
+
+            <p class="text-arabic text-3xl text-emerald-200 mt-3 mb-4 text-right leading-relaxed transition-colors duration-500" dir="rtl" id="ui-arabic">عَنْ أَبِي عَبْدِ الرَّحْمَنِ عَبْدِ اللَّهِ بْنِ مَسْعُودٍ رَضِيَ اللَّهُ عَنْهُ قَالَ: حَدَّثَنَا رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ وَهُوَ الصَّادِقُ الْمَصْدُوقُ: إِنَّ أَحَدَكُمْ يُجْمَعُ خَلْقُهُ فِي بَطْنِ أُمِّهِ أَرْبَعِينَ يَوْمًا نُطْفَةً، ثُمَّ يَكُونُ عَلَقَةً مِثْلَ ذَلِكَ، ثُمَّ يَكُونُ مُضْغَةً مِثْلَ ذَلِكَ، ثُمَّ يُرْسَلُ الْمَلَكُ، فَيَنْفُخُ فِيهِ الرُّوحَ، وَيُؤْمَرُ بِأَرْبَعِ كَلِمَاتٍ: بِكَتْبِ رِزْقِهِ، وَأَجَلِهِ، وَعَمَلِهِ، وَشَقِيٌّ أَوْ سَعِيدٌ. فَوَالَّذِي لَا إِلَهَ غَيْرُهُ، إِنَّ أَحَدَكُمْ لَيَعْمَلُ بِعَمَلِ أَهْلِ الْجَنَّةِ حَتَّى مَا يَكُونُ بَيْنَهُ وَبَيْنَهَا إِلَّا ذِرَاعٌ، فَيَسْبِقُ عَلَيْهِ الْكِتَابُ، فَيَعْمَلُ بِعَمَلِ أَهْلِ النَّارِ فَيَدْخُلُهَا. وَإِنَّ أَحَدَكُمْ لَيَعْمَلُ بِعَمَلِ أَهْلِ النَّارِ حَتَّى مَا يَكُونُ بَيْنَهُ وَبَيْنَهَا إِلَّا ذِرَاعٌ، فَيَسْبِقُ عَلَيْهِ الْكِتَابُ، فَيَعْمَلُ بِعَمَلِ أَهْلِ الْجَنَّةِ فَيَدْخُلُهَا.</p>
+
+            <blockquote class="border-l-4 border-pink-500 pl-4 py-2 my-4 bg-pink-950/20 rounded-r-lg text-sm leading-relaxed text-gray-300">
+                "Sesungguhnya setiap kamu dihimpunkan kejadiannya di perut ibunya 40 hari sebagai <span class="text-pink-300 font-bold">nutfah</span>, lalu menjadi <span class="text-red-400 font-bold">'alaqah</span>, lalu menjadi <span class="text-orange-300 font-bold">mudhghah</span>. Kemudian diutuskan Malaikat meniupkan <span class="text-yellow-300 font-bold">roh</span> dan menetapkan 4 perkara..."
+            </blockquote>
+        </header>
+
+        <div class="glass-panel p-6 rounded-3xl max-w-sm ml-auto text-left">
+            <h3 class="text-pink-100 font-bold text-lg mb-1">Fasa Kejadian</h3>
+            <p class="text-pink-300/50 text-[13px] mb-4">Klik mengikut turutan biologi untuk melihat evolusi.</p>
+
+            <div class="flex flex-col gap-2">
+                <button id="btn-1" onclick="setPhase(1)" class="btn-fasa btn-active pointer-events-auto bg-black/40 text-gray-200 py-3 px-5 rounded-xl text-sm font-semibold flex items-center justify-between">
+                    <span>1. Nutfah (Setitis Air)</span> <span>💧</span>
+                </button>
+                <button id="btn-2" onclick="setPhase(2)" class="btn-fasa pointer-events-auto bg-black/40 text-gray-200 py-3 px-5 rounded-xl text-sm font-semibold flex items-center justify-between">
+                    <span>2. 'Alaqah (Segumpal Darah)</span> <span>🩸</span>
+                </button>
+                <button id="btn-3" onclick="setPhase(3)" class="btn-fasa pointer-events-auto bg-black/40 text-gray-200 py-3 px-5 rounded-xl text-sm font-semibold flex items-center justify-between">
+                    <span>3. Mudhghah (Daging)</span> <span>🥩</span>
+                </button>
+                <button id="btn-4" onclick="setPhase(4)" class="btn-fasa pointer-events-auto bg-gradient-to-r from-yellow-600 to-amber-700 text-white py-3 px-5 rounded-xl text-sm font-bold flex items-center justify-between mt-2">
+                    <span>4. Tiupan Roh & Takdir</span> <span>✨</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enjin 3D -->
+    <div id="canvas-container"></div>
+
+    <script>
+        // --- 1. SETUP ASAS ---
+        const scene = new THREE.Scene();
+        scene.fog = new THREE.FogExp2(0x0f0514, 0.015);
+
+        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+        camera.position.set(0, 0, 30); // Kamera pandang tepat ke tengah (seperti ultrasound kosmik)
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        document.getElementById('canvas-container').appendChild(renderer.domElement);
+
+        // --- 2. PENCAHAYAAN ---
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
+        scene.add(ambientLight);
+
+        const coreLight = new THREE.PointLight(0x3b82f6, 1.5, 50); // Cahaya biru cecair pada mulanya
+        scene.add(coreLight);
+
+        // --- 3. MODEL EMBRIO (GEOMETRI ORGANIK) ---
+        // Menggunakan Icosahedron yang mempunyai banyak bucu (vertices) untuk diedit
+        const embryoGeo = new THREE.IcosahedronGeometry(4, 32);
+
+        // Simpan posisi asal bucu untuk animasi "bernafas / organik"
+        const originalPositions = [];
+        const positions = embryoGeo.attributes.position;
+        for (let i = 0; i < positions.count; i++) {
+            originalPositions.push(new THREE.Vector3(positions.getX(i), positions.getY(i), positions.getZ(i)));
+        }
+
+        const embryoMat = new THREE.MeshPhysicalMaterial({
+            color: 0x93c5fd, // Biru cair lutsinar (Nutfah)
+            emissive: 0x1e3a8a,
+            emissiveIntensity: 0.5,
+            metalness: 0.1,
+            roughness: 0.1,
+            transmission: 0.9, // Efek Kaca / Cecair
+            thickness: 2,
+            transparent: true,
+            opacity: 0.9
+        });
+
+        const embryoMesh = new THREE.Mesh(embryoGeo, embryoMat);
+        scene.add(embryoMesh);
+
+        // --- 4. ORBIT 4 TAKDIR (Rezeki, Ajal, Amal, Celaka/Bahagia) ---
+        const destinyGroup = new THREE.Group();
+        const destinyOrbs = [];
+        const destinyColors = [0xfcd34d, 0xef4444, 0x34d399, 0xa855f7]; // Emas, Merah, Hijau, Ungu
+
+        for(let i=0; i<4; i++) {
+            const orbGeo = new THREE.SphereGeometry(0.5, 16, 16);
+            const orbMat = new THREE.MeshBasicMaterial({ color: destinyColors[i], transparent: true, opacity: 0 });
+            const orb = new THREE.Mesh(orbGeo, orbMat);
+
+            // Susun 4 orb dalam bulatan
+            const angle = (i / 4) * Math.PI * 2;
+            orb.position.set(Math.cos(angle) * 8, Math.sin(angle) * 8, 0);
+
+            destinyOrbs.push(orb);
+            destinyGroup.add(orb);
+        }
+        scene.add(destinyGroup);
+
+        // --- ZARAH ROH (Cahaya Masuk) ---
+        const particlesGeo = new THREE.BufferGeometry();
+        const particleCount = 400;
+        const pArray = new Float32Array(particleCount * 3);
+        for(let i=0; i<particleCount*3; i++) pArray[i] = (Math.random() - 0.5) * 40;
+        particlesGeo.setAttribute('position', new THREE.BufferAttribute(pArray, 3));
+        const particlesMat = new THREE.PointsMaterial({ size: 0.1, color: 0xffffff, transparent: true, opacity: 0 });
+        const particles = new THREE.Points(particlesGeo, particlesMat);
+        scene.add(particles);
+
+        // --- 5. LOGIK ANIMASI GLOBAL (Render Loop) ---
+        let clock = new THREE.Clock();
+        let currentPhase = 1;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            const time = clock.getElapsedTime();
+
+            // Animasi permukaan organik embrio (Vertex manipulation)
+            const positionAttribute = embryoGeo.attributes.position;
+            const vertexCount = positionAttribute.count;
+
+            for (let i = 0; i < vertexCount; i++) {
+                const vec = originalPositions[i];
+                // Frekuensi dan kekuatan perubahan berdasarkan Fasa
+                let wave = 0;
+                if(currentPhase === 1) wave = Math.sin(time * 2 + vec.x) * 0.1; // Nutfah: Beralun perlahan (Cecair)
+                if(currentPhase === 2) wave = Math.sin(time * 5 + vec.y) * 0.2; // Alaqah: Berdegup kasar
+                if(currentPhase === 3) wave = Math.sin(vec.x * 2 + time) * 0.3; // Mudhghah: Berbonjol-bonjol (Daging)
+                if(currentPhase === 4) wave = Math.sin(time * 3 + vec.z) * 0.05; // Roh: Stabil & tenang
+
+                vec.normalize();
+                const newScale = 4 + wave;
+                positionAttribute.setXYZ(i, vec.x * newScale, vec.y * newScale, vec.z * newScale);
+            }
+            positionAttribute.needsUpdate = true;
+
+            // Putaran embrio
+            embryoMesh.rotation.y = time * 0.2;
+            embryoMesh.rotation.z = time * 0.1;
+
+            // Putaran Orbit Takdir
+            if(currentPhase === 4) {
+                destinyGroup.rotation.z += 0.01;
+                destinyGroup.rotation.y = Math.sin(time * 0.5) * 0.5;
+            }
+
+            // Kamera bernafas
+            camera.position.z = 30 + Math.sin(time * 0.5) * 2;
+
+            renderer.render(scene, camera);
+        }
+
+        // --- 6. KAWALAN FASA (GSAP) ---
+        function setPhase(phase) {
+            currentPhase = phase;
+
+            // Update UI Button
+            for(let i=1; i<=4; i++) {
+                document.getElementById('btn-'+i).classList.remove('btn-active', 'border-pink-500');
+            }
+            document.getElementById('btn-'+phase).classList.add('btn-active', 'border-pink-500');
+
+            if (phase === 1) {
+                // NUTFAH (Air Cecair)
+                gsap.to(embryoMat, { transmission: 0.9, roughness: 0.1, duration: 1.5 });
+                gsap.to(embryoMat.color, { r: 0.57, g: 0.77, b: 0.99, duration: 1.5 }); // Biru Cair
+                gsap.to(embryoMat.emissive, { r: 0.1, g: 0.2, b: 0.5, duration: 1.5 });
+                gsap.to(coreLight.color, { r: 0.2, g: 0.5, b: 1.0, duration: 1.5 });
+                hideDestiny();
+            }
+            else if (phase === 2) {
+                // 'ALAQAH (Ketulan Darah)
+                gsap.to(embryoMat, { transmission: 0.2, roughness: 0.6, duration: 1.5 });
+                gsap.to(embryoMat.color, { r: 0.6, g: 0.0, b: 0.0, duration: 1.5 }); // Merah Darah Gelap
+                gsap.to(embryoMat.emissive, { r: 0.3, g: 0.0, b: 0.0, duration: 1.5 });
+                gsap.to(coreLight.color, { r: 1.0, g: 0.1, b: 0.1, duration: 1.5 });
+                hideDestiny();
+            }
+            else if (phase === 3) {
+                // MUDHGHAH (Ketulan Daging)
+                gsap.to(embryoMat, { transmission: 0, roughness: 0.9, duration: 1.5 });
+                gsap.to(embryoMat.color, { r: 0.8, g: 0.4, b: 0.3, duration: 1.5 }); // Warna Daging (Pinkish Brown)
+                gsap.to(embryoMat.emissive, { r: 0.2, g: 0.1, b: 0.1, duration: 1.5 });
+                gsap.to(coreLight.color, { r: 0.8, g: 0.4, b: 0.3, duration: 1.5 });
+                hideDestiny();
+            }
+            else if (phase === 4) {
+                // PENIUPAN ROH & TAKDIR
+                // Embrio memancarkan cahaya Suci
+                gsap.to(embryoMat, { transmission: 0.5, roughness: 0.2, duration: 2 });
+                gsap.to(embryoMat.color, { r: 1.0, g: 0.9, b: 0.6, duration: 2 }); // Emas/Putih
+                gsap.to(embryoMat.emissive, { r: 0.8, g: 0.6, b: 0.1, duration: 2 });
+                gsap.to(coreLight, { intensity: 3, distance: 100, duration: 2 });
+                gsap.to(coreLight.color, { r: 1.0, g: 0.8, b: 0.2, duration: 2 });
+
+                // Efek Peniupan Roh (Zarah masuk ke tengah)
+                particles.scale.set(3, 3, 3);
+                gsap.to(particlesMat, { opacity: 0.8, duration: 1 });
+                gsap.to(particles.scale, { x: 0, y: 0, z: 0, duration: 2, ease: "power2.in" }); // Zarah di sedut masuk
+                setTimeout(() => gsap.to(particlesMat, { opacity: 0, duration: 0.5 }), 2000); // Hilang selepas disedut
+
+                // 4 Orbit Takdir Muncul
+                destinyOrbs.forEach((orb, i) => {
+                    gsap.to(orb.material, { opacity: 1, duration: 2, delay: 1 + (i*0.2) });
+                    gsap.fromTo(orb.position,
+                        { x: 0, y: 0 },
+                        { x: Math.cos((i/4)*Math.PI*2)*8, y: Math.sin((i/4)*Math.PI*2)*8, duration: 2, delay: 1, ease: "back.out(1.5)" }
+                    );
+                });
+            }
+        }
+
+        function hideDestiny() {
+            destinyOrbs.forEach(orb => {
+                gsap.to(orb.material, { opacity: 0, duration: 1 });
+            });
+            gsap.to(coreLight, { intensity: 1.5, duration: 1 });
+        }
+
+        // Initialize Responsive Canvas
+        // --- RESPONSIF: pastikan model 3D muat & jelas pada telefon/tablet ---
+        // Hanya FOV yang dilaraskan (bukan camera.position), supaya animasi
+        // kamera khusus setiap simulasi tidak terjejas.
+        const __BASE_FOV = camera.fov;
+        const __REF_ASPECT = 16 / 9;
+
+        function applyResponsiveView() {
+            const w = window.innerWidth;
+            const h = window.innerHeight;
+            const aspect = w / h;
+
+            camera.aspect = aspect;
+
+            // Kekalkan medan pandang MENDATAR seperti skrin lebar: apabila
+            // skrin menjadi sempit & tinggi, luaskan FOV menegak supaya
+            // model tidak terpotong di kiri/kanan.
+            let fov = __BASE_FOV;
+            if (aspect < __REF_ASPECT) {
+                const vRad = THREE.MathUtils.degToRad(__BASE_FOV);
+                const hRad = 2 * Math.atan(Math.tan(vRad / 2) * __REF_ASPECT);
+                fov = THREE.MathUtils.radToDeg(2 * Math.atan(Math.tan(hRad / 2) / aspect));
+            }
+
+            // Undur sedikit lagi supaya model duduk dalam jalur tengah yang
+            // lapang, tidak tersembunyi di belakang panel atas/bawah.
+            if (w <= 640) fov *= 1.3;
+            else if (w <= 1024) fov *= 1.12;
+
+            camera.fov = Math.min(fov, 100);
+            camera.updateProjectionMatrix();
+            renderer.setSize(w, h);
+        }
+
+        window.addEventListener('resize', applyResponsiveView);
+        applyResponsiveView();
+
+        // Start animation
+        animate();
+    </script>
+</body>
+</html>

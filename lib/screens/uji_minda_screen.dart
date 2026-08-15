@@ -1,12 +1,15 @@
+// ignore_for_file: deprecated_member_use
 import 'dart:html' as html;
 import 'dart:ui_web' as ui_web;
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../core/theme/app_colors.dart';
 import '../services/app_controller.dart';
+import '../widgets/dashboard/xplorasi_minda_title.dart';
 
-/// Paparan penuh "Uji Minda" — game interaktif "Eksplorasi Hadis 40" yang
+/// Paparan penuh "X-plorasi Minda" — game interaktif "Eksplorasi Hadis 40" yang
 /// dijalankan sebagai halaman HTML/JS berasingan (`web/uji_minda/index.html`,
 /// termasuk GSAP + Phosphor Icons), dibenamkan melalui iframe kerana app ini
 /// sasaran web sahaja.
@@ -78,7 +81,14 @@ class _UjiMindaScreenState extends State<UjiMindaScreen> {
     return Scaffold(
       backgroundColor: scheme.surface,
       appBar: AppBar(
-        title: const Text('Uji Minda'),
+        title: XplorasiMindaTitle(
+          textColor: scheme.onSurface,
+          xBoxColor: AppColors.gold,
+          xIconColor: scheme.brightness == Brightness.dark
+              ? scheme.surface
+              : Colors.white,
+          fontSize: 18,
+        ),
       ),
       body: Stack(
         children: [

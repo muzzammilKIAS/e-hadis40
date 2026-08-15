@@ -16,7 +16,7 @@ class AppColors {
   static const secondary = Color(0xFF2E9C74);
   static const accent = Color(0xFF78C9A7);
 
-  static const border = Color(0xFFD7E8DF);
+  static const border = Color(0xFF94C1B0);
   static const textPrimary = Color(0xFF1F352D);
   static const textSecondary = Color(0xFF64756E);
   static const textMuted = Color(0xFF899891);

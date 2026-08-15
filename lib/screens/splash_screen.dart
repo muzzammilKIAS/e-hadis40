@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../core/theme/app_colors.dart';
+import '../services/app_controller.dart';
 
 /// e-Hadis40 Emerald Motion Splash (SILENT).
 ///
@@ -122,8 +124,19 @@ class _AppSplashScreenState extends State<AppSplashScreen>
     );
 
     _controller.forward().whenComplete(() {
-      if (mounted) _showDisclaimer();
+      if (mounted) _afterSplash();
     });
+  }
+
+  Future<void> _afterSplash() async {
+    // Penafian hanya perlu dipaparkan sekali. Jika sudah diterima sebelum ini,
+    // terus masuk ke aplikasi tanpa dialog.
+    final controller = context.read<AppController>();
+    if (controller.disclaimerAccepted) {
+      widget.onComplete();
+      return;
+    }
+    await _showDisclaimer();
   }
 
   @override
@@ -151,11 +164,12 @@ class _AppSplashScreenState extends State<AppSplashScreen>
     if (!mounted) return;
     // accepted boleh null (back) — kekal splash, tidak masuk app.
     if (accepted == true) {
-      widget.onComplete();
+      await context.read<AppController>().acceptDisclaimer();
+      if (mounted) widget.onComplete();
     } else {
       _controller.reset();
       _controller.forward().whenComplete(() {
-        if (mounted) _showDisclaimer();
+        if (mounted) _afterSplash();
       });
     }
   }

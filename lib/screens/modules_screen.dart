@@ -24,7 +24,14 @@ class ModulesScreen extends StatelessWidget {
       builder: (context, constraints) {
         final layout = DashboardLayout.of(constraints);
         return SingleChildScrollView(
-          padding: layout.pagePadding,
+          // `MainShell` guna `extendBody: true`, jadi badan skrin memanjang
+          // ke BELAKANG bar navigasi bawah. Tanpa menambah tinggi bar itu
+          // pada padding bawah, kad terakhir (Xplorasi Minda) kekal
+          // tersembunyi separuh di bawah bar walau sudah skrol habis.
+          padding: layout.pagePadding.copyWith(
+            bottom: layout.pagePadding.bottom +
+                MediaQuery.paddingOf(context).bottom,
+          ),
           child: Align(
             alignment: Alignment.topCenter,
             child: SizedBox(

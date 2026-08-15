@@ -18,6 +18,7 @@ import '../widgets/dashboard/islamic_atmosphere.dart';
 import '../widgets/dashboard/learning_progress_card.dart';
 import '../widgets/dashboard/module_identity.dart';
 import '../widgets/dashboard/module_learning_card.dart';
+import 'anatomi_sunnah_list_screen.dart';
 import 'hadith_screen.dart';
 import 'module_detail_screen.dart';
 import 'projector_screen.dart';
@@ -125,6 +126,8 @@ class _DashboardBody extends StatelessWidget {
           onToggle: controller.setTeacherMode,
           onProjector: () => _openProjector(context),
         ),
+        SizedBox(height: layout.sectionGap),
+        _AnatomiSunnahCard(layout: layout),
         const SizedBox(height: 18),
         const AppFooter(),
       ],
@@ -827,6 +830,117 @@ class _TeacherFeatureCard extends StatelessWidget {
                     heading,
                     const SizedBox(height: 14),
                     controls,
+                  ],
+                ),
+        ),
+      ],
+    );
+  }
+}
+
+// ───────────────────────── Anatomi Sunnah ──────────────────────────
+
+/// Kotak promosi "Anatomi Sunnah 3D" di dashboard — guna ikon
+/// `view_in_ar_rounded` yang sama seperti slaid penutup mod projektor,
+/// supaya kedua-dua kemasukan mengekalkan identiti visual yang konsisten.
+/// Navigasi belum disambungkan; kandungan simulasi akan dibekalkan
+/// berasingan sebelum butang ini diaktifkan.
+class _AnatomiSunnahCard extends StatelessWidget {
+  const _AnatomiSunnahCard({required this.layout});
+
+  final DashboardLayout layout;
+
+  @override
+  Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+    final text = Theme.of(context).textTheme;
+    final dark = scheme.brightness == Brightness.dark;
+
+    final heading = Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Container(
+          width: 44,
+          height: 44,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(14),
+            color: scheme.primary.withValues(alpha: dark ? 0.22 : 0.12),
+            border: Border.all(color: scheme.primary.withValues(alpha: 0.32)),
+          ),
+          child: Icon(
+            Icons.view_in_ar_rounded,
+            size: 21,
+            color: dark ? scheme.tertiary : scheme.primary,
+          ),
+        ),
+        const SizedBox(width: 12),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                'Anatomi Sunnah 3D',
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: text.titleMedium?.copyWith(
+                  fontWeight: FontWeight.w700,
+                  fontSize: 15.5,
+                ),
+              ),
+              const SizedBox(height: 3),
+              Text(
+                'Simulasi interaktif 3D bagi meneroka makna sebalik hadis.',
+                maxLines: 3,
+                overflow: TextOverflow.ellipsis,
+                style: text.bodySmall?.copyWith(
+                  color: scheme.onSurfaceVariant,
+                  fontSize: 12.5,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+
+    final button = OutlinedButton.icon(
+      onPressed: () => Navigator.of(context).push(
+        MaterialPageRoute<void>(
+          builder: (_) => const AnatomiSunnahListScreen(),
+        ),
+      ),
+      icon: const Icon(Icons.view_in_ar_rounded, size: 18),
+      label: const Text('Buka Anatomi Sunnah'),
+    );
+
+    return Stack(
+      children: [
+        Positioned.fill(
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(22),
+            child: IslamicCardPattern(color: scheme.primary, seed: 6),
+          ),
+        ),
+        GlassSurface(
+          padding: EdgeInsets.all(layout.isCompact ? 16 : 20),
+          accent: scheme.primary.withValues(alpha: 0.35),
+          child: layout.contentWidth >= 700
+              ? Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Expanded(child: heading),
+                    const SizedBox(width: 16),
+                    button,
+                  ],
+                )
+              : Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    heading,
+                    const SizedBox(height: 14),
+                    button,
                   ],
                 ),
         ),

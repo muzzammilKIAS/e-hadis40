@@ -9,7 +9,7 @@ class AppTheme {
   const AppTheme._();
 
   static TextTheme _buildTextTheme(ColorScheme scheme) {
-    final base = GoogleFonts.poppinsTextTheme();
+    final base = GoogleFonts.baloo2TextTheme();
     return base.copyWith(
       displaySmall: base.displaySmall?.copyWith(
         fontWeight: FontWeight.w700,
@@ -126,12 +126,52 @@ class AppTheme {
       surfaceTint: AppColors.darkPrimary,
     );
 
-    return _base(scheme, _buildTextTheme(scheme)).copyWith(
+    return _base(scheme, _buildTextTheme(scheme), isDark: true).copyWith(
       scaffoldBackgroundColor: AppColors.darkBackground,
     );
   }
 
-  static ThemeData _base(ColorScheme scheme, TextTheme textTheme) {
+  /// Bina ButtonStyle asas dengan lingkaran + bayang emas apabila kursor
+  /// hover di atas butang dalam mod gelap — padanan dengan gaya hover
+  /// medan carian dashboard yang sedia ada.
+  static WidgetStateProperty<T?> _hoverGoldGlow<T>({
+    required T Function() glow,
+    required T Function() normal,
+  }) {
+    return WidgetStateProperty.resolveWith<T?>((states) {
+      return states.contains(WidgetState.hovered) ? glow() : normal();
+    });
+  }
+
+  static ButtonStyle _applyDarkHoverGlow(ButtonStyle style) {
+    return style.copyWith(
+      side: _hoverGoldGlow<BorderSide?>(
+        glow: () => const BorderSide(color: AppColors.darkGold, width: 1.4),
+        normal: () => style.side?.resolve(const {}),
+      ),
+      shadowColor: _hoverGoldGlow<Color?>(
+        glow: () => AppColors.darkGold.withValues(alpha: 0.55),
+        normal: () => Colors.transparent,
+      ),
+      elevation: _hoverGoldGlow<double?>(
+        glow: () => 12,
+        normal: () => 0,
+      ),
+      overlayColor: _hoverGoldGlow<Color?>(
+        glow: () => AppColors.darkGold.withValues(alpha: 0.12),
+        normal: () => null,
+      ),
+    );
+  }
+
+  static ThemeData _base(
+    ColorScheme scheme,
+    TextTheme textTheme, {
+    bool isDark = false,
+  }) {
+    ButtonStyle withHover(ButtonStyle style) =>
+        isDark ? _applyDarkHoverGlow(style) : style;
+
     return ThemeData(
       useMaterial3: true,
       colorScheme: scheme,
@@ -182,7 +222,7 @@ class AppTheme {
         ),
       ),
       filledButtonTheme: FilledButtonThemeData(
-        style: FilledButton.styleFrom(
+        style: withHover(FilledButton.styleFrom(
           minimumSize: const Size(44, 48),
           padding: const EdgeInsets.symmetric(
             horizontal: AppSpacing.xl,
@@ -195,10 +235,10 @@ class AppTheme {
             fontWeight: FontWeight.w600,
             fontSize: 15,
           ),
-        ),
+        )),
       ),
       outlinedButtonTheme: OutlinedButtonThemeData(
-        style: OutlinedButton.styleFrom(
+        style: withHover(OutlinedButton.styleFrom(
           minimumSize: const Size(44, 48),
           padding: const EdgeInsets.symmetric(
             horizontal: AppSpacing.xl,
@@ -211,12 +251,20 @@ class AppTheme {
             fontWeight: FontWeight.w600,
             fontSize: 15,
           ),
-        ),
+        )),
+      ),
+      textButtonTheme: TextButtonThemeData(
+        style: withHover(TextButton.styleFrom(
+          minimumSize: const Size(44, 44),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(AppRadius.lg),
+          ),
+        )),
       ),
       iconButtonTheme: IconButtonThemeData(
-        style: IconButton.styleFrom(
+        style: withHover(IconButton.styleFrom(
           minimumSize: const Size(44, 44),
-        ),
+        )),
       ),
       chipTheme: ChipThemeData(
         side: BorderSide(color: scheme.outlineVariant),

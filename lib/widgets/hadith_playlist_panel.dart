@@ -48,7 +48,14 @@ class HadithPlaylistPanel extends StatelessWidget {
     return Stack(
       children: [
         _DecorativeBackground(scheme: scheme, isDark: isDark),
-        Padding(
+        // Seluruh panel diskrol sebagai satu unit. Sebelum ini kepala +
+        // kad "sedang dimainkan" bersaiz tetap, jadi pada skrin pendek
+        // (telefon) tingginya sahaja sudah melebihi ruang badan — Column
+        // melimpah (jalur belang RenderFlex) walaupun senarai trek
+        // dibungkus `Flexible`, kerana bahagian tetap itu tidak boleh
+        // mengecil. Dengan satu skrol luar, susun atur ini muat pada
+        // mana-mana saiz skrin.
+        SingleChildScrollView(
           padding: const EdgeInsets.all(AppSpacing.lg),
           child: Column(
             children: [
@@ -56,13 +63,11 @@ class HadithPlaylistPanel extends StatelessWidget {
               const SizedBox(height: AppSpacing.xl),
               _NowPlayingCard(scheme: scheme, audio: audio, tracks: tracks),
               const SizedBox(height: AppSpacing.xl),
-              Flexible(
-                child: _ElegantTrackList(
-                  scheme: scheme,
-                  tracks: tracks,
-                  currentIndex: audio.currentIndex,
-                  onTap: (index) => audio.skipTo(index),
-                ),
+              _ElegantTrackList(
+                scheme: scheme,
+                tracks: tracks,
+                currentIndex: audio.currentIndex,
+                onTap: (index) => audio.skipTo(index),
               ),
             ],
           ),
@@ -79,28 +84,46 @@ class _DecorativeBackground extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Dua tanda air hiasan sahaja. Guna Stack + Positioned (bukan Column):
+    // ketinggian tetapnya berjumlah 660px, jadi pada skrin pendek Column
+    // akan melimpah dan memaparkan jalur belang RenderFlex. Dengan Stack,
+    // hiasan ini hanya bertindih/dipotong oleh ClipRect — tidak sekali-kali
+    // melimpah.
     return IgnorePointer(
-      child: SizedBox.expand(
-        child: Column(
-          children: [
-            const SizedBox(height: 160),
-            Opacity(
-              opacity: isDark ? 0.04 : 0.06,
-              child: const Icon(Icons.mosque_rounded,
-                  size: 200, color: AppColors.primary),
-            ),
-            const Spacer(),
-            Opacity(
-              opacity: isDark ? 0.03 : 0.05,
-              child: Transform(
-                alignment: Alignment.center,
-                transform: Matrix4.rotationZ(pi),
-                child: const Icon(Icons.headphones_rounded,
-                    size: 240, color: AppColors.primary),
+      child: ClipRect(
+        child: SizedBox.expand(
+          child: Stack(
+            children: [
+              Positioned(
+                top: 160,
+                left: 0,
+                right: 0,
+                child: Center(
+                  child: Opacity(
+                    opacity: isDark ? 0.04 : 0.06,
+                    child: const Icon(Icons.mosque_rounded,
+                        size: 200, color: AppColors.primary),
+                  ),
+                ),
               ),
-            ),
-            const SizedBox(height: 60),
-          ],
+              Positioned(
+                bottom: 60,
+                left: 0,
+                right: 0,
+                child: Center(
+                  child: Opacity(
+                    opacity: isDark ? 0.03 : 0.05,
+                    child: Transform(
+                      alignment: Alignment.center,
+                      transform: Matrix4.rotationZ(pi),
+                      child: const Icon(Icons.headphones_rounded,
+                          size: 240, color: AppColors.primary),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -632,6 +655,9 @@ class _ElegantTrackList extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.separated(
       shrinkWrap: true,
+      // Senarai ini berada di dalam `SingleChildScrollView` panel, jadi ia
+      // sendiri tidak boleh menskrol (satu skrol luar sahaja).
+      physics: const NeverScrollableScrollPhysics(),
       padding: const EdgeInsets.only(bottom: AppSpacing.md),
       itemCount: tracks.length,
       separatorBuilder: (_, __) => const SizedBox(height: AppSpacing.sm),

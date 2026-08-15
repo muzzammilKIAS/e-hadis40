@@ -8,6 +8,7 @@ import '../core/curriculum/app_curriculum_structure.dart';
 import '../data/models/hadith.dart';
 import '../data/repositories/hadith_repository.dart';
 import '../services/hadith_local_audio_controller.dart';
+import 'anatomi_sunnah_screen.dart';
 
 class ProjectorScreen extends StatefulWidget {
   const ProjectorScreen({
@@ -92,6 +93,10 @@ class _ProjectorScreenState extends State<ProjectorScreen> {
       _ProjectorPageData(title: 'Fokus Nilai', paragraphs: h.focusValues),
       _ProjectorPageData(
           title: 'Soalan Refleksi', paragraphs: h.reflectionQuestions),
+      const _ProjectorPageData(
+        title: 'Anatomi Sunnah 3D',
+        isAnatomiSunnahPage: true,
+      ),
     ]);
 
     return pages;
@@ -190,6 +195,9 @@ class _ProjectorScreenState extends State<ProjectorScreen> {
         onPageChanged: (value) => setState(() => _index = value),
         itemBuilder: (context, index) {
           final data = pages[index];
+          if (data.isAnatomiSunnahPage) {
+            return _AnatomiSunnahProjectorPage(hadith: hadith);
+          }
           if (index == 0 && hadith.audioTimings.isNotEmpty) {
             return _SyncedProjectorPage(
               data: data,
@@ -254,6 +262,7 @@ class _ProjectorPageData {
     this.arabic,
     this.paragraphs = const [],
     this.isFirstPage = false,
+    this.isAnatomiSunnahPage = false,
   });
 
   final String title;
@@ -261,6 +270,7 @@ class _ProjectorPageData {
   final String? arabic;
   final List<String> paragraphs;
   final bool isFirstPage;
+  final bool isAnatomiSunnahPage;
 }
 
 class _ProjectorPage extends StatelessWidget {
@@ -339,6 +349,106 @@ class _ProjectorPage extends StatelessWidget {
                       ),
                   ],
                 ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// Slaid penutup bagi setiap hadis dalam mod projektor — butang ">" di sini
+/// akan membuka simulasi "Anatomi Sunnah 3D" bagi hadis semasa. Navigasi
+/// sebenar belum disambungkan; kandungan simulasi akan dibekalkan
+/// berasingan sebelum butang ini diaktifkan.
+class _AnatomiSunnahProjectorPage extends StatelessWidget {
+  const _AnatomiSunnahProjectorPage({required this.hadith});
+
+  final Hadith hadith;
+
+  @override
+  Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+    return Center(
+      child: SingleChildScrollView(
+        padding: const EdgeInsets.all(42),
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 700),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(Icons.view_in_ar_rounded, size: 56, color: scheme.primary),
+              const SizedBox(height: 24),
+              Text(
+                'Anatomi Sunnah 3D',
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.displaySmall,
+              ),
+              const SizedBox(height: 12),
+              Text(
+                'Simulasi Interaktif Hadis ${hadith.displayNumber} — '
+                '${hadith.title}',
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                      color: scheme.primary,
+                    ),
+              ),
+              const SizedBox(height: 40),
+              Tooltip(
+                message: hadith.number <=
+                        AnatomiSunnahScreen.availableHadithNumbers
+                    ? 'Mulakan Anatomi Sunnah'
+                    : 'Anatomi Sunnah akan datang',
+                child: InkWell(
+                  borderRadius: BorderRadius.circular(999),
+                  onTap: () {
+                    if (hadith.number <=
+                        AnatomiSunnahScreen.availableHadithNumbers) {
+                      Navigator.of(context).push(
+                        MaterialPageRoute<void>(
+                          builder: (_) => AnatomiSunnahScreen(
+                            hadithNumber: hadith.number,
+                          ),
+                        ),
+                      );
+                      return;
+                    }
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text('Anatomi Sunnah akan datang tidak lama lagi.'),
+                      ),
+                    );
+                  },
+                  child: Container(
+                    width: 72,
+                    height: 72,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      color: scheme.primary,
+                      shape: BoxShape.circle,
+                      boxShadow: [
+                        BoxShadow(
+                          color: scheme.primary.withValues(alpha: 0.35),
+                          blurRadius: 20,
+                          offset: const Offset(0, 8),
+                        ),
+                      ],
+                    ),
+                    child: Icon(
+                      Icons.chevron_right_rounded,
+                      size: 40,
+                      color: scheme.onPrimary,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 16),
+              Text(
+                'Ke Anatomi Sunnah',
+                style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                      color: scheme.onSurfaceVariant,
+                    ),
+              ),
             ],
           ),
         ),
