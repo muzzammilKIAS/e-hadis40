@@ -449,18 +449,42 @@ class _ModuleSection extends StatelessWidget {
   final ValueChanged<LearningModule> onOpenModule;
   final VoidCallback onSeeAll;
 
+  /// Bilangan modul yang dipaparkan sebagai pratonton di dashboard.
+  ///
+  /// Memaparkan kesemua 8 modul menjadikan dashboard terlalu panjang pada
+  /// telefon (satu lajur = 8 kad tinggi berturut-turut). Kita hadkan kepada
+  /// baris yang lengkap sahaja; senarai penuh sentiasa boleh dicapai melalui
+  /// "Lihat semua".
+  int _previewCount(int columns) {
+    final count = switch (columns) {
+      1 => 3, // telefon — pratonton ringkas
+      2 => 4, // 2 baris
+      3 => 6, // 2 baris
+      _ => modules.length, // 4 lajur: 2 baris sudah muat kesemuanya
+    };
+    return count.clamp(0, modules.length);
+  }
+
   @override
   Widget build(BuildContext context) {
     final columns = layout.moduleColumns;
     final width = layout.itemWidth(columns);
+
+    final shown = _previewCount(columns);
+    final preview = modules.take(shown).toList();
+    final remaining = modules.length - shown;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         DashboardSectionHeader(
           title: 'Modul Pembelajaran',
-          subtitle: '${AppCurriculumStructure.totalHadiths} hadis disusun '
-              'dalam ${AppCurriculumStructure.totalModules} modul.',
+          subtitle: remaining > 0
+              ? 'Memaparkan $shown daripada '
+                  '${AppCurriculumStructure.totalModules} modul '
+                  '(${AppCurriculumStructure.totalHadiths} hadis).'
+              : '${AppCurriculumStructure.totalHadiths} hadis disusun '
+                  'dalam ${AppCurriculumStructure.totalModules} modul.',
           actionLabel: 'Lihat semua',
           onAction: onSeeAll,
         ),
@@ -469,7 +493,7 @@ class _ModuleSection extends StatelessWidget {
           spacing: layout.gap,
           runSpacing: layout.gap,
           children: [
-            for (final module in modules)
+            for (final module in preview)
               SizedBox(
                 width: width,
                 child: ModuleLearningCard(
@@ -485,7 +509,63 @@ class _ModuleSection extends StatelessWidget {
               ),
           ],
         ),
+        if (remaining > 0) ...[
+          SizedBox(height: layout.gap),
+          _SeeMoreModulesButton(remaining: remaining, onTap: onSeeAll),
+        ],
       ],
+    );
+  }
+}
+
+/// Butang lebar penuh di bawah pratonton modul — memberi laluan kedua yang
+/// jelas ke senarai penuh (selain pautan "Lihat semua" di kepala seksyen),
+/// tepat di tempat pengguna berhenti menatal.
+class _SeeMoreModulesButton extends StatelessWidget {
+  const _SeeMoreModulesButton({required this.remaining, required this.onTap});
+
+  final int remaining;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+
+    return SizedBox(
+      width: double.infinity,
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: onTap,
+          borderRadius: BorderRadius.circular(16),
+          child: Ink(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(16),
+              border: Border.all(color: scheme.outlineVariant),
+              color: scheme.surfaceContainerHighest.withValues(alpha: 0.35),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 14),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Lihat $remaining modul lagi',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 14.5,
+                      color: scheme.primary,
+                    ),
+                  ),
+                  const SizedBox(width: 6),
+                  Icon(Icons.arrow_forward_rounded,
+                      size: 18, color: scheme.primary),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

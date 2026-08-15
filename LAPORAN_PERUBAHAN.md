@@ -12,11 +12,14 @@
 
 | Semakan | Keputusan |
 |---|---|
-| `flutter analyze` | ✅ **0 ralat, 0 amaran** — 2 mesej `info` sahaja (deprecation `dart:html`) |
+| `flutter analyze` | ✅ **0 isu** |
 | `flutter test` | ✅ **20/20 lulus** |
 | `flutter build web --release` | ✅ Berjaya |
 | `flutter build web --debug` | ✅ Berjaya, **tiada jalur limpahan (RenderFlex overflow)** |
-| Bug diketahui belum selesai | ⚠️ 4 item — lihat **Bahagian 5** |
+| Bug diketahui belum selesai | ⚠️ 2 item — lihat **Bahagian 5** |
+
+> **Kemas kini pusingan ke-2 (16 Ogos):** 4 permintaan tambahan telah disiapkan —
+> lihat **Bahagian 10**.
 
 > **PENTING:** Semua kerja dalam laporan ini **belum di-commit**. Ia berada dalam
 > *working tree* sahaja. Sila `git add` + `git commit` sebelum meneruskan kerja
@@ -285,25 +288,31 @@ dalam `splash_screen.dart` hanya memanggil `widget.onComplete()`.
 **Cadangan:** panggil `acceptDisclaimer()` pada butang itu, dan langkau dialog
 apabila `disclaimerAccepted == true`.
 
-### 5.2 Hadis 4 tiada teks Arab
+### 5.2 ~~Hadis 4 tiada teks Arab~~ ✅ SELESAI
 
-`web/anatomi_sunnah/hadith_04.html` **tiada baris teks Arab** dalam kepalanya —
-13 fail lain ada. Ini kandungan yang tertinggal.
-Saya **sengaja tidak menambahnya** kerana tidak wajar mereka-cipta teks Arab
-sendiri. Sila ambil daripada `assets/data/hadith_04.json`.
+Teks Arab penuh telah ditambah ke `hadith_04.html`. Saya kemudian melaraskan
+saiznya (`text-3xl` → `text-lg`, `leading-loose`) dan warnanya
+(`emerald` → `pink`, sepadan tema halaman), kerana matannya 917 aksara —
+jauh lebih panjang daripada petikan 12–100 aksara pada 13 fail lain — dan
+pada saiz asal ia menenggelamkan seluruh panel.
 
-### 5.3 Kebergantungan CDN — tidak berfungsi luar talian
+### 5.3 ~~Kebergantungan CDN pada folder anatomi~~ ✅ SELESAI (sebahagian)
 
-Setiap fail anatomi memuatkan daripada internet:
+`web/anatomi_sunnah/` kini memuatkan three.js, GSAP dan fon secara **setempat**
+daripada `web/anatomi_sunnah/lib/`. (Lihat Bahagian 10.4 — laluan fon pada
+mulanya rosak dan telah saya betulkan.)
+
+⚠️ **MASIH BERBAKI:** `web/uji_minda/index.html` kekal bergantung sepenuhnya
+kepada CDN:
 ```html
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/@phosphor-icons/web"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-@import url('https://fonts.googleapis.com/css2?family=Amiri&family=Baloo+2...');
+<link href="https://fonts.googleapis.com/css2?family=Amiri...&family=Baloo+2...">
 ```
-**Risiko:** simulasi 3D **gagal sepenuhnya** tanpa internet — bermasalah untuk
-kegunaan di sekolah dengan talian tidak stabil.
-**Cadangan:** muat turun three.js + GSAP + fon ke dalam `web/anatomi_sunnah/`
-dan rujuk secara setempat (sama seperti yang sudah dibuat untuk Tailwind).
+Nota tambahan: `cdn.tailwindcss.com` ialah pengkompil JIT dalam pelayar —
+*anti-pattern* untuk produksi. Cadangan: localkan sama seperti folder anatomi,
+dan pra-kompil Tailwind menjadi CSS statik.
 
 ### 5.4 `dart:html` sudah *deprecated*
 
@@ -405,3 +414,116 @@ git commit -m "Anatomi Sunnah 3D responsif + pembetulan limpahan & platform view
 - Betulkan spinner tersekat pada kunjungan kedua (view factory static)
 - Tailwind pra-kompil menggantikan CDN JIT"
 ```
+
+---
+
+## 10. Pusingan Ke-2 — 4 Permintaan Tambahan (16 Ogos 2026)
+
+### 10.1 Saiz font Rumi dibesarkan (telefon & tablet)
+
+Nilai lama terlalu kecil. Semua dinaikkan ~12–18%:
+
+| Kelas | Telefon (lama → baharu) | Tablet (lama → baharu) |
+|---|---|---|
+| `text-4xl` | 1.35 → **1.6rem** | 1.75 → **2rem** |
+| `text-3xl` | 1.15 → **1.4rem** | 1.45 → **1.65rem** |
+| `text-2xl` | 1.05 → **1.25rem** | 1.25 → **1.45rem** |
+| `text-xl` | 0.98 → **1.12rem** | 1.1 → **1.25rem** |
+| `text-lg` | 0.92 → **1.05rem** | 1.0 → **1.12rem** |
+| `text-sm` | 0.8 → **0.95rem** | *(tiada)* → **1rem** |
+| `text-xs` | 0.72 → **0.88rem** | *(tiada)* → **0.92rem** |
+| `.btn-action` | 0.76 → **0.92rem** | *(tiada)* → **1rem** |
+
+**Dua pepijat sampingan turut dibetulkan:**
+- Breakpoint **tablet** sebelum ini **tidak** melaraskan `text-sm`/`text-xs`
+  langsung, jadi teks badan kekal pada saiz Tailwind lalai yang kecil.
+- Kelas arbitrari `text-[12px]` / `text-[13px]` tidak pernah dilaraskan pada
+  mana-mana breakpoint; kini ditambah.
+
+**Tinggi panel dilaraskan semula** supaya teks lebih besar tidak memaksa skrol:
+
+| Panel | Telefon | Tablet |
+|---|---|---|
+| Kepala | 31vh → **34vh** | 64vh → **52vh** |
+| Kawalan | 38vh → **45vh** | 48vh → **36vh** |
+
+> ⚠️ Nilai tablet asal (`64vh + 48vh = 112vh`) **melebihi tinggi skrin**,
+> menyebabkan panel bersentuhan pada Hadis 4 (jalur 3D = **0px**).
+> Kini 52+36 = 88vh → jalur 3D **139px**.
+
+### 10.2 Bingkai Xplorasi Minda dibetulkan
+
+**Punca:** baris kawalan (2 butang + pemasa + pil "Dijumpai" ≈ **424px**)
+melebihi ruang dalam panel kaca pada telefon (**≈318px**), jadi pil "Dijumpai"
+terkeluar daripada bingkai.
+
+**Pembetulan** — `web/uji_minda/index.html`:
+- `flex-wrap` + `w-full sm:w-auto` → kawalan membalut ke baris kedua.
+- Saiz mengecil pada telefon: butang `w-10 h-10` (sm: `w-11 h-11`),
+  padding & fon `text-base` (sm: `text-lg`).
+- Bar kemajuan `w-full sm:w-32` supaya tidak memaksa lebar tetap.
+
+**Pengesahan:** limpahan keluar-bingkai = **0px** pada telefon, tablet & desktop.
+
+### 10.3 Dashboard — kotak modul diminimalkan
+
+`lib/screens/home_screen.dart` kini memaparkan **pratonton** sahaja:
+
+| Lajur | Modul dipaparkan |
+|---|---|
+| 1 (telefon) | **3** |
+| 2 | **4** |
+| 3 | **6** |
+| 4 (desktop) | 8 (semua) |
+
+Ditambah butang lebar penuh **"Lihat N modul lagi"** di bawah pratonton
+(selain pautan "Lihat semua" sedia ada di kepala seksyen), dan subtajuk
+bertukar kepada *"Memaparkan 3 daripada 8 modul (42 hadis)."*
+
+**Pengesahan:** telefon menunjukkan 3 kad + butang "Lihat 5 modul lagi";
+klik → skrin Modul penuh dengan kesemua 8 modul.
+
+### 10.4 🔴 Font Arab (Amiri) — punca sebenar: SEMUA fail font 404
+
+Ini bukan sekadar isu gaya — **ketujuh-tujuh fail font gagal dimuat.**
+
+`web/anatomi_sunnah/lib/fonts.css` merujuk laluan bergaya Google Fonts:
+```
+url(./fonts/s/amiri/v30/J7aRnpd8CGxBHqUp.ttf)
+url(./fonts/s/baloo2/v23/wXK0E3kTposypRydzVT08TS3JnAmtdgazapv.ttf)
+```
+tetapi fail sebenar disimpan **rata** di `./fonts/`:
+```
+fonts/J7aRnpd8CGxBHqUp.ttf
+fonts/wXK0E3kTposypRydzVT08TS3JnAmtdgazapv.ttf
+```
+
+**Akibat:** Arab jatuh ke `serif` generik (bukan Amiri) **dan** Rumi jatuh ke
+`sans-serif` generik (bukan Baloo 2) — jadi ini turut menyumbang kepada aduan
+"font Rumi kecil/tak kemas" dalam 10.1.
+
+**Pembetulan:** laluan `url()` ditulis semula supaya sepadan susun atur rata.
+
+**Pengesahan** (14 fail, `document.fonts.check` + pemantauan HTTP):
+```
+hadith_01 … hadith_14   amiri=true  baloo=true  arabicEl="Amiri, serif"
+tiada respons HTTP >= 400 bagi mana-mana fail font
+```
+
+**Bonus — Hadis 4:** teks Arabnya (baru ditambah) ialah matan **penuh 917
+aksara** berbanding petikan 12–100 aksara pada 13 fail lain, tetapi masih
+menggunakan `text-3xl` dan warna `emerald` (tema halaman itu merah jambu).
+Ditukar kepada `text-lg` + `leading-loose` + `text-pink-200`, jadi kini
+matan penuh **dan** terjemahan Melayu muat serentak tanpa skrol.
+
+### 10.5 Pengesahan menyeluruh pusingan ke-2
+
+| Ujian | Skop | Keputusan |
+|---|---|---|
+| `flutter analyze` | seluruh projek | ✅ 0 isu |
+| `flutter test` | 20 ujian | ✅ lulus |
+| Font Amiri + Baloo 2 | 14 fail | ✅ semua dimuat, 0 × HTTP 404 |
+| Jalur 3D & limpahan panel | 14 fail × 3 saiz = 42 | ✅ tiada limpahan; jalur paling ketat 139px |
+| Panel kawalan telefon terpotong | 14 fail | ✅ tiada |
+| Bingkai Xplorasi Minda | 3 saiz | ✅ 0px keluar-bingkai |
+| Jalur belang (debug build) | 5 tab × 4 tinggi = 20 | ✅ semua bersih |

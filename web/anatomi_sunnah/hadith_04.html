@@ -48,14 +48,21 @@
             .ui-layer .glass-panel { border-radius: 1.25rem !important; }
             .ui-layer .p-8 { padding: 1.1rem !important; }
             .ui-layer .p-6 { padding: 1rem !important; }
-            .ui-layer header.glass-panel { max-width: 56%; max-height: 62vh; overflow-y: auto; }
-            .ui-layer > .glass-panel:not(header) { max-width: 44%; max-height: 46vh; overflow-y: auto; }
+            .ui-layer header.glass-panel { max-width: 58%; max-height: 52vh; overflow-y: auto; }
+            .ui-layer > .glass-panel:not(header) { max-width: 46%; max-height: 36vh; overflow-y: auto; }
 
-            .ui-layer .text-4xl { font-size: 1.75rem !important; line-height: 2.1rem !important; }
-            .ui-layer .text-3xl { font-size: 1.45rem !important; line-height: 1.9rem !important; }
-            .ui-layer .text-2xl { font-size: 1.25rem !important; line-height: 1.65rem !important; }
-            .ui-layer .text-xl  { font-size: 1.1rem !important; }
-            .ui-layer .text-lg  { font-size: 1rem !important; }
+            .ui-layer .text-4xl { font-size: 2rem !important; line-height: 2.4rem !important; }
+            .ui-layer .text-3xl { font-size: 1.65rem !important; line-height: 2.1rem !important; }
+            .ui-layer .text-2xl { font-size: 1.45rem !important; line-height: 1.9rem !important; }
+            .ui-layer .text-xl  { font-size: 1.25rem !important; }
+            .ui-layer .text-lg  { font-size: 1.12rem !important; }
+            /* Teks badan — sebelum ini tertinggal pada breakpoint tablet, jadi
+               ia kekal pada saiz Tailwind lalai yang terlalu kecil. */
+            .ui-layer .text-sm  { font-size: 1rem !important; line-height: 1.45rem !important; }
+            .ui-layer .text-xs  { font-size: 0.92rem !important; line-height: 1.32rem !important; }
+            .ui-layer .text-\[12px\] { font-size: 0.86rem !important; }
+            .ui-layer .text-\[13px\] { font-size: 0.95rem !important; }
+            .ui-layer .btn-action { font-size: 1rem !important; }
         }
 
         /* --- Telefon --- */
@@ -68,9 +75,9 @@
             .ui-layer .p-8 { padding: 0.8rem !important; }
             .ui-layer .p-6 { padding: 0.75rem !important; }
 
-            .ui-layer header.glass-panel { max-width: 100%; max-height: 31vh; overflow-y: auto; }
+            .ui-layer header.glass-panel { max-width: 100%; max-height: 34vh; overflow-y: auto; }
             .ui-layer > .glass-panel:not(header) {
-                max-width: 100%; margin-left: 0; max-height: 38vh; overflow-y: auto;
+                max-width: 100%; margin-left: 0; max-height: 45vh; overflow-y: auto;
             }
             /* Senarai butang dirapatkan supaya simulasi dengan banyak pilihan
                (cth. 5 paksi nasihat) tetap muat tanpa terpotong. */
@@ -78,13 +85,15 @@
             .ui-layer .gap-2 { gap: 0.3rem !important; }
 
             /* Saiz teks dikecilkan supaya panel kekal nipis */
-            .ui-layer .text-4xl { font-size: 1.35rem !important; line-height: 1.7rem !important; }
-            .ui-layer .text-3xl { font-size: 1.15rem !important; line-height: 1.55rem !important; }
-            .ui-layer .text-2xl { font-size: 1.05rem !important; line-height: 1.4rem !important; }
-            .ui-layer .text-xl  { font-size: 0.98rem !important; }
-            .ui-layer .text-lg  { font-size: 0.92rem !important; }
-            .ui-layer .text-sm  { font-size: 0.8rem !important; line-height: 1.15rem !important; }
-            .ui-layer .text-xs  { font-size: 0.72rem !important; line-height: 1.02rem !important; }
+            .ui-layer .text-4xl { font-size: 1.6rem !important; line-height: 2rem !important; }
+            .ui-layer .text-3xl { font-size: 1.4rem !important; line-height: 1.85rem !important; }
+            .ui-layer .text-2xl { font-size: 1.25rem !important; line-height: 1.65rem !important; }
+            .ui-layer .text-xl  { font-size: 1.12rem !important; }
+            .ui-layer .text-lg  { font-size: 1.05rem !important; }
+            .ui-layer .text-sm  { font-size: 0.95rem !important; line-height: 1.4rem !important; }
+            .ui-layer .text-xs  { font-size: 0.88rem !important; line-height: 1.28rem !important; }
+            .ui-layer .text-\[12px\] { font-size: 0.84rem !important; }
+            .ui-layer .text-\[13px\] { font-size: 0.92rem !important; }
 
             /* Jarak dalam panel dirapatkan */
             .ui-layer .mb-4 { margin-bottom: 0.5rem !important; }
@@ -96,7 +105,7 @@
             .ui-layer .py-2 { padding-top: 0.3rem !important; padding-bottom: 0.3rem !important; }
 
             /* Butang kawalan lebih padat supaya muat tanpa skrol */
-            .ui-layer .btn-action { padding: 0.42rem 0.7rem !important; font-size: 0.76rem !important; }
+            .ui-layer .btn-action { padding: 0.5rem 0.75rem !important; font-size: 0.92rem !important; }
             .ui-layer .btn-action:hover { transform: none; }
         }
 
@@ -153,7 +162,7 @@
 
             <h1 class="text-4xl font-light text-white mb-1">Penciptaan & <span class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-500">Takdir</span></h1>
 
-            <p class="text-arabic text-3xl text-emerald-200 mt-3 mb-4 text-right leading-relaxed transition-colors duration-500" dir="rtl" id="ui-arabic">عَنْ أَبِي عَبْدِ الرَّحْمَنِ عَبْدِ اللَّهِ بْنِ مَسْعُودٍ رَضِيَ اللَّهُ عَنْهُ قَالَ: حَدَّثَنَا رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ وَهُوَ الصَّادِقُ الْمَصْدُوقُ: إِنَّ أَحَدَكُمْ يُجْمَعُ خَلْقُهُ فِي بَطْنِ أُمِّهِ أَرْبَعِينَ يَوْمًا نُطْفَةً، ثُمَّ يَكُونُ عَلَقَةً مِثْلَ ذَلِكَ، ثُمَّ يَكُونُ مُضْغَةً مِثْلَ ذَلِكَ، ثُمَّ يُرْسَلُ الْمَلَكُ، فَيَنْفُخُ فِيهِ الرُّوحَ، وَيُؤْمَرُ بِأَرْبَعِ كَلِمَاتٍ: بِكَتْبِ رِزْقِهِ، وَأَجَلِهِ، وَعَمَلِهِ، وَشَقِيٌّ أَوْ سَعِيدٌ. فَوَالَّذِي لَا إِلَهَ غَيْرُهُ، إِنَّ أَحَدَكُمْ لَيَعْمَلُ بِعَمَلِ أَهْلِ الْجَنَّةِ حَتَّى مَا يَكُونُ بَيْنَهُ وَبَيْنَهَا إِلَّا ذِرَاعٌ، فَيَسْبِقُ عَلَيْهِ الْكِتَابُ، فَيَعْمَلُ بِعَمَلِ أَهْلِ النَّارِ فَيَدْخُلُهَا. وَإِنَّ أَحَدَكُمْ لَيَعْمَلُ بِعَمَلِ أَهْلِ النَّارِ حَتَّى مَا يَكُونُ بَيْنَهُ وَبَيْنَهَا إِلَّا ذِرَاعٌ، فَيَسْبِقُ عَلَيْهِ الْكِتَابُ، فَيَعْمَلُ بِعَمَلِ أَهْلِ الْجَنَّةِ فَيَدْخُلُهَا.</p>
+            <p class="text-arabic text-lg text-pink-200 mt-3 mb-4 text-right leading-loose transition-colors duration-500" dir="rtl" id="ui-arabic">عَنْ أَبِي عَبْدِ الرَّحْمَنِ عَبْدِ اللَّهِ بْنِ مَسْعُودٍ رَضِيَ اللَّهُ عَنْهُ قَالَ: حَدَّثَنَا رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ وَهُوَ الصَّادِقُ الْمَصْدُوقُ: إِنَّ أَحَدَكُمْ يُجْمَعُ خَلْقُهُ فِي بَطْنِ أُمِّهِ أَرْبَعِينَ يَوْمًا نُطْفَةً، ثُمَّ يَكُونُ عَلَقَةً مِثْلَ ذَلِكَ، ثُمَّ يَكُونُ مُضْغَةً مِثْلَ ذَلِكَ، ثُمَّ يُرْسَلُ الْمَلَكُ، فَيَنْفُخُ فِيهِ الرُّوحَ، وَيُؤْمَرُ بِأَرْبَعِ كَلِمَاتٍ: بِكَتْبِ رِزْقِهِ، وَأَجَلِهِ، وَعَمَلِهِ، وَشَقِيٌّ أَوْ سَعِيدٌ. فَوَالَّذِي لَا إِلَهَ غَيْرُهُ، إِنَّ أَحَدَكُمْ لَيَعْمَلُ بِعَمَلِ أَهْلِ الْجَنَّةِ حَتَّى مَا يَكُونُ بَيْنَهُ وَبَيْنَهَا إِلَّا ذِرَاعٌ، فَيَسْبِقُ عَلَيْهِ الْكِتَابُ، فَيَعْمَلُ بِعَمَلِ أَهْلِ النَّارِ فَيَدْخُلُهَا. وَإِنَّ أَحَدَكُمْ لَيَعْمَلُ بِعَمَلِ أَهْلِ النَّارِ حَتَّى مَا يَكُونُ بَيْنَهُ وَبَيْنَهَا إِلَّا ذِرَاعٌ، فَيَسْبِقُ عَلَيْهِ الْكِتَابُ، فَيَعْمَلُ بِعَمَلِ أَهْلِ الْجَنَّةِ فَيَدْخُلُهَا.</p>
 
             <blockquote class="border-l-4 border-pink-500 pl-4 py-2 my-4 bg-pink-950/20 rounded-r-lg text-sm leading-relaxed text-gray-300">
                 "Sesungguhnya setiap kamu dihimpunkan kejadiannya di perut ibunya 40 hari sebagai <span class="text-pink-300 font-bold">nutfah</span>, lalu menjadi <span class="text-red-400 font-bold">'alaqah</span>, lalu menjadi <span class="text-orange-300 font-bold">mudhghah</span>. Kemudian diutuskan Malaikat meniupkan <span class="text-yellow-300 font-bold">roh</span> dan menetapkan 4 perkara..."
