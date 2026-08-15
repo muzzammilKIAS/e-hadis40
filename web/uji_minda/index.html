@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eksplorasi Hadis 40 KPM</title>
+
+    <!-- Tailwind CSS untuk UI Moden -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Phosphor Icons untuk Vektor Realistik/Elegan -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- GSAP untuk Animasi Smooth (Motion Design) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <!-- Fon Amiri untuk teks Arab (matan hadis) - gaya naskh klasik -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        /* — eHadis40 Emerald Sage — token palet (selaras dengan lib/core/theme/app_colors.dart) — */
+        :root, :root[data-theme="light"] {
+            --bg: #F6FBF8;
+            --bg-glow-1: #CFEADD;
+            --bg-glow-2: #F2F9F5;
+            --surface-elevated: #F2F8F5;
+            --primary: #18795A;
+            --primary-hover: #13664B;
+            --primary-soft: #DDF1E8;
+            --secondary: #2E9C74;
+            --accent: #78C9A7;
+            --border: #D7E8DF;
+            --text: #1F352D;
+            --text-secondary: #64756E;
+            --text-muted: #899891;
+            --on-primary: #FFFFFF;
+            --gold: #B69246;
+            --gold-soft: #D7C08A;
+            --gold-accent: #D8B55B;
+            --success: #4CAF7D;
+            --success-bg: #DDF1E8;
+            --error: #E06C6C;
+            --error-bg: #FBE4E4;
+            --glass-bg: rgba(255, 255, 255, 0.5);
+            --glass-border: rgba(255, 255, 255, 0.65);
+            --glass-shadow: rgba(31, 53, 45, 0.14);
+            --modal-bg: rgba(255, 255, 255, 0.96);
+            --pulse-ring-color: rgba(24, 121, 90, 0.35);
+            --smoke-color: 255, 255, 255;
+            --skyline-fill: #2F4A3D;
+            --skyline-opacity: 0.88;
+            --sky-glow: rgba(207, 234, 221, 0.55);
+            --moon-fill: #D8B55B;
+            --star-opacity: 0.32;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme="light"]) {
+                --bg: #0C1714;
+                --bg-glow-1: #14503C;
+                --bg-glow-2: #091311;
+                --surface-elevated: #1E3B31;
+                --primary: #5CC89A;
+                --primary-hover: #75D5AA;
+                --primary-soft: #1D493A;
+                --secondary: #43B887;
+                --accent: #8EE0BF;
+                --border: #2C4C40;
+                --text: #EDF7F2;
+                --text-secondary: #A9C1B7;
+                --text-muted: #829A90;
+                --on-primary: #0C1714;
+                --gold: #D2B46C;
+                --gold-soft: #D7C08A;
+                --gold-accent: #D2B46C;
+                --success: #4CAF7D;
+                --success-bg: #1D493A;
+                --error: #E06C6C;
+                --error-bg: #3B1E1E;
+                --glass-bg: rgba(19, 35, 30, 0.55);
+                --glass-border: rgba(44, 76, 64, 0.6);
+                --glass-shadow: rgba(0, 0, 0, 0.4);
+                --modal-bg: rgba(15, 28, 24, 0.97);
+                --pulse-ring-color: rgba(92, 200, 154, 0.4);
+                --smoke-color: 237, 247, 242;
+                --skyline-fill: #091311;
+                --skyline-opacity: 1;
+                --sky-glow: rgba(20, 80, 60, 0.5);
+                --moon-fill: #D2B46C;
+                --star-opacity: 0.9;
+            }
+        }
+        :root[data-theme="dark"] {
+            --bg: #0C1714;
+            --bg-glow-1: #14503C;
+            --bg-glow-2: #091311;
+            --surface-elevated: #1E3B31;
+            --primary: #5CC89A;
+            --primary-hover: #75D5AA;
+            --primary-soft: #1D493A;
+            --secondary: #43B887;
+            --accent: #8EE0BF;
+            --border: #2C4C40;
+            --text: #EDF7F2;
+            --text-secondary: #A9C1B7;
+            --text-muted: #829A90;
+            --on-primary: #0C1714;
+            --gold: #D2B46C;
+            --gold-soft: #D7C08A;
+            --gold-accent: #D2B46C;
+            --success: #4CAF7D;
+            --success-bg: #1D493A;
+            --error: #E06C6C;
+            --error-bg: #3B1E1E;
+            --glass-bg: rgba(19, 35, 30, 0.55);
+            --glass-border: rgba(44, 76, 64, 0.6);
+            --glass-shadow: rgba(0, 0, 0, 0.4);
+            --modal-bg: rgba(15, 28, 24, 0.97);
+            --pulse-ring-color: rgba(92, 200, 154, 0.4);
+            --smoke-color: 237, 247, 242;
+            --skyline-fill: #091311;
+            --skyline-opacity: 1;
+            --sky-glow: rgba(20, 80, 60, 0.5);
+            --moon-fill: #D2B46C;
+            --star-opacity: 0.9;
+        }
+
+        /* Latar "atmosphere" berlapis — gantikan foto stok, ikut palet terang/gelap */
+        .app-bg {
+            background-color: var(--bg);
+            background-image:
+                radial-gradient(circle at 14% 18%, var(--bg-glow-1) 0%, transparent 44%),
+                radial-gradient(circle at 88% 82%, var(--bg-glow-1) 0%, transparent 46%),
+                radial-gradient(circle at 50% 105%, var(--bg-glow-2) 0%, transparent 55%);
+            background-attachment: fixed;
+            transition: background-color 0.4s ease;
+        }
+
+        body, .app-bg, header, main { color: var(--text); }
+
+        /* Skyline masjid waktu malam — silhouette, warna ikut tema terang/gelap */
+        #skyline-scene { transition: opacity 0.4s ease; }
+        #skyline-scene .skyline-shape {
+            fill: var(--skyline-fill);
+            opacity: var(--skyline-opacity);
+            transition: fill 0.4s ease, opacity 0.4s ease;
+        }
+        #skyline-scene .sky-star {
+            fill: var(--moon-fill);
+            opacity: var(--star-opacity);
+            animation: twinkle 3.2s ease-in-out infinite;
+            transition: fill 0.4s ease;
+        }
+        #skyline-scene .moon-disc { fill: var(--moon-fill); transition: fill 0.4s ease; }
+        @keyframes twinkle {
+            0%, 100% { opacity: var(--star-opacity); }
+            50% { opacity: calc(var(--star-opacity) * 0.25); }
+        }
+
+        /* Glassmorphism - Sesuai untuk semua umur (Nampak Premium) */
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 8px 32px 0 var(--glass-shadow);
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .glass-modal {
+            background: var(--modal-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 25px 50px -12px var(--glass-shadow);
+        }
+
+        /* Hilangkan highlight biru bila klik di mobile */
+        * { -webkit-tap-highlight-color: transparent; }
+
+        /* Cincin nadi lembut supaya buih hadis mudah dilihat oleh kanak-kanak */
+        .pulse-ring {
+            animation: pulseRing 2.4s ease-in-out infinite;
+        }
+        @keyframes pulseRing {
+            0%, 100% { box-shadow: 0 0 0 0 var(--pulse-ring-color); }
+            50% { box-shadow: 0 0 0 12px rgba(0,0,0,0); }
+        }
+
+        #progress-bar-fill {
+            transition: width 0.5s ease;
+            background: linear-gradient(90deg, var(--gold-accent), var(--gold));
+        }
+
+        .confetti-piece {
+            position: fixed;
+            top: -20px;
+            width: 10px;
+            height: 10px;
+            border-radius: 2px;
+            z-index: 60;
+            pointer-events: none;
+        }
+
+        .quiz-option {
+            border-color: var(--border) !important;
+            color: var(--text) !important;
+            background: var(--surface-elevated);
+        }
+        .quiz-option:hover:not([disabled]) {
+            border-color: var(--accent) !important;
+            background: var(--primary-soft) !important;
+        }
+        .quiz-option[disabled] { cursor: default; }
+        .quiz-option.is-correct {
+            border-color: var(--success) !important;
+            background: var(--success-bg) !important;
+            color: var(--success) !important;
+        }
+        .quiz-option.is-wrong {
+            border-color: var(--error) !important;
+            background: var(--error-bg) !important;
+            color: var(--error) !important;
+        }
+
+        .arabic-text { font-family: "Amiri", "Lotus Linotype", "Traditional Arabic", serif; }
+
+        #modal-action-btn:hover { filter: brightness(1.08); }
+        #success-content button:hover { filter: brightness(1.15); }
+        #mute-btn:hover, #theme-toggle-btn:hover { color: var(--primary) !important; }
+        #game-scene button:hover .glass-panel { color: var(--primary) !important; }
+
+        .smoke-puff {
+            position: fixed;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(var(--smoke-color), 0.95), rgba(var(--smoke-color), 0) 70%);
+            filter: blur(1.5px);
+            pointer-events: none;
+            z-index: 39;
+        }
+    </style>
+</head>
+<body class="app-bg min-h-screen font-sans overflow-hidden flex flex-col">
+
+    <!-- Skyline masjid waktu malam — hiasan latar sahaja, di belakang header/permainan -->
+    <div id="skyline-scene" class="fixed inset-0" style="z-index: 0; pointer-events: none;">
+        <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice" class="w-full h-full">
+            <defs>
+                <radialGradient id="horizonGlow" cx="50%" cy="100%" r="75%">
+                    <stop offset="0%" stop-color="var(--sky-glow)" />
+                    <stop offset="100%" stop-color="var(--sky-glow)" stop-opacity="0" />
+                </radialGradient>
+                <mask id="moonMask">
+                    <rect width="100%" height="100%" fill="white" />
+                    <circle cx="1198" cy="146" r="42" fill="black" />
+                </mask>
+            </defs>
+
+            <!-- Cahaya lembut di ufuk di belakang kubah masjid -->
+            <ellipse cx="720" cy="900" rx="620" ry="420" fill="url(#horizonGlow)" />
+
+            <!-- Bintang berkelip -->
+            <g>
+                <circle class="sky-star" cx="120" cy="120" r="2.6" style="animation-delay:0s" />
+                <circle class="sky-star" cx="260" cy="220" r="2" style="animation-delay:.4s" />
+                <circle class="sky-star" cx="90" cy="320" r="2.4" style="animation-delay:.9s" />
+                <circle class="sky-star" cx="380" cy="90" r="2" style="animation-delay:1.3s" />
+                <circle class="sky-star" cx="470" cy="260" r="2.6" style="animation-delay:.2s" />
+                <circle class="sky-star" cx="620" cy="150" r="2" style="animation-delay:1.6s" />
+                <circle class="sky-star" cx="200" cy="420" r="2.2" style="animation-delay:.7s" />
+                <circle class="sky-star" cx="950" cy="110" r="2.4" style="animation-delay:1.1s" />
+                <circle class="sky-star" cx="1040" cy="260" r="2" style="animation-delay:.5s" />
+                <circle class="sky-star" cx="1320" cy="200" r="2.6" style="animation-delay:1.8s" />
+                <circle class="sky-star" cx="1380" cy="340" r="2" style="animation-delay:.3s" />
+                <circle class="sky-star" cx="1250" cy="420" r="2.2" style="animation-delay:1s" />
+                <circle class="sky-star" cx="820" cy="200" r="2" style="animation-delay:1.4s" />
+                <circle class="sky-star" cx="60" cy="500" r="2.2" style="animation-delay:.6s" />
+                <circle class="sky-star" cx="1140" cy="480" r="2" style="animation-delay:1.9s" />
+            </g>
+
+            <!-- Bulan sabit -->
+            <circle class="moon-disc" cx="1180" cy="150" r="52" mask="url(#moonMask)" />
+
+            <!-- Skyline bandar + masjid di tengah -->
+            <g class="skyline-shape">
+                <!-- Bangunan kiri -->
+                <rect x="0" y="740" width="70" height="160" />
+                <rect x="78" y="690" width="55" height="210" />
+                <rect x="140" y="770" width="90" height="130" />
+                <rect x="238" y="650" width="60" height="250" />
+                <rect x="305" y="720" width="100" height="180" />
+                <rect x="412" y="680" width="65" height="220" />
+                <rect x="484" y="760" width="50" height="140" />
+
+                <!-- Bangunan kanan -->
+                <rect x="906" y="760" width="50" height="140" />
+                <rect x="962" y="680" width="65" height="220" />
+                <rect x="1033" y="720" width="100" height="180" />
+                <rect x="1140" y="650" width="60" height="250" />
+                <rect x="1206" y="770" width="90" height="130" />
+                <rect x="1302" y="690" width="55" height="210" />
+                <rect x="1362" y="740" width="70" height="160" />
+
+                <!-- Menara kiri masjid -->
+                <rect x="560" y="560" width="18" height="340" />
+                <circle cx="569" cy="556" r="12" />
+                <line x1="569" y1="544" x2="569" y2="500" stroke="var(--skyline-fill)" stroke-width="4" />
+                <circle cx="569" cy="494" r="8" />
+
+                <!-- Menara kanan masjid -->
+                <rect x="862" y="560" width="18" height="340" />
+                <circle cx="871" cy="556" r="12" />
+                <line x1="871" y1="544" x2="871" y2="500" stroke="var(--skyline-fill)" stroke-width="4" />
+                <circle cx="871" cy="494" r="8" />
+
+                <!-- Badan utama masjid -->
+                <rect x="640" y="650" width="160" height="250" />
+                <!-- Kubah bawang -->
+                <path d="M640,652 Q642,470 720,428 Q798,470 800,652 Z" />
+                <line x1="720" y1="428" x2="720" y2="372" stroke="var(--skyline-fill)" stroke-width="5" />
+                <circle cx="720" cy="360" r="10" />
+
+                <!-- Pintu gerbang lengkung -->
+                <path d="M700,900 L700,790 Q700,750 720,750 Q740,750 740,790 L740,900 Z" fill="var(--bg)" opacity="0.7" />
+            </g>
+        </svg>
+    </div>
+
+    <!-- Header Glassmorphism -->
+    <header class="glass-panel mx-4 mt-6 p-5 rounded-2xl flex flex-col sm:flex-row justify-between items-center gap-4 relative z-10">
+        <div>
+            <h1 class="text-2xl md:text-3xl font-bold drop-shadow-sm flex items-center gap-2.5" style="color: var(--text);">
+                Eksplorasi Hadis
+                <span class="glass-panel inline-flex items-center justify-center rounded-xl px-3 py-0.5" style="color: var(--gold-accent); border-color: var(--gold-soft) !important;">40</span>
+            </h1>
+        </div>
+        <div class="flex items-center gap-3">
+            <button id="theme-toggle-btn" onclick="toggleTheme()" aria-label="Tukar tema terang/gelap" class="glass-panel w-11 h-11 rounded-full flex items-center justify-center text-xl transition-colors" style="color: var(--text);">
+                <i id="theme-toggle-icon" class="ph ph-moon"></i>
+            </button>
+            <button id="mute-btn" onclick="toggleMute()" aria-label="Bisukan bunyi" class="glass-panel w-11 h-11 rounded-full flex items-center justify-center text-xl transition-colors" style="color: var(--text);">
+                <i class="ph ph-speaker-high"></i>
+            </button>
+            <div class="glass-panel px-4 py-2 rounded-full flex items-center gap-2" style="color: var(--text);">
+                <i class="ph ph-timer text-lg" style="color: var(--primary);"></i>
+                <span id="timer" class="font-semibold text-lg tabular-nums">00:00</span>
+            </div>
+            <div class="glass-panel px-6 py-3 rounded-full" style="color: var(--text);">
+                <span class="font-semibold text-lg tracking-wide">
+                    Dijumpai: <span id="score" class="text-2xl font-bold ml-2" style="color: var(--gold-accent);">0</span> / <span id="total">41</span>
+                </span>
+                <div class="w-32 h-1.5 rounded-full mt-2 overflow-hidden" style="background: var(--border);">
+                    <div id="progress-bar-fill" class="h-full rounded-full" style="width: 0%"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Kawasan Permainan Interaktif: buih hadis timbul dari bawah ke atas secara rawak -->
+    <main id="game-scene" class="flex-grow relative w-full cursor-crosshair overflow-hidden z-10">
+        <div id="game-inner" class="relative w-full h-full">
+            <!-- Buih hadis dijana & dialih keluar secara dinamik oleh JS -->
+        </div>
+
+        <!-- Ganjaran roket - 3 imej berlainan terbang melintasi skrin pada pencapaian tertentu -->
+        <div id="rocket-perspective" class="fixed inset-0 pointer-events-none z-40" style="perspective: 900px;">
+            <img id="rocket-flyby" src="rocket.png" alt="" class="absolute max-w-none opacity-0" style="width: 64vmin; top: 0; left: 0;">
+        </div>
+        <div id="rocket2-perspective" class="fixed inset-0 pointer-events-none z-40" style="perspective: 900px;">
+            <img id="rocket2-flyby" src="rocket2.png" alt="" class="absolute max-w-none opacity-0" style="width: 64vmin; top: 0; left: 0;">
+        </div>
+        <div id="rocket3-perspective" class="fixed inset-0 pointer-events-none z-40" style="perspective: 900px;">
+            <img id="rocket3-flyby" src="rocket3.png" alt="" class="absolute max-w-none opacity-0" style="width: 68vmin; top: 0; left: 0;">
+        </div>
+        <div id="milestone-banner" class="fixed top-24 left-1/2 -translate-x-1/2 z-40 opacity-0 pointer-events-none">
+            <div class="glass-panel px-6 py-3 rounded-full font-black text-lg md:text-xl tracking-wide shadow-xl" style="color: var(--text); border-color: var(--gold-soft) !important;">
+                🎉 Hebat! <span id="milestone-count" style="color: var(--gold-accent);">5</span> Hadis Dijumpai!
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal Info Hadis + Kuiz (Animasi masuk dengan GSAP) -->
+    <div id="modal-overlay" class="fixed inset-0 backdrop-blur-sm z-50 flex items-center justify-center hidden opacity-0 p-4" style="background: rgba(9, 19, 17, 0.55);">
+        <div id="modal-content" class="glass-modal p-6 md:p-10 rounded-3xl max-w-lg w-full mx-4 transform scale-95 opacity-0 max-h-[90vh] overflow-y-auto">
+
+            <!-- Header (disembunyikan sehingga kuiz dijawab, supaya ia menjadi cabaran teka-teki) -->
+            <div id="modal-header" class="hidden items-start gap-4 mb-6 pb-4" style="border-bottom: 1px solid var(--border);">
+                <div id="modal-icon" class="text-4xl p-4 rounded-2xl" style="color: var(--primary); background: var(--primary-soft);">
+                    <!-- Icon disuntik di sini -->
+                </div>
+                <div>
+                    <span id="modal-badge" class="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider" style="background: var(--primary-soft); color: var(--primary);">Hadis</span>
+                    <h2 id="modal-title" class="text-2xl font-extrabold mt-1" style="color: var(--text);">Tajuk</h2>
+                    <p id="modal-header-arabic" dir="rtl" class="arabic-text text-right text-base mt-1" style="color: var(--text-secondary);"></p>
+                </div>
+            </div>
+            <div id="modal-header-placeholder" class="mb-6 pb-4 flex items-center gap-3" style="border-bottom: 1px solid var(--border); color: var(--text-muted);">
+                <div class="text-3xl p-4 rounded-2xl" style="background: var(--surface-elevated);"><i class="ph ph-question"></i></div>
+                <p class="text-sm font-semibold">Jawab kuiz di bawah untuk membuka tajuk hadis ini! (Jenis soalan berubah setiap kali.)</p>
+            </div>
+
+            <div class="space-y-4" style="color: var(--text-secondary);">
+                <div id="modal-arabic-clue" class="p-4 rounded-xl border" style="background: var(--surface-elevated); border-color: var(--border);">
+                    <p class="text-sm font-semibold mb-1" style="color: var(--primary);">Matan (Bahasa Arab):</p>
+                    <p id="modal-arabic-text" dir="rtl" class="arabic-text text-lg leading-loose text-right" style="color: var(--text);"></p>
+                </div>
+
+                <div class="p-4 rounded-xl border" style="background: var(--surface-elevated); border-color: var(--border);">
+                    <p class="text-sm font-semibold mb-1" style="color: var(--primary);">Maksud Hadis:</p>
+                    <p id="modal-matan" class="text-sm italic leading-relaxed" style="color: var(--text);"></p>
+                </div>
+
+                <div>
+                    <p class="text-sm font-semibold mb-1" style="color: var(--primary);">Pengajaran:</p>
+                    <ul id="modal-pengajaran" class="list-disc pl-5 text-sm leading-relaxed space-y-1" style="color: var(--text);">
+                        <!-- Senarai pengajaran disuntik di sini -->
+                    </ul>
+                </div>
+
+                <div class="p-4 rounded-xl border" style="background: var(--primary-soft); border-color: var(--border);">
+                    <p id="quiz-heading" class="text-sm font-bold mb-1 flex items-center gap-2" style="color: var(--primary-hover);">
+                        <i class="ph ph-question"></i> Kuiz: Teka Teks Hadis
+                    </p>
+                    <p id="quiz-instruction" class="text-xs mb-3" style="color: var(--primary);"></p>
+                    <div id="quiz-options" class="space-y-2"></div>
+                    <p id="quiz-feedback" class="hidden text-sm font-bold mt-3"></p>
+                </div>
+            </div>
+
+            <button id="modal-action-btn" onclick="closeModal()" class="hidden mt-8 px-8 py-3.5 rounded-xl font-bold w-full transition-all shadow-lg flex justify-center items-center gap-2" style="background: linear-gradient(135deg, var(--primary), var(--secondary)); color: var(--on-primary);">
+                <i class="ph ph-magnifying-glass text-xl"></i> Teruskan Eksplorasi
+            </button>
+        </div>
+    </div>
+
+    <!-- Modal Tamat / Berjaya -->
+    <div id="success-overlay" class="fixed inset-0 backdrop-blur-md z-50 flex items-center justify-center hidden opacity-0" style="background: rgba(12, 23, 20, 0.92);">
+        <div id="success-content" class="p-10 rounded-[2rem] max-w-sm w-full mx-4 text-center shadow-2xl" style="background: var(--modal-bg);">
+            <i class="ph-fill ph-check-circle text-7xl mb-4 inline-block success-bounce" style="color: var(--primary);"></i>
+            <h2 class="text-3xl font-black mb-3" style="color: var(--text);">Tahniah!</h2>
+            <p class="mb-2 font-medium leading-relaxed" style="color: var(--text-secondary);">Anda telah melengkapkan eksplorasi sunnah ini.</p>
+            <p class="font-bold mb-1" style="color: var(--primary);">Masa: <span id="final-time">00:00</span></p>
+            <p class="text-sm mb-8" style="color: var(--text-muted);">Kuiz betul: <span id="final-quiz-score">0</span> / <span id="final-quiz-total">41</span></p>
+            <button onclick="resetGame()" class="px-8 py-4 rounded-xl font-bold w-full transition-colors flex justify-center items-center gap-2" style="background: var(--text); color: var(--bg);">
+                <i class="ph ph-arrow-counter-clockwise text-xl"></i> Mula Semula
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Data Berdasarkan Modul Hadis 40 KPM
+        // Nota: Teks Melayu dipermudahkan/diparafrasa & matan Arab ditulis daripada ingatan
+        // untuk tujuan permainan pembelajaran. Sila rujuk modul rasmi KPM / sumber hadis
+        // yang muktabar (cth. sunnah.com) untuk teks penuh, sanad & nombor hadis yang tepat
+        // sebelum digunakan secara rasmi dalam pengajaran.
+        const kpmHadisData = [
+            { iconClass: "ph-fill ph-heart", title: "Niat Menentukan Amalan",
+              arabic: "إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى",
+              matan: "Sesungguhnya setiap amalan itu bergantung pada niat, dan setiap orang akan mendapat apa yang diniatkannya.",
+              petikan: "Setiap amalan bergantung pada niatnya.",
+              pengajaran: ["Ikhlas adalah syarat utama sesuatu amalan diterima oleh Allah SWT.", "Setiap perbuatan baik yang dilakukan kerana Allah akan dikira sebagai ibadah.", "Umat Islam wajib memperbetulkan niat dalam setiap urusan kehidupan."] },
+            { iconClass: "ph-fill ph-sparkle", title: "Islam, Iman dan Ihsan",
+              arabic: "الْإِحْسَانُ أَنْ تَعْبُدَ اللَّهَ كَأَنَّكَ تَرَاهُ فَإِنْ لَمْ تَكُنْ تَرَاهُ فَإِنَّهُ يَرَاكَ",
+              matan: "Malaikat Jibril a.s. bertanya kepada Nabi SAW tentang Islam, Iman dan Ihsan, lalu baginda menerangkan setiap satu dengan jelas.",
+              petikan: "Ihsan ialah engkau menyembah Allah seolah-olah engkau melihat-Nya.",
+              pengajaran: ["Islam, Iman dan Ihsan adalah tiga peringkat yang saling melengkapi dalam beragama.", "Ihsan menuntut kesedaran bahawa Allah sentiasa melihat setiap perbuatan kita.", "Memahami asas agama membantu memperkukuh amalan seharian."] },
+            { iconClass: "ph-fill ph-hands-praying", title: "Rukun Islam",
+              arabic: "بُنِيَ الْإِسْلَامُ عَلَى خَمْسٍ",
+              matan: "Islam dibina atas lima perkara: dua kalimah syahadah, mendirikan solat, menunaikan zakat, berpuasa Ramadan dan menunaikan haji bagi yang mampu.",
+              petikan: "Islam dibina atas lima perkara.",
+              pengajaran: ["Kelima-lima rukun ini adalah asas kepada keimanan dan amalan seorang Muslim.", "Meninggalkan salah satu rukun tanpa uzur boleh menjejaskan kesempurnaan Islam seseorang.", "Setiap rukun membentuk keperibadian seorang mukmin."] },
+            { iconClass: "ph-fill ph-drop", title: "Menyempurnakan Wuduk",
+              arabic: "مَنْ تَوَضَّأَ فَأَحْسَنَ الْوُضُوءَ خَرَجَتْ خَطَايَاهُ مِنْ جَسَدِهِ",
+              matan: "Sesiapa yang menyempurnakan wuduknya sebagaimana diperintahkan, solatnya turut sempurna dan diterima.",
+              petikan: "Sempurnakan wuduk sebagaimana diperintahkan.",
+              pengajaran: ["Wuduk yang sempurna adalah syarat sah solat.", "Ketelitian dalam bersuci mencerminkan penghayatan terhadap ibadah.", "Kebersihan zahir membantu membina kekhusyukan batin."] },
+            { iconClass: "ph-fill ph-house-line", title: "Kebersihan Sebahagian Iman",
+              arabic: "الطُّهُورُ شَطْرُ الْإِيمَانِ",
+              matan: "Kebersihan itu sebahagian daripada iman.",
+              petikan: "Kebersihan itu sebahagian daripada iman.",
+              pengajaran: ["Menjaga kebersihan diri dan persekitaran adalah tuntutan agama.", "Kebersihan rohani dan jasmani saling berkait dalam Islam.", "Amalan menjaga kebersihan boleh menjadi ibadah jika diniatkan kerana Allah."] },
+            { iconClass: "ph-fill ph-scales", title: "Yang Halal dan Yang Haram Jelas",
+              arabic: "الْحَلَالُ بَيِّنٌ وَالْحَرَامُ بَيِّنٌ وَبَيْنَهُمَا أُمُورٌ مُشْتَبِهَاتٌ",
+              matan: "Sesungguhnya yang halal itu jelas dan yang haram itu jelas, dan di antara keduanya ada perkara syubhah yang samar-samar.",
+              petikan: "Yang halal itu jelas dan yang haram itu jelas.",
+              pengajaran: ["Umat Islam perlu berhati-hati dengan perkara syubhah agar tidak terjerumus ke dalam yang haram.", "Menjaga hati daripada kerosakan akan menjaga keseluruhan amalan seseorang.", "Ilmu diperlukan untuk membezakan yang halal, haram dan syubhah."] },
+            { iconClass: "ph-fill ph-chat-circle-text", title: "Agama Itu Nasihat",
+              arabic: "الدِّينُ النَّصِيحَةُ",
+              matan: "Agama itu adalah nasihat - nasihat kepada Allah, Rasul-Nya, pemimpin, dan seluruh umat Islam.",
+              petikan: "Agama itu adalah nasihat.",
+              pengajaran: ["Nasihat perlu disampaikan dengan hikmah dan kasih sayang.", "Umat Islam saling bertanggungjawab menegur ke arah kebaikan.", "Menerima nasihat dengan lapang dada adalah tanda kematangan iman."] },
+            { iconClass: "ph-fill ph-fire", title: "Larangan Marah",
+              arabic: "لَا تَغْضَبْ",
+              matan: "Seorang lelaki meminta nasihat daripada Nabi SAW, lalu baginda bersabda, 'Jangan marah,' yang diulang beberapa kali.",
+              petikan: "Jangan marah, jangan marah, jangan marah.",
+              pengajaran: ["Mengawal kemarahan adalah tanda kekuatan peribadi yang sebenar.", "Kemarahan yang tidak terkawal boleh membawa kepada dosa dan penyesalan.", "Islam menggalakkan ketenangan dalam menghadapi konflik."] },
+            { iconClass: "ph-fill ph-eye-closed", title: "Malu Sebahagian Iman",
+              arabic: "الْحَيَاءُ مِنَ الْإِيمَانِ",
+              matan: "Malu itu sebahagian daripada iman.",
+              petikan: "Malu itu sebahagian daripada iman.",
+              pengajaran: ["Sifat malu mencegah seseorang daripada melakukan perkara tidak baik.", "Malu kepada Allah mendorong seseorang sentiasa taat dan berhati-hati.", "Malu yang terpuji berbeza dengan sifat pemalu yang menghalang kebaikan."] },
+            { iconClass: "ph-fill ph-users-three", title: "Silaturahim",
+              arabic: "مَنْ أَحَبَّ أَنْ يُبْسَطَ لَهُ فِي رِزْقِهِ وَيُنْسَأَ لَهُ فِي أَثَرِهِ فَلْيَصِلْ رَحِمَهُ",
+              matan: "Sesiapa yang ingin diluaskan rezekinya dan dipanjangkan umurnya, hendaklah dia menghubungkan silaturahim.",
+              petikan: "Hendaklah dia menghubungkan silaturahim.",
+              pengajaran: ["Silaturahim membawa keberkatan dalam rezeki dan kehidupan.", "Hubungan kekeluargaan perlu dijaga walau di mana sahaja berada.", "Memutuskan silaturahim adalah perbuatan yang dilarang keras dalam Islam."] },
+            { iconClass: "ph-fill ph-handshake", title: "Kasih Sayang Sesama Muslim",
+              arabic: "لَا يُؤْمِنُ أَحَدُكُمْ حَتَّى يُحِبَّ لِأَخِيهِ مَا يُحِبُّ لِنَفْسِهِ",
+              matan: "Tidak beriman salah seorang daripada kamu sehingga dia mengasihi saudaranya sebagaimana dia mengasihi dirinya sendiri.",
+              petikan: "Mengasihi saudaranya sebagaimana mengasihi dirinya sendiri.",
+              pengajaran: ["Ukhwah dan kasih sayang sesama Islam adalah sebahagian daripada kesempurnaan iman.", "Umat Islam perlu mengutamakan kebajikan saudara seagama seperti diri sendiri.", "Sifat mementingkan diri sendiri perlu dijauhi dalam kehidupan bermasyarakat."] },
+            { iconClass: "ph-fill ph-gift", title: "Kepelbagaian Jalan Sedekah",
+              arabic: "وَتُمِيطُ الْأَذَى عَنِ الطَّرِيقِ صَدَقَةٌ",
+              matan: "Setiap langkah kamu menuju ke masjid untuk bersolat adalah sedekah, dan mengalihkan bahaya dari jalan raya juga sedekah.",
+              petikan: "Mengalihkan sesuatu yang berbahaya dari jalan raya adalah sedekah.",
+              pengajaran: ["Sedekah tidak terhad kepada wang ringgit, tetapi merangkumi setiap perbuatan baik.", "Mengalihkan bahaya di tempat awam adalah tanggungjawab sosial yang diberi pahala.", "Islam menuntut umatnya menjaga kesejahteraan komuniti dan persekitaran."] },
+            { iconClass: "ph-fill ph-chats-circle", title: "Memelihara Lisan",
+              arabic: "مَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الْآخِرِ فَلْيَقُلْ خَيْرًا أَوْ لِيَصْمُتْ",
+              matan: "Sesiapa yang beriman kepada Allah dan Hari Akhirat, hendaklah dia berkata yang baik atau diam.",
+              petikan: "Berkatalah yang baik atau diam.",
+              pengajaran: ["Menjaga tutur kata adalah bukti kesempurnaan iman.", "Mengelakkan penyebaran fitnah, cacian atau berita palsu dalam komunikasi maya dan nyata.", "Diam adalah tindakan terbaik jika kata-kata membawa keburukan."] },
+            { iconClass: "ph-fill ph-smiley", title: "Senyum Adalah Sedekah",
+              arabic: "تَبَسُّمُكَ فِي وَجْهِ أَخِيكَ صَدَقَةٌ",
+              matan: "Senyuman engkau kepada saudaramu adalah sedekah.",
+              petikan: "Senyuman kepada saudaramu adalah sedekah.",
+              pengajaran: ["Perbuatan kecil seperti senyuman turut bernilai pahala di sisi Allah.", "Senyuman ikhlas boleh mengeratkan hubungan sesama manusia.", "Kebaikan tidak semestinya melibatkan harta, malah tingkah laku turut dikira."] },
+            { iconClass: "ph-fill ph-x-circle", title: "Jangan Menghina Orang Lain",
+              arabic: "بِحَسْبِ الْمَرْءِ مِنَ الشَّرِّ أَنْ يَحْقِرَ أَخَاهُ الْمُسْلِمَ",
+              matan: "Cukuplah seseorang itu dikira jahat apabila dia menghina saudaranya sesama Islam.",
+              petikan: "Cukuplah seseorang itu dikira jahat apabila menghina saudaranya.",
+              pengajaran: ["Menghina orang lain adalah perbuatan yang dicela dalam Islam.", "Setiap Muslim wajib menjaga maruah saudaranya.", "Sikap saling menghormati mengeratkan ukhwah sesama umat."] },
+            { iconClass: "ph-fill ph-shield-check", title: "Menjaga Amanah",
+              arabic: "لَا إِيمَانَ لِمَنْ لَا أَمَانَةَ لَهُ",
+              matan: "Tidak sempurna iman seseorang yang tidak menjaga amanah.",
+              petikan: "Tidak sempurna iman seseorang yang tidak menjaga amanah.",
+              pengajaran: ["Amanah adalah tunjang kepada kepercayaan dalam kehidupan bermasyarakat.", "Setiap tanggungjawab yang diberi perlu dilaksanakan dengan penuh integriti.", "Mengkhianati amanah boleh merosakkan hubungan dan kepercayaan orang lain."] },
+            { iconClass: "ph-fill ph-check-circle", title: "Jujur Membawa Kebaikan",
+              arabic: "إِنَّ الصِّدْقَ يَهْدِي إِلَى الْبِرِّ وَإِنَّ الْبِرَّ يَهْدِي إِلَى الْجَنَّةِ",
+              matan: "Sesungguhnya kejujuran itu membawa kepada kebaikan, dan kebaikan itu membawa ke syurga.",
+              petikan: "Kejujuran itu membawa kepada kebaikan.",
+              pengajaran: ["Kejujuran adalah asas kepada akhlak mulia.", "Sikap jujur membina kepercayaan dan keharmonian dalam masyarakat.", "Kejujuran perlu diamalkan walaupun dalam perkara kecil."] },
+            { iconClass: "ph-fill ph-warning-circle", title: "Larangan Berdusta",
+              arabic: "وَإِنَّ الْكَذِبَ يَهْدِي إِلَى الْفُجُورِ وَإِنَّ الْفُجُورَ يَهْدِي إِلَى النَّارِ",
+              matan: "Sesungguhnya dusta itu membawa kepada dosa, dan dosa itu membawa ke neraka.",
+              petikan: "Dusta itu membawa kepada dosa.",
+              pengajaran: ["Berbohong adalah sifat tercela yang perlu dijauhi.", "Kesan dusta boleh merosakkan hubungan dan kepercayaan.", "Islam menggalakkan sikap benar walaupun ia terasa pahit."] },
+            { iconClass: "ph-fill ph-door", title: "Menghormati Jiran",
+              arabic: "مَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الْآخِرِ فَلْيُكْرِمْ جَارَهُ",
+              matan: "Sesiapa yang beriman kepada Allah dan Hari Akhirat, hendaklah dia memuliakan jirannya.",
+              petikan: "Hendaklah dia memuliakan jirannya.",
+              pengajaran: ["Hubungan baik dengan jiran adalah tanda kesempurnaan iman.", "Islam menuntut umatnya prihatin terhadap kebajikan jiran.", "Sikap bertimbang rasa dengan jiran mengeratkan hubungan komuniti."] },
+            { iconClass: "ph-fill ph-users", title: "Menghormati Tetamu",
+              arabic: "مَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الْآخِرِ فَلْيُكْرِمْ ضَيْفَهُ",
+              matan: "Sesiapa yang beriman kepada Allah dan Hari Akhirat, hendaklah dia memuliakan tetamunya.",
+              petikan: "Hendaklah dia memuliakan tetamunya.",
+              pengajaran: ["Memuliakan tetamu adalah adab yang dituntut dalam Islam.", "Layanan baik kepada tetamu mencerminkan akhlak tuan rumah.", "Islam menggalakkan sikap murah hati dan mesra terhadap tetamu."] },
+            { iconClass: "ph-fill ph-heart-straight", title: "Berbakti Kepada Ibu Bapa",
+              arabic: "رِضَا اللَّهِ فِي رِضَا الْوَالِدَيْنِ وَسَخَطُ اللَّهِ فِي سَخَطِ الْوَالِدَيْنِ",
+              matan: "Keredaan Allah terletak pada keredaan ibu bapa, dan kemurkaan Allah terletak pada kemurkaan ibu bapa.",
+              petikan: "Keredaan Allah terletak pada keredaan ibu bapa.",
+              pengajaran: ["Berbakti kepada ibu bapa adalah antara amalan yang paling dituntut.", "Anak perlu sentiasa menjaga hati dan perasaan ibu bapa.", "Doa dan restu ibu bapa membawa keberkatan dalam hidup."] },
+            { iconClass: "ph-fill ph-building-columns", title: "Solat Tiang Agama",
+              arabic: "الصَّلَاةُ عِمَادُ الدِّينِ",
+              matan: "Solat itu adalah tiang agama; sesiapa yang mendirikannya, dia telah menegakkan agama.",
+              petikan: "Solat itu adalah tiang agama.",
+              pengajaran: ["Solat adalah ibadah yang paling utama selepas syahadah.", "Meninggalkan solat menjejaskan kesempurnaan seseorang sebagai Muslim.", "Solat yang khusyuk membentuk disiplin dan ketenangan jiwa."] },
+            { iconClass: "ph-fill ph-book-open", title: "Ilmu Wajib Dituntut",
+              arabic: "طَلَبُ الْعِلْمِ فَرِيضَةٌ عَلَى كُلِّ مُسْلِمٍ",
+              matan: "Menuntut ilmu itu wajib ke atas setiap Muslim, lelaki dan perempuan.",
+              petikan: "Menuntut ilmu itu wajib ke atas setiap Muslim.",
+              pengajaran: ["Ilmu adalah bekalan penting dalam menjalani kehidupan dan beribadah.", "Islam tidak membezakan tuntutan ilmu antara lelaki dan perempuan.", "Menuntut ilmu adalah usaha berterusan sepanjang hayat."] },
+            { iconClass: "ph-fill ph-hand-fist", title: "Memudahkan Urusan Orang Lain",
+              arabic: "مَنْ يَسَّرَ عَلَى مُعْسِرٍ يَسَّرَ اللَّهُ عَلَيْهِ فِي الدُّنْيَا وَالْآخِرَةِ",
+              matan: "Sesiapa yang memudahkan urusan orang lain, Allah akan memudahkan urusannya di dunia dan akhirat.",
+              petikan: "Sesiapa memudahkan urusan orang lain, Allah akan memudahkan urusannya.",
+              pengajaran: ["Sikap tolong-menolong akan dibalas dengan kebaikan oleh Allah.", "Islam menggalakkan sikap prihatin terhadap kesusahan orang lain.", "Kebaikan yang dihulurkan tidak akan sia-sia di sisi Allah."] },
+            { iconClass: "ph-fill ph-lock-key", title: "Menutup Aib Saudara",
+              arabic: "مَنْ سَتَرَ مُسْلِمًا سَتَرَهُ اللَّهُ فِي الدُّنْيَا وَالْآخِرَةِ",
+              matan: "Sesiapa yang menutup aib saudaranya di dunia, Allah akan menutup aibnya di akhirat.",
+              petikan: "Sesiapa menutup aib saudaranya, Allah akan menutup aibnya di akhirat.",
+              pengajaran: ["Islam melarang membuka aib dan keburukan orang lain.", "Menjaga maruah saudara seagama adalah tanggungjawab bersama.", "Sikap menutup aib mengeratkan hubungan dan kepercayaan sesama Muslim."] },
+            { iconClass: "ph-fill ph-hand-heart", title: "Sifat Pemaaf",
+              arabic: "وَمَا زَادَ اللَّهُ عَبْدًا بِعَفْوٍ إِلَّا عِزًّا",
+              matan: "Allah tidak menambah seorang hamba dengan sifat pemaaf melainkan dengan kemuliaan.",
+              petikan: "Allah tidak menambah seorang hamba dengan sifat pemaaf melainkan kemuliaan.",
+              pengajaran: ["Sifat pemaaf adalah tanda kekuatan jiwa dan ketinggian akhlak.", "Memaafkan membebaskan hati daripada dendam dan kebencian.", "Islam menggalakkan sikap bertolak ansur dalam kehidupan bermasyarakat."] },
+            { iconClass: "ph-fill ph-cloud-sun", title: "Sabar Menghadapi Ujian",
+              arabic: "عَجَبًا لِأَمْرِ الْمُؤْمِنِ إِنْ أَصَابَتْهُ ضَرَّاءُ صَبَرَ فَكَانَ خَيْرًا لَهُ",
+              matan: "Sungguh menakjubkan urusan orang mukmin; jika ditimpa kesenangan dia bersyukur, dan jika ditimpa kesusahan dia bersabar, kedua-duanya baik baginya.",
+              petikan: "Jika ditimpa kesusahan dia bersabar, maka itu baik baginya.",
+              pengajaran: ["Ujian adalah sebahagian daripada ketentuan hidup yang perlu dihadapi dengan sabar.", "Kesabaran mendekatkan seseorang kepada rahmat dan pertolongan Allah.", "Setiap keadaan, senang atau susah, membawa kebaikan bagi orang beriman."] },
+            { iconClass: "ph-fill ph-coin", title: "Bersyukur Nikmat Allah",
+              arabic: "مَنْ لَا يَشْكُرُ الْقَلِيلَ لَا يَشْكُرُ الْكَثِيرَ",
+              matan: "Sesiapa yang tidak bersyukur atas yang sedikit, tidak akan bersyukur atas yang banyak.",
+              petikan: "Sesiapa tidak bersyukur atas yang sedikit, tidak akan bersyukur atas yang banyak.",
+              pengajaran: ["Bersyukur perlu diamalkan dalam apa jua keadaan, kecil atau besar.", "Rasa syukur mendatangkan ketenangan dan menambah nikmat.", "Kufur nikmat boleh membawa kepada sikap tamak dan tidak puas hati."] },
+            { iconClass: "ph-fill ph-eye", title: "Larangan Hasad Dengki",
+              arabic: "إِيَّاكُمْ وَالْحَسَدَ فَإِنَّ الْحَسَدَ يَأْكُلُ الْحَسَنَاتِ كَمَا تَأْكُلُ النَّارُ الْحَطَبَ",
+              matan: "Jauhilah sifat hasad dengki, kerana ia memakan kebaikan seperti api memakan kayu.",
+              petikan: "Jauhilah sifat hasad dengki.",
+              pengajaran: ["Hasad dengki boleh menghapuskan pahala amal kebaikan seseorang.", "Islam menggalakkan sikap redha dan gembira dengan kejayaan orang lain.", "Hati yang bersih daripada dengki membawa ketenangan jiwa."] },
+            { iconClass: "ph-fill ph-wallet", title: "Menjaga Amanah Harta",
+              arabic: "أَدِّ الْأَمَانَةَ إِلَى مَنِ ائْتَمَنَكَ وَلَا تَخُنْ مَنْ خَانَكَ",
+              matan: "Tunaikan amanah kepada yang berhak menerimanya, dan jangan mengkhianati orang yang mengkhianatimu.",
+              petikan: "Tunaikan amanah kepada yang berhak menerimanya.",
+              pengajaran: ["Harta yang diamanahkan perlu diuruskan dengan jujur dan telus.", "Islam menuntut integriti dalam segala urusan muamalat.", "Mengkhianati amanah harta adalah dosa besar yang perlu dijauhi."] },
+            { iconClass: "ph-fill ph-fork-knife", title: "Adab Makan dan Minum",
+              arabic: "يَا غُلَامُ سَمِّ اللَّهَ وَكُلْ بِيَمِينِكَ وَكُلْ مِمَّا يَلِيكَ",
+              matan: "Makanlah dengan tangan kanan, mulakan dengan bismillah, dan makanlah apa yang berhampiran denganmu.",
+              petikan: "Makanlah dengan tangan kanan dan mulakan dengan bismillah.",
+              pengajaran: ["Adab makan yang betul adalah sunnah yang membawa keberkatan.", "Islam mengajar kesederhanaan dan tertib dalam setiap perbuatan.", "Membiasakan adab kecil membentuk keperibadian Muslim yang baik."] },
+            { iconClass: "ph-fill ph-door-open", title: "Adab Masuk Rumah Orang",
+              arabic: "الِاسْتِئْذَانُ ثَلَاثٌ",
+              matan: "Hendaklah kamu meminta izin sebanyak tiga kali sebelum masuk ke rumah orang lain.",
+              petikan: "Hendaklah kamu meminta izin sebanyak tiga kali.",
+              pengajaran: ["Meminta izin adalah tanda menghormati privasi orang lain.", "Islam mengajar adab sopan dalam pergaulan sosial.", "Sikap menghormati ruang peribadi mengelakkan pergaduhan dan salah faham."] },
+            { iconClass: "ph-fill ph-chat-teardrop-text", title: "Berkata Benar Walaupun Pahit",
+              arabic: "قُلِ الْحَقَّ وَلَوْ كَانَ مُرًّا",
+              matan: "Katakanlah yang benar walaupun ia pahit.",
+              petikan: "Katakanlah yang benar walaupun ia pahit.",
+              pengajaran: ["Kebenaran perlu ditegakkan walaupun sukar diterima.", "Sikap berani menegakkan kebenaran adalah tanda keimanan yang kukuh.", "Menyembunyikan kebenaran kerana kepentingan diri adalah perbuatan tercela."] },
+            { iconClass: "ph-fill ph-chat-teardrop-dots", title: "Larangan Mengumpat",
+              arabic: "الْغِيبَةُ ذِكْرُكَ أَخَاكَ بِمَا يَكْرَهُ",
+              matan: "Mengumpat ialah menyebut sesuatu tentang saudaramu yang tidak disukainya, walaupun ia benar.",
+              petikan: "Mengumpat ialah menyebut sesuatu tentang saudaramu yang tidak disukainya.",
+              pengajaran: ["Mengumpat adalah dosa besar yang merosakkan hubungan sesama manusia.", "Islam menuntut umatnya menjaga percakapan daripada menyebut keburukan orang lain.", "Diam lebih baik daripada bercakap perkara yang mengaibkan orang lain."] },
+            { iconClass: "ph-fill ph-percent", title: "Menjauhi Riba",
+              arabic: "لَعَنَ رَسُولُ اللَّهِ آكِلَ الرِّبَا وَمُؤْكِلَهُ",
+              matan: "Rasulullah SAW melaknat pemakan riba dan pemberi riba.",
+              petikan: "Rasulullah SAW melaknat pemakan riba dan pemberi riba.",
+              pengajaran: ["Riba adalah amalan yang diharamkan kerana menzalimi pihak yang lemah.", "Umat Islam perlu memastikan urusan kewangan mematuhi prinsip syariah.", "Menjauhi riba membawa keberkatan dalam rezeki walaupun kelihatan sedikit."] },
+            { iconClass: "ph-fill ph-seal-check", title: "Menepati Janji",
+              arabic: "آيَةُ الْمُنَافِقِ ثَلَاثٌ إِذَا حَدَّثَ كَذَبَ وَإِذَا وَعَدَ أَخْلَفَ وَإِذَا اؤْتُمِنَ خَانَ",
+              matan: "Tanda orang munafik ada tiga: apabila berkata dia berdusta, apabila berjanji dia mungkir, apabila diberi amanah dia khianat.",
+              petikan: "Apabila berjanji dia mungkir adalah tanda munafik.",
+              pengajaran: ["Menepati janji adalah tanda keimanan dan kepercayaan yang tinggi.", "Mungkir janji tanpa sebab munasabah boleh menjejaskan maruah diri.", "Islam menuntut umatnya menjadi individu yang boleh dipercayai."] },
+            { iconClass: "ph-fill ph-baby", title: "Kasih Sayang Kepada Anak Yatim",
+              arabic: "أَنَا وَكَافِلُ الْيَتِيمِ فِي الْجَنَّةِ",
+              matan: "Aku dan pemelihara anak yatim akan berada di syurga seperti dua jari ini.",
+              petikan: "Aku dan pemelihara anak yatim berada di syurga seperti dua jari ini.",
+              pengajaran: ["Menjaga anak yatim adalah amalan mulia yang dijanjikan syurga.", "Islam menggalakkan sikap prihatin terhadap golongan yang memerlukan.", "Kasih sayang kepada anak yatim mencerminkan rahmat sesama manusia."] },
+            { iconClass: "ph-fill ph-compass", title: "Menjaga Hubungan Dengan Allah dan Manusia",
+              arabic: "احْفَظِ اللَّهَ يَحْفَظْكَ",
+              matan: "Jagalah Allah, nescaya Allah akan menjagamu; jagalah Allah, nescaya kamu dapati Dia di hadapanmu.",
+              petikan: "Jagalah Allah, nescaya Allah akan menjagamu.",
+              pengajaran: ["Hubungan baik dengan Allah membawa ketenangan dalam menghadapi kehidupan.", "Ketaatan kepada Allah menjadi benteng dalam menghadapi ujian dan godaan.", "Islam mengajar keseimbangan antara hubungan dengan Allah dan sesama manusia."] },
+            { iconClass: "ph-fill ph-flower-lotus", title: "Jangan Memandang Rendah Kebaikan Kecil",
+              arabic: "لَا تَحْقِرَنَّ مِنَ الْمَعْرُوفِ شَيْئًا",
+              matan: "Janganlah kamu memandang rendah sesuatu kebaikan walau sekecil mana pun.",
+              petikan: "Janganlah kamu memandang rendah sesuatu kebaikan.",
+              pengajaran: ["Setiap amalan sekecil mana pun tetap bernilai di sisi Allah.", "Islam mengajar supaya tidak memandang rendah kebaikan yang kecil.", "Kesedaran ini mendorong seseorang sentiasa berbuat baik dalam apa jua keadaan."] },
+            { iconClass: "ph-fill ph-leaf", title: "Dunia Ladang Akhirat",
+              arabic: "الدُّنْيَا مَزْرَعَةُ الْآخِرَةِ",
+              matan: "Dunia adalah ladang bagi akhirat.",
+              petikan: "Dunia adalah ladang bagi akhirat.",
+              pengajaran: ["Kehidupan dunia perlu dimanfaatkan untuk persediaan ke akhirat.", "Setiap amalan di dunia menjadi bekalan untuk kehidupan selepas mati.", "Islam menggalakkan keseimbangan antara usaha dunia dan akhirat."] },
+            { iconClass: "ph-fill ph-hand-waving", title: "Muslim Sejati Menjaga Lisan dan Tangan",
+              arabic: "الْمُسْلِمُ مَنْ سَلِمَ الْمُسْلِمُونَ مِنْ لِسَانِهِ وَيَدِهِ",
+              matan: "Muslim sejati ialah orang yang menyelamatkan Muslim lain daripada gangguan lisan dan tangannya.",
+              petikan: "Muslim sejati menyelamatkan Muslim lain daripada lisan dan tangannya.",
+              pengajaran: ["Kesempurnaan Islam seseorang dilihat daripada kebaikan tutur kata dan perbuatan.", "Umat Islam dituntut menjadi sumber keselamatan, bukan ancaman kepada orang lain.", "Sikap menjaga lisan dan tangan mencerminkan akhlak yang tinggi."] }
+        ];
+
+        const QUIZ_TYPES = ['ms', 'ar', 'tajuk'];
+
+        let score = 0;
+        let quizCorrectCount = 0;
+        let timerInterval = null;
+        let secondsElapsed = 0;
+        let muted = false;
+        let audioCtx = null;
+
+        let queue = [];
+        let activeBubbles = {};
+        let spawnTimer = null;
+        let gamePaused = false;
+        const MAX_CONCURRENT = 5;
+        const SPAWN_INTERVAL_MS = 1500;
+
+        // Baca token warna palet Emerald Sage semasa (berubah ikut tema terang/gelap)
+        function cssVar(name) {
+            return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+        }
+
+        function shuffle(arr) {
+            const a = arr.slice();
+            for (let i = a.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [a[i], a[j]] = [a[j], a[i]];
+            }
+            return a;
+        }
+
+        function formatTime(s) {
+            const m = Math.floor(s / 60).toString().padStart(2, '0');
+            const sec = (s % 60).toString().padStart(2, '0');
+            return `${m}:${sec}`;
+        }
+
+        function startTimer() {
+            stopTimer();
+            secondsElapsed = 0;
+            document.getElementById('timer').innerText = formatTime(0);
+            timerInterval = setInterval(() => {
+                secondsElapsed++;
+                document.getElementById('timer').innerText = formatTime(secondsElapsed);
+            }, 1000);
+        }
+
+        function stopTimer() {
+            if (timerInterval) clearInterval(timerInterval);
+            timerInterval = null;
+        }
+
+        // Bunyi lembut dijana terus dalam pelayar - tiada fail audio luaran diperlukan
+        function playTone(freqs, duration = 0.15) {
+            if (muted) return;
+            try {
+                audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+                freqs.forEach((freq, i) => {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.type = 'sine';
+                    osc.frequency.value = freq;
+                    gain.gain.setValueAtTime(0.15, audioCtx.currentTime + i * duration);
+                    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + (i + 1) * duration);
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    osc.start(audioCtx.currentTime + i * duration);
+                    osc.stop(audioCtx.currentTime + (i + 1) * duration);
+                });
+            } catch (e) { /* Audio tidak disokong - abaikan senyap-senyap */ }
+        }
+
+        function toggleMute() {
+            muted = !muted;
+            const btn = document.getElementById('mute-btn');
+            btn.innerHTML = `<i class="ph ${muted ? 'ph-speaker-slash' : 'ph-speaker-high'}"></i>`;
+        }
+
+        // — Tema terang/gelap (ikut palet Emerald Sage) —
+        const THEME_STORAGE_KEY = 'ehadis40-theme';
+
+        function isDarkActive() {
+            const stored = localStorage.getItem(THEME_STORAGE_KEY);
+            if (stored) return stored === 'dark';
+            return window.matchMedia('(prefers-color-scheme: dark)').matches;
+        }
+
+        function updateThemeIcon() {
+            const icon = document.getElementById('theme-toggle-icon');
+            icon.className = `ph ${isDarkActive() ? 'ph-sun' : 'ph-moon'}`;
+        }
+
+        function applyTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem(THEME_STORAGE_KEY, theme);
+            updateThemeIcon();
+        }
+
+        function toggleTheme() {
+            applyTheme(isDarkActive() ? 'light' : 'dark');
+        }
+
+        // Tanpa pilihan tersimpan, ikut tema sistem secara automatik (dan kekal responsif jika ditukar)
+        (function initTheme() {
+            const stored = localStorage.getItem(THEME_STORAGE_KEY);
+            if (stored) document.documentElement.setAttribute('data-theme', stored);
+            updateThemeIcon();
+            const media = window.matchMedia('(prefers-color-scheme: dark)');
+            media.addEventListener('change', () => {
+                if (!localStorage.getItem(THEME_STORAGE_KEY)) updateThemeIcon();
+            });
+        })();
+
+        // Halaman ini dibenamkan sebagai iframe sama-origin dalam app eHadis40.
+        // App induk menulis kunci THEME_STORAGE_KEY yang sama ke localStorage
+        // apabila pengguna menukar tema di dalam app — event "storage" ini
+        // membolehkan game terus segerak tanpa perlu reload iframe.
+        window.addEventListener('storage', (e) => {
+            if (e.key !== THEME_STORAGE_KEY) return;
+            if (e.newValue) {
+                document.documentElement.setAttribute('data-theme', e.newValue);
+            } else {
+                document.documentElement.removeAttribute('data-theme');
+            }
+            updateThemeIcon();
+        });
+
+        function updateProgress() {
+            document.getElementById('score').innerText = score;
+            document.getElementById('total').innerText = kpmHadisData.length;
+            const pct = Math.round((score / kpmHadisData.length) * 100);
+            document.getElementById('progress-bar-fill').style.width = `${pct}%`;
+        }
+
+        function initGame() {
+            const inner = document.getElementById('game-inner');
+            inner.innerHTML = '';
+            score = 0;
+            quizCorrectCount = 0;
+            gamePaused = false;
+            activeBubbles = {};
+            kpmHadisData.forEach(item => { item.found = false; });
+            queue = shuffle(kpmHadisData.map((_, i) => i));
+            celebratedMilestones = new Set();
+            gsap.set('#rocket-flyby', { opacity: 0 });
+            gsap.set('#rocket2-flyby', { opacity: 0 });
+            gsap.set('#rocket3-flyby', { opacity: 0 });
+
+            updateProgress();
+            startTimer();
+
+            if (spawnTimer) clearInterval(spawnTimer);
+            spawnTimer = setInterval(trySpawn, SPAWN_INTERVAL_MS);
+            // Buih pertama keluar sedikit demi sedikit, bukan sekali gus
+            trySpawn();
+            setTimeout(trySpawn, 500);
+            setTimeout(trySpawn, 1000);
+        }
+
+        function trySpawn() {
+            if (gamePaused) return;
+            if (Object.keys(activeBubbles).length >= MAX_CONCURRENT) return;
+            if (queue.length === 0) return;
+            const index = queue.shift();
+            if (kpmHadisData[index].found) { return; }
+            spawnBubble(index);
+        }
+
+        // Buih hadis timbul dari bawah ke atas secara perlahan, dengan gegaran mendatar rawak
+        function spawnBubble(index) {
+            const scene = document.getElementById('game-scene');
+            const inner = document.getElementById('game-inner');
+            const item = kpmHadisData[index];
+            const sceneWidth = scene.clientWidth;
+            const sceneHeight = scene.clientHeight;
+            const size = 60;
+            const margin = 16;
+            const startX = margin + Math.random() * Math.max(0, sceneWidth - size - margin * 2);
+            const startY = sceneHeight + size;
+
+            const btn = document.createElement('button');
+            btn.innerHTML = `
+                <div class="relative group">
+                    <div class="absolute inset-0 rounded-full blur-md transition-all duration-300" style="background: var(--gold-soft); opacity: 0.35;"></div>
+                    <div class="glass-panel pulse-ring p-3 rounded-full relative flex items-center justify-center shadow-lg transition-colors" style="color: var(--primary);">
+                        <i class="${item.iconClass} text-2xl md:text-3xl drop-shadow-md"></i>
+                    </div>
+                </div>
+            `;
+            btn.className = 'absolute focus:outline-none focus-visible:ring-4 rounded-full';
+            btn.style.setProperty('--tw-ring-color', 'var(--gold-accent)');
+            btn.style.left = `${startX}px`;
+            btn.style.top = `${startY}px`;
+            btn.setAttribute('aria-label', `Cari petunjuk hadis ${index + 1}`);
+            inner.appendChild(btn);
+
+            const riseDuration = 15 + Math.random() * 9; // 15-24 saat, bergerak perlahan
+            const driftAmplitude = 25 + Math.random() * 45;
+            const driftDuration = 1.6 + Math.random() * 1.2;
+
+            const riseTween = gsap.to(btn, {
+                y: -(sceneHeight + size + 60),
+                duration: riseDuration,
+                ease: 'none',
+                onComplete: () => handleMiss(index)
+            });
+            const driftTween = gsap.to(btn, {
+                x: `+=${driftAmplitude}`,
+                duration: driftDuration,
+                yoyo: true,
+                repeat: -1,
+                ease: 'sine.inOut'
+            });
+
+            btn.onclick = () => handleItemClick(index, btn);
+            activeBubbles[index] = { el: btn, riseTween, driftTween };
+        }
+
+        function removeBubbleEl(index, instant) {
+            const bubble = activeBubbles[index];
+            if (!bubble) return;
+            bubble.riseTween.kill();
+            bubble.driftTween.kill();
+            delete activeBubbles[index];
+            if (instant) {
+                bubble.el.remove();
+            } else {
+                gsap.to(bubble.el, { opacity: 0, scale: 0.4, duration: 0.35, onComplete: () => bubble.el.remove() });
+            }
+        }
+
+        // Jika lambat dijawab (buih sampai ke atas skrin), ia akan hilang dan masuk semula ke barisan giliran
+        function handleMiss(index) {
+            if (!activeBubbles[index]) return;
+            removeBubbleEl(index, false);
+            playTone([180], 0.25);
+            if (!kpmHadisData[index].found) queue.push(index);
+        }
+
+        function handleItemClick(index, element) {
+            if (kpmHadisData[index].found) return;
+            if (!activeBubbles[index]) return;
+
+            kpmHadisData[index].found = true;
+            score++;
+            updateProgress();
+            playTone([660, 880]);
+
+            const scoreEl = document.getElementById('score');
+            gsap.from(scoreEl, {scale: 2, color: cssVar('--primary'), duration: 0.5, ease: "back.out(1.7)"});
+
+            removeBubbleEl(index, false);
+            openModal(index);
+        }
+
+        function pickDistractors(correctIndex, count) {
+            const pool = kpmHadisData.map((_, i) => i).filter(i => i !== correctIndex);
+            return shuffle(pool).slice(0, count);
+        }
+
+        function openModal(index) {
+            const data = kpmHadisData[index];
+            const overlay = document.getElementById('modal-overlay');
+            const content = document.getElementById('modal-content');
+
+            // Jeda semua buih semasa modal terbuka supaya pemain tidak "kehabisan masa" ketika membaca
+            gamePaused = true;
+            Object.values(activeBubbles).forEach(b => { b.riseTween.pause(); b.driftTween.pause(); });
+
+            // Sembunyikan tajuk sebenar dahulu - ia hanya dibuka selepas kuiz dijawab
+            document.getElementById('modal-header').classList.add('hidden');
+            document.getElementById('modal-header').classList.remove('flex');
+            document.getElementById('modal-header-placeholder').classList.remove('hidden');
+            document.getElementById('modal-icon').innerHTML = `<i class="${data.iconClass}"></i>`;
+            document.getElementById('modal-badge').innerText = `Hadis ${index + 1}`;
+            document.getElementById('modal-title').innerText = data.title;
+            document.getElementById('modal-header-arabic').innerText = data.arabic;
+            document.getElementById('modal-matan').innerText = `"${data.matan}"`;
+
+            const listEl = document.getElementById('modal-pengajaran');
+            listEl.innerHTML = '';
+            data.pengajaran.forEach(p => { listEl.innerHTML += `<li>${p}</li>`; });
+
+            const actionBtn = document.getElementById('modal-action-btn');
+            actionBtn.classList.add('hidden');
+
+            const feedback = document.getElementById('quiz-feedback');
+            feedback.classList.add('hidden');
+            feedback.innerText = '';
+
+            // Variasikan jenis soalan setiap kali: petikan Melayu, matan Arab, atau tajuk hadis
+            const quizType = QUIZ_TYPES[Math.floor(Math.random() * QUIZ_TYPES.length)];
+            const config = {
+                ms: { field: 'petikan', heading: 'Kuiz: Teka Petikan Hadis', instruction: 'Berpandukan maksud dan pengajaran di atas, pilih petikan hadis (Bahasa Melayu) yang tepat:' },
+                ar: { field: 'arabic', heading: 'Kuiz: Teka Matan Hadis (Bahasa Arab)', instruction: 'Berpandukan maksud dan pengajaran di atas, pilih matan hadis dalam Bahasa Arab yang tepat:' },
+                tajuk: { field: 'title', heading: 'Kuiz: Teka Tajuk Hadis', instruction: 'Berpandukan matan dan pengajaran di atas, pilih tajuk hadis yang tepat:' }
+            }[quizType];
+
+            document.getElementById('quiz-heading').innerHTML = `<i class="ph ph-question"></i> ${config.heading}`;
+            document.getElementById('quiz-instruction').innerText = config.instruction;
+
+            // Sembunyikan petunjuk matan Arab jika ia sendiri menjadi jawapan kuiz (elak bocor jawapan)
+            const arabicClue = document.getElementById('modal-arabic-clue');
+            if (quizType === 'ar') {
+                arabicClue.classList.add('hidden');
+            } else {
+                arabicClue.classList.remove('hidden');
+                document.getElementById('modal-arabic-text').innerText = data.arabic;
+            }
+
+            const distractors = pickDistractors(index, 2);
+            const options = shuffle([index, ...distractors]);
+
+            const optsEl = document.getElementById('quiz-options');
+            optsEl.innerHTML = '';
+            options.forEach(optIndex => {
+                const isArabic = quizType === 'ar';
+                const optBtn = document.createElement('button');
+                optBtn.className = `quiz-option w-full p-3 rounded-xl border-2 transition-colors text-sm font-medium ${isArabic ? 'arabic-text text-right text-lg leading-loose' : 'text-left'}`;
+                if (isArabic) optBtn.setAttribute('dir', 'rtl');
+                optBtn.innerText = kpmHadisData[optIndex][config.field];
+                optBtn.onclick = () => {
+                    Array.from(optsEl.children).forEach(c => c.disabled = true);
+                    const isCorrect = optIndex === index;
+                    if (isCorrect) {
+                        optBtn.classList.add('is-correct');
+                        feedback.innerText = 'Betul! Anda berjaya meneka teks hadis ini.';
+                        feedback.className = 'text-sm font-bold mt-3';
+                        feedback.style.color = 'var(--success)';
+                        quizCorrectCount++;
+                        playTone([660, 880]);
+                    } else {
+                        optBtn.classList.add('is-wrong');
+                        Array.from(optsEl.children).forEach(c => {
+                            if (c.innerText === data[config.field]) {
+                                c.classList.add('is-correct');
+                            }
+                        });
+                        feedback.innerText = 'Belum tepat. Jawapan yang betul ditanda hijau.';
+                        feedback.className = 'text-sm font-bold mt-3';
+                        feedback.style.color = 'var(--error)';
+                        playTone([220]);
+                    }
+                    feedback.classList.remove('hidden');
+
+                    // Buka tajuk hadis sebenar sebagai ganjaran selepas menjawab
+                    document.getElementById('modal-header-placeholder').classList.add('hidden');
+                    const header = document.getElementById('modal-header');
+                    header.classList.remove('hidden');
+                    header.classList.add('flex');
+                    gsap.from(header, { opacity: 0, y: -10, duration: 0.4 });
+
+                    actionBtn.classList.remove('hidden');
+                };
+                optsEl.appendChild(optBtn);
+            });
+
+            overlay.classList.remove('hidden');
+            gsap.to(overlay, {opacity: 1, duration: 0.3});
+            gsap.to(content, {opacity: 1, scale: 1, y: 0, duration: 0.5, ease: "back.out(1.5)", delay: 0.1});
+        }
+
+        function closeModal() {
+            const overlay = document.getElementById('modal-overlay');
+            const content = document.getElementById('modal-content');
+
+            gsap.to(content, {opacity: 0, scale: 0.9, y: 20, duration: 0.3});
+            gsap.to(overlay, {opacity: 0, duration: 0.3, delay: 0.1, onComplete: () => {
+                overlay.classList.add('hidden');
+                gamePaused = false;
+                Object.values(activeBubbles).forEach(b => { b.riseTween.resume(); b.driftTween.resume(); });
+                maybeCelebrateMilestone();
+                checkWin();
+            }});
+        }
+
+        // Ganjaran roket: 3 imej berlainan dikitar pada pencapaian tertentu (5,10,15,20,25,30,35,41)
+        let celebratedMilestones = new Set();
+        let childVoice = null;
+        let fatherVoice = null;
+
+        // Cuba cari suara yang sesuai (kanak-kanak/wanita untuk nada tinggi, lelaki/dewasa untuk suara ayah)
+        function pickVoices() {
+            if (!window.speechSynthesis) return;
+            const voices = speechSynthesis.getVoices();
+            if (!voices.length) return;
+            childVoice = voices.find(v => /child|kid|junior/i.test(v.name))
+                || voices.find(v => /female|woman|samantha|karen|victoria|zira/i.test(v.name))
+                || voices[0];
+            fatherVoice = voices.find(v => /male|man|daniel|alex|fred|david/i.test(v.name))
+                || voices[0];
+        }
+        if (window.speechSynthesis) {
+            speechSynthesis.onvoiceschanged = pickVoices;
+            pickVoices();
+        }
+
+        // Susunan tetap: pada setiap pencapaian, imej + arah + suara mana yang digunakan
+        const MILESTONE_PLAN = {
+            5:  { el: 'rocket-flyby',  direction: 'rtl', voice: () => speakYahoo() },
+            10: { el: 'rocket2-flyby', direction: 'ltr', voice: () => speakYahoo() },
+            15: { el: 'rocket3-flyby', direction: 'rtl', voice: () => speakFatherChild() },
+            20: { el: 'rocket-flyby',  direction: 'ltr', voice: () => speakYeeaaahaaaa() },
+            25: { el: 'rocket2-flyby', direction: 'rtl', voice: () => speakYahoo() },
+            30: { el: 'rocket3-flyby', direction: 'ltr', voice: () => speakFatherChild() },
+            35: { el: 'rocket-flyby',  direction: 'rtl', voice: () => speakYeeaaahaaaa() },
+            41: { el: 'rocket2-flyby', direction: 'ltr', voice: () => speakYahoo() }
+        };
+
+        function maybeCelebrateMilestone() {
+            const plan = MILESTONE_PLAN[score];
+            if (!plan || celebratedMilestones.has(score)) return;
+            celebratedMilestones.add(score);
+            playRocketWhoosh(2.4);
+            plan.voice();
+            showMilestoneBanner(score);
+            flyRocket(plan.el, plan.direction);
+        }
+
+        function speakPhrase(text, { pitch, rate, voice }) {
+            if (muted) return;
+            try {
+                if (window.speechSynthesis) {
+                    const utter = new SpeechSynthesisUtterance(text);
+                    utter.pitch = pitch;
+                    utter.rate = rate;
+                    utter.volume = 0.9;
+                    if (voice) utter.voice = voice;
+                    speechSynthesis.speak(utter);
+                }
+            } catch (e) { /* Text-to-speech tidak disokong - abaikan senyap-senyap */ }
+        }
+
+        // Suara kanak-kanak melaungkan "Yahooooo" ditarik panjang (~2 saat) - imej budak lelaki
+        function speakYahoo() {
+            speakPhrase('Yahooooooo!', { pitch: 1.7, rate: 0.55, voice: childVoice });
+        }
+
+        // Laungan gembira ditarik panjang - imej roket asal
+        function speakYeeaaahaaaa() {
+            speakPhrase('Yeeaaahaaaa!', { pitch: 1.3, rate: 0.6, voice: childVoice });
+        }
+
+        // Ayah berbual ringkas dengan anak - imej ayah & anak menunggang roket bersama
+        function speakFatherChild() {
+            if (muted) return;
+            try {
+                if (!window.speechSynthesis) return;
+                const dad = new SpeechSynthesisUtterance('Jom kita terbang tinggi, sayang!');
+                dad.pitch = 0.75;
+                dad.rate = 1;
+                dad.volume = 0.9;
+                if (fatherVoice) dad.voice = fatherVoice;
+                dad.onend = () => {
+                    const kid = new SpeechSynthesisUtterance('Yeay ayah, seronoknya!');
+                    kid.pitch = 1.8;
+                    kid.rate = 1.1;
+                    kid.volume = 0.9;
+                    if (childVoice) kid.voice = childVoice;
+                    speechSynthesis.speak(kid);
+                };
+                speechSynthesis.speak(dad);
+            } catch (e) { /* Text-to-speech tidak disokong - abaikan senyap-senyap */ }
+        }
+
+        // Bunyi roket "whoosh" sebenar - hingar putih ditapis, direka terus dalam pelayar
+        function playRocketWhoosh(duration) {
+            if (muted) return;
+            try {
+                audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+                const bufferSize = Math.floor(audioCtx.sampleRate * duration);
+                const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+                const data = buffer.getChannelData(0);
+                for (let i = 0; i < bufferSize; i++) {
+                    data[i] = (Math.random() * 2 - 1) * (1 - i / bufferSize);
+                }
+                const noise = audioCtx.createBufferSource();
+                noise.buffer = buffer;
+                const filter = audioCtx.createBiquadFilter();
+                filter.type = 'bandpass';
+                filter.Q.value = 0.7;
+                filter.frequency.setValueAtTime(1600, audioCtx.currentTime);
+                filter.frequency.exponentialRampToValueAtTime(150, audioCtx.currentTime + duration);
+                const gain = audioCtx.createGain();
+                gain.gain.setValueAtTime(0.0001, audioCtx.currentTime);
+                gain.gain.linearRampToValueAtTime(0.32, audioCtx.currentTime + duration * 0.18);
+                gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
+                noise.connect(filter);
+                filter.connect(gain);
+                gain.connect(audioCtx.destination);
+                noise.start();
+                noise.stop(audioCtx.currentTime + duration);
+            } catch (e) { /* Web Audio tidak disokong - abaikan senyap-senyap */ }
+        }
+
+        function spawnSmokePuff(x, y) {
+            const puff = document.createElement('div');
+            const size = 18 + Math.random() * 28;
+            puff.className = 'smoke-puff';
+            puff.style.width = `${size}px`;
+            puff.style.height = `${size}px`;
+            puff.style.left = `${x - size / 2}px`;
+            puff.style.top = `${y - size / 2}px`;
+            puff.style.opacity = '0.85';
+            document.body.appendChild(puff);
+            gsap.to(puff, {
+                x: (Math.random() - 0.5) * 40,
+                y: (Math.random() - 0.5) * 30 + 20,
+                scale: 1.8 + Math.random(),
+                opacity: 0,
+                duration: 1 + Math.random() * 0.6,
+                ease: 'power1.out',
+                onComplete: () => puff.remove()
+            });
+        }
+
+        function showMilestoneBanner(milestoneScore) {
+            const banner = document.getElementById('milestone-banner');
+            document.getElementById('milestone-count').innerText = milestoneScore;
+            gsap.fromTo(banner, { opacity: 0, y: -20, scale: 0.8 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: 'back.out(1.7)' });
+            gsap.to(banner, { opacity: 0, y: -10, duration: 0.5, delay: 2.4, ease: 'power1.in' });
+        }
+
+        // Animasi roket generik: terbang melintasi skrin dengan gegaran 3D + jejak asap sebenar.
+        // Kesemua 3 imej roket berorientasikan muncung menghadap kiri secara semula jadi, jadi
+        // apabila arah ialah "ltr" imej dicerminkan (scaleX -1) supaya muncung sentiasa mendahului arah pergerakan.
+        function flyRocket(elId, direction) {
+            const rocket = document.getElementById(elId);
+            const vw = window.innerWidth;
+            const vh = window.innerHeight;
+            const rocketWidth = rocket.offsetWidth || vw * 0.4;
+            const rocketHeight = rocket.offsetHeight || rocketWidth * 0.93;
+            const margin = vh * 0.06;
+            const flightY = margin + Math.random() * Math.max(20, vh - rocketHeight - margin * 2);
+            const duration = 4.6 + Math.random() * 1;
+            const flip = direction === 'ltr';
+
+            const fromX = direction === 'rtl' ? vw + rocketWidth * 0.6 : -(rocketWidth * 1.1);
+            const toX = direction === 'rtl' ? -(rocketWidth * 1.1) : vw + rocketWidth * 0.6;
+            const baseRotation = direction === 'rtl' ? -8 : 8;
+
+            gsap.set(rocket, { x: fromX, y: flightY, opacity: 1, rotation: baseRotation, rotationY: 0, scaleX: flip ? -1 : 1, scaleY: 1 });
+
+            // Gegaran "3D" - roket condong/berlegar sedikit sepanjang penerbangan
+            const wobbleTween = gsap.to(rocket, {
+                rotation: -baseRotation,
+                rotationY: direction === 'rtl' ? 22 : -22,
+                y: `+=${18 + Math.random() * 20}`,
+                duration: 0.9,
+                yoyo: true,
+                repeat: -1,
+                ease: 'sine.inOut'
+            });
+
+            gsap.to(rocket, {
+                x: toX,
+                duration: duration,
+                ease: 'power1.inOut',
+                onComplete: () => {
+                    wobbleTween.kill();
+                    clearInterval(smokeInterval);
+                    gsap.set(rocket, { opacity: 0 });
+                }
+            });
+
+            // Asap benar-benar keluar dari ekor roket, di belakang arah pergerakan
+            const smokeInterval = setInterval(() => {
+                const rect = rocket.getBoundingClientRect();
+                const tailX = direction === 'rtl' ? rect.right - rect.width * 0.18 : rect.left + rect.width * 0.18;
+                spawnSmokePuff(tailX, rect.top + rect.height * 0.72);
+            }, 80);
+        }
+
+        function launchConfetti() {
+            const colors = [
+                cssVar('--primary'), cssVar('--secondary'), cssVar('--accent'),
+                cssVar('--gold-accent'), cssVar('--gold-soft')
+            ];
+            for (let i = 0; i < 60; i++) {
+                const piece = document.createElement('div');
+                piece.className = 'confetti-piece';
+                piece.style.left = `${Math.random() * 100}vw`;
+                piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+                piece.style.transform = `rotate(${Math.random() * 360}deg)`;
+                document.body.appendChild(piece);
+                gsap.to(piece, {
+                    y: window.innerHeight + 40,
+                    x: `+=${(Math.random() - 0.5) * 200}`,
+                    rotation: Math.random() * 720 - 360,
+                    duration: 2 + Math.random() * 1.5,
+                    ease: "power1.in",
+                    onComplete: () => piece.remove()
+                });
+            }
+        }
+
+        function checkWin() {
+            if (score === kpmHadisData.length) {
+                stopTimer();
+                if (spawnTimer) clearInterval(spawnTimer);
+                document.getElementById('final-time').innerText = formatTime(secondsElapsed);
+                document.getElementById('final-quiz-score').innerText = quizCorrectCount;
+                document.getElementById('final-quiz-total').innerText = kpmHadisData.length;
+                const overlay = document.getElementById('success-overlay');
+                const content = document.getElementById('success-content');
+
+                overlay.classList.remove('hidden');
+                gsap.to(overlay, {opacity: 1, duration: 0.5});
+                gsap.from(content, {scale: 0.8, opacity: 0, rotationY: 90, duration: 0.8, ease: "back.out(1.2)", delay: 0.2});
+                launchConfetti();
+                playTone([523, 659, 784, 1047], 0.18);
+            }
+        }
+
+        function resetGame() {
+            const overlay = document.getElementById('success-overlay');
+            gsap.to(overlay, {opacity: 0, duration: 0.3, onComplete: () => {
+                overlay.classList.add('hidden');
+                if (spawnTimer) clearInterval(spawnTimer);
+                Object.keys(activeBubbles).forEach(idx => removeBubbleEl(Number(idx), true));
+                initGame();
+            }});
+        }
+
+        // Mulakan game
+        window.onload = initGame;
+    </script>
+</body>
+</html>
