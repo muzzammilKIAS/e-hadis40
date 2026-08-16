@@ -47,11 +47,10 @@ class AnatomiSunnahListScreen extends StatelessWidget {
               elevation: 0,
               foregroundColor: scheme.onSurface,
               iconTheme: IconThemeData(color: scheme.onSurface),
-              titleTextStyle:
-                  Theme.of(context).textTheme.titleLarge?.copyWith(
-                        fontWeight: FontWeight.w700,
-                        color: scheme.onSurface,
-                      ),
+              titleTextStyle: Theme.of(context).textTheme.titleLarge?.copyWith(
+                    fontWeight: FontWeight.w700,
+                    color: scheme.onSurface,
+                  ),
               title: const Text('Anatomi Sunnah 3D'),
             ),
           ),
@@ -186,8 +185,7 @@ class SliverCenteredCrossAxis extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverLayoutBuilder(
       builder: (context, constraints) {
-        final inset =
-            ((constraints.crossAxisExtent - contentWidth) / 2).clamp(
+        final inset = ((constraints.crossAxisExtent - contentWidth) / 2).clamp(
           0.0,
           double.infinity,
         );

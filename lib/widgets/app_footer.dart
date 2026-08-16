@@ -194,7 +194,7 @@ class _AboutPage extends StatelessWidget {
             ),
             const SizedBox(height: 12),
             Text(
-'Muzzammil Najib | Saeid Ramadhan | Adam Abd. Azid',
+              'Muzzammil Najib | Saeid Ramadhan | Adam Abd. Azid',
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                     height: 1.7,
                     color: scheme.onSurface,

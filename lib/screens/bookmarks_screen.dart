@@ -28,8 +28,14 @@ class BookmarksScreen extends StatelessWidget {
       );
     }
 
+    final pagePadding = Responsive.pagePadding(context);
+
     return SingleChildScrollView(
-      padding: Responsive.pagePadding(context),
+      // `MainShell` menetapkan `extendBody: true` — tambah tinggi bar
+      // navigasi supaya kad terakhir tidak tersembunyi di belakangnya.
+      padding: pagePadding.copyWith(
+        bottom: pagePadding.bottom + MediaQuery.paddingOf(context).bottom,
+      ),
       child: Responsive.constrainedPage(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

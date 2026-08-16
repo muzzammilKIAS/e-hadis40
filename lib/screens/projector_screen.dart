@@ -395,10 +395,10 @@ class _AnatomiSunnahProjectorPage extends StatelessWidget {
               ),
               const SizedBox(height: 40),
               Tooltip(
-                message: hadith.number <=
-                        AnatomiSunnahScreen.availableHadithNumbers
-                    ? 'Mulakan Anatomi Sunnah'
-                    : 'Anatomi Sunnah akan datang',
+                message:
+                    hadith.number <= AnatomiSunnahScreen.availableHadithNumbers
+                        ? 'Mulakan Anatomi Sunnah'
+                        : 'Anatomi Sunnah akan datang',
                 child: InkWell(
                   borderRadius: BorderRadius.circular(999),
                   onTap: () {
@@ -415,7 +415,8 @@ class _AnatomiSunnahProjectorPage extends StatelessWidget {
                     }
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(
-                        content: Text('Anatomi Sunnah akan datang tidak lama lagi.'),
+                        content:
+                            Text('Anatomi Sunnah akan datang tidak lama lagi.'),
                       ),
                     );
                   },

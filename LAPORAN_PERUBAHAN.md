@@ -527,3 +527,113 @@ matan penuh **dan** terjemahan Melayu muat serentak tanpa skrol.
 | Panel kawalan telefon terpotong | 14 fail | ✅ tiada |
 | Bingkai Xplorasi Minda | 3 saiz | ✅ 0px keluar-bingkai |
 | Jalur belang (debug build) | 5 tab × 4 tinggi = 20 | ✅ semua bersih |
+
+---
+
+## 11. Pembetulan Tambahan — "Tentang Aplikasi" tersembunyi (16 Ogos 2026)
+
+**Aduan:** butang "Tentang Aplikasi" tidak dipaparkan pada paparan mobile & tablet.
+
+**Punca:** **pepijat yang sama seperti 4.1** — `MainShell` menetapkan
+`extendBody: true`, jadi badan skrin memanjang ke belakang bar navigasi bawah.
+Butang "Tentang Aplikasi" ialah elemen **terakhir** dalam `AppFooter`, jadi ia
+kekal tersembunyi di belakang bar itu walaupun sudah skrol habis.
+
+Dalam laporan asal (4.1) saya sudah menandakan risiko ini:
+> *"corak pepijat yang sama boleh berlaku pada mana-mana tab lain yang
+> menggunakan senarai boleh skrol."*
+
+Semasa menyiasat aduan ini saya semak **kesemua 5 tab**, dan mendapati **3**
+daripadanya masih terjejas:
+
+| Tab | Fail | Status sebelum |
+|---|---|---|
+| Dashboard | `lib/screens/home_screen.dart` | ❌ terjejas (dilapor pengguna) |
+| Modul | `lib/screens/modules_screen.dart` | ✅ sudah dibetulkan (4.1) |
+| Bookmark | `lib/screens/bookmarks_screen.dart` | ❌ terjejas (belum dilapor) |
+| Audio | `lib/screens/hadith_playlist_screen.dart` | ✅ `SafeArea` sudah mengendalikannya |
+| Tetapan | `lib/screens/settings_screen.dart` | ❌ terjejas (belum dilapor) |
+
+**Pembetulan** — corak sama pada ketiga-tiga fail:
+```dart
+padding: pagePadding.copyWith(
+  bottom: pagePadding.bottom + MediaQuery.paddingOf(context).bottom,
+),
+```
+
+**Pengesahan:**
+- "Tentang Aplikasi" kini kelihatan pada Dashboard **dan** Tetapan, pada
+  mobile (390×844) **dan** tablet (834×1112).
+- Butang diklik → skrin "Tentang e-Hadis40" terbuka dengan betul.
+- `flutter analyze` 0 isu · `flutter test` 20/20 lulus.
+
+> ✅ Kini **kesemua 5 tab** sudah mengambil kira `extendBody: true`.
+
+---
+
+## 12. Integrasi Hadis 15, 16 dan 17 (16 Ogos 2026)
+
+**Tujuan:** memuatkan Hadis 15, 16 dan 17 daripada pakej DeepSeek
+(`eHadis40_DeepSeek_Hadis_15_16_17.zip`) dengan data KPM, audio MP3 sebenar
+dan timing frasa.
+
+### Fail dicipta
+- `assets/data/hadith_15.json` — id `hadith_15`, `module_03`, perawi
+  `abu_hurairah`, dalil al-Nisa’ 36, 10 soalan kuiz.
+- `assets/data/hadith_16.json` — id `hadith_16`, `module_04`, perawi
+  `abu_hurairah`, **tiada** quranEvidence rekaan, 10 soalan kuiz.
+- `assets/data/hadith_17.json` — id `hadith_17`, `module_04`, perawi
+  `shaddad_ibn_aws`, 3 dalil (al-Rum 41, al-Nahl 5–6, al-Nahl 90),
+  10 soalan kuiz.
+- `assets/audio/hadith_15.mp3`, `hadith_16.mp3`, `hadith_17.mp3` — MP3 sebenar
+  mono 24 kHz 96 kbps (bukan WAV bersari nama .mp3).
+- `test/hadith_15_16_17_test.dart` — 15 test integrasi.
+
+### Fail diubah
+- `lib/data/repositories/hadith_repository.dart` — muat hadith_15/16/17.
+- `assets/data/narrators.json` — `abu_hurairah` dikemas kini
+  (hadithNumbers 9,10,12,15,16); `shaddad_ibn_aws` ditambah (kanonik tunggal,
+  tanpa biografi rekaan).
+- `lib/screens/hadith_screen.dart` — butang Next H17 papar "Hadis 18 · Akan
+  Datang" (dilumpuhkan) kerana H18 belum tersedia; import
+  `AppCurriculumStructure`.
+
+### Audio
+- H15: MP3 mono 24 kHz 96 kbps, durasi 23.66 s (sumber ~23.6 s) — 8 segmen
+  frasa.
+- H16: MP3 mono 24 kHz 96 kbps, durasi 15.02 s (sumber ~14.96 s) — 8 segmen
+  frasa.
+- H17: MP3 mono 24 kHz 96 kbps, durasi 22.22 s (sumber ~22.16 s) — 8 segmen
+  frasa.
+
+### Timing
+- Semua `wordHighlightMode = "phraseOnly"` (tiada proportional word timing).
+- Timing ialah **starting point** daripada CSV pakej; status
+  `STARTING_POINT_REVIEW_BY_EAR`. Perlu semakan pendengaran manusia untuk
+  fine-tune startMs/endMs secara minimum.
+- Rujukan hadis (`رَوَاهُ الْبُخَارِيُّ وَمُسْلِمٌ.` dsb.) kekal **statik** —
+  tidak dimasukkan ke timedSegments kerana rakaman kelihatan tamat pada badan
+  hadis.
+
+### Modul (dinamik)
+- Module 3 (Hadis 11–15): kini **5/5** tersedia.
+- Module 4 (Hadis 16–20): kini **2/5** tersedia (H16, H17). H18–20 papar
+  "Akan Datang".
+- Kiraan dikira daripada `HadithRepository.availableHadiths` — tiada
+  hard-code.
+
+### Global Audio
+- Playlist Global Audio dibina daripada semua hadis yang ada `audioAsset`,
+  jadi H15–H17 automatik masuk. Tap baris trek hanya `skipTo(index)` (main,
+  tidak navigate).
+
+### Pengesahan
+- `flutter analyze` — 0 ralat.
+- `flutter test` — 33/33 lulus (termasuk 15 test H15–17).
+- `flutter build web --release --base-href "/"` — berjaya.
+- `flutter build web --debug` — berjaya.
+
+### Perlu semakan manusia/ilmiah
+- Fine-tune timing frasa mengikut pendengaran audio sebenar.
+- Sahkan durasi audio dan kedudukan frasa dengan rakaman rasmi.
+- Semakan ilmiah huraian KPM jika perlu.

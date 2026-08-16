@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../core/constants/app_constants.dart';
+import '../core/curriculum/app_curriculum_structure.dart';
 import '../core/theme/app_spacing.dart';
 import '../core/utils/app_breakpoints.dart';
 import '../core/utils/responsive.dart';
@@ -734,6 +735,9 @@ class _HadithPrevNext extends StatelessWidget {
   Widget build(BuildContext context) {
     final prev = repository.byNumber(hadith.number - 1);
     final next = repository.byNumber(hadith.number + 1);
+    final nextNumber = hadith.number + 1;
+    final nextComingSoon =
+        next == null && nextNumber <= AppCurriculumStructure.totalHadiths;
 
     return Row(
       children: [
@@ -750,6 +754,15 @@ class _HadithPrevNext extends StatelessWidget {
             onPressed: () => _navigateReplace(context, next),
             icon: const Icon(Icons.arrow_forward_rounded, size: 18),
             label: Text('${next.displayNumber}. ${next.title}'),
+          )
+        else if (nextComingSoon)
+          Tooltip(
+            message: 'Hadis $nextNumber akan datang selepas semakan kandungan.',
+            child: TextButton.icon(
+              onPressed: null,
+              icon: const Icon(Icons.arrow_forward_rounded, size: 18),
+              label: Text('Hadis $nextNumber · Akan Datang'),
+            ),
           )
         else
           const Spacer(),

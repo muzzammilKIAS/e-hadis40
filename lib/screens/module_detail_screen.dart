@@ -50,7 +50,8 @@ class ModuleDetailScreen extends StatelessWidget {
         intensity: 0.7,
         child: Column(
           children: [
-            SizedBox(height: kToolbarHeight + MediaQuery.of(context).padding.top),
+            SizedBox(
+                height: kToolbarHeight + MediaQuery.of(context).padding.top),
             Expanded(
               child: LayoutBuilder(
                 builder: (context, constraints) {

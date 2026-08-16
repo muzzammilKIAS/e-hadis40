@@ -53,7 +53,8 @@ void main() {
       }
     });
 
-    test('H12-H14 narrator dedup: abu_hurairah & abdullah_ibn_masud shared', () {
+    test('H12-H14 narrator dedup: abu_hurairah & abdullah_ibn_masud shared',
+        () {
       final h9 = Hadith.fromJson(_load('hadith_09.json'));
       final h10 = Hadith.fromJson(_load('hadith_10.json'));
       final h12 = Hadith.fromJson(_load('hadith_12.json'));

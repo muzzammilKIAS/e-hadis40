@@ -45,8 +45,7 @@ class _AnatomiSunnahHadithCardState extends State<AnatomiSunnahHadithCard> {
     final statusIcon = widget.available
         ? Icons.play_circle_outline_rounded
         : Icons.schedule_rounded;
-    final statusColor =
-        widget.available ? accent : scheme.onSurfaceVariant;
+    final statusColor = widget.available ? accent : scheme.onSurfaceVariant;
 
     return MouseRegion(
       cursor: widget.available
@@ -161,10 +160,8 @@ class _AnatomiSunnahHadithCardState extends State<AnatomiSunnahHadithCard> {
                                   fontWeight: FontWeight.w800,
                                   fontSize: widget.compact ? 14 : 16,
                                   color: dark
-                                      ? Color.lerp(
-                                          accent, Colors.white, 0.28)
-                                      : Color.lerp(
-                                          accent, Colors.black, 0.12),
+                                      ? Color.lerp(accent, Colors.white, 0.28)
+                                      : Color.lerp(accent, Colors.black, 0.12),
                                 ),
                               ),
                             ),
@@ -195,13 +192,11 @@ class _AnatomiSunnahHadithCardState extends State<AnatomiSunnahHadithCard> {
                           widget.title,
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
-                          style: Theme.of(context)
-                              .textTheme
-                              .titleMedium
-                              ?.copyWith(
-                                fontWeight: FontWeight.w700,
-                                fontSize: widget.compact ? 14 : 15.5,
-                              ),
+                          style:
+                              Theme.of(context).textTheme.titleMedium?.copyWith(
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: widget.compact ? 14 : 15.5,
+                                  ),
                         ),
                         SizedBox(height: widget.compact ? 12 : 14),
                         Row(

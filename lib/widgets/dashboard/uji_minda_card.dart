@@ -123,8 +123,7 @@ class _UjiMindaCardState extends State<UjiMindaCard>
                         end: Alignment.bottomRight,
                         colors: dark
                             ? [
-                                Color.lerp(
-                                    scheme.surface, cardAccent, 0.08)!,
+                                Color.lerp(scheme.surface, cardAccent, 0.08)!,
                                 scheme.surfaceContainerLowest
                                     .withValues(alpha: 0.9),
                               ]
@@ -196,8 +195,7 @@ class _UjiMindaCardState extends State<UjiMindaCard>
                                               ? scheme.surface
                                               : Colors.white,
                                           fontSize: 42,
-                                          onBrainTap: () =>
-                                              _handleTap(context),
+                                          onBrainTap: () => _handleTap(context),
                                         ),
                                       ),
                                     ),
@@ -248,8 +246,8 @@ class _UjiMindaCardState extends State<UjiMindaCard>
                                     gradient: RadialGradient(
                                       colors: [
                                         AppColors.deepEmerald.withValues(
-                                          alpha: (dark ? 0.07 : 0.035) *
-                                              (1 - t),
+                                          alpha:
+                                              (dark ? 0.07 : 0.035) * (1 - t),
                                         ),
                                         Colors.transparent,
                                       ],
@@ -272,9 +270,8 @@ class _UjiMindaCardState extends State<UjiMindaCard>
                               _FlameEffect(progress: t, artSize: artSize),
                               // Roket itu sendiri — terbang ke atas & pudar.
                               Positioned(
-                                bottom: Curves.easeIn.transform(t) *
-                                    artSize *
-                                    1.9,
+                                bottom:
+                                    Curves.easeIn.transform(t) * artSize * 1.9,
                                 child: Opacity(
                                   opacity: 1 -
                                       Curves.easeIn.transform(
@@ -311,8 +308,7 @@ class _UjiMindaCardState extends State<UjiMindaCard>
                                               BoxShadow(
                                                 color: AppColors.deepEmerald
                                                     .withValues(
-                                                  alpha:
-                                                      dark ? 0.08 : 0.045,
+                                                  alpha: dark ? 0.08 : 0.045,
                                                 ),
                                                 blurRadius: 26,
                                                 offset: const Offset(0, 16),

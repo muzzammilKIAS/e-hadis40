@@ -14,8 +14,14 @@ class SettingsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = context.watch<AppController>();
 
+    final pagePadding = Responsive.pagePadding(context);
+
     return SingleChildScrollView(
-      padding: Responsive.pagePadding(context),
+      // `MainShell` menetapkan `extendBody: true` — tambah tinggi bar
+      // navigasi supaya hujung kandungan (footer) tidak tersembunyi.
+      padding: pagePadding.copyWith(
+        bottom: pagePadding.bottom + MediaQuery.paddingOf(context).bottom,
+      ),
       child: Responsive.constrainedPage(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

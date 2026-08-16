@@ -42,7 +42,14 @@ class HomeScreen extends StatelessWidget {
       builder: (context, constraints) {
         final layout = DashboardLayout.of(constraints);
         return SingleChildScrollView(
-          padding: layout.pagePadding,
+          // `MainShell` menetapkan `extendBody: true`, jadi badan skrin
+          // memanjang ke BELAKANG bar navigasi bawah. Tanpa tambahan ini,
+          // hujung footer (butang "Tentang Aplikasi") kekal tersembunyi di
+          // belakang bar itu walaupun sudah skrol habis.
+          padding: layout.pagePadding.copyWith(
+            bottom: layout.pagePadding.bottom +
+                MediaQuery.paddingOf(context).bottom,
+          ),
           child: Align(
             alignment: Alignment.topCenter,
             child: SizedBox(

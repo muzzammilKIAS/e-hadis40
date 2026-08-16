@@ -133,8 +133,8 @@ class _AtmospherePainter extends CustomPainter {
 
     // Dijauhkan daripada bucu atas supaya kawasan app bar / tajuk kekal
     // cerah — hanya bahagian bawah skrin dapat sedikit "berat" sage.
-    blob(Offset(size.width * -0.05, size.height * 0.62), size.shortestSide * 0.4,
-        0.16);
+    blob(Offset(size.width * -0.05, size.height * 0.62),
+        size.shortestSide * 0.4, 0.16);
     blob(Offset(size.width * 1.02, size.height * 1.02), size.shortestSide * 0.5,
         0.14);
   }

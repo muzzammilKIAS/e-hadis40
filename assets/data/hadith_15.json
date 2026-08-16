@@ -1,0 +1,286 @@
+{
+ "id": "hadith_15",
+ "moduleId": "module_03",
+ "hadithNumber": 15,
+ "title": "Berkata Baik serta Menghormati Jiran dan Tetamu",
+ "subtitle": "Orang beriman menjaga lidah, menghormati jiran dan memuliakan tetamu sebagai tanda kesempurnaan iman.",
+ "theme": "Menjaga hak jiran dan tetamu serta menjaga tutur kata",
+ "contextNotice": "",
+ "learningObjectives": [
+  "Menyatakan maksud umum Hadis 15 serta tiga perkara yang disebut berkaitan iman kepada Allah dan hari akhirat.",
+  "Menghuraikan pembahagian jiran dalam Islam iaitu jiran Muslim berhubungan keluarga, jiran Muslim tanpa hubungan keluarga, dan jiran bukan Muslim.",
+  "Menjelaskan bahawa menjaga hak jiran dan memuliakan tetamu adalah tanda kesempurnaan iman.",
+  "Menyatakan bahawa jika tidak mampu bercakap dengan baik, diam adalah lebih baik.",
+  "Menjawab kuiz dengan markah sekurang-kurangnya 80%."
+ ],
+ "arabicText": "عَنْ أَبِي هُرَيْرَةَ رَضِيَ اللَّهُ عَنْهُ، عَنْ رَسُولِ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ قَالَ: مَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الْآخِرِ فَلْيَقُلْ خَيْرًا أَوْ لِيَصْمُتْ، وَمَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الْآخِرِ فَلْيُكْرِمْ جَارَهُ، وَمَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الْآخِرِ فَلْيُكْرِمْ ضَيْفَهُ.",
+ "audioTranscriptText": "عَنْ أَبِي هُرَيْرَةَ رَضِيَ اللَّهُ عَنْهُ، عَنْ رَسُولِ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ قَالَ: مَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الْآخِرِ فَلْيَقُلْ خَيْرًا أَوْ لِيَصْمُتْ، وَمَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الْآخِرِ فَلْيُكْرِمْ جَارَهُ، وَمَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الْآخِرِ فَلْيُكْرِمْ ضَيْفَهُ.",
+ "translationMalay": "Daripada Abu Hurairah r.a., daripada Rasulullah SAW bersabda: \"Sesiapa yang beriman kepada Allah dan hari akhirat, maka hendaklah ia berkata baik atau diam; dan sesiapa yang beriman kepada Allah dan hari akhirat, maka hendaklah ia memuliakan jirannya; dan sesiapa yang beriman kepada Allah dan hari akhirat, maka hendaklah ia memuliakan tetamunya.\"",
+ "narratorId": "abu_hurairah",
+ "narrator": {
+  "id": "abu_hurairah",
+  "name": "Abu Hurairah r.a.",
+  "fullName": "Abu Hurairah r.a.",
+  "title": "Perawi Hadis",
+  "shortBiography": "",
+  "tags": [
+   "Sahabat Rasulullah SAW",
+   "Perawi Hadis"
+  ],
+  "source": "Gunakan profil canonical sedia ada daripada NarratorRepository kerana perawi yang sama telah digunakan pada hadis terdahulu. Jangan cipta profil kedua.",
+  "verified": false
+ },
+ "referenceArabic": "رَوَاهُ الْبُخَارِيُّ وَمُسْلِمٌ.",
+ "reference": "Hadis ini diriwayatkan oleh Imam al-Bukhari dan Imam Muslim.",
+ "explanations": [
+  "Orang yang beriman kepada Allah dan hari akhirat menjaga hak jiran dan berbuat baik kepadanya.",
+  "Jiran dihuraikan kepada jiran Muslim yang berhubungan keluarga, jiran Muslim tanpa hubungan keluarga, dan jiran bukan Muslim.",
+  "Menjaga hak jiran adalah wajib tanpa mengira agama, bangsa atau keturunan.",
+  "Tetamu hendaklah dimuliakan dan dihormati.",
+  "Orang yang beriman menjaga lidah serta hak jiran dan tetamu.",
+  "Jika tidak mampu bercakap atau menulis dengan baik, diam lebih baik daripada berkata buruk.",
+  "Mukmin menjaga akhlak terhadap jiran dan tetamu.",
+  "Memelihara hubungan sesama makhluk ialah sebahagian daripada ajaran Islam."
+ ],
+ "quranEvidence": {
+  "surah": "al-Nisa’",
+  "verse": 36,
+  "verseEnd": 36,
+  "arabicText": "وَاعْبُدُوا اللَّهَ وَلَا تُشْرِكُوا بِهِ شَيْئًا وَبِالْوَالِدَيْنِ إِحْسَانًا وَبِذِي الْقُرْبَى وَالْيَتَامَى وَالْمَسَاكِينِ وَالْجَارِ ذِي الْقُرْبَى وَالْجَارِ الْجُنُبِ وَالصَّاحِبِ بِالْجَنْبِ وَابْنِ السَّبِيلِ وَمَا مَلَكَتْ أَيْمَانُكُمْ إِنَّ اللَّهَ لَا يُحِبُّ مَنْ كَانَ مُخْتَالًا فَخُورًا",
+  "translationMalay": "Dan beribadahlah kamu kepada Allah dan janganlah kamu mempersekutukan-Nya dengan sesuatu apa jua. Dan berbuat baiklah kepada kedua-dua ibu bapa, kaum kerabat, anak-anak yatim, orang-orang miskin, jiran tetangga yang dekat, jiran yang jauh, rakan sejawat, orang musafir yang terlantar, serta hamba yang kamu miliki. Sesungguhnya Allah tidak menyukai orang yang sombong dan membanggakan diri.",
+  "isExcerpt": false
+ },
+ "quranEvidences": [
+  {
+   "surah": "al-Nisa’",
+   "verse": 36,
+   "verseEnd": 36,
+   "arabicText": "وَاعْبُدُوا اللَّهَ وَلَا تُشْرِكُوا بِهِ شَيْئًا وَبِالْوَالِدَيْنِ إِحْسَانًا وَبِذِي الْقُرْبَى وَالْيَتَامَى وَالْمَسَاكِينِ وَالْجَارِ ذِي الْقُرْبَى وَالْجَارِ الْجُنُبِ وَالصَّاحِبِ بِالْجَنْبِ وَابْنِ السَّبِيلِ وَمَا مَلَكَتْ أَيْمَانُكُمْ إِنَّ اللَّهَ لَا يُحِبُّ مَنْ كَانَ مُخْتَالًا فَخُورًا",
+   "translationMalay": "Dan beribadahlah kamu kepada Allah dan janganlah kamu mempersekutukan-Nya dengan sesuatu apa jua. Dan berbuat baiklah kepada kedua-dua ibu bapa, kaum kerabat, anak-anak yatim, orang-orang miskin, jiran tetangga yang dekat, jiran yang jauh, rakan sejawat, orang musafir yang terlantar, serta hamba yang kamu miliki. Sesungguhnya Allah tidak menyukai orang yang sombong dan membanggakan diri.",
+   "isExcerpt": false
+  }
+ ],
+ "lessons": [
+  "Orang yang beriman kepada Allah dan hari akhirat akan menjaga hak jiran dan tetamu.",
+  "Berkata baik atau diam adalah tanda kesempurnaan iman.",
+  "Menjaga hak jiran wajib dilakukan tanpa mengira agama, bangsa dan keturunan.",
+  "Memuliakan tetamu ialah sebahagian daripada tuntutan iman."
+ ],
+ "appreciation": [
+  "Murid hendaklah sentiasa bertutur kata yang baik dan sopan.",
+  "Murid hendaklah berkomunikasi secara berhemah di media sosial.",
+  "Murid hendaklah menghindari percakapan yang sia-sia.",
+  "Murid hendaklah diam dan mendengar ketika guru mengajar sebagai tanda hormat.",
+  "Murid hendaklah menghormati jiran tanpa mengira agama, bangsa dan keturunan.",
+  "Murid hendaklah memuliakan tetamu."
+ ],
+ "focusValues": [
+  "Hormat",
+  "Ihsan"
+ ],
+ "suggestedActivities": [
+  {
+   "title": "Tazkirah dan halaqah ilmu",
+   "description": "Sampaikan tazkirah atau anjurkan halaqah yang menekankan kepentingan berkata baik, menghormati jiran dan memuliakan tetamu."
+  },
+  {
+   "title": "Khidmat masyarakat",
+   "description": "Laksanakan aktiviti khidmat masyarakat yang membina hubungan baik dengan jiran dan komuniti setempat."
+  },
+  {
+   "title": "Membincangkan nama Allah al-Rahim",
+   "description": "Bincangkan nama Allah SWT al-Rahim dan kaitannya dengan ihsan dalam hubungan sesama manusia."
+  }
+ ],
+ "reflectionQuestions": [
+  "Mengapakah berkata baik atau diam menjadi tanda kesempurnaan iman?",
+  "Apakah pembahagian jiran yang dihuraikan dalam modul?",
+  "Bagaimanakah cara menghormati jiran tanpa mengira agama, bangsa dan keturunan?",
+  "Apakah maksud memuliakan tetamu dalam kehidupan harian?",
+  "Bagaimanakah saya boleh berkomunikasi secara berhemah di media sosial?"
+ ],
+ "quiz": [
+  {
+   "id": "h15_q01",
+   "question": "Apakah tajuk Hadis 15?",
+   "options": [
+    "Berkata Baik serta Menghormati Jiran dan Tetamu",
+    "Menjauhi Sifat Pemarah",
+    "Nasihat Tonggak Agama",
+    "Kesempurnaan dalam Perkara Kebaikan"
+   ],
+   "correctAnswerIndex": 0,
+   "explanation": "Tajuk Hadis 15 ialah “Berkata Baik serta Menghormati Jiran dan Tetamu”."
+  },
+  {
+   "id": "h15_q02",
+   "question": "Siapakah perawi Hadis 15?",
+   "options": [
+    "Abu Hurairah r.a.",
+    "Abdullah bin Mas‘ud r.a.",
+    "Anas bin Malik r.a.",
+    "Tamim al-Dari r.a."
+   ],
+   "correctAnswerIndex": 0,
+   "explanation": "Hadis 15 diriwayatkan daripada Abu Hurairah r.a."
+  },
+  {
+   "id": "h15_q03",
+   "question": "Apakah dalil al-Quran yang digunakan dalam huraian Hadis 15?",
+   "options": [
+    "Surah al-Nisa’ ayat 36",
+    "Surah al-Baqarah ayat 178",
+    "Surah al-Hujurat ayat 10",
+    "Surah al-Isra’ ayat 32"
+   ],
+   "correctAnswerIndex": 0,
+   "explanation": "Huraian Hadis 15 menggunakan Surah al-Nisa’ ayat 36."
+  },
+  {
+   "id": "h15_q04",
+   "question": "Menurut huraian modul, siapakah yang dihuraikan kepada tiga kategori?",
+   "options": [
+    "Jiran",
+    "Tetamu",
+    "Guru",
+    "Keluarga"
+   ],
+   "correctAnswerIndex": 0,
+   "explanation": "Jiran dihuraikan kepada jiran Muslim berhubungan keluarga, jiran Muslim tanpa hubungan keluarga, dan jiran bukan Muslim."
+  },
+  {
+   "id": "h15_q05",
+   "question": "Apakah yang patut dilakukan oleh orang yang tidak mampu bercakap dengan baik?",
+   "options": [
+    "Diam adalah lebih baik",
+    "Bercakap seberapa banyak yang mungkin",
+    "Meninggalkan majlis",
+    "Mengangkat suara"
+   ],
+   "correctAnswerIndex": 0,
+   "explanation": "Jika tidak mampu bercakap dengan baik, diam lebih baik daripada berkata buruk."
+  },
+  {
+   "id": "h15_q06",
+   "question": "Bagaimanakah hak jiran harus dijaga menurut modul?",
+   "options": [
+    "Tanpa mengira agama, bangsa atau keturunan",
+    "Hanya kepada jiran yang beragama sama",
+    "Hanya kepada jiran yang kaya",
+    "Mengikut kehendak sendiri"
+   ],
+   "correctAnswerIndex": 0,
+   "explanation": "Menjaga hak jiran adalah wajib tanpa mengira agama, bangsa atau keturunan."
+  },
+  {
+   "id": "h15_q07",
+   "question": "Apakah fokus nilai Hadis 15?",
+   "options": [
+    "Hormat dan Ihsan",
+    "Kesejahteraan dan Hormat",
+    "Ihsan dan Keyakinan",
+    "Ikhlas dan Kesejahteraan"
+   ],
+   "correctAnswerIndex": 0,
+   "explanation": "Fokus nilai Hadis 15 ialah Hormat dan Ihsan."
+  },
+  {
+   "id": "h15_q08",
+   "question": "Apakah penghayatan yang berkaitan dengan guru dalam Hadis 15?",
+   "options": [
+    "Diam dan mendengar ketika guru mengajar sebagai tanda hormat",
+    "Bercakap ketika guru mengajar",
+    "Meninggalkan kelas",
+    "Membuat bising"
+   ],
+   "correctAnswerIndex": 0,
+   "explanation": "Murid hendaklah diam dan mendengar ketika guru mengajar sebagai tanda hormat."
+  },
+  {
+   "id": "h15_q09",
+   "question": "Apakah cadangan aktiviti Hadis 15?",
+   "options": [
+    "Tazkirah dan halaqah ilmu serta khidmat masyarakat",
+    "Latihan sembelihan",
+    "Pertandingan sukan lasak",
+    "Program mencabar kekuatan fizikal"
+   ],
+   "correctAnswerIndex": 0,
+   "explanation": "Cadangan aktiviti Hadis 15 termasuk tazkirah dan halaqah ilmu, khidmat masyarakat, serta membincangkan nama Allah al-Rahim."
+  },
+  {
+   "id": "h15_q10",
+   "question": "Apakah tanda kesempurnaan iman menurut Hadis 15?",
+   "options": [
+    "Menjaga lidah serta hak jiran dan tetamu",
+    "Memiliki harta yang banyak",
+    "Berkuasa dalam masyarakat",
+    "Memiliki ilmu yang tinggi sahaja"
+   ],
+   "correctAnswerIndex": 0,
+   "explanation": "Orang yang beriman menjaga lidah serta hak jiran dan tetamu sebagai tanda kesempurnaan iman."
+  }
+ ],
+ "progressRules": {
+  "passingScorePercent": 80
+ },
+ "audio": {
+  "arabicRecitation": "assets/audio/hadith_15.mp3",
+  "durationMs": 23664,
+  "syncOffsetMs": 0,
+  "wordHighlightMode": "phraseOnly",
+  "timingMethod": "waveform/silence-derived phrase timing starting point",
+  "timingReviewNote": "Timing frasa ialah padanan awal daripada jeda rakaman (CSV starting point). Dengar audio sebenar dan fine-tune startMs/endMs secara minimum jika perlu. Jangan guna proportional word timing. Rujukan hadis kekal statik kecuali pendengaran mengesahkan ia dibaca.",
+  "referenceAudioVerificationRequired": true,
+  "timedSegments": [
+   {
+    "startMs": 80,
+    "endMs": 2450,
+    "text": "عَنْ أَبِي هُرَيْرَةَ رَضِيَ اللَّهُ عَنْهُ،"
+   },
+   {
+    "startMs": 2770,
+    "endMs": 6740,
+    "text": "عَنْ رَسُولِ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ قَالَ:"
+   },
+   {
+    "startMs": 7080,
+    "endMs": 10440,
+    "text": "مَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الْآخِرِ"
+   },
+   {
+    "startMs": 10680,
+    "endMs": 13260,
+    "text": "فَلْيَقُلْ خَيْرًا أَوْ لِيَصْمُتْ،"
+   },
+   {
+    "startMs": 13620,
+    "endMs": 16720,
+    "text": "وَمَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الْآخِرِ"
+   },
+   {
+    "startMs": 17250,
+    "endMs": 18400,
+    "text": "فَلْيُكْرِمْ جَارَهُ،"
+   },
+   {
+    "startMs": 18850,
+    "endMs": 21690,
+    "text": "وَمَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الْآخِرِ"
+   },
+   {
+    "startMs": 22340,
+    "endMs": 23470,
+    "text": "فَلْيُكْرِمْ ضَيْفَهُ."
+   }
+  ]
+ },
+ "source": {
+  "document": "Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua, KPM.",
+  "hadith": 15,
+  "printedPages": [],
+  "adaptationStatus": "Prototaip pembelajaran interaktif",
+  "verificationNote": "Tajuk, teks hadis, maksud, huraian, Surah al-Nisa’ ayat 36, pengajaran, penghayatan, fokus nilai dan tajuk aktiviti berasaskan Hadis 15 dalam modul KPM. Objektif digital, penerangan aktiviti, refleksi, kuiz dan timing audio ialah lapisan aplikasi untuk pembelajaran."
+ },
+ "copyrightNotice": "© 2026 e-Hadis40 bagi reka bentuk aplikasi, interaksi, audio, kuiz dan kod sumber prototaip. Hak cipta kandungan asal Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua kekal milik Kementerian Pendidikan Malaysia dan pemegang hak masing-masing."
+}

@@ -1,0 +1,300 @@
+{
+ "id": "hadith_17",
+ "moduleId": "module_04",
+ "hadithNumber": 17,
+ "title": "Kesempurnaan dalam Perkara Kebaikan",
+ "subtitle": "Allah mewajibkan ihsan dalam setiap perkara, termasuk ihsan kepada manusia, alam sekitar dan haiwan.",
+ "theme": "Ihsan dan kesempurnaan dalam setiap kebaikan",
+ "contextNotice": "Semua kandungan berkaitan peperangan atau hukuman dalam huraian modul dibentangkan sebagai penerangan etika ihsan, BUKAN arahan tindakan individu. Aplikasi ini tidak membenarkan pengguna mengambil tindakan sendiri terhadap sesiapa.",
+ "learningObjectives": [
+  "Menyatakan maksud umum Hadis 17 serta konsep ihsan yang diwajibkan oleh Allah dalam setiap perkara.",
+  "Menghuraikan ihsan kepada manusia tanpa mengira Muslim atau bukan Muslim, kepada alam sekitar dan kepada haiwan.",
+  "Menyatakan adab ihsan ketika menyembelih haiwan seperti menajamkan pisau dan memberi keselesaan kepada haiwan.",
+  "Menghubungkan huraian hadis dengan Surah al-Rum ayat 41, Surah al-Nahl ayat 5-6 dan Surah al-Nahl ayat 90.",
+  "Menjawab kuiz dengan markah sekurang-kurangnya 80%."
+ ],
+ "arabicText": "عَنْ أَبِي يَعْلَى شَدَّادِ بْنِ أَوْسٍ رَضِيَ اللَّهُ تَعَالَى عَنْهُ، عَنْ رَسُولِ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ قَالَ: إِنَّ اللَّهَ كَتَبَ الْإِحْسَانَ عَلَى كُلِّ شَيْءٍ، فَإِذَا قَتَلْتُمْ فَأَحْسِنُوا الْقِتْلَةَ، وَإِذَا ذَبَحْتُمْ فَأَحْسِنُوا الذِّبْحَةَ، وَلْيُحِدَّ أَحَدُكُمْ شَفْرَتَهُ، وَلْيُرِحْ ذَبِيحَتَهُ.",
+ "audioTranscriptText": "عَنْ أَبِي يَعْلَى شَدَّادِ بْنِ أَوْسٍ رَضِيَ اللَّهُ تَعَالَى عَنْهُ، عَنْ رَسُولِ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ قَالَ: إِنَّ اللَّهَ كَتَبَ الْإِحْسَانَ عَلَى كُلِّ شَيْءٍ، فَإِذَا قَتَلْتُمْ فَأَحْسِنُوا الْقِتْلَةَ، وَإِذَا ذَبَحْتُمْ فَأَحْسِنُوا الذِّبْحَةَ، وَلْيُحِدَّ أَحَدُكُمْ شَفْرَتَهُ، وَلْيُرِحْ ذَبِيحَتَهُ.",
+ "translationMalay": "Daripada Abu Ya‘la Syaddad bin Aus r.a., daripada Rasulullah SAW bersabda: \"Sesungguhnya Allah telah menetapkan ihsan (kebaikan) ke atas setiap perkara. Maka apabila kamu membunuh, hendaklah kamu elokkan cara membunuh; dan apabila kamu menyembelih, hendaklah kamu elokkan cara menyembelih; dan hendaklah salah seorang daripada kamu menajamkan pisaunya dan memberi keselesaan kepada haiwan sembelihannya.\"",
+ "narratorId": "shaddad_ibn_aws",
+ "narrator": {
+  "id": "shaddad_ibn_aws",
+  "name": "Abu Ya‘la Syaddad bin Aus r.a.",
+  "fullName": "",
+  "title": "Perawi Hadis",
+  "shortBiography": "",
+  "tags": [
+   "Sahabat Rasulullah SAW",
+   "Perawi Hadis"
+  ],
+  "source": "Profil canonical minimum daripada label KPM. Tiada biografi rekaan, tiada tarikh lahir/wafat, tiada jumlah hadis, tiada kisah sejarah daripada AI/internet.",
+  "verified": false
+ },
+ "referenceArabic": "رَوَاهُ مُسْلِمٌ.",
+ "reference": "Hadis ini diriwayatkan oleh Imam Muslim.",
+ "explanations": [
+  "Ihsan kepada manusia termasuk kepada orang Muslim dan bukan Muslim.",
+  "Menyantuni manusia dengan mesra dan lemah lembut.",
+  "Saling membantu dan berkasih sayang sesama manusia.",
+  "Ihsan kepada alam sekitar serta larangan melakukan kerosakan.",
+  "Ihsan kepada haiwan iaitu memberi makan dan minum serta membantu apabila susah.",
+  "Apabila perlu menyembelih haiwan, hendaklah dilakukan dengan ihsan tanpa penyeksaan.",
+  "Modul menerangkan adab ihsan ketika sembelihan seperti menajamkan pisau dan tidak mengasah pisau di hadapan haiwan.",
+  "Islam menuntut ihsan dalam setiap perkara.",
+  "Semua kandungan berkaitan peperangan atau hukuman dibentangkan sebagai huraian etika ihsan, BUKAN arahan tindakan individu."
+ ],
+ "quranEvidence": {
+  "surah": "al-Rum",
+  "verse": 41,
+  "verseEnd": 41,
+  "arabicText": "ظَهَرَ الْفَسَادُ فِي الْبَرِّ وَالْبَحْرِ بِمَا كَسَبَتْ أَيْدِي النَّاسِ لِيُذِيقَهُمْ بَعْضَ الَّذِي عَمِلُوا لَعَلَّهُمْ يَرْجِعُونَ",
+  "translationMalay": "Telah timbul berbagai kerosakan dan bala bencana di darat dan di laut dengan sebab apa yang telah dilakukan oleh tangan manusia; (timbulnya yang demikian) supaya Allah merasakan kepada mereka sebahagian daripada balasan perbuatan-perbuatan buruk yang mereka lakukan, supaya mereka kembali (insaf dan bertaubat).",
+  "isExcerpt": false
+ },
+ "quranEvidences": [
+  {
+   "surah": "al-Rum",
+   "verse": 41,
+   "verseEnd": 41,
+   "arabicText": "ظَهَرَ الْفَسَادُ فِي الْبَرِّ وَالْبَحْرِ بِمَا كَسَبَتْ أَيْدِي النَّاسِ لِيُذِيقَهُمْ بَعْضَ الَّذِي عَمِلُوا لَعَلَّهُمْ يَرْجِعُونَ",
+   "translationMalay": "Telah timbul berbagai kerosakan dan bala bencana di darat dan di laut dengan sebab apa yang telah dilakukan oleh tangan manusia; (timbulnya yang demikian) supaya Allah merasakan kepada mereka sebahagian daripada balasan perbuatan-perbuatan buruk yang mereka lakukan, supaya mereka kembali (insaf dan bertaubat).",
+   "isExcerpt": false
+  },
+  {
+   "surah": "al-Nahl",
+   "verse": 5,
+   "verseEnd": 6,
+   "arabicText": "وَالْأَنْعَامَ خَلَقَهَا لَكُمْ فِيهَا دِفْءٌ وَمَنَافِعُ وَمِنْهَا تَأْكُلُونَ. وَلَكُمْ فِيهَا جَمَالٌ حِينَ تُرِيحُونَ وَحِينَ تَسْرَحُونَ",
+   "translationMalay": "Dan binatang ternak itu Allah ciptakan untuk kamu; padanya ada (bahan-bahan) yang memanaskan tubuh dan berbagai faedah yang banyak, dan daripadanya juga kamu makan. Dan kamu pula beroleh kesenangan padanya ketika kamu membawanya berehat dan ketika kamu menghantarnya pergi (meragut).",
+   "isExcerpt": false
+  },
+  {
+   "surah": "al-Nahl",
+   "verse": 90,
+   "verseEnd": 90,
+   "arabicText": "إِنَّ اللَّهَ يَأْمُرُ بِالْعَدْلِ وَالْإِحْسَانِ وَإِيتَاءِ ذِي الْقُرْبَى وَيَنْهَى عَنِ الْفَحْشَاءِ وَالْمُنْكَرِ وَالْبَغْيِ يَعِظُكُمْ لَعَلَّكُمْ تَذَكَّرُونَ",
+   "translationMalay": "Sesungguhnya Allah menyuruh (kamu) berlaku adil dan berbuat ihsan (kebaikan), serta memberi bantuan kepada kaum kerabat; dan Allah melarang (daripada melakukan) perbuatan keji, kemungkaran dan pencerobohan. Ia memberi pengajaran kepada kamu supaya kamu mengambil peringatan.",
+   "isExcerpt": false
+  }
+ ],
+ "lessons": [
+  "Menghayati nilai ihsan melahirkan manusia yang cemerlang dan bertamadun.",
+  "Islam menganjurkan kesempurnaan dalam setiap perkara.",
+  "Setiap hukum syariat bertujuan kebaikan dan kemaslahatan umat.",
+  "Jiwa yang murni membantu seseorang menilai baik dan buruk.",
+  "Ihsan penting dalam setiap perkara termasuk kepada manusia, alam sekitar dan haiwan.",
+  "Membudayakan ihsan membawa penambahbaikan yang berterusan."
+ ],
+ "appreciation": [
+  "Allah mewajibkan ihsan terhadap semua makhluk.",
+  "Murid hendaklah berlaku ihsan kepada haiwan, termasuk ketika menyembelih.",
+  "Murid hendaklah menghindari salah laku seperti membuli, mengugut dan merosakkan harta benda.",
+  "Murid hendaklah mengamalkan ihsan dalam setiap perkara yang dilakukan."
+ ],
+ "focusValues": [
+  "Ihsan",
+  "Hormat",
+  "Kesejahteraan"
+ ],
+ "suggestedActivities": [
+  {
+   "title": "Halaqah ilmu",
+   "description": "Anjurkan halaqah ilmu yang membincangkan konsep ihsan dalam Islam terhadap manusia, alam sekitar dan haiwan."
+  },
+  {
+   "title": "Kursus sembelihan",
+   "description": "Sertai atau anjurkan kursus berkaitan adab dan kaedah sembelihan yang menekankan ihsan terhadap haiwan."
+  }
+ ],
+ "reflectionQuestions": [
+  "Apakah maksud ihsan yang diwajibkan oleh Allah dalam setiap perkara?",
+  "Bagaimanakah cara berlaku ihsan kepada manusia tanpa mengira Muslim atau bukan Muslim?",
+  "Apakah adab ihsan terhadap haiwan yang dihuraikan dalam modul?",
+  "Mengapakah kerosakan alam sekitar dikaitkan dengan perbuatan manusia dalam Surah al-Rum ayat 41?",
+  "Bagaimanakah saya boleh membudayakan ihsan dalam kehidupan harian?"
+ ],
+ "quiz": [
+  {
+   "id": "h17_q01",
+   "question": "Apakah tajuk Hadis 17?",
+   "options": [
+    "Kesempurnaan dalam Perkara Kebaikan",
+    "Menjauhi Sifat Pemarah",
+    "Berkata Baik serta Menghormati Jiran dan Tetamu",
+    "Meninggalkan Perkara yang Tidak Berfaedah"
+   ],
+   "correctAnswerIndex": 0,
+   "explanation": "Tajuk Hadis 17 ialah “Kesempurnaan dalam Perkara Kebaikan”."
+  },
+  {
+   "id": "h17_q02",
+   "question": "Siapakah perawi Hadis 17?",
+   "options": [
+    "Abu Ya‘la Syaddad bin Aus r.a.",
+    "Abu Hurairah r.a.",
+    "Anas bin Malik r.a.",
+    "Tamim al-Dari r.a."
+   ],
+   "correctAnswerIndex": 0,
+   "explanation": "Hadis 17 diriwayatkan daripada Abu Ya‘la Syaddad bin Aus r.a."
+  },
+  {
+   "id": "h17_q03",
+   "question": "Apakah perkara yang diwajibkan Allah ke atas setiap perkara menurut Hadis 17?",
+   "options": [
+    "Ihsan",
+    "Kekayaan",
+    "Kekuatan",
+    "Kepopularan"
+   ],
+   "correctAnswerIndex": 0,
+   "explanation": "Allah menetapkan ihsan (kebaikan) ke atas setiap perkara."
+  },
+  {
+   "id": "h17_q04",
+   "question": "Apakah adab ihsan ketika menyembelih haiwan yang disebut dalam hadis?",
+   "options": [
+    "Menajamkan pisau dan memberi keselesaan kepada haiwan",
+    "Menajamkan pisau di hadapan haiwan",
+    "Menyembelih dengan cara yang menyakitkan",
+    "Mengasah pisau sambil haiwan melihat"
+   ],
+   "correctAnswerIndex": 0,
+   "explanation": "Rasulullah SAW menyuruh menajamkan pisau dan memberi keselesaan kepada haiwan sembelihan."
+  },
+  {
+   "id": "h17_q05",
+   "question": "Apakah dalil al-Quran yang digunakan dalam huraian Hadis 17 tentang kerosakan alam sekitar?",
+   "options": [
+    "Surah al-Rum ayat 41",
+    "Surah al-Fatihah ayat 1",
+    "Surah al-Ikhlas ayat 1",
+    "Surah al-Kauthar ayat 1"
+   ],
+   "correctAnswerIndex": 0,
+   "explanation": "Surah al-Rum ayat 41 menyebut kerosakan di darat dan di laut disebabkan perbuatan manusia."
+  },
+  {
+   "id": "h17_q06",
+   "question": "Surah dan ayat manakah yang menyebut tentang keindahan binatang ternak?",
+   "options": [
+    "Surah al-Nahl ayat 5-6",
+    "Surah al-Baqarah ayat 100",
+    "Surah al-Nisa’ ayat 36",
+    "Surah al-Hujurat ayat 10"
+   ],
+   "correctAnswerIndex": 0,
+   "explanation": "Surah al-Nahl ayat 5-6 menyebut manfaat dan keindahan binatang ternak."
+  },
+  {
+   "id": "h17_q07",
+   "question": "Surah dan ayat manakah yang memerintahkan berlaku adil dan berbuat ihsan?",
+   "options": [
+    "Surah al-Nahl ayat 90",
+    "Surah al-Falaq ayat 1",
+    "Surah al-Masad ayat 1",
+    "Surah al-Nasr ayat 1"
+   ],
+   "correctAnswerIndex": 0,
+   "explanation": "Surah al-Nahl ayat 90 memerintahkan berlaku adil dan berbuat ihsan serta melarang perbuatan keji dan mungkar."
+  },
+  {
+   "id": "h17_q08",
+   "question": "Apakah fokus nilai Hadis 17?",
+   "options": [
+    "Ihsan, Hormat dan Kesejahteraan",
+    "Hormat sahaja",
+    "Keyakinan sahaja",
+    "Ikhlas dan Keyakinan"
+   ],
+   "correctAnswerIndex": 0,
+   "explanation": "Fokus nilai Hadis 17 ialah Ihsan, Hormat dan Kesejahteraan."
+  },
+  {
+   "id": "h17_q09",
+   "question": "Apakah penghayatan ihsan terhadap haiwan menurut Hadis 17?",
+   "options": [
+    "Memberi makan, minum dan membantu apabila susah",
+    "Menyeksa haiwan",
+    "Membiarkan haiwan kelaparan",
+    "Mengabaikan keselesaan haiwan"
+   ],
+   "correctAnswerIndex": 0,
+   "explanation": "Ihsan kepada haiwan termasuk memberi makan dan minum serta membantu apabila susah."
+  },
+  {
+   "id": "h17_q10",
+   "question": "Bagaimanakah kandungan berkaitan peperangan dan hukuman perlu difahami dalam Hadis 17?",
+   "options": [
+    "Sebagai huraian etika ihsan, bukan arahan tindakan individu",
+    "Sebagai arahan untuk bertindak sendiri",
+    "Sebagai panduan melakukan keganasan",
+    "Tanpa sebarang konteks"
+   ],
+   "correctAnswerIndex": 0,
+   "explanation": "Semua kandungan berkaitan peperangan dan hukuman dibentangkan sebagai huraian etika ihsan, BUKAN arahan tindakan individu."
+  }
+ ],
+ "progressRules": {
+  "passingScorePercent": 80
+ },
+ "audio": {
+  "arabicRecitation": "assets/audio/hadith_17.mp3",
+  "durationMs": 22224,
+  "syncOffsetMs": 0,
+  "wordHighlightMode": "phraseOnly",
+  "timingMethod": "waveform/silence-derived phrase timing starting point",
+  "timingReviewNote": "Timing frasa ialah padanan awal daripada jeda rakaman (CSV starting point). Dengar audio sebenar dan fine-tune startMs/endMs secara minimum jika perlu. Jangan guna proportional word timing. Rujukan hadis kekal statik kecuali pendengaran mengesahkan ia dibaca.",
+  "referenceAudioVerificationRequired": true,
+  "timedSegments": [
+   {
+    "startMs": 70,
+    "endMs": 1120,
+    "text": "عَنْ أَبِي يَعْلَى"
+   },
+   {
+    "startMs": 1640,
+    "endMs": 4580,
+    "text": "شَدَّادِ بْنِ أَوْسٍ رَضِيَ اللَّهُ تَعَالَى عَنْهُ،"
+   },
+   {
+    "startMs": 4900,
+    "endMs": 8860,
+    "text": "عَنْ رَسُولِ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ قَالَ:"
+   },
+   {
+    "startMs": 9160,
+    "endMs": 12400,
+    "text": "إِنَّ اللَّهَ كَتَبَ الْإِحْسَانَ عَلَى كُلِّ شَيْءٍ،"
+   },
+   {
+    "startMs": 12750,
+    "endMs": 15220,
+    "text": "فَإِذَا قَتَلْتُمْ فَأَحْسِنُوا الْقِتْلَةَ،"
+   },
+   {
+    "startMs": 15560,
+    "endMs": 17880,
+    "text": "وَإِذَا ذَبَحْتُمْ فَأَحْسِنُوا الذِّبْحَةَ،"
+   },
+   {
+    "startMs": 18380,
+    "endMs": 20270,
+    "text": "وَلْيُحِدَّ أَحَدُكُمْ شَفْرَتَهُ،"
+   },
+   {
+    "startMs": 20740,
+    "endMs": 22010,
+    "text": "وَلْيُرِحْ ذَبِيحَتَهُ."
+   }
+  ]
+ },
+ "source": {
+  "document": "Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua, KPM.",
+  "hadith": 17,
+  "printedPages": [],
+  "adaptationStatus": "Prototaip pembelajaran interaktif",
+  "verificationNote": "Tajuk, teks hadis, maksud, huraian, Surah al-Rum ayat 41, Surah al-Nahl ayat 5-6 dan Surah al-Nahl ayat 90, pengajaran, penghayatan, fokus nilai dan tajuk aktiviti berasaskan Hadis 17 dalam modul KPM. Objektif digital, penerangan aktiviti, refleksi, kuiz dan timing audio ialah lapisan aplikasi untuk pembelajaran. Semua kandungan berkaitan peperangan/hukuman kekal sebagai huraian etika ihsan."
+ },
+ "copyrightNotice": "© 2026 e-Hadis40 bagi reka bentuk aplikasi, interaksi, audio, kuiz dan kod sumber prototaip. Hak cipta kandungan asal Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua kekal milik Kementerian Pendidikan Malaysia dan pemegang hak masing-masing."
+}
