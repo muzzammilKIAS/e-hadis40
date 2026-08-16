@@ -1,313 +1,316 @@
 {
-  "id": "hadith_10",
-  "moduleId": "module_02",
-  "hadithNumber": 10,
-  "title": "Rezeki Halal Asas Penerimaan Doa",
-  "subtitle": "Mencari yang halal lagi baik dan menjaga adab ketika berdoa.",
-  "theme": "Halal, kebaikan, penyucian jiwa dan penerimaan doa",
-  "arabicText": "عَنْ أَبِي هُرَيْرَةَ رَضِيَ اللَّهُ عَنْهُ قَالَ: قَالَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ: إِنَّ اللَّهَ تَعَالَى طَيِّبٌ لَا يَقْبَلُ إِلَّا طَيِّبًا، وَإِنَّ اللَّهَ أَمَرَ الْمُؤْمِنِينَ بِمَا أَمَرَ بِهِ الْمُرْسَلِينَ، فَقَالَ تَعَالَى: ﴿يَا أَيُّهَا الرُّسُلُ كُلُوا مِنَ الطَّيِّبَاتِ وَاعْمَلُوا صَالِحًا﴾، وَقَالَ تَعَالَى: ﴿يَا أَيُّهَا الَّذِينَ آمَنُوا كُلُوا مِنْ طَيِّبَاتِ مَا رَزَقْنَاكُمْ﴾. ثُمَّ ذَكَرَ الرَّجُلَ يُطِيلُ السَّفَرَ أَشْعَثَ أَغْبَرَ، يَمُدُّ يَدَيْهِ إِلَى السَّمَاءِ: يَا رَبِّ، يَا رَبِّ، وَمَطْعَمُهُ حَرَامٌ، وَمَشْرَبُهُ حَرَامٌ، وَمَلْبَسُهُ حَرَامٌ، وَغُذِّيَ بِالْحَرَامِ، فَأَنَّى يُسْتَجَابُ لِذَلِكَ؟",
-  "audioTranscriptText": "عَنْ أَبِي هُرَيْرَةَ رَضِيَ اللَّهُ عَنْهُ قَالَ: قَالَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ: إِنَّ اللَّهَ تَعَالَى طَيِّبٌ لَا يَقْبَلُ إِلَّا طَيِّبًا، وَإِنَّ اللَّهَ أَمَرَ الْمُؤْمِنِينَ بِمَا أَمَرَ بِهِ الْمُرْسَلِينَ، فَقَالَ تَعَالَى: ﴿يَا أَيُّهَا الرُّسُلُ كُلُوا مِنَ الطَّيِّبَاتِ وَاعْمَلُوا صَالِحًا﴾، وَقَالَ تَعَالَى: ﴿يَا أَيُّهَا الَّذِينَ آمَنُوا كُلُوا مِنْ طَيِّبَاتِ مَا رَزَقْنَاكُمْ﴾. ثُمَّ ذَكَرَ الرَّجُلَ يُطِيلُ السَّفَرَ أَشْعَثَ أَغْبَرَ، يَمُدُّ يَدَيْهِ إِلَى السَّمَاءِ: يَا رَبِّ، يَا رَبِّ، وَمَطْعَمُهُ حَرَامٌ، وَمَشْرَبُهُ حَرَامٌ، وَمَلْبَسُهُ حَرَامٌ، وَغُذِّيَ بِالْحَرَامِ، فَأَنَّى يُسْتَجَابُ لِذَلِكَ؟",
-  "translationMalay": "Daripada Saiyidina Abu Hurairah r.a. beliau berkata, Rasulullah SAW bersabda: “Sesungguhnya Allah Maha Baik, Dia tidak menerima kecuali sesuatu yang baik. Dan sesungguhnya, Allah telah memerintahkan kepada orang yang beriman dengan perintah yang sama kepada para rasul-Nya. Allah berfirman yang bermaksud, ‘Wahai para rasul! Makanlah daripada perkara yang baik dan kerjakanlah amalan yang soleh.’ (al-Mukminun: 51) Allah juga berfirman yang bermaksud, ‘Wahai orang yang beriman! Makanlah daripada perkara yang baik yang Kami kurniakan kepada kamu’ (al-Baqarah: 172). Kemudian baginda SAW menceritakan perihal seorang yang menempuh perjalanan jauh, rambutnya kusut masai dan berdebu, dia menadah kedua-dua tangannya ke langit seraya berdoa, ‘Wahai Tuhanku! Wahai Tuhanku!’ Sedangkan makanannya haram, minumannya haram, pakaiannya haram dan dia diberi makan dengan makanan yang haram. Bagaimanakah diperkenankan doa orang yang sedemikian?”",
-  "narratorId": "abu_hurairah",
-  "narrator": {
-    "id": "abu_hurairah",
-    "name": "Abu Hurairah r.a.",
-    "fullName": "Abu Hurairah r.a.",
-    "title": "Perawi hadis",
-    "shortBiography": "",
-    "tags": [],
-    "source": "Modul KPM memaparkan QR 'Kenali Perawi' tetapi tidak memuatkan teks biografi pada halaman hadis ini.",
-    "verified": false,
-    "detailedProfilePolicy": "skip_until_verified_kpm_content"
+ "id": "hadith_10",
+ "moduleId": "module_02",
+ "hadithNumber": 10,
+ "title": "Rezeki Halal Asas Penerimaan Doa",
+ "subtitle": "Mencari yang halal lagi baik dan menjaga adab ketika berdoa.",
+ "theme": "Halal, kebaikan, penyucian jiwa dan penerimaan doa",
+ "arabicText": "عَنْ أَبِي هُرَيْرَةَ رَضِيَ اللَّهُ عَنْهُ قَالَ: قَالَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ: إِنَّ اللَّهَ تَعَالَى طَيِّبٌ لَا يَقْبَلُ إِلَّا طَيِّبًا، وَإِنَّ اللَّهَ أَمَرَ الْمُؤْمِنِينَ بِمَا أَمَرَ بِهِ الْمُرْسَلِينَ، فَقَالَ تَعَالَى: ﴿يَا أَيُّهَا الرُّسُلُ كُلُوا مِنَ الطَّيِّبَاتِ وَاعْمَلُوا صَالِحًا﴾، وَقَالَ تَعَالَى: ﴿يَا أَيُّهَا الَّذِينَ آمَنُوا كُلُوا مِنْ طَيِّبَاتِ مَا رَزَقْنَاكُمْ﴾. ثُمَّ ذَكَرَ الرَّجُلَ يُطِيلُ السَّفَرَ أَشْعَثَ أَغْبَرَ، يَمُدُّ يَدَيْهِ إِلَى السَّمَاءِ: يَا رَبِّ، يَا رَبِّ، وَمَطْعَمُهُ حَرَامٌ، وَمَشْرَبُهُ حَرَامٌ، وَمَلْبَسُهُ حَرَامٌ، وَغُذِّيَ بِالْحَرَامِ، فَأَنَّى يُسْتَجَابُ لِذَلِكَ؟",
+ "audioTranscriptText": "عَنْ أَبِي هُرَيْرَةَ رَضِيَ اللَّهُ عَنْهُ قَالَ: قَالَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ: إِنَّ اللَّهَ تَعَالَى طَيِّبٌ لَا يَقْبَلُ إِلَّا طَيِّبًا، وَإِنَّ اللَّهَ أَمَرَ الْمُؤْمِنِينَ بِمَا أَمَرَ بِهِ الْمُرْسَلِينَ، فَقَالَ تَعَالَى: ﴿يَا أَيُّهَا الرُّسُلُ كُلُوا مِنَ الطَّيِّبَاتِ وَاعْمَلُوا صَالِحًا﴾، وَقَالَ تَعَالَى: ﴿يَا أَيُّهَا الَّذِينَ آمَنُوا كُلُوا مِنْ طَيِّبَاتِ مَا رَزَقْنَاكُمْ﴾. ثُمَّ ذَكَرَ الرَّجُلَ يُطِيلُ السَّفَرَ أَشْعَثَ أَغْبَرَ، يَمُدُّ يَدَيْهِ إِلَى السَّمَاءِ: يَا رَبِّ، يَا رَبِّ، وَمَطْعَمُهُ حَرَامٌ، وَمَشْرَبُهُ حَرَامٌ، وَمَلْبَسُهُ حَرَامٌ، وَغُذِّيَ بِالْحَرَامِ، فَأَنَّى يُسْتَجَابُ لِذَلِكَ؟",
+ "translationMalay": "Daripada Saiyidina Abu Hurairah r.a. beliau berkata, Rasulullah SAW bersabda: “Sesungguhnya Allah Maha Baik, Dia tidak menerima kecuali sesuatu yang baik. Dan sesungguhnya, Allah telah memerintahkan kepada orang yang beriman dengan perintah yang sama kepada para rasul-Nya. Allah berfirman yang bermaksud, ‘Wahai para rasul! Makanlah daripada perkara yang baik dan kerjakanlah amalan yang soleh.’ (al-Mukminun: 51) Allah juga berfirman yang bermaksud, ‘Wahai orang yang beriman! Makanlah daripada perkara yang baik yang Kami kurniakan kepada kamu’ (al-Baqarah: 172). Kemudian baginda SAW menceritakan perihal seorang yang menempuh perjalanan jauh, rambutnya kusut masai dan berdebu, dia menadah kedua-dua tangannya ke langit seraya berdoa, ‘Wahai Tuhanku! Wahai Tuhanku!’ Sedangkan makanannya haram, minumannya haram, pakaiannya haram dan dia diberi makan dengan makanan yang haram. Bagaimanakah diperkenankan doa orang yang sedemikian?”",
+ "narratorId": "abu_hurairah",
+ "narrator": {
+  "id": "abu_hurairah",
+  "name": "Abu Hurairah r.a.",
+  "fullName": "Abu Hurairah ‘Abdul Rahman bin Sakhr al-Dausi r.a.",
+  "title": "Sahabat Rasulullah SAW dan Perawi Hadis Paling Prolifik",
+  "shortBiography": "Abu Hurairah r.a. ialah seorang sahabat Rasulullah SAW daripada Bani Daus yang memeluk Islam pada tahun ke-7 Hijrah dan sentiasa menyertai Baginda SAW demi menuntut ilmu, walaupun hidup dalam kesempitan pada mulanya. Nama sebenarnya diperselisihkan ulama, namun pendapat masyhur menyebutnya ‘Abdul Rahman bin Sakhr. Beliau dikenali sebagai perawi hadis yang paling banyak meriwayatkan hadis Rasulullah SAW berbanding sahabat lain, dan wafat di Madinah sekitar tahun 57 Hijrah.",
+  "tags": [
+   "Sahabat Rasulullah SAW",
+   "Perawi Hadis Paling Prolifik",
+   "Bani Daus"
+  ],
+  "source": "Biodata ringkas ini TIDAK terdapat dalam Modul Penghayatan Hadis 40 Imam Nawawi KPM. Disumberkan daripada bahan biografi sahabat yang mapan (cth. rujukan berasaskan al-Isabah fi Tamyiz al-Sahabah oleh Ibn Hajar al-'Asqalani dan Siyar A'lam al-Nubala' oleh al-Dhahabi, melalui portal rujukan Islam yang menyusun semula kandungan kitab tersebut) bagi melengkapkan pemahaman pelajar tentang perawi hadis.",
+  "verified": true
+ },
+ "referenceArabic": "رَوَاهُ مُسْلِمٌ.",
+ "reference": "Hadis ini diriwayatkan oleh Imam Muslim.",
+ "learningObjectives": [],
+ "explanations": [
+  "Hadis ini menjelaskan bahawa Allah SWT menerima amalan yang baik, suci dan bersih daripada segala keburukan amalan dan harta benda berdasarkan ketetapan syarak.",
+  "Setiap makanan, minuman dan pakaian yang digunakan hendaklah baik mengikut hukum, faedah dan khasiat serta sumber yang halal.",
+  "Penyucian jiwa dan kekuatan rohani berpunca daripada sesuatu yang baik dan bersumberkan yang halal sebagaimana firman Allah SWT dalam surah al-Baqarah ayat 172.",
+  "Orang yang makan, minum dan pakaiannya daripada sumber yang haram, doanya tidak diterima oleh Allah SWT."
+ ],
+ "quranEvidence": {
+  "surah": "al-Baqarah",
+  "verse": 172,
+  "verseEnd": 172,
+  "arabicText": "يَا أَيُّهَا الَّذِينَ آمَنُوا كُلُوا مِنْ طَيِّبَاتِ مَا رَزَقْنَاكُمْ وَاشْكُرُوا لِلَّهِ إِنْ كُنْتُمْ إِيَّاهُ تَعْبُدُونَ",
+  "translationMalay": "Wahai orang-orang yang beriman! Makanlah daripada perkara yang baik (yang halal) yang telah Kami berikan kepada kamu, dan bersyukurlah kepada Allah, jika betul kamu hanya beribadah kepada-Nya.",
+  "displayAlignment": "center",
+  "moduleDisplay": "full_verse"
+ },
+ "lessons": [
+  "Meyakini bahawa Allah SWT Maha Baik lagi Maha Sempurna dan tidak menerima kecuali perkara yang baik.",
+  "Sentiasa berusaha mencari sesuatu yang halal lagi baik dan menjauhkan diri daripada perkara yang haram.",
+  "Kita hendaklah bersungguh-sungguh dalam berdoa dan memahami doa dengan sepenuh hati.",
+  "Mengangkat tangan dalam berdoa merupakan satu daripada adab ketika berdoa."
+ ],
+ "appreciation": [
+  "Murid perlu peka terhadap kepentingan mengambil makanan, minuman dan pakaian yang halal daripada sumber yang halal.",
+  "Murid yang mengambil sesuatu yang diharamkan seperti barang curi akan menyebabkan doanya tertolak.",
+  "Murid perlu jujur dalam semua tindakan termasuklah tidak meniru dalam peperiksaan dan tidak mengambil hak orang lain tanpa izin.",
+  "Murid perlu sentiasa bersikap baik dan positif kerana Allah SWT Maha Baik dan sukakan kebaikan."
+ ],
+ "focusValues": [
+  "Ihsan",
+  "Daya Cipta",
+  "Kesejahteraan"
+ ],
+ "suggestedActivities": [
+  {
+   "title": "Tazkirah",
+   "description": ""
   },
-  "referenceArabic": "رَوَاهُ مُسْلِمٌ.",
-  "reference": "Hadis ini diriwayatkan oleh Imam Muslim.",
-  "learningObjectives": [],
-  "explanations": [
-    "Hadis ini menjelaskan bahawa Allah SWT menerima amalan yang baik, suci dan bersih daripada segala keburukan amalan dan harta benda berdasarkan ketetapan syarak.",
-    "Setiap makanan, minuman dan pakaian yang digunakan hendaklah baik mengikut hukum, faedah dan khasiat serta sumber yang halal.",
-    "Penyucian jiwa dan kekuatan rohani berpunca daripada sesuatu yang baik dan bersumberkan yang halal sebagaimana firman Allah SWT dalam surah al-Baqarah ayat 172.",
-    "Orang yang makan, minum dan pakaiannya daripada sumber yang haram, doanya tidak diterima oleh Allah SWT."
-  ],
-  "quranEvidence": {
-    "surah": "al-Baqarah",
-    "verse": 172,
-    "verseEnd": 172,
-    "arabicText": "يَا أَيُّهَا الَّذِينَ آمَنُوا كُلُوا مِنْ طَيِّبَاتِ مَا رَزَقْنَاكُمْ وَاشْكُرُوا لِلَّهِ إِنْ كُنْتُمْ إِيَّاهُ تَعْبُدُونَ",
-    "translationMalay": "Wahai orang-orang yang beriman! Makanlah daripada perkara yang baik (yang halal) yang telah Kami berikan kepada kamu, dan bersyukurlah kepada Allah, jika betul kamu hanya beribadah kepada-Nya.",
-    "displayAlignment": "center",
-    "moduleDisplay": "full_verse"
+  {
+   "title": "Halaqah ilmu",
+   "description": ""
   },
-  "lessons": [
-    "Meyakini bahawa Allah SWT Maha Baik lagi Maha Sempurna dan tidak menerima kecuali perkara yang baik.",
-    "Sentiasa berusaha mencari sesuatu yang halal lagi baik dan menjauhkan diri daripada perkara yang haram.",
-    "Kita hendaklah bersungguh-sungguh dalam berdoa dan memahami doa dengan sepenuh hati.",
-    "Mengangkat tangan dalam berdoa merupakan satu daripada adab ketika berdoa."
-  ],
-  "appreciation": [
-    "Murid perlu peka terhadap kepentingan mengambil makanan, minuman dan pakaian yang halal daripada sumber yang halal.",
-    "Murid yang mengambil sesuatu yang diharamkan seperti barang curi akan menyebabkan doanya tertolak.",
-    "Murid perlu jujur dalam semua tindakan termasuklah tidak meniru dalam peperiksaan dan tidak mengambil hak orang lain tanpa izin.",
-    "Murid perlu sentiasa bersikap baik dan positif kerana Allah SWT Maha Baik dan sukakan kebaikan."
-  ],
-  "focusValues": [
-    "Ihsan",
-    "Daya Cipta",
-    "Kesejahteraan"
-  ],
-  "suggestedActivities": [
-    {
-      "title": "Tazkirah",
-      "description": ""
-    },
-    {
-      "title": "Halaqah ilmu",
-      "description": ""
-    },
-    {
-      "title": "Bacaan hadis dalam perhimpunan",
-      "description": ""
-    }
-  ],
-  "reflectionQuestions": [],
-  "quiz": [
-    {
-      "id": "h10_q01",
-      "question": "Apakah tajuk Hadis 10?",
-      "options": [
-        "Rezeki Halal Asas Penerimaan Doa",
-        "Larangan Pertanyaan dan Pertikaian Melampau",
-        "Meninggalkan Keraguan adalah Ciri Warak",
-        "Rukun Islam"
-      ],
-      "correctAnswerIndex": 0,
-      "explanation": "Tajuk Hadis 10 ialah Rezeki Halal Asas Penerimaan Doa."
-    },
-    {
-      "id": "h10_q02",
-      "question": "Siapakah perawi Hadis 10?",
-      "options": [
-        "Abu Hurairah r.a.",
-        "al-Hasan bin Ali r.a.",
-        "Abdullah bin Mas‘ud r.a.",
-        "Aisyah r.a."
-      ],
-      "correctAnswerIndex": 0,
-      "explanation": "Hadis 10 diriwayatkan daripada Abu Hurairah r.a."
-    },
-    {
-      "id": "h10_q03",
-      "question": "Apakah yang Allah SWT terima menurut hadis?",
-      "options": [
-        "Perkara yang baik",
-        "Semua perkara tanpa syarat",
-        "Perkara yang syubhah sahaja",
-        "Harta yang banyak"
-      ],
-      "correctAnswerIndex": 0,
-      "explanation": "Hadis menegaskan Allah Maha Baik dan tidak menerima kecuali perkara yang baik."
-    },
-    {
-      "id": "h10_q04",
-      "question": "Apakah yang perlu dipastikan tentang makanan, minuman dan pakaian?",
-      "options": [
-        "Baik dan bersumberkan yang halal",
-        "Mahal",
-        "Banyak",
-        "Mengikut trend"
-      ],
-      "correctAnswerIndex": 0,
-      "explanation": "Huraian modul menekankan makanan, minuman dan pakaian yang baik serta bersumberkan halal."
-    },
-    {
-      "id": "h10_q05",
-      "question": "Apakah ayat al-Quran yang digunakan dalam huraian Hadis 10?",
-      "options": [
-        "Surah al-Baqarah ayat 172",
-        "Surah Qaf ayat 16",
-        "Surah al-Ma’idah ayat 101",
-        "Surah al-Nisa’ ayat 59"
-      ],
-      "correctAnswerIndex": 0,
-      "explanation": "Huraian modul merujuk Surah al-Baqarah ayat 172."
-    },
-    {
-      "id": "h10_q06",
-      "question": "Apakah kesan sumber makanan, minuman dan pakaian yang haram menurut huraian?",
-      "options": [
-        "Doa tidak diterima oleh Allah SWT",
-        "Doa pasti diterima",
-        "Tiada kesan",
-        "Mendapat lebih pahala"
-      ],
-      "correctAnswerIndex": 0,
-      "explanation": "Modul menyatakan doanya tidak diterima apabila sumbernya haram."
-    },
-    {
-      "id": "h10_q07",
-      "question": "Apakah satu adab berdoa yang dinyatakan dalam pengajaran?",
-      "options": [
-        "Mengangkat tangan",
-        "Bercakap kuat",
-        "Berjalan ketika berdoa",
-        "Meninggalkan doa"
-      ],
-      "correctAnswerIndex": 0,
-      "explanation": "Modul menyebut mengangkat tangan sebagai satu daripada adab ketika berdoa."
-    },
-    {
-      "id": "h10_q08",
-      "question": "Apakah fokus nilai Hadis 10?",
-      "options": [
-        "Ihsan, Daya Cipta dan Kesejahteraan",
-        "Hormat dan Kesejahteraan",
-        "Keyakinan dan Hormat",
-        "Ikhlas sahaja"
-      ],
-      "correctAnswerIndex": 0,
-      "explanation": "Fokus nilai Hadis 10 ialah Ihsan, Daya Cipta dan Kesejahteraan."
-    },
-    {
-      "id": "h10_q09",
-      "question": "Yang manakah cadangan aktiviti Hadis 10?",
-      "options": [
-        "Halaqah ilmu",
-        "Forum hijrah sahaja",
-        "Kursus sembelihan",
-        "Gotong-royong"
-      ],
-      "correctAnswerIndex": 0,
-      "explanation": "Halaqah ilmu ialah antara aktiviti yang dinyatakan."
-    },
-    {
-      "id": "h10_q10",
-      "question": "Apakah contoh kejujuran yang disebut dalam penghayatan?",
-      "options": [
-        "Tidak meniru dalam peperiksaan dan tidak mengambil hak orang lain tanpa izin",
-        "Mengambil barang tanpa izin",
-        "Menyembunyikan hak orang lain",
-        "Meniru jawapan rakan"
-      ],
-      "correctAnswerIndex": 0,
-      "explanation": "Penghayatan menekankan tidak meniru dan tidak mengambil hak orang lain tanpa izin."
-    }
-  ],
-  "progressRules": {
-    "completeWhen": [
-      "Pengguna telah membuka teks hadis",
-      "Pengguna telah memainkan atau membuka bahagian audio",
-      "Pengguna telah membaca maksud hadis",
-      "Pengguna telah melihat huraian dan dalil al-Quran",
-      "Pengguna telah melihat pengajaran dan penghayatan",
-      "Pengguna telah menjawab kuiz"
-    ],
-    "passingScorePercent": 80
+  {
+   "title": "Bacaan hadis dalam perhimpunan",
+   "description": ""
+  }
+ ],
+ "reflectionQuestions": [],
+ "quiz": [
+  {
+   "id": "h10_q01",
+   "question": "Apakah tajuk Hadis 10?",
+   "options": [
+    "Rezeki Halal Asas Penerimaan Doa",
+    "Larangan Pertanyaan dan Pertikaian Melampau",
+    "Meninggalkan Keraguan adalah Ciri Warak",
+    "Rukun Islam"
+   ],
+   "correctAnswerIndex": 0,
+   "explanation": "Tajuk Hadis 10 ialah Rezeki Halal Asas Penerimaan Doa."
   },
-  "audioTranscriptNote": "Teks audio menggunakan badan hadis KPM sahaja. Rujukan hadis dipisahkan sebagai teks statik dan tidak dimasukkan ke timedSegments. Timing ialah alignment awal peringkat frasa daripada jeda waveform rakaman terbaru; Kimi K3 wajib mendengar dan fine-tune sebelum menganggapnya final.",
-  "audio": {
-    "arabicRecitation": "assets/audio/hadith_10.mp3",
-    "translationMalay": "",
-    "durationMs": 46056,
-    "syncOffsetMs": 0,
-    "timingMethod": "latest_audio_waveform_pause_phrase_alignment",
-    "wordHighlightMode": "phraseOnly",
-    "timingReviewNote": "Phrase-level sahaja. Jangan guna proportional character/word timing. Semak audio sebenar dan laras sempadan frasa jika perlu.",
-    "timedSegments": [
-      {
-        "startMs": 100,
-        "endMs": 2925,
-        "text": "عَنْ أَبِي هُرَيْرَةَ رَضِيَ اللَّهُ عَنْهُ قَالَ:"
-      },
-      {
-        "startMs": 3242,
-        "endMs": 6856,
-        "text": "قَالَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ:"
-      },
-      {
-        "startMs": 7092,
-        "endMs": 13977,
-        "text": "إِنَّ اللَّهَ تَعَالَى طَيِّبٌ لَا يَقْبَلُ إِلَّا طَيِّبًا، وَإِنَّ اللَّهَ أَمَرَ الْمُؤْمِنِينَ بِمَا أَمَرَ بِهِ الْمُرْسَلِينَ،"
-      },
-      {
-        "startMs": 14285,
-        "endMs": 17996,
-        "text": "فَقَالَ تَعَالَى: ﴿يَا أَيُّهَا الرُّسُلُ"
-      },
-      {
-        "startMs": 18223,
-        "endMs": 22133,
-        "text": "كُلُوا مِنَ الطَّيِّبَاتِ وَاعْمَلُوا صَالِحًا﴾،"
-      },
-      {
-        "startMs": 22363,
-        "endMs": 28359,
-        "text": "وَقَالَ تَعَالَى: ﴿يَا أَيُّهَا الَّذِينَ آمَنُوا كُلُوا مِنْ طَيِّبَاتِ مَا رَزَقْنَاكُمْ﴾."
-      },
-      {
-        "startMs": 28601,
-        "endMs": 32672,
-        "text": "ثُمَّ ذَكَرَ الرَّجُلَ يُطِيلُ السَّفَرَ أَشْعَثَ أَغْبَرَ،"
-      },
-      {
-        "startMs": 32856,
-        "endMs": 34784,
-        "text": "يَمُدُّ يَدَيْهِ إِلَى السَّمَاءِ:"
-      },
-      {
-        "startMs": 35169,
-        "endMs": 36828,
-        "text": "يَا رَبِّ، يَا رَبِّ،"
-      },
-      {
-        "startMs": 37029,
-        "endMs": 38677,
-        "text": "وَمَطْعَمُهُ حَرَامٌ،"
-      },
-      {
-        "startMs": 38956,
-        "endMs": 42044,
-        "text": "وَمَشْرَبُهُ حَرَامٌ، وَمَلْبَسُهُ حَرَامٌ،"
-      },
-      {
-        "startMs": 42236,
-        "endMs": 43727,
-        "text": "وَغُذِّيَ بِالْحَرَامِ،"
-      },
-      {
-        "startMs": 43963,
-        "endMs": 45950,
-        "text": "فَأَنَّى يُسْتَجَابُ لِذَلِكَ؟"
-      }
-    ]
+  {
+   "id": "h10_q02",
+   "question": "Siapakah perawi Hadis 10?",
+   "options": [
+    "Abu Hurairah r.a.",
+    "al-Hasan bin Ali r.a.",
+    "Abdullah bin Mas‘ud r.a.",
+    "Aisyah r.a."
+   ],
+   "correctAnswerIndex": 0,
+   "explanation": "Hadis 10 diriwayatkan daripada Abu Hurairah r.a."
   },
-  "supplications": [],
-  "supplementaryHadiths": [],
-  "supportingExample": null,
-  "source": {
-    "document": "Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua, KPM.",
-    "hadith": 10,
-    "printedPages": [
-      48,
-      49,
-      50,
-      51
-    ],
-    "pdfPages": [
-      64,
-      65,
-      66,
-      67
-    ],
-    "coreContentPolicy": "Teks hadis, maksud, huraian, dalil, pengajaran, penghayatan, fokus nilai dan aktiviti berpandukan halaman KPM yang dinyatakan. Tiada biografi perawi luaran ditambah.",
-    "appDerivedFields": [
-      "subtitle",
-      "theme",
-      "quiz",
-      "progressRules",
-      "timedSegments"
-    ],
-    "adaptationStatus": "Prototaip pembelajaran interaktif",
-    "verificationNote": "Kuiz dan timing ialah lapisan aplikasi yang dibina hanya daripada fakta modul. Kandungan teras tidak boleh ditambah dengan fakta luar tanpa pengesahan."
+  {
+   "id": "h10_q03",
+   "question": "Apakah yang Allah SWT terima menurut hadis?",
+   "options": [
+    "Perkara yang baik",
+    "Semua perkara tanpa syarat",
+    "Perkara yang syubhah sahaja",
+    "Harta yang banyak"
+   ],
+   "correctAnswerIndex": 0,
+   "explanation": "Hadis menegaskan Allah Maha Baik dan tidak menerima kecuali perkara yang baik."
   },
-  "copyrightNotice": "© 2026 e-Hadis40 bagi reka bentuk aplikasi, interaksi, audio, kuiz dan kod sumber prototaip. Hak cipta kandungan asal Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua kekal milik Kementerian Pendidikan Malaysia dan pemegang hak masing-masing."
+  {
+   "id": "h10_q04",
+   "question": "Apakah yang perlu dipastikan tentang makanan, minuman dan pakaian?",
+   "options": [
+    "Baik dan bersumberkan yang halal",
+    "Mahal",
+    "Banyak",
+    "Mengikut trend"
+   ],
+   "correctAnswerIndex": 0,
+   "explanation": "Huraian modul menekankan makanan, minuman dan pakaian yang baik serta bersumberkan halal."
+  },
+  {
+   "id": "h10_q05",
+   "question": "Apakah ayat al-Quran yang digunakan dalam huraian Hadis 10?",
+   "options": [
+    "Surah al-Baqarah ayat 172",
+    "Surah Qaf ayat 16",
+    "Surah al-Ma’idah ayat 101",
+    "Surah al-Nisa’ ayat 59"
+   ],
+   "correctAnswerIndex": 0,
+   "explanation": "Huraian modul merujuk Surah al-Baqarah ayat 172."
+  },
+  {
+   "id": "h10_q06",
+   "question": "Apakah kesan sumber makanan, minuman dan pakaian yang haram menurut huraian?",
+   "options": [
+    "Doa tidak diterima oleh Allah SWT",
+    "Doa pasti diterima",
+    "Tiada kesan",
+    "Mendapat lebih pahala"
+   ],
+   "correctAnswerIndex": 0,
+   "explanation": "Modul menyatakan doanya tidak diterima apabila sumbernya haram."
+  },
+  {
+   "id": "h10_q07",
+   "question": "Apakah satu adab berdoa yang dinyatakan dalam pengajaran?",
+   "options": [
+    "Mengangkat tangan",
+    "Bercakap kuat",
+    "Berjalan ketika berdoa",
+    "Meninggalkan doa"
+   ],
+   "correctAnswerIndex": 0,
+   "explanation": "Modul menyebut mengangkat tangan sebagai satu daripada adab ketika berdoa."
+  },
+  {
+   "id": "h10_q08",
+   "question": "Apakah fokus nilai Hadis 10?",
+   "options": [
+    "Ihsan, Daya Cipta dan Kesejahteraan",
+    "Hormat dan Kesejahteraan",
+    "Keyakinan dan Hormat",
+    "Ikhlas sahaja"
+   ],
+   "correctAnswerIndex": 0,
+   "explanation": "Fokus nilai Hadis 10 ialah Ihsan, Daya Cipta dan Kesejahteraan."
+  },
+  {
+   "id": "h10_q09",
+   "question": "Yang manakah cadangan aktiviti Hadis 10?",
+   "options": [
+    "Halaqah ilmu",
+    "Forum hijrah sahaja",
+    "Kursus sembelihan",
+    "Gotong-royong"
+   ],
+   "correctAnswerIndex": 0,
+   "explanation": "Halaqah ilmu ialah antara aktiviti yang dinyatakan."
+  },
+  {
+   "id": "h10_q10",
+   "question": "Apakah contoh kejujuran yang disebut dalam penghayatan?",
+   "options": [
+    "Tidak meniru dalam peperiksaan dan tidak mengambil hak orang lain tanpa izin",
+    "Mengambil barang tanpa izin",
+    "Menyembunyikan hak orang lain",
+    "Meniru jawapan rakan"
+   ],
+   "correctAnswerIndex": 0,
+   "explanation": "Penghayatan menekankan tidak meniru dan tidak mengambil hak orang lain tanpa izin."
+  }
+ ],
+ "progressRules": {
+  "completeWhen": [
+   "Pengguna telah membuka teks hadis",
+   "Pengguna telah memainkan atau membuka bahagian audio",
+   "Pengguna telah membaca maksud hadis",
+   "Pengguna telah melihat huraian dan dalil al-Quran",
+   "Pengguna telah melihat pengajaran dan penghayatan",
+   "Pengguna telah menjawab kuiz"
+  ],
+  "passingScorePercent": 80
+ },
+ "audioTranscriptNote": "Teks audio menggunakan badan hadis KPM sahaja. Rujukan hadis dipisahkan sebagai teks statik dan tidak dimasukkan ke timedSegments. Timing ialah alignment awal peringkat frasa daripada jeda waveform rakaman terbaru; Kimi K3 wajib mendengar dan fine-tune sebelum menganggapnya final.",
+ "audio": {
+  "arabicRecitation": "assets/audio/hadith_10.mp3",
+  "translationMalay": "",
+  "durationMs": 46056,
+  "syncOffsetMs": 0,
+  "timingMethod": "latest_audio_waveform_pause_phrase_alignment",
+  "wordHighlightMode": "phraseOnly",
+  "timingReviewNote": "Phrase-level sahaja. Jangan guna proportional character/word timing. Semak audio sebenar dan laras sempadan frasa jika perlu.",
+  "timedSegments": [
+   {
+    "startMs": 100,
+    "endMs": 2925,
+    "text": "عَنْ أَبِي هُرَيْرَةَ رَضِيَ اللَّهُ عَنْهُ قَالَ:"
+   },
+   {
+    "startMs": 3242,
+    "endMs": 6856,
+    "text": "قَالَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ:"
+   },
+   {
+    "startMs": 7092,
+    "endMs": 13977,
+    "text": "إِنَّ اللَّهَ تَعَالَى طَيِّبٌ لَا يَقْبَلُ إِلَّا طَيِّبًا، وَإِنَّ اللَّهَ أَمَرَ الْمُؤْمِنِينَ بِمَا أَمَرَ بِهِ الْمُرْسَلِينَ،"
+   },
+   {
+    "startMs": 14285,
+    "endMs": 17996,
+    "text": "فَقَالَ تَعَالَى: ﴿يَا أَيُّهَا الرُّسُلُ"
+   },
+   {
+    "startMs": 18223,
+    "endMs": 22133,
+    "text": "كُلُوا مِنَ الطَّيِّبَاتِ وَاعْمَلُوا صَالِحًا﴾،"
+   },
+   {
+    "startMs": 22363,
+    "endMs": 28359,
+    "text": "وَقَالَ تَعَالَى: ﴿يَا أَيُّهَا الَّذِينَ آمَنُوا كُلُوا مِنْ طَيِّبَاتِ مَا رَزَقْنَاكُمْ﴾."
+   },
+   {
+    "startMs": 28601,
+    "endMs": 32672,
+    "text": "ثُمَّ ذَكَرَ الرَّجُلَ يُطِيلُ السَّفَرَ أَشْعَثَ أَغْبَرَ،"
+   },
+   {
+    "startMs": 32856,
+    "endMs": 34784,
+    "text": "يَمُدُّ يَدَيْهِ إِلَى السَّمَاءِ:"
+   },
+   {
+    "startMs": 35169,
+    "endMs": 36828,
+    "text": "يَا رَبِّ، يَا رَبِّ،"
+   },
+   {
+    "startMs": 37029,
+    "endMs": 38677,
+    "text": "وَمَطْعَمُهُ حَرَامٌ،"
+   },
+   {
+    "startMs": 38956,
+    "endMs": 42044,
+    "text": "وَمَشْرَبُهُ حَرَامٌ، وَمَلْبَسُهُ حَرَامٌ،"
+   },
+   {
+    "startMs": 42236,
+    "endMs": 43727,
+    "text": "وَغُذِّيَ بِالْحَرَامِ،"
+   },
+   {
+    "startMs": 43963,
+    "endMs": 45950,
+    "text": "فَأَنَّى يُسْتَجَابُ لِذَلِكَ؟"
+   }
+  ]
+ },
+ "supplications": [],
+ "supplementaryHadiths": [],
+ "supportingExample": null,
+ "source": {
+  "document": "Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua, KPM.",
+  "hadith": 10,
+  "printedPages": [
+   48,
+   49,
+   50,
+   51
+  ],
+  "pdfPages": [
+   64,
+   65,
+   66,
+   67
+  ],
+  "coreContentPolicy": "Teks hadis, maksud, huraian, dalil, pengajaran, penghayatan, fokus nilai dan aktiviti berpandukan halaman KPM yang dinyatakan. Tiada biografi perawi luaran ditambah.",
+  "appDerivedFields": [
+   "subtitle",
+   "theme",
+   "quiz",
+   "progressRules",
+   "timedSegments"
+  ],
+  "adaptationStatus": "Prototaip pembelajaran interaktif",
+  "verificationNote": "Kuiz dan timing ialah lapisan aplikasi yang dibina hanya daripada fakta modul. Kandungan teras tidak boleh ditambah dengan fakta luar tanpa pengesahan."
+ },
+ "copyrightNotice": "© 2026 e-Hadis40 bagi reka bentuk aplikasi, interaksi, audio, kuiz dan kod sumber prototaip. Hak cipta kandungan asal Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua kekal milik Kementerian Pendidikan Malaysia dan pemegang hak masing-masing."
 }

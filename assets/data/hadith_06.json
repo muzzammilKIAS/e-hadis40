@@ -1,347 +1,348 @@
 {
-  "id": "hadith_06",
-  "moduleId": "module_02",
-  "hadithNumber": 6,
-  "title": "Berhati-Hati Terhadap Perkara Syubhah",
-  "subtitle": "Memelihara agama, maruah dan hati dengan menjauhi perkara yang samar antara halal dan haram.",
-  "theme": "Halal, haram, syubhah dan kesucian hati",
-  "learningObjectives": [
-    "Menjelaskan maksud halal, haram dan syubhah berdasarkan hadis.",
-    "Menyatakan kepentingan menjauhi perkara syubhah.",
-    "Memberikan contoh perkara halal, haram dan syubhah dalam kehidupan.",
-    "Menjelaskan hubungan antara hati yang baik dengan tingkah laku manusia.",
-    "Mengamalkan sikap berhati-hati dalam pemilihan makanan, pakaian dan hak milik.",
-    "Menjawab kuiz dengan markah sekurang-kurangnya 80%."
+ "id": "hadith_06",
+ "moduleId": "module_02",
+ "hadithNumber": 6,
+ "title": "Berhati-Hati Terhadap Perkara Syubhah",
+ "subtitle": "Memelihara agama, maruah dan hati dengan menjauhi perkara yang samar antara halal dan haram.",
+ "theme": "Halal, haram, syubhah dan kesucian hati",
+ "learningObjectives": [
+  "Menjelaskan maksud halal, haram dan syubhah berdasarkan hadis.",
+  "Menyatakan kepentingan menjauhi perkara syubhah.",
+  "Memberikan contoh perkara halal, haram dan syubhah dalam kehidupan.",
+  "Menjelaskan hubungan antara hati yang baik dengan tingkah laku manusia.",
+  "Mengamalkan sikap berhati-hati dalam pemilihan makanan, pakaian dan hak milik.",
+  "Menjawab kuiz dengan markah sekurang-kurangnya 80%."
+ ],
+ "arabicText": "عَنْ أَبِي عَبْدِ اللَّهِ النُّعْمَانِ بْنِ بَشِيرٍ رَضِيَ اللَّهُ عَنْهُمَا قَالَ:\nسَمِعْتُ رَسُولَ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ يَقُولُ:\n\nإِنَّ الْحَلَالَ بَيِّنٌ،\nوَإِنَّ الْحَرَامَ بَيِّنٌ،\nوَبَيْنَهُمَا مُشْتَبِهَاتٌ لَا يَعْلَمُهُنَّ كَثِيرٌ مِنَ النَّاسِ،\n\nفَمَنِ اتَّقَى الشُّبُهَاتِ اسْتَبْرَأَ لِدِينِهِ وَعِرْضِهِ،\nوَمَنْ وَقَعَ فِي الشُّبُهَاتِ وَقَعَ فِي الْحَرَامِ،\n\nكَالرَّاعِي يَرْعَى حَوْلَ الْحِمَى يُوشِكُ أَنْ يَرْتَعَ فِيهِ،\n\nأَلَا وَإِنَّ لِكُلِّ مَلِكٍ حِمًى،\nأَلَا وَإِنَّ حِمَى اللَّهِ تَعَالَى مَحَارِمُهُ،\n\nأَلَا وَإِنَّ فِي الْجَسَدِ مُضْغَةً،\nإِذَا صَلَحَتْ صَلَحَ الْجَسَدُ كُلُّهُ،\nوَإِذَا فَسَدَتْ فَسَدَ الْجَسَدُ كُلُّهُ،\n\nأَلَا وَهِيَ الْقَلْبُ.",
+ "translationMalay": "Daripada Saiyidina Abu ‘Abdullah al-Nu‘man bin Basyir r.a. beliau berkata, aku mendengar Rasulullah SAW bersabda: “Sesungguhnya perkara yang halal itu jelas dan perkara yang haram itu jelas dan di antara kedua-duanya terdapat perkara yang syubhah (tidak jelas hukumnya), yang kebanyakan orang tidak mengetahuinya. Sesiapa yang berhati-hati terhadap perkara yang syubhah, maka dia telah memelihara agamanya dan maruahnya. Namun sesiapa yang terjebak dengan perkara yang syubhah maka dia terjerumus ke dalam perkara haram. (Keadaannya) seperti penggembala yang membawa binatang gembalaannya berhampiran kawasan larangan, lambat laun dikhuatiri dia akan memasukinya. Ketahuilah sesungguhnya setiap raja mempunyai kawasan larangan. Ketahuilah sesungguhnya kawasan larangan Allah ialah perkara yang diharamkan-Nya. Ketahuilah sesungguhnya di dalam jasad manusia ada seketul daging, apabila ia baik maka seluruh jasad akan baik. Dan apabila ia rosak maka seluruh jasad akan rosak. Ketahuilah bahawa ia adalah hati.”",
+ "narrator": {
+  "id": "al_numan_ibn_bashir",
+  "name": "al-Nu‘man bin Basyir r.a.",
+  "fullName": "Abu ‘Abdullah al-Nu‘man bin Basyir al-Ansari r.a.",
+  "title": "Sahabat Rasulullah SAW, Perawi Hadis dan Gabenor",
+  "shortBiography": "al-Nu‘man bin Basyir r.a. ialah anak pertama kaum Ansar yang dilahirkan selepas Rasulullah SAW berhijrah ke Madinah, dan sejak kecil sentiasa berada di sisi Baginda SAW. Beliau meriwayatkan hadis daripada Rasulullah SAW dan kemudian dilantik sebagai gabenor Kufah dan Himsh pada zaman pemerintahan Bani Umayyah. Beliau terkenal dengan keteguhan hati dan sifat adil, dan wafat di Himsh pada tahun 65 Hijrah.",
+  "tags": [
+   "Sahabat Rasulullah SAW",
+   "Perawi Hadis",
+   "Gabenor Himsh"
   ],
-  "arabicText": "عَنْ أَبِي عَبْدِ اللَّهِ النُّعْمَانِ بْنِ بَشِيرٍ رَضِيَ اللَّهُ عَنْهُمَا قَالَ:\nسَمِعْتُ رَسُولَ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ يَقُولُ:\n\nإِنَّ الْحَلَالَ بَيِّنٌ،\nوَإِنَّ الْحَرَامَ بَيِّنٌ،\nوَبَيْنَهُمَا مُشْتَبِهَاتٌ لَا يَعْلَمُهُنَّ كَثِيرٌ مِنَ النَّاسِ،\n\nفَمَنِ اتَّقَى الشُّبُهَاتِ اسْتَبْرَأَ لِدِينِهِ وَعِرْضِهِ،\nوَمَنْ وَقَعَ فِي الشُّبُهَاتِ وَقَعَ فِي الْحَرَامِ،\n\nكَالرَّاعِي يَرْعَى حَوْلَ الْحِمَى يُوشِكُ أَنْ يَرْتَعَ فِيهِ،\n\nأَلَا وَإِنَّ لِكُلِّ مَلِكٍ حِمًى،\nأَلَا وَإِنَّ حِمَى اللَّهِ تَعَالَى مَحَارِمُهُ،\n\nأَلَا وَإِنَّ فِي الْجَسَدِ مُضْغَةً،\nإِذَا صَلَحَتْ صَلَحَ الْجَسَدُ كُلُّهُ،\nوَإِذَا فَسَدَتْ فَسَدَ الْجَسَدُ كُلُّهُ،\n\nأَلَا وَهِيَ الْقَلْبُ.",
-  "translationMalay": "Daripada Saiyidina Abu ‘Abdullah al-Nu‘man bin Basyir r.a. beliau berkata, aku mendengar Rasulullah SAW bersabda: “Sesungguhnya perkara yang halal itu jelas dan perkara yang haram itu jelas dan di antara kedua-duanya terdapat perkara yang syubhah (tidak jelas hukumnya), yang kebanyakan orang tidak mengetahuinya. Sesiapa yang berhati-hati terhadap perkara yang syubhah, maka dia telah memelihara agamanya dan maruahnya. Namun sesiapa yang terjebak dengan perkara yang syubhah maka dia terjerumus ke dalam perkara haram. (Keadaannya) seperti penggembala yang membawa binatang gembalaannya berhampiran kawasan larangan, lambat laun dikhuatiri dia akan memasukinya. Ketahuilah sesungguhnya setiap raja mempunyai kawasan larangan. Ketahuilah sesungguhnya kawasan larangan Allah ialah perkara yang diharamkan-Nya. Ketahuilah sesungguhnya di dalam jasad manusia ada seketul daging, apabila ia baik maka seluruh jasad akan baik. Dan apabila ia rosak maka seluruh jasad akan rosak. Ketahuilah bahawa ia adalah hati.”",
-  "narrator": {
-    "id": "al_numan_ibn_bashir",
-    "name": "al-Nu‘man bin Basyir r.a.",
-    "fullName": "Abu ‘Abdullah al-Nu‘man bin Basyir r.a.",
-    "title": "Sahabat Rasulullah SAW dan Perawi Hadis",
-    "shortBiography": "",
-    "tags": [
-      "Sahabat Rasulullah SAW",
-      "Perawi Hadis"
-    ],
-    "source": "",
-    "verified": false
+  "source": "Biodata ringkas ini TIDAK terdapat dalam Modul Penghayatan Hadis 40 Imam Nawawi KPM. Disumberkan daripada bahan biografi sahabat yang mapan (cth. rujukan berasaskan al-Isabah fi Tamyiz al-Sahabah oleh Ibn Hajar al-'Asqalani dan Siyar A'lam al-Nubala' oleh al-Dhahabi, melalui portal rujukan Islam yang menyusun semula kandungan kitab tersebut) bagi melengkapkan pemahaman pelajar tentang perawi hadis.",
+  "verified": true
+ },
+ "reference": "Hadis ini diriwayatkan oleh Imam al-Bukhari dan Imam Muslim.",
+ "explanations": [
+  "Hadis ini menyatakan bahawa perkara halal dan haram itu jelas, manakala antara kedua-duanya terdapat perkara yang samar iaitu syubhah.",
+  "Contoh perkara halal yang jelas ialah makanan halal lagi baik daripada tumbuh-tumbuhan, buah-buahan dan binatang ternakan.",
+  "Contoh perkara haram yang jelas ialah bangkai, daging babi dan arak.",
+  "Perkara syubhah ialah perkara yang tidak jelas hukumnya antara halal dan haram.",
+  "Contoh syubhah termasuk makanan atau minuman yang tidak jelas status halalnya, keuntungan pelaburan yang tidak jelas, pakaian yang mempunyai simbol maksiat dan menyewakan rumah kepada pelaku maksiat.",
+  "Surah al-Baqarah ayat 172 mengingatkan orang beriman supaya mengambil makanan yang baik dan halal serta mensyukuri nikmat Allah SWT.",
+  "Hati yang baik ialah hati yang sentiasa mengingati Allah SWT dan patuh kepada perintah-Nya.",
+  "Kita diperintah meninggalkan larangan Allah SWT serta sedaya upaya menjauhi perkara syubhah supaya tidak terjerumus kepada perkara haram."
+ ],
+ "quranEvidence": {
+  "surah": "al-Baqarah",
+  "verse": 172,
+  "verseEnd": 172,
+  "arabicText": "يَا أَيُّهَا الَّذِينَ آمَنُوا كُلُوا مِنْ طَيِّبَاتِ مَا رَزَقْنَاكُمْ وَاشْكُرُوا لِلَّهِ إِنْ كُنْتُمْ إِيَّاهُ تَعْبُدُونَ",
+  "translationMalay": "Wahai orang yang beriman! Makanlah daripada benda yang baik (yang halal) yang telah Kami berikan kepada kamu dan bersyukurlah kepada Allah SWT, jika betul kamu hanya beribadah kepada-Nya."
+ },
+ "learningIntentionExample": "",
+ "lessons": [
+  "Mengambil berat tentang perkara yang berkaitan halal, haram dan syubhah.",
+  "Tidak peka terhadap perkara halal, haram dan syubhah akan memberi kesan negatif kepada kehidupan.",
+  "Melakukan perkara haram dan syubhah akan menjejaskan kesucian hati."
+ ],
+ "appreciation": [
+  "Murid perlu memastikan makanan, minuman, pakaian dan lain-lain daripada sumber yang diyakini halal.",
+  "Murid perlu berusaha menjauhi perkara yang syubhah.",
+  "Meminta izin untuk mengambil atau menggunakan hak milik rakan merupakan amalan mulia.",
+  "Murid bertanggungjawab untuk memilih produk yang diyakini halal seperti yang mempunyai logo halal Jakim.",
+  "Murid perlu menghindari perkara yang dilarang seperti meniru dalam peperiksaan, menghina, mencaci, mengejek, membuli dan lain-lain."
+ ],
+ "focusValues": [
+  "Kesejahteraan",
+  "Keyakinan"
+ ],
+ "suggestedActivities": [
+  {
+   "title": "Halaqah ilmu",
+   "description": "Bincangkan contoh halal, haram dan syubhah dalam kehidupan harian dengan bimbingan guru."
   },
-  "reference": "Hadis ini diriwayatkan oleh Imam al-Bukhari dan Imam Muslim.",
-  "explanations": [
-    "Hadis ini menyatakan bahawa perkara halal dan haram itu jelas, manakala antara kedua-duanya terdapat perkara yang samar iaitu syubhah.",
-    "Contoh perkara halal yang jelas ialah makanan halal lagi baik daripada tumbuh-tumbuhan, buah-buahan dan binatang ternakan.",
-    "Contoh perkara haram yang jelas ialah bangkai, daging babi dan arak.",
-    "Perkara syubhah ialah perkara yang tidak jelas hukumnya antara halal dan haram.",
-    "Contoh syubhah termasuk makanan atau minuman yang tidak jelas status halalnya, keuntungan pelaburan yang tidak jelas, pakaian yang mempunyai simbol maksiat dan menyewakan rumah kepada pelaku maksiat.",
-    "Surah al-Baqarah ayat 172 mengingatkan orang beriman supaya mengambil makanan yang baik dan halal serta mensyukuri nikmat Allah SWT.",
-    "Hati yang baik ialah hati yang sentiasa mengingati Allah SWT dan patuh kepada perintah-Nya.",
-    "Kita diperintah meninggalkan larangan Allah SWT serta sedaya upaya menjauhi perkara syubhah supaya tidak terjerumus kepada perkara haram."
-  ],
-  "quranEvidence": {
-    "surah": "al-Baqarah",
-    "verse": 172,
-    "verseEnd": 172,
-    "arabicText": "يَا أَيُّهَا الَّذِينَ آمَنُوا كُلُوا مِنْ طَيِّبَاتِ مَا رَزَقْنَاكُمْ وَاشْكُرُوا لِلَّهِ إِنْ كُنْتُمْ إِيَّاهُ تَعْبُدُونَ",
-    "translationMalay": "Wahai orang yang beriman! Makanlah daripada benda yang baik (yang halal) yang telah Kami berikan kepada kamu dan bersyukurlah kepada Allah SWT, jika betul kamu hanya beribadah kepada-Nya."
+  {
+   "title": "Usrah mingguan",
+   "description": "Laksanakan perbincangan ringkas tentang cara menjaga hati dan menjauhi perkara syubhah."
   },
-  "learningIntentionExample": "",
-  "lessons": [
-    "Mengambil berat tentang perkara yang berkaitan halal, haram dan syubhah.",
-    "Tidak peka terhadap perkara halal, haram dan syubhah akan memberi kesan negatif kepada kehidupan.",
-    "Melakukan perkara haram dan syubhah akan menjejaskan kesucian hati."
-  ],
-  "appreciation": [
-    "Murid perlu memastikan makanan, minuman, pakaian dan lain-lain daripada sumber yang diyakini halal.",
-    "Murid perlu berusaha menjauhi perkara yang syubhah.",
-    "Meminta izin untuk mengambil atau menggunakan hak milik rakan merupakan amalan mulia.",
-    "Murid bertanggungjawab untuk memilih produk yang diyakini halal seperti yang mempunyai logo halal Jakim.",
-    "Murid perlu menghindari perkara yang dilarang seperti meniru dalam peperiksaan, menghina, mencaci, mengejek, membuli dan lain-lain."
-  ],
-  "focusValues": [
-    "Kesejahteraan",
-    "Keyakinan"
-  ],
-  "suggestedActivities": [
-    {
-      "title": "Halaqah ilmu",
-      "description": "Bincangkan contoh halal, haram dan syubhah dalam kehidupan harian dengan bimbingan guru."
-    },
-    {
-      "title": "Usrah mingguan",
-      "description": "Laksanakan perbincangan ringkas tentang cara menjaga hati dan menjauhi perkara syubhah."
-    },
-    {
-      "title": "Bacaan hadis selepas solat",
-      "description": "Baca Hadis 6 dan hayati mesej tentang halal, haram, syubhah serta kepentingan hati yang baik."
-    }
-  ],
-  "reflectionQuestions": [
-    "Apakah perbezaan antara halal, haram dan syubhah?",
-    "Mengapakah menjauhi perkara syubhah membantu memelihara agama dan maruah?",
-    "Apakah contoh perkara syubhah yang mungkin berlaku dalam kehidupan harian saya?",
-    "Bagaimanakah pemilihan makanan dan minuman boleh memberi kesan kepada kehidupan seorang Muslim?",
-    "Apakah hubungan antara keadaan hati dengan tingkah laku seseorang?",
-    "Apakah satu langkah yang boleh saya lakukan untuk lebih berhati-hati terhadap perkara syubhah?"
-  ],
-  "quiz": [
-    {
-      "id": "h06_q01",
-      "question": "Siapakah perawi Hadis 6?",
-      "options": [
-        "Abdullah bin Mas‘ud r.a.",
-        "al-Nu‘man bin Basyir r.a.",
-        "Abu Hurairah r.a.",
-        "Abdullah bin Umar r.a."
-      ],
-      "correctAnswerIndex": 1,
-      "explanation": "Hadis ini diriwayatkan daripada Abu ‘Abdullah al-Nu‘man bin Basyir r.a."
-    },
-    {
-      "id": "h06_q02",
-      "question": "Apakah yang dinyatakan jelas dalam hadis?",
-      "options": [
-        "Halal dan haram",
-        "Syubhah sahaja",
-        "Semua perkara mempunyai hukum yang sama",
-        "Hanya perkara haram"
-      ],
-      "correctAnswerIndex": 0,
-      "explanation": "Hadis menyatakan bahawa halal itu jelas dan haram itu jelas."
-    },
-    {
-      "id": "h06_q03",
-      "question": "Apakah maksud perkara syubhah?",
-      "options": [
-        "Perkara yang pasti halal",
-        "Perkara yang pasti haram",
-        "Perkara yang tidak jelas antara halal dan haram",
-        "Perkara yang wajib dilakukan"
-      ],
-      "correctAnswerIndex": 2,
-      "explanation": "Syubhah merujuk perkara yang terdapat kesamaran kerana hukumnya tidak jelas antara halal dan haram."
-    },
-    {
-      "id": "h06_q04",
-      "question": "Apakah kesan menjauhi perkara syubhah menurut hadis?",
-      "options": [
-        "Memelihara agama dan maruah",
-        "Mengurangkan ilmu",
-        "Menghilangkan tanggungjawab",
-        "Menjadikan semua perkara haram"
-      ],
-      "correctAnswerIndex": 0,
-      "explanation": "Sesiapa yang berhati-hati terhadap syubhah telah memelihara agama dan maruahnya."
-    },
-    {
-      "id": "h06_q05",
-      "question": "Apakah yang dimaksudkan dengan kawasan larangan Allah dalam hadis?",
-      "options": [
-        "Perkara makruh",
-        "Perkara yang diharamkan-Nya",
-        "Kawasan pertanian",
-        "Tempat ibadah"
-      ],
-      "correctAnswerIndex": 1,
-      "explanation": "Hadis menjelaskan bahawa kawasan larangan Allah ialah perkara yang diharamkan-Nya."
-    },
-    {
-      "id": "h06_q06",
-      "question": "Apakah anggota yang disebut memberi kesan kepada seluruh jasad?",
-      "options": [
-        "Mata",
-        "Tangan",
-        "Hati",
-        "Kaki"
-      ],
-      "correctAnswerIndex": 2,
-      "explanation": "Hadis menyebut seketul daging iaitu hati; apabila hati baik, seluruh jasad menjadi baik."
-    },
-    {
-      "id": "h06_q07",
-      "question": "Surah apakah yang dirujuk dalam huraian Hadis 6?",
-      "options": [
-        "Surah al-Baqarah ayat 172",
-        "Surah Ali ‘Imran ayat 19",
-        "Surah al-Zumar ayat 2",
-        "Surah al-Mukminun ayat 14"
-      ],
-      "correctAnswerIndex": 0,
-      "explanation": "Modul merujuk Surah al-Baqarah ayat 172."
-    },
-    {
-      "id": "h06_q08",
-      "question": "Yang manakah contoh perkara syubhah yang disebut dalam modul?",
-      "options": [
-        "Air kosong yang diketahui halal",
-        "Makanan yang tidak jelas status halal atau haram",
-        "Buah-buahan yang halal",
-        "Zakat yang ditunaikan dengan betul"
-      ],
-      "correctAnswerIndex": 1,
-      "explanation": "Makanan atau minuman yang tidak jelas status halal atau haram ialah antara contoh perkara syubhah."
-    },
-    {
-      "id": "h06_q09",
-      "question": "Apakah dua nilai fokus Hadis 6?",
-      "options": [
-        "Keyakinan dan Kesejahteraan",
-        "Hormat dan Ihsan",
-        "Ikhlas dan Keberanian",
-        "Kepimpinan dan Persaingan"
-      ],
-      "correctAnswerIndex": 0,
-      "explanation": "Fokus nilai Hadis 6 ialah Kesejahteraan dan Keyakinan."
-    },
-    {
-      "id": "h06_q10",
-      "question": "Apakah tindakan terbaik apabila berhadapan perkara yang diragui statusnya?",
-      "options": [
-        "Terus mengambilnya tanpa semakan",
-        "Berhati-hati dan menjauhinya sehingga jelas",
-        "Menganggap semuanya halal",
-        "Mengikuti orang lain tanpa bertanya"
-      ],
-      "correctAnswerIndex": 1,
-      "explanation": "Hadis mendidik Muslim supaya berhati-hati terhadap perkara syubhah agar tidak terjerumus kepada perkara haram."
-    }
-  ],
-  "progressRules": {
-    "completeWhen": [
-      "Pengguna telah membuka teks hadis",
-      "Pengguna telah memainkan atau membuka bahagian audio",
-      "Pengguna telah membaca terjemahan",
-      "Pengguna telah melihat huraian dan dalil al-Quran",
-      "Pengguna telah melihat pengajaran dan penghayatan",
-      "Pengguna telah menjawab kuiz"
-    ],
-    "passingScorePercent": 80
+  {
+   "title": "Bacaan hadis selepas solat",
+   "description": "Baca Hadis 6 dan hayati mesej tentang halal, haram, syubhah serta kepentingan hati yang baik."
+  }
+ ],
+ "reflectionQuestions": [
+  "Apakah perbezaan antara halal, haram dan syubhah?",
+  "Mengapakah menjauhi perkara syubhah membantu memelihara agama dan maruah?",
+  "Apakah contoh perkara syubhah yang mungkin berlaku dalam kehidupan harian saya?",
+  "Bagaimanakah pemilihan makanan dan minuman boleh memberi kesan kepada kehidupan seorang Muslim?",
+  "Apakah hubungan antara keadaan hati dengan tingkah laku seseorang?",
+  "Apakah satu langkah yang boleh saya lakukan untuk lebih berhati-hati terhadap perkara syubhah?"
+ ],
+ "quiz": [
+  {
+   "id": "h06_q01",
+   "question": "Siapakah perawi Hadis 6?",
+   "options": [
+    "Abdullah bin Mas‘ud r.a.",
+    "al-Nu‘man bin Basyir r.a.",
+    "Abu Hurairah r.a.",
+    "Abdullah bin Umar r.a."
+   ],
+   "correctAnswerIndex": 1,
+   "explanation": "Hadis ini diriwayatkan daripada Abu ‘Abdullah al-Nu‘man bin Basyir r.a."
   },
-  "audioTranscriptNote": "Transcript kerja menggunakan teks Hadis 6 daripada Modul KPM kerana tiada teks bacaan audio berasingan diberikan. Semak rakaman sebenar semasa integrasi; jika lafaz audio berbeza, jangan ubah kandungan KPM secara senyap. Gunakan teks voice yang disahkan untuk SyncedHadithReader.",
-  "audio": {
-    "arabicRecitation": "assets/audio/hadith_06.mp3",
-    "translationMalay": "",
-    "durationMs": 49200,
-    "syncOffsetMs": 0,
-    "timingMethod": "waveform_pause_aligned_phrase_timing",
-    "timingReviewNote": "Dibaiki menggunakan audio sebenar berdurasi 49.2 saat. 18 petikan diselaraskan kepada onset/offset suara dan jeda utama waveform. Ini ialah phrase-level timing; word-level highlight dalam setiap petikan masih perlu dianggap anggaran jika aplikasi mengagihkan masa secara proporsional.",
-    "timedSegments": [
-      {
-        "startMs": 100,
-        "endMs": 4730,
-        "text": "عَنْ أَبِي عَبْدِ اللَّهِ النُّعْمَانِ بْنِ بَشِيرٍ رَضِيَ اللَّهُ عَنْهُمَا قَالَ:"
-      },
-      {
-        "startMs": 5840,
-        "endMs": 9770,
-        "text": "سَمِعْتُ رَسُولَ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ يَقُولُ:"
-      },
-      {
-        "startMs": 10760,
-        "endMs": 12110,
-        "text": "إِنَّ الْحَلَالَ بَيِّنٌ،"
-      },
-      {
-        "startMs": 12800,
-        "endMs": 14320,
-        "text": "وَإِنَّ الْحَرَامَ بَيِّنٌ،"
-      },
-      {
-        "startMs": 15030,
-        "endMs": 16790,
-        "text": "وَبَيْنَهُمَا مُشْتَبِهَاتٌ"
-      },
-      {
-        "startMs": 17650,
-        "endMs": 20150,
-        "text": "لَا يَعْلَمُهُنَّ كَثِيرٌ مِنَ النَّاسِ،"
-      },
-      {
-        "startMs": 20690,
-        "endMs": 22330,
-        "text": "فَمَنِ اتَّقَى الشُّبُهَاتِ"
-      },
-      {
-        "startMs": 23140,
-        "endMs": 24860,
-        "text": "اسْتَبْرَأَ لِدِينِهِ وَعِرْضِهِ،"
-      },
-      {
-        "startMs": 25930,
-        "endMs": 27420,
-        "text": "وَمَنْ وَقَعَ فِي الشُّبُهَاتِ"
-      },
-      {
-        "startMs": 27720,
-        "endMs": 29010,
-        "text": "وَقَعَ فِي الْحَرَامِ،"
-      },
-      {
-        "startMs": 29560,
-        "endMs": 31470,
-        "text": "كَالرَّاعِي يَرْعَى حَوْلَ الْحِمَى"
-      },
-      {
-        "startMs": 32140,
-        "endMs": 33740,
-        "text": "يُوشِكُ أَنْ يَرْتَعَ فِيهِ،"
-      },
-      {
-        "startMs": 34280,
-        "endMs": 36410,
-        "text": "أَلَا وَإِنَّ لِكُلِّ مَلِكٍ حِمًى،"
-      },
-      {
-        "startMs": 36920,
-        "endMs": 39610,
-        "text": "أَلَا وَإِنَّ حِمَى اللَّهِ تَعَالَى مَحَارِمُهُ،"
-      },
-      {
-        "startMs": 40400,
-        "endMs": 42180,
-        "text": "أَلَا وَإِنَّ فِي الْجَسَدِ مُضْغَةً،"
-      },
-      {
-        "startMs": 42610,
-        "endMs": 44790,
-        "text": "إِذَا صَلَحَتْ صَلَحَ الْجَسَدُ كُلُّهُ،"
-      },
-      {
-        "startMs": 45240,
-        "endMs": 47570,
-        "text": "وَإِذَا فَسَدَتْ فَسَدَ الْجَسَدُ كُلُّهُ،"
-      },
-      {
-        "startMs": 48030,
-        "endMs": 49060,
-        "text": "أَلَا وَهِيَ الْقَلْبُ."
-      }
-    ]
+  {
+   "id": "h06_q02",
+   "question": "Apakah yang dinyatakan jelas dalam hadis?",
+   "options": [
+    "Halal dan haram",
+    "Syubhah sahaja",
+    "Semua perkara mempunyai hukum yang sama",
+    "Hanya perkara haram"
+   ],
+   "correctAnswerIndex": 0,
+   "explanation": "Hadis menyatakan bahawa halal itu jelas dan haram itu jelas."
   },
-  "supplications": [],
-  "supplementaryHadiths": [],
-  "supportingExample": null,
-  "source": {
-    "document": "Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua, KPM.",
-    "hadith": 6,
-    "printedPages": [
-      27,
-      28,
-      29,
-      30,
-      31
-    ],
-    "pdfPages": [
-      43,
-      44,
-      45,
-      46,
-      47
-    ],
-    "adaptationStatus": "Prototaip pembelajaran interaktif",
-    "verificationNote": "Kandungan teras diadaptasi daripada Hadis 6 dalam Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua. Objektif digital, refleksi, kuiz dan timing audio ialah bahan tambahan aplikasi. Transcript audio perlu disahkan terhadap rakaman sebelum penerbitan awam."
+  {
+   "id": "h06_q03",
+   "question": "Apakah maksud perkara syubhah?",
+   "options": [
+    "Perkara yang pasti halal",
+    "Perkara yang pasti haram",
+    "Perkara yang tidak jelas antara halal dan haram",
+    "Perkara yang wajib dilakukan"
+   ],
+   "correctAnswerIndex": 2,
+   "explanation": "Syubhah merujuk perkara yang terdapat kesamaran kerana hukumnya tidak jelas antara halal dan haram."
   },
-  "copyrightNotice": "© 2026 e-Hadis40 bagi reka bentuk aplikasi, interaksi, audio, kuiz dan kod sumber prototaip. Hak cipta kandungan asal Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua kekal milik Kementerian Pendidikan Malaysia dan pemegang hak masing-masing.",
-  "narratorId": null
+  {
+   "id": "h06_q04",
+   "question": "Apakah kesan menjauhi perkara syubhah menurut hadis?",
+   "options": [
+    "Memelihara agama dan maruah",
+    "Mengurangkan ilmu",
+    "Menghilangkan tanggungjawab",
+    "Menjadikan semua perkara haram"
+   ],
+   "correctAnswerIndex": 0,
+   "explanation": "Sesiapa yang berhati-hati terhadap syubhah telah memelihara agama dan maruahnya."
+  },
+  {
+   "id": "h06_q05",
+   "question": "Apakah yang dimaksudkan dengan kawasan larangan Allah dalam hadis?",
+   "options": [
+    "Perkara makruh",
+    "Perkara yang diharamkan-Nya",
+    "Kawasan pertanian",
+    "Tempat ibadah"
+   ],
+   "correctAnswerIndex": 1,
+   "explanation": "Hadis menjelaskan bahawa kawasan larangan Allah ialah perkara yang diharamkan-Nya."
+  },
+  {
+   "id": "h06_q06",
+   "question": "Apakah anggota yang disebut memberi kesan kepada seluruh jasad?",
+   "options": [
+    "Mata",
+    "Tangan",
+    "Hati",
+    "Kaki"
+   ],
+   "correctAnswerIndex": 2,
+   "explanation": "Hadis menyebut seketul daging iaitu hati; apabila hati baik, seluruh jasad menjadi baik."
+  },
+  {
+   "id": "h06_q07",
+   "question": "Surah apakah yang dirujuk dalam huraian Hadis 6?",
+   "options": [
+    "Surah al-Baqarah ayat 172",
+    "Surah Ali ‘Imran ayat 19",
+    "Surah al-Zumar ayat 2",
+    "Surah al-Mukminun ayat 14"
+   ],
+   "correctAnswerIndex": 0,
+   "explanation": "Modul merujuk Surah al-Baqarah ayat 172."
+  },
+  {
+   "id": "h06_q08",
+   "question": "Yang manakah contoh perkara syubhah yang disebut dalam modul?",
+   "options": [
+    "Air kosong yang diketahui halal",
+    "Makanan yang tidak jelas status halal atau haram",
+    "Buah-buahan yang halal",
+    "Zakat yang ditunaikan dengan betul"
+   ],
+   "correctAnswerIndex": 1,
+   "explanation": "Makanan atau minuman yang tidak jelas status halal atau haram ialah antara contoh perkara syubhah."
+  },
+  {
+   "id": "h06_q09",
+   "question": "Apakah dua nilai fokus Hadis 6?",
+   "options": [
+    "Keyakinan dan Kesejahteraan",
+    "Hormat dan Ihsan",
+    "Ikhlas dan Keberanian",
+    "Kepimpinan dan Persaingan"
+   ],
+   "correctAnswerIndex": 0,
+   "explanation": "Fokus nilai Hadis 6 ialah Kesejahteraan dan Keyakinan."
+  },
+  {
+   "id": "h06_q10",
+   "question": "Apakah tindakan terbaik apabila berhadapan perkara yang diragui statusnya?",
+   "options": [
+    "Terus mengambilnya tanpa semakan",
+    "Berhati-hati dan menjauhinya sehingga jelas",
+    "Menganggap semuanya halal",
+    "Mengikuti orang lain tanpa bertanya"
+   ],
+   "correctAnswerIndex": 1,
+   "explanation": "Hadis mendidik Muslim supaya berhati-hati terhadap perkara syubhah agar tidak terjerumus kepada perkara haram."
+  }
+ ],
+ "progressRules": {
+  "completeWhen": [
+   "Pengguna telah membuka teks hadis",
+   "Pengguna telah memainkan atau membuka bahagian audio",
+   "Pengguna telah membaca terjemahan",
+   "Pengguna telah melihat huraian dan dalil al-Quran",
+   "Pengguna telah melihat pengajaran dan penghayatan",
+   "Pengguna telah menjawab kuiz"
+  ],
+  "passingScorePercent": 80
+ },
+ "audioTranscriptNote": "Transcript kerja menggunakan teks Hadis 6 daripada Modul KPM kerana tiada teks bacaan audio berasingan diberikan. Semak rakaman sebenar semasa integrasi; jika lafaz audio berbeza, jangan ubah kandungan KPM secara senyap. Gunakan teks voice yang disahkan untuk SyncedHadithReader.",
+ "audio": {
+  "arabicRecitation": "assets/audio/hadith_06.mp3",
+  "translationMalay": "",
+  "durationMs": 49200,
+  "syncOffsetMs": 0,
+  "timingMethod": "waveform_pause_aligned_phrase_timing",
+  "timingReviewNote": "Dibaiki menggunakan audio sebenar berdurasi 49.2 saat. 18 petikan diselaraskan kepada onset/offset suara dan jeda utama waveform. Ini ialah phrase-level timing; word-level highlight dalam setiap petikan masih perlu dianggap anggaran jika aplikasi mengagihkan masa secara proporsional.",
+  "timedSegments": [
+   {
+    "startMs": 100,
+    "endMs": 4730,
+    "text": "عَنْ أَبِي عَبْدِ اللَّهِ النُّعْمَانِ بْنِ بَشِيرٍ رَضِيَ اللَّهُ عَنْهُمَا قَالَ:"
+   },
+   {
+    "startMs": 5840,
+    "endMs": 9770,
+    "text": "سَمِعْتُ رَسُولَ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ يَقُولُ:"
+   },
+   {
+    "startMs": 10760,
+    "endMs": 12110,
+    "text": "إِنَّ الْحَلَالَ بَيِّنٌ،"
+   },
+   {
+    "startMs": 12800,
+    "endMs": 14320,
+    "text": "وَإِنَّ الْحَرَامَ بَيِّنٌ،"
+   },
+   {
+    "startMs": 15030,
+    "endMs": 16790,
+    "text": "وَبَيْنَهُمَا مُشْتَبِهَاتٌ"
+   },
+   {
+    "startMs": 17650,
+    "endMs": 20150,
+    "text": "لَا يَعْلَمُهُنَّ كَثِيرٌ مِنَ النَّاسِ،"
+   },
+   {
+    "startMs": 20690,
+    "endMs": 22330,
+    "text": "فَمَنِ اتَّقَى الشُّبُهَاتِ"
+   },
+   {
+    "startMs": 23140,
+    "endMs": 24860,
+    "text": "اسْتَبْرَأَ لِدِينِهِ وَعِرْضِهِ،"
+   },
+   {
+    "startMs": 25930,
+    "endMs": 27420,
+    "text": "وَمَنْ وَقَعَ فِي الشُّبُهَاتِ"
+   },
+   {
+    "startMs": 27720,
+    "endMs": 29010,
+    "text": "وَقَعَ فِي الْحَرَامِ،"
+   },
+   {
+    "startMs": 29560,
+    "endMs": 31470,
+    "text": "كَالرَّاعِي يَرْعَى حَوْلَ الْحِمَى"
+   },
+   {
+    "startMs": 32140,
+    "endMs": 33740,
+    "text": "يُوشِكُ أَنْ يَرْتَعَ فِيهِ،"
+   },
+   {
+    "startMs": 34280,
+    "endMs": 36410,
+    "text": "أَلَا وَإِنَّ لِكُلِّ مَلِكٍ حِمًى،"
+   },
+   {
+    "startMs": 36920,
+    "endMs": 39610,
+    "text": "أَلَا وَإِنَّ حِمَى اللَّهِ تَعَالَى مَحَارِمُهُ،"
+   },
+   {
+    "startMs": 40400,
+    "endMs": 42180,
+    "text": "أَلَا وَإِنَّ فِي الْجَسَدِ مُضْغَةً،"
+   },
+   {
+    "startMs": 42610,
+    "endMs": 44790,
+    "text": "إِذَا صَلَحَتْ صَلَحَ الْجَسَدُ كُلُّهُ،"
+   },
+   {
+    "startMs": 45240,
+    "endMs": 47570,
+    "text": "وَإِذَا فَسَدَتْ فَسَدَ الْجَسَدُ كُلُّهُ،"
+   },
+   {
+    "startMs": 48030,
+    "endMs": 49060,
+    "text": "أَلَا وَهِيَ الْقَلْبُ."
+   }
+  ]
+ },
+ "supplications": [],
+ "supplementaryHadiths": [],
+ "supportingExample": null,
+ "source": {
+  "document": "Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua, KPM.",
+  "hadith": 6,
+  "printedPages": [
+   27,
+   28,
+   29,
+   30,
+   31
+  ],
+  "pdfPages": [
+   43,
+   44,
+   45,
+   46,
+   47
+  ],
+  "adaptationStatus": "Prototaip pembelajaran interaktif",
+  "verificationNote": "Kandungan teras diadaptasi daripada Hadis 6 dalam Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua. Objektif digital, refleksi, kuiz dan timing audio ialah bahan tambahan aplikasi. Transcript audio perlu disahkan terhadap rakaman sebelum penerbitan awam."
+ },
+ "copyrightNotice": "© 2026 e-Hadis40 bagi reka bentuk aplikasi, interaksi, audio, kuiz dan kod sumber prototaip. Hak cipta kandungan asal Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua kekal milik Kementerian Pendidikan Malaysia dan pemegang hak masing-masing.",
+ "narratorId": null
 }

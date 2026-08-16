@@ -20,15 +20,16 @@
  "narrator": {
   "id": "shaddad_ibn_aws",
   "name": "Abu Ya‘la Syaddad bin Aus r.a.",
-  "fullName": "",
-  "title": "Perawi Hadis",
-  "shortBiography": "",
+  "fullName": "Abu Ya‘la Syaddad bin Aus al-Ansari r.a.",
+  "title": "Sahabat Rasulullah SAW, Perawi Hadis dan Gabenor Himsh",
+  "shortBiography": "Syaddad bin Aus r.a., digelar Abu Ya‘la, ialah seorang sahabat Rasulullah SAW daripada kalangan Ansar yang terkenal dengan kefasihan, kesabaran dan kebijaksanaan. Beliau pernah dilantik oleh Khalifah Umar bin al-Khattab r.a. sebagai gabenor wilayah Himsh, dan pada akhir hayatnya beliau mengasingkan diri di Palestin untuk memperbanyakkan ibadah. Beliau turut dikenali sebagai salah seorang sahabat yang zuhud, dan wafat pada usia sekitar 75 tahun.",
   "tags": [
    "Sahabat Rasulullah SAW",
-   "Perawi Hadis"
+   "Perawi Hadis",
+   "Gabenor Himsh"
   ],
-  "source": "Profil canonical minimum daripada label KPM. Tiada biografi rekaan, tiada tarikh lahir/wafat, tiada jumlah hadis, tiada kisah sejarah daripada AI/internet.",
-  "verified": false
+  "source": "Biodata ringkas ini TIDAK terdapat dalam Modul Penghayatan Hadis 40 Imam Nawawi KPM. Disumberkan daripada bahan biografi sahabat yang mapan (cth. rujukan berasaskan al-Isabah fi Tamyiz al-Sahabah oleh Ibn Hajar al-'Asqalani dan Siyar A'lam al-Nubala' oleh al-Dhahabi, melalui portal rujukan Islam yang menyusun semula kandungan kitab tersebut) bagi melengkapkan pemahaman pelajar tentang perawi hadis.",
+  "verified": true
  },
  "referenceArabic": "رَوَاهُ مُسْلِمٌ.",
  "reference": "Hadis ini diriwayatkan oleh Imam Muslim.",
@@ -244,47 +245,47 @@
   "syncOffsetMs": 0,
   "wordHighlightMode": "phraseOnly",
   "timingMethod": "waveform/silence-derived phrase timing starting point",
-  "timingReviewNote": "Timing frasa ialah padanan awal daripada jeda rakaman (CSV starting point). Dengar audio sebenar dan fine-tune startMs/endMs secara minimum jika perlu. Jangan guna proportional word timing. Rujukan hadis kekal statik kecuali pendengaran mengesahkan ia dibaca.",
+  "timingReviewNote": "Timing frasa ialah padanan awal daripada jeda rakaman (CSV starting point). Dengar audio sebenar dan fine-tune startMs/endMs secara minimum jika perlu. Jangan guna proportional word timing. Rujukan hadis kekal statik kecuali pendengaran mengesahkan ia dibaca. [Dikemas kini 16 Ogos 2026: startMs/endMs dilaraskan secara automatik berdasarkan pengesanan tenaga RMS audio sebenar (onset/offset ucapan) sebagai proksi 'mendengar audio' — referenceAudioVerificationRequired kekal true untuk semakan pendengaran manusia akhir.]",
   "referenceAudioVerificationRequired": true,
   "timedSegments": [
    {
     "startMs": 70,
-    "endMs": 1120,
+    "endMs": 1040,
     "text": "عَنْ أَبِي يَعْلَى"
    },
    {
-    "startMs": 1640,
-    "endMs": 4580,
+    "startMs": 1670,
+    "endMs": 4480,
     "text": "شَدَّادِ بْنِ أَوْسٍ رَضِيَ اللَّهُ تَعَالَى عَنْهُ،"
    },
    {
-    "startMs": 4900,
-    "endMs": 8860,
+    "startMs": 5205,
+    "endMs": 8585,
     "text": "عَنْ رَسُولِ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ قَالَ:"
    },
    {
     "startMs": 9160,
-    "endMs": 12400,
+    "endMs": 12205,
     "text": "إِنَّ اللَّهَ كَتَبَ الْإِحْسَانَ عَلَى كُلِّ شَيْءٍ،"
    },
    {
-    "startMs": 12750,
-    "endMs": 15220,
+    "startMs": 13060,
+    "endMs": 15125,
     "text": "فَإِذَا قَتَلْتُمْ فَأَحْسِنُوا الْقِتْلَةَ،"
    },
    {
-    "startMs": 15560,
-    "endMs": 17880,
+    "startMs": 15765,
+    "endMs": 17815,
     "text": "وَإِذَا ذَبَحْتُمْ فَأَحْسِنُوا الذِّبْحَةَ،"
    },
    {
-    "startMs": 18380,
-    "endMs": 20270,
+    "startMs": 18410,
+    "endMs": 20040,
     "text": "وَلْيُحِدَّ أَحَدُكُمْ شَفْرَتَهُ،"
    },
    {
-    "startMs": 20740,
-    "endMs": 22010,
+    "startMs": 20765,
+    "endMs": 21885,
     "text": "وَلْيُرِحْ ذَبِيحَتَهُ."
    }
   ]

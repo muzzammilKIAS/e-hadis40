@@ -165,7 +165,17 @@ class _NarratorInfoTriggerState extends State<NarratorInfoTrigger> {
                 ),
               ],
               const SizedBox(height: 16),
-              Row(
+              // `Wrap` (bukan `Row` + `Spacer`) — kad ini bersaiz tetap
+              // (380px), jadi lencana status yang panjang (cth. "Draf
+              // biografi — semakan ilmiah diperlukan") boleh melimpah ke
+              // luar bersama butang "Lihat Maklumat" jika dipaksa dalam
+              // satu baris. `Wrap` membenarkan butang jatuh ke baris
+              // baharu apabila ruang tidak cukup, tanpa mengira panjang
+              // teks lencana.
+              Wrap(
+                crossAxisAlignment: WrapCrossAlignment.center,
+                spacing: 10,
+                runSpacing: 8,
                 children: [
                   if (narrator.verified)
                     Container(
@@ -227,12 +237,16 @@ class _NarratorInfoTriggerState extends State<NarratorInfoTrigger> {
                         ],
                       ),
                     ),
-                  const Spacer(),
                   TextButton.icon(
                     onPressed: () {
                       _removeOverlay();
                       _showNarratorSheet(context);
                     },
+                    style: TextButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(horizontal: 4),
+                      minimumSize: Size.zero,
+                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    ),
                     icon: const Icon(Icons.open_in_new_rounded, size: 16),
                     label: const Text('Lihat Maklumat'),
                   ),

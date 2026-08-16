@@ -2,6 +2,7 @@ class Hadith {
   const Hadith({
     required this.id,
     this.narratorId,
+    this.narratorIds = const [],
     required this.moduleId,
     required this.number,
     required this.title,
@@ -32,6 +33,8 @@ class Hadith {
     required this.learningObjectives,
     required this.supplications,
     required this.supplementaryHadiths,
+    required this.supplementaryNarrationIntro,
+    required this.supplementaryNarrationText,
     required this.supportingExample,
     required this.copyrightNotice,
     required this.sourceNote,
@@ -39,6 +42,7 @@ class Hadith {
 
   final String id;
   final String? narratorId;
+  final List<String> narratorIds;
   final String moduleId;
   final int number;
   final String title;
@@ -69,11 +73,21 @@ class Hadith {
   final List<String> learningObjectives;
   final List<Supplication> supplications;
   final List<SupplementaryHadith> supplementaryHadiths;
+  final String supplementaryNarrationIntro;
+  final String supplementaryNarrationText;
   final SupportingExample? supportingExample;
   final String copyrightNotice;
   final String sourceNote;
 
   String get displayNumber => number.toString().padLeft(2, '0');
+
+  /// Semua perawi (backward compatible): jika `narratorIds` wujud → guna semua;
+  /// jika tidak → fallback kepada `narratorId` tunggal; jika tiada → kosong.
+  List<String> get allNarratorIds {
+    if (narratorIds.isNotEmpty) return narratorIds;
+    if (narratorId != null && narratorId!.isNotEmpty) return [narratorId!];
+    return const [];
+  }
 
   /// Dalil al-Quran: jika quranEvidences wujud → guna semua; jika tidak → fallback quranEvidence tunggal.
   List<QuranEvidence> get allQuranEvidences {
@@ -92,6 +106,7 @@ class Hadith {
     return Hadith(
       id: json['id'] as String? ?? '',
       narratorId: json['narratorId'] as String?,
+      narratorIds: _stringList(json['narratorIds']),
       moduleId: json['moduleId'] as String? ?? '',
       number: _int(json['hadithNumber']),
       title: json['title'] as String? ?? '',
@@ -136,6 +151,10 @@ class Hadith {
       supplementaryHadiths: _list(json['supplementaryHadiths'])
           .map((item) => SupplementaryHadith.fromJson(_map(item)))
           .toList(growable: false),
+      supplementaryNarrationIntro:
+          _map(json['supplementaryNarration'])['intro'] as String? ?? '',
+      supplementaryNarrationText:
+          _map(json['supplementaryNarration'])['text'] as String? ?? '',
       supportingExample: json['supportingExample'] != null
           ? SupportingExample.fromJson(_map(json['supportingExample']))
           : null,

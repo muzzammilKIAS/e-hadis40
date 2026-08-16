@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Manifestasi Iman - Hadis 15 3D</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="./lib/three.min.js"></script>
+    <script src="./lib/gsap.min.js"></script>
+    <style>
+        @import url('./lib/fonts.css');
+
+        body { margin: 0; overflow: hidden; background-color: #0f172a; font-family: 'Baloo 2', sans-serif; }
+        #canvas-container { position: absolute; top: 0; left: 0; width: 100%; height: 100vh; z-index: 1; }
+
+        .cosmic-bg {
+            background: radial-gradient(circle at 50% 50%, #1e293b 0%, #020617 100%);
+        }
+
+        .ui-layer { position: relative; z-index: 10; pointer-events: none; height: 100vh; display: flex; flex-direction: column; justify-content: space-between; padding: 2.5rem; }
+
+
+        /* =====================================================
+           RESPONSIF — telefon & tablet
+           Panel kaca dikecilkan supaya simulasi 3D (anatomi) kekal
+           jelas di tengah skrin dan tidak tertutup kotak-kotak teks.
+           Panel yang terlalu panjang boleh diskrol di dalam kotaknya
+           sendiri, jadi tiada kandungan hilang.
+           ===================================================== */
+
+        /* --- Tablet --- */
+        @media (max-width: 1024px) {
+            .ui-layer { padding: 1.15rem; padding-top: 4.25rem; }
+
+            /* Bar skrol halus — tanda jelas panel ini boleh diskrol apabila
+               kandungannya lebih panjang daripada ruang yang ada. */
+            .ui-layer .glass-panel {
+                scrollbar-width: thin;
+                scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+                overscroll-behavior: contain;
+            }
+            .ui-layer .glass-panel::-webkit-scrollbar { width: 3px; }
+            .ui-layer .glass-panel::-webkit-scrollbar-track { background: transparent; }
+            .ui-layer .glass-panel::-webkit-scrollbar-thumb {
+                background: rgba(255, 255, 255, 0.3);
+                border-radius: 3px;
+            }
+            .ui-layer .glass-panel { border-radius: 1.25rem !important; }
+            .ui-layer .p-8 { padding: 1.1rem !important; }
+            .ui-layer .p-6 { padding: 1rem !important; }
+            .ui-layer header.glass-panel { max-width: 58%; max-height: 52vh; overflow-y: auto; }
+            .ui-layer > .glass-panel:not(header) { max-width: 46%; max-height: 36vh; overflow-y: auto; }
+
+            .ui-layer .text-4xl { font-size: 2rem !important; line-height: 2.4rem !important; }
+            .ui-layer .text-3xl { font-size: 1.65rem !important; line-height: 2.1rem !important; }
+            .ui-layer .text-2xl { font-size: 1.45rem !important; line-height: 1.9rem !important; }
+            .ui-layer .text-xl  { font-size: 1.25rem !important; }
+            .ui-layer .text-lg  { font-size: 1.12rem !important; }
+            /* Teks badan — sebelum ini tertinggal pada breakpoint tablet, jadi
+               ia kekal pada saiz Tailwind lalai yang terlalu kecil. */
+            .ui-layer .text-sm  { font-size: 1rem !important; line-height: 1.45rem !important; }
+            .ui-layer .text-xs  { font-size: 0.92rem !important; line-height: 1.32rem !important; }
+            .ui-layer .text-\[12px\] { font-size: 0.86rem !important; }
+            .ui-layer .text-\[13px\] { font-size: 0.95rem !important; }
+            .ui-layer .btn-action { font-size: 1rem !important; }
+        }
+
+        /* --- Telefon --- */
+        @media (max-width: 640px) {
+            /* Panel jadi jalur penuh-lebar di atas & bawah; jalur tengah
+               dibiarkan lapang supaya model 3D kelihatan sepenuhnya.
+               padding-top memberi ruang untuk butang kembali. */
+            .ui-layer { padding: 0.6rem; padding-top: 3.9rem; }
+            .ui-layer .glass-panel { border-radius: 0.95rem !important; }
+            .ui-layer .p-8 { padding: 0.8rem !important; }
+            .ui-layer .p-6 { padding: 0.75rem !important; }
+
+            .ui-layer header.glass-panel { max-width: 100%; max-height: 34vh; overflow-y: auto; }
+            .ui-layer > .glass-panel:not(header) {
+                max-width: 100%; margin-left: 0; max-height: 45vh; overflow-y: auto;
+            }
+            /* Senarai butang dirapatkan supaya simulasi dengan banyak pilihan
+               (cth. 5 paksi nasihat) tetap muat tanpa terpotong. */
+            .ui-layer .gap-3 { gap: 0.35rem !important; }
+            .ui-layer .gap-2 { gap: 0.3rem !important; }
+
+            /* Saiz teks dikecilkan supaya panel kekal nipis */
+            .ui-layer .text-4xl { font-size: 1.6rem !important; line-height: 2rem !important; }
+            .ui-layer .text-3xl { font-size: 1.4rem !important; line-height: 1.85rem !important; }
+            .ui-layer .text-2xl { font-size: 1.25rem !important; line-height: 1.65rem !important; }
+            .ui-layer .text-xl  { font-size: 1.12rem !important; }
+            .ui-layer .text-lg  { font-size: 1.05rem !important; }
+            .ui-layer .text-sm  { font-size: 0.95rem !important; line-height: 1.4rem !important; }
+            .ui-layer .text-xs  { font-size: 0.88rem !important; line-height: 1.28rem !important; }
+            .ui-layer .text-\[12px\] { font-size: 0.84rem !important; }
+            .ui-layer .text-\[13px\] { font-size: 0.92rem !important; }
+
+            /* Jarak dalam panel dirapatkan */
+            .ui-layer .mb-4 { margin-bottom: 0.5rem !important; }
+            .ui-layer .my-4 { margin-top: 0.5rem !important; margin-bottom: 0.5rem !important; }
+            .ui-layer .mt-4 { margin-top: 0.5rem !important; }
+            .ui-layer .mt-3 { margin-top: 0.4rem !important; }
+            .ui-layer .mb-3 { margin-bottom: 0.4rem !important; }
+            .ui-layer .pt-4 { padding-top: 0.5rem !important; }
+            .ui-layer .py-2 { padding-top: 0.3rem !important; padding-bottom: 0.3rem !important; }
+
+            /* Butang kawalan lebih padat supaya muat tanpa skrol */
+            .ui-layer .btn-action { padding: 0.5rem 0.75rem !important; font-size: 0.92rem !important; }
+            .ui-layer .btn-action:hover { transform: none; }
+        }
+
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            pointer-events: auto;
+        }
+
+        .text-arabic { font-family: 'Amiri', serif; }
+
+        /* ===== Arah teks =====
+           Semua teks Rumi mengalir kiri->kanan (LTR) dan dijajar kiri.
+           Hanya teks Arab mengalir kanan->kiri (RTL) dan dijajar kanan.
+           `unicode-bidi: isolate` mengasingkan petikan Arab supaya ia tidak
+           mengganggu susunan teks Rumi di sekelilingnya. */
+        .ui-layer { direction: ltr; text-align: left; }
+        .ui-layer .text-arabic {
+            direction: rtl;
+            text-align: right;
+            unicode-bidi: isolate;
+        }
+
+        .btn-action { transition: all 0.4s ease; border: 1px solid rgba(255,255,255,0.1); }
+        .btn-action:hover { transform: translateX(-5px); background: rgba(255,255,255,0.15); }
+
+        /* Tema Warna Butang Aktif */
+        .btn-lisan.active-btn { border-color: #06b6d4; box-shadow: 0 0 20px rgba(6, 182, 212, 0.3); background: rgba(6, 182, 212, 0.15); }
+        .btn-jiran.active-btn { border-color: #10b981; box-shadow: 0 0 20px rgba(16, 185, 129, 0.3); background: rgba(16, 185, 129, 0.15); }
+        .btn-tetamu.active-btn { border-color: #f59e0b; box-shadow: 0 0 20px rgba(245, 158, 11, 0.3); background: rgba(245, 158, 11, 0.15); }
+    </style>
+</head>
+<body class="cosmic-bg">
+    <!-- Butang kembali — sebahagian daripada HTML ini sendiri (bukan lapisan
+         Flutter berasingan), supaya klik sentiasa berfungsi (tiada isu
+         platform-view iframe) dan tiada jalur/kotak tambahan di atas
+         simulasi. Menghantar mesej ke app induk melalui postMessage. -->
+    <button id="anatomi-back-btn" onclick="window.parent.postMessage('anatomi-sunnah-back', window.location.origin)" aria-label="Kembali" style="position:fixed; top:16px; left:16px; z-index:9999; width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.35); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); display:flex; align-items:center; justify-content:center; cursor:pointer; color:#fff; transition:background 0.2s; padding:0;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+    </button>
+    <style>#anatomi-back-btn:hover { background: rgba(255,255,255,0.2) !important; }</style>
+
+
+    <!-- Lapisan Antara Muka (UI) -->
+    <div class="ui-layer">
+        <header class="glass-panel p-8 rounded-3xl max-w-xl relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 rounded-bl-full opacity-15 blur-xl transition-colors duration-500 bg-cyan-500" id="ui-glow"></div>
+
+            <div class="inline-block px-4 py-1.5 rounded-full mb-3 border transition-colors duration-500 border-cyan-500/30 bg-cyan-950/80" id="ui-badge">
+                <span class="font-bold tracking-widest uppercase text-[10px] transition-colors duration-500 text-cyan-400" id="ui-badge-text">Penghayatan Hadis 40 • Hadis 15</span>
+            </div>
+
+            <h1 class="text-4xl font-light text-white mb-1">Manifestasi <span class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r transition-colors duration-500 from-cyan-400 to-teal-300" id="ui-title-highlight">Iman & Akhlak</span></h1>
+            <p class="text-arabic text-2xl mt-3 mb-4 text-right leading-relaxed transition-colors duration-500 text-cyan-200" dir="rtl" id="ui-arabic">مَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الْآخِرِ فَلْيَقُلْ خَيْرًا أَوْ لِيَصْمُتْ</p>
+
+            <blockquote class="border-l-4 pl-4 py-2 my-4 rounded-r-lg text-sm leading-relaxed text-gray-200 transition-colors duration-500 border-cyan-500 bg-cyan-900/20" id="ui-quote">
+                "Barangsiapa yang beriman kepada Allah dan hari akhirat, maka hendaklah dia berkata yang baik atau diam..."
+            </blockquote>
+
+            <p class="text-xs leading-relaxed mt-4 border-t pt-4 transition-colors duration-500 text-cyan-200/70 border-cyan-800/50" id="ui-desc">
+                <strong>Simbolisme:</strong> Lisan yang baik atau diam memancarkan gelombang ketenangan (frekuensi harmoni) daripada teras iman yang teguh.
+            </p>
+        </header>
+
+        <div class="glass-panel p-6 rounded-3xl max-w-sm ml-auto text-left">
+            <h3 class="text-white font-bold text-lg mb-1">Cabang Akhlak</h3>
+            <p class="text-gray-400 text-[11px] mb-4">Pilih cabang akhlak untuk melihat bagaimana iman dipancarkan keluar.</p>
+
+            <div class="flex flex-col gap-2">
+                <button id="btn-1" onclick="setLisan()" class="btn-action btn-lisan active-btn pointer-events-auto bg-slate-900/60 text-slate-200 py-3.5 px-5 rounded-xl text-sm font-semibold flex items-center justify-between">
+                    <span>1. Menjaga Lisan (Perkataan)</span> <span class="text-2xl">💬</span>
+                </button>
+                <button id="btn-2" onclick="setJiran()" class="btn-action btn-jiran pointer-events-auto bg-slate-900/60 text-slate-200 py-3.5 px-5 rounded-xl text-sm font-semibold flex items-center justify-between">
+                    <span>2. Memuliakan Jiran</span> <span class="text-2xl">🏡</span>
+                </button>
+                <button id="btn-3" onclick="setTetamu()" class="btn-action btn-tetamu pointer-events-auto bg-slate-900/60 text-slate-200 py-3.5 px-5 rounded-xl text-sm font-semibold flex items-center justify-between">
+                    <span>3. Memuliakan Tetamu</span> <span class="text-2xl">🤲</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enjin 3D -->
+    <div id="canvas-container"></div>
+
+    <script>
+        // --- 1. SETUP ASAS ---
+        const scene = new THREE.Scene();
+        scene.fog = new THREE.FogExp2(0x0f172a, 0.015);
+
+        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+        camera.position.set(0, 5, 45);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        document.getElementById('canvas-container').appendChild(renderer.domElement);
+
+        // --- 2. PENCAHAYAAN ---
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
+        scene.add(ambientLight);
+
+        const coreLight = new THREE.PointLight(0x06b6d4, 2.5, 60);
+        coreLight.position.set(0, 0, 0);
+        scene.add(coreLight);
+
+        // --- 3. MODEL 3D (TERAS IMAN & 3 MANIFESTASI) ---
+
+        // A. Teras Iman (Sentiasa Ada di Tengah)
+        const coreGeo = new THREE.DodecahedronGeometry(3.5, 1);
+        const coreMat = new THREE.MeshPhysicalMaterial({
+            color: 0xffffff, emissive: 0x0891b2, emissiveIntensity: 0.8,
+            roughness: 0.1, metalness: 0.1, transmission: 0.9, thickness: 2,
+            clearcoat: 1.0, transparent: true, opacity: 0.95
+        });
+        const coreMesh = new THREE.Mesh(coreGeo, coreMat);
+        scene.add(coreMesh);
+
+        // B. Elemen 1: Lisan (Gelombang Bunyi / Ripples)
+        const lisanGroup = new THREE.Group();
+        const ripples = [];
+        const ringGeo = new THREE.TorusGeometry(1, 0.05, 16, 64);
+        const ringMat = new THREE.MeshBasicMaterial({ color: 0x22d3ee, transparent: true, opacity: 0 });
+
+        for(let i=0; i<3; i++) {
+            const ring = new THREE.Mesh(ringGeo, ringMat.clone());
+            ring.userData = { scaleOffset: i * 3 };
+            lisanGroup.add(ring);
+            ripples.push(ring);
+        }
+        scene.add(lisanGroup);
+
+        // C. Elemen 2: Jiran (Satelit Orbit berdekatan)
+        const jiranGroup = new THREE.Group();
+        const neighbors = [];
+        const nodeGeo = new THREE.SphereGeometry(0.8, 16, 16);
+        const nodeMat = new THREE.MeshPhysicalMaterial({
+            color: 0x34d399, emissive: 0x059669, transparent: true, opacity: 0, roughness: 0.2
+        });
+
+        // 4 Jiran di sekeliling
+        for(let i=0; i<4; i++) {
+            const node = new THREE.Mesh(nodeGeo, nodeMat.clone());
+            const angle = (i / 4) * Math.PI * 2;
+            node.position.set(Math.cos(angle) * 7, 0, Math.sin(angle) * 7);
+
+            // Tali pengikat ukhuwah
+            const linkGeo = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(0,0,0), node.position]);
+            const linkMat = new THREE.LineBasicMaterial({ color: 0x10b981, transparent: true, opacity: 0 });
+            const link = new THREE.Line(linkGeo, linkMat);
+
+            jiranGroup.add(node);
+            jiranGroup.add(link);
+            neighbors.push({ mesh: node, link: link, angle: angle });
+        }
+        scene.add(jiranGroup);
+
+        // D. Elemen 3: Tetamu (Aura Rahmat yang mengembang dan memayungi)
+        const tetamuAuraGeo = new THREE.SphereGeometry(9, 32, 32);
+        const tetamuAuraMat = new THREE.MeshPhysicalMaterial({
+            color: 0xfcd34d, emissive: 0xd97706, emissiveIntensity: 0.2,
+            transparent: true, opacity: 0, transmission: 0.8, roughness: 0.2,
+            side: THREE.BackSide // Menutupi dari luar ke dalam
+        });
+        const tetamuAura = new THREE.Mesh(tetamuAuraGeo, tetamuAuraMat);
+        scene.add(tetamuAura);
+
+        // Zarah Latar Belakang (Kosmik/Nur)
+        const particlesCount = 300;
+        const particlesGeo = new THREE.BufferGeometry();
+        const posArray = new Float32Array(particlesCount * 3);
+        for(let i = 0; i < particlesCount * 3; i++) posArray[i] = (Math.random() - 0.5) * 50;
+        particlesGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+        const particlesMat = new THREE.PointsMaterial({ size: 0.15, color: 0xffffff, transparent: true, opacity: 0.5 });
+        const particlesMesh = new THREE.Points(particlesGeo, particlesMat);
+        scene.add(particlesMesh);
+
+        // --- 4. LOGIK ANIMASI GLOBAL ---
+        let clock = new THREE.Clock();
+        let currentState = 1;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            const time = clock.getElapsedTime();
+
+            // Teras sentiasa berputar dan berdegup
+            const corePulse = 1 + Math.sin(time * 2) * 0.05;
+            coreMesh.scale.set(corePulse, corePulse, corePulse);
+            coreMesh.rotation.y = time * 0.3;
+            coreMesh.rotation.z = Math.sin(time * 0.5) * 0.1;
+
+            if (currentState === 1) {
+                // Animasi Lisan (Gelombang membesar & hilang)
+                ripples.forEach((ring) => {
+                    let s = ((time * 3 + ring.userData.scaleOffset) % 9);
+                    ring.scale.set(s + 3, s + 3, s + 3);
+                    // Pudar perlahan-lahan bila membesar
+                    ring.material.opacity = Math.max(0, 0.8 - (s / 9));
+                    ring.lookAt(camera.position); // Sentiasa menghadap kamera
+                });
+            }
+            else if (currentState === 2) {
+                // Animasi Jiran (Orbit Harmoni)
+                jiranGroup.rotation.y = time * 0.5;
+                jiranGroup.rotation.z = Math.sin(time * 0.5) * 0.1;
+
+                neighbors.forEach((n, i) => {
+                    n.mesh.position.y = Math.sin(time * 3 + i) * 1.5; // Terapung sikit
+                    n.link.geometry.attributes.position.setY(1, n.mesh.position.y); // Update tali
+                    n.link.geometry.attributes.position.needsUpdate = true;
+                });
+            }
+            else if (currentState === 3) {
+                // Animasi Tetamu (Aura Rahmat Berdegup)
+                const auraPulse = 1 + Math.sin(time * 3) * 0.05;
+                tetamuAura.scale.set(auraPulse, auraPulse, auraPulse);
+                tetamuAura.rotation.y = time * 0.1;
+            }
+
+            // Putaran zarah kosmik
+            particlesMesh.rotation.y = time * 0.05;
+
+            // Kamera beralun lembut
+            camera.position.x = Math.sin(time * 0.1) * 2;
+            camera.lookAt(0, 0, 0);
+
+            renderer.render(scene, camera);
+        }
+
+        // --- 5. FUNGSI INTERAKSI (GSAP & UI) ---
+        function updateUI(btnId, titleClass, badgeBgClass, badgeTextClass, quoteBorderClass, quoteBgClass, glowClass, arabicText, quoteText, descText, descColorClass) {
+            for(let i=1; i<=3; i++) document.getElementById('btn-'+i).classList.remove('active-btn');
+            document.getElementById('btn-'+btnId).classList.add('active-btn');
+
+            document.getElementById('ui-title-highlight').className = `font-extrabold text-transparent bg-clip-text bg-gradient-to-r ${titleClass} transition-colors duration-500`;
+            document.getElementById('ui-badge').className = `inline-block px-4 py-1.5 rounded-full mb-3 border border-white/10 ${badgeBgClass} transition-colors duration-500`;
+            document.getElementById('ui-badge-text').className = `font-bold tracking-widest uppercase text-[10px] ${badgeTextClass} transition-colors duration-500`;
+            document.getElementById('ui-quote').className = `border-l-4 ${quoteBorderClass} pl-4 py-2 my-4 ${quoteBgClass} rounded-r-lg text-sm leading-relaxed text-gray-200 transition-colors duration-500`;
+            document.getElementById('ui-glow').className = `absolute top-0 right-0 w-32 h-32 rounded-bl-full opacity-15 blur-xl transition-colors duration-500 ${glowClass}`;
+
+            document.getElementById('ui-arabic').innerText = arabicText;
+            document.getElementById('ui-quote').innerText = quoteText;
+            document.getElementById('ui-desc').innerHTML = `<strong>Simbolisme:</strong> ${descText}`;
+            document.getElementById('ui-desc').className = `text-xs leading-relaxed mt-4 border-t pt-4 transition-colors duration-500 border-white/20 ${descColorClass}`;
+        }
+
+        // Reset semua elemen visual
+        function resetVisuals() {
+            ripples.forEach(r => gsap.to(r.material, { opacity: 0, duration: 0.5 }));
+            neighbors.forEach(n => {
+                gsap.to(n.mesh.material, { opacity: 0, duration: 0.5 });
+                gsap.to(n.link.material, { opacity: 0, duration: 0.5 });
+            });
+            gsap.to(tetamuAuraMat, { opacity: 0, duration: 0.5 });
+        }
+
+        function setLisan() {
+            if(currentState === 1) return;
+            currentState = 1;
+            resetVisuals();
+
+            updateUI(1,
+                "from-cyan-400 to-teal-300", "bg-cyan-950/80", "text-cyan-400",
+                "border-cyan-500", "bg-cyan-900/20", "bg-cyan-500",
+                "مَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الْآخِرِ فَلْيَقُلْ خَيْرًا أَوْ لِيَصْمُتْ",
+                '"Barangsiapa yang beriman kepada Allah dan hari akhirat, maka hendaklah dia berkata yang baik atau diam..."',
+                "Lisan yang baik atau diam memancarkan gelombang ketenangan (frekuensi harmoni) daripada teras iman yang teguh ke sekelilingnya.",
+                "text-cyan-200/70"
+            );
+
+            // Teras Biru/Cyan
+            gsap.to(coreMat.emissive, { r: 0.03, g: 0.57, b: 0.7, duration: 1.5 });
+            gsap.to(coreLight.color, { r: 0.02, g: 0.71, b: 0.83, duration: 1.5 });
+
+            // Gelombang Lisan akan diaktifkan secara automatik melalui fungsi animate()
+            // kerana opacity bergantung pada math, kita biarkan logic render loop ambil alih.
+
+            gsap.to(particlesMat.color, { r: 0.5, g: 0.9, b: 1.0, duration: 1.5 });
+        }
+
+        function setJiran() {
+            if(currentState === 2) return;
+            currentState = 2;
+            resetVisuals();
+
+            updateUI(2,
+                "from-emerald-400 to-green-300", "bg-emerald-950/80", "text-emerald-400",
+                "border-emerald-500", "bg-emerald-900/20", "bg-emerald-500",
+                "وَمَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الْآخِرِ فَلْيُكْرِمْ جَارَهُ",
+                '"...Barangsiapa yang beriman kepada Allah dan hari akhirat, maka hendaklah dia memuliakan jirannya..."',
+                "Memuliakan jiran membentuk ikatan ukhuwah komuniti setempat. Satelit kecil mengorbit secara harmoni, melambangkan perlindungan dan saling melengkapi.",
+                "text-emerald-200/70"
+            );
+
+            // Teras Hijau Zamrud
+            gsap.to(coreMat.emissive, { r: 0.02, g: 0.59, b: 0.41, duration: 1.5 });
+            gsap.to(coreLight.color, { r: 0.06, g: 0.72, b: 0.5, duration: 1.5 });
+
+            // Munculkan satelit Jiran
+            neighbors.forEach((n, i) => {
+                gsap.to(n.mesh.material, { opacity: 1, duration: 1.5, delay: i * 0.1 });
+                gsap.to(n.link.material, { opacity: 0.6, duration: 1.5, delay: i * 0.1 });
+            });
+
+            gsap.to(particlesMat.color, { r: 0.6, g: 1.0, b: 0.8, duration: 1.5 });
+        }
+
+        function setTetamu() {
+            if(currentState === 3) return;
+            currentState = 3;
+            resetVisuals();
+
+            updateUI(3,
+                "from-amber-400 to-yellow-400", "bg-amber-950/80", "text-amber-400",
+                "border-amber-500", "bg-amber-900/20", "bg-amber-500",
+                "وَمَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الْآخِرِ فَلْيُكْرِمْ ضَيْفَهُ",
+                '"...Barangsiapa yang beriman kepada Allah dan hari akhirat, maka hendaklah dia memuliakan tetamunya."',
+                "Menyambut tetamu menghasilkan aura kehangatan (rahmat) yang mengembang, meraikan dan melindungi sesiapa sahaja yang datang berkunjung.",
+                "text-amber-200/70"
+            );
+
+            // Teras Emas/Kuning
+            gsap.to(coreMat.emissive, { r: 0.85, g: 0.46, b: 0.02, duration: 1.5 });
+            gsap.to(coreLight.color, { r: 0.96, g: 0.62, b: 0.04, duration: 1.5 });
+
+            // Besarkan aura tetamu
+            gsap.to(tetamuAuraMat, { opacity: 0.4, duration: 1.5 });
+            gsap.fromTo(tetamuAura.scale, {x:0.1, y:0.1, z:0.1}, {x:1, y:1, z:1, duration: 1.5, ease: "back.out(1.2)"});
+
+            gsap.to(particlesMat.color, { r: 1.0, g: 0.9, b: 0.5, duration: 1.5 });
+        }
+
+        // --- RESPONSIF: pastikan model 3D muat & jelas pada telefon/tablet ---
+        // Hanya FOV yang dilaraskan (bukan camera.position), supaya animasi
+        // kamera khusus setiap simulasi tidak terjejas.
+        const __BASE_FOV = camera.fov;
+        const __REF_ASPECT = 16 / 9;
+
+        function applyResponsiveView() {
+            const w = window.innerWidth;
+            const h = window.innerHeight;
+            const aspect = w / h;
+
+            camera.aspect = aspect;
+
+            // Kekalkan medan pandang MENDATAR seperti skrin lebar: apabila
+            // skrin menjadi sempit & tinggi, luaskan FOV menegak supaya
+            // model tidak terpotong di kiri/kanan.
+            let fov = __BASE_FOV;
+            if (aspect < __REF_ASPECT) {
+                const vRad = THREE.MathUtils.degToRad(__BASE_FOV);
+                const hRad = 2 * Math.atan(Math.tan(vRad / 2) * __REF_ASPECT);
+                fov = THREE.MathUtils.radToDeg(2 * Math.atan(Math.tan(hRad / 2) / aspect));
+            }
+
+            // Undur sedikit lagi supaya model duduk dalam jalur tengah yang
+            // lapang, tidak tersembunyi di belakang panel atas/bawah.
+            if (w <= 640) fov *= 1.3;
+            else if (w <= 1024) fov *= 1.12;
+
+            camera.fov = Math.min(fov, 100);
+            camera.updateProjectionMatrix();
+            renderer.setSize(w, h);
+        }
+
+        window.addEventListener('resize', applyResponsiveView);
+        applyResponsiveView();
+
+        // Initialize state visually as Lisan starts hidden in reset
+        gsap.delayedCall(0.1, () => {
+            currentState = 1; // Force 1
+        });
+        animate();
+    </script>
+</body>
+</html>

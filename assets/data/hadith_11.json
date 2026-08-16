@@ -1,286 +1,289 @@
 {
-  "id": "hadith_11",
-  "moduleId": "module_03",
-  "hadithNumber": 11,
-  "title": "Meninggalkan Keraguan adalah Ciri Warak",
-  "subtitle": "Mendahulukan keyakinan dan meninggalkan perkara yang meragukan.",
-  "theme": "Keyakinan, warak, ilmu dan meninggalkan keraguan",
-  "arabicText": "عَنْ أَبِي مُحَمَّدٍ الْحَسَنِ بْنِ عَلِيِّ بْنِ أَبِي طَالِبٍ سِبْطِ رَسُولِ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ وَرَيْحَانَتِهِ رَضِيَ اللَّهُ عَنْهُمَا قَالَ: حَفِظْتُ مِنْ رَسُولِ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ: دَعْ مَا يَرِيبُكَ إِلَى مَا لَا يَرِيبُكَ.",
-  "audioTranscriptText": "عَنْ أَبِي مُحَمَّدٍ الْحَسَنِ بْنِ عَلِيِّ بْنِ أَبِي طَالِبٍ سِبْطِ رَسُولِ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ وَرَيْحَانَتِهِ رَضِيَ اللَّهُ عَنْهُمَا قَالَ: حَفِظْتُ مِنْ رَسُولِ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ: دَعْ مَا يَرِيبُكَ إِلَى مَا لَا يَرِيبُكَ.",
-  "translationMalay": "Daripada Saiyidina Abu Muhammad al-Hasan bin Ali bin Abu Talib-cucunda Rasulullah SAW dan kesayangan baginda SAW, beliau berkata, aku menghafaz sabda Rasulullah SAW, “Tinggalkanlah perkara yang meragukanmu dan ambillah perkara yang tidak meragukanmu.”",
-  "narratorId": "al_hasan_ibn_ali",
-  "narrator": {
-    "id": "al_hasan_ibn_ali",
-    "name": "al-Hasan bin Ali r.a.",
-    "fullName": "Abu Muhammad al-Hasan bin Ali bin Abu Talib r.a.",
-    "title": "Perawi hadis",
-    "shortBiography": "",
-    "tags": [],
-    "source": "Modul KPM memaparkan QR 'Kenali Perawi' tetapi tidak memuatkan teks biografi pada halaman hadis ini.",
-    "verified": false,
-    "detailedProfilePolicy": "skip_until_verified_kpm_content"
+ "id": "hadith_11",
+ "moduleId": "module_03",
+ "hadithNumber": 11,
+ "title": "Meninggalkan Keraguan adalah Ciri Warak",
+ "subtitle": "Mendahulukan keyakinan dan meninggalkan perkara yang meragukan.",
+ "theme": "Keyakinan, warak, ilmu dan meninggalkan keraguan",
+ "arabicText": "عَنْ أَبِي مُحَمَّدٍ الْحَسَنِ بْنِ عَلِيِّ بْنِ أَبِي طَالِبٍ سِبْطِ رَسُولِ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ وَرَيْحَانَتِهِ رَضِيَ اللَّهُ عَنْهُمَا قَالَ: حَفِظْتُ مِنْ رَسُولِ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ: دَعْ مَا يَرِيبُكَ إِلَى مَا لَا يَرِيبُكَ.",
+ "audioTranscriptText": "عَنْ أَبِي مُحَمَّدٍ الْحَسَنِ بْنِ عَلِيِّ بْنِ أَبِي طَالِبٍ سِبْطِ رَسُولِ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ وَرَيْحَانَتِهِ رَضِيَ اللَّهُ عَنْهُمَا قَالَ: حَفِظْتُ مِنْ رَسُولِ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ: دَعْ مَا يَرِيبُكَ إِلَى مَا لَا يَرِيبُكَ.",
+ "translationMalay": "Daripada Saiyidina Abu Muhammad al-Hasan bin Ali bin Abu Talib-cucunda Rasulullah SAW dan kesayangan baginda SAW, beliau berkata, aku menghafaz sabda Rasulullah SAW, “Tinggalkanlah perkara yang meragukanmu dan ambillah perkara yang tidak meragukanmu.”",
+ "narratorId": "al_hasan_ibn_ali",
+ "narrator": {
+  "id": "al_hasan_ibn_ali",
+  "name": "al-Hasan bin Ali r.a.",
+  "fullName": "Abu Muhammad al-Hasan bin Ali bin Abu Talib r.a.",
+  "title": "Cucu Rasulullah SAW dan Perawi Hadis",
+  "shortBiography": "al-Hasan bin Ali r.a. ialah cucu kesayangan Rasulullah SAW, putera Saidina Ali bin Abi Talib dan Saidatina Fatimah al-Zahra r.a. Baginda SAW pernah bersabda bahawa al-Hasan dan adiknya al-Husain adalah penghulu pemuda ahli syurga. Beliau dikenali dengan sifat pendamai kerana menyerahkan jawatan khalifah kepada Mu‘awiyah bin Abi Sufyan demi menjaga perpaduan umat Islam, dan wafat di Madinah.",
+  "tags": [
+   "Sahabat Rasulullah SAW",
+   "Cucu Rasulullah SAW",
+   "Ahli Bait"
+  ],
+  "source": "Biodata ringkas ini TIDAK terdapat dalam Modul Penghayatan Hadis 40 Imam Nawawi KPM. Disumberkan daripada bahan biografi sahabat yang mapan (cth. rujukan berasaskan al-Isabah fi Tamyiz al-Sahabah oleh Ibn Hajar al-'Asqalani dan Siyar A'lam al-Nubala' oleh al-Dhahabi, melalui portal rujukan Islam yang menyusun semula kandungan kitab tersebut) bagi melengkapkan pemahaman pelajar tentang perawi hadis.",
+  "verified": true
+ },
+ "referenceArabic": "رَوَاهُ التِّرْمِذِيُّ وَالنَّسَائِيُّ، وَقَالَ التِّرْمِذِيُّ: حَدِيثٌ حَسَنٌ صَحِيحٌ.",
+ "reference": "Hadis ini diriwayatkan oleh Imam al-Tirmizi dan Imam al-Nasa’i. Imam al-Tirmizi berkata, “Hadis ini hasan sahih.”",
+ "learningObjectives": [],
+ "explanations": [
+  "Hadis ini menjelaskan kepada kita supaya meninggalkan semua perbuatan yang meragukan.",
+  "Perbuatan yang meragukan ialah perkara yang tidak menyenangkan perasaan, rasa sangsi, samar-samar dan kabur terutama dalam perkara ibadah dan akidah.",
+  "Keyakinan berteraskan kefahaman ilmu merupakan jalan untuk menghindarkan diri daripada syak dan menjadi faktor pemeliharaan agama.",
+  "Peranan sifat yakin yang didasari kefahaman ilmu merupakan elemen utama dalam hukum-hakam ibadah. Hal ini menjadikan seseorang mampu menghilangkan syak atau keraguan dalam diri.",
+  "Ulama menetapkan kaedah mengutamakan keyakinan dan meninggalkan keraguan.",
+  "Allah SWT juga telah menegaskan dengan memperingatkan kita tentang bisikan hati melalui firman-Nya dalam Surah Qaf ayat 16."
+ ],
+ "quranEvidence": {
+  "surah": "Qaf",
+  "verse": 16,
+  "verseEnd": 16,
+  "arabicText": "وَلَقَدْ خَلَقْنَا الْإِنْسَانَ وَنَعْلَمُ مَا تُوَسْوِسُ بِهِ نَفْسُهُ ...",
+  "translationMalay": "Dan demi sesungguhnya, Kami telah mencipta manusia dan Kami sedia mengetahui apa yang dibisikkan oleh hatinya...",
+  "displayAlignment": "center",
+  "moduleDisplay": "module_excerpt"
+ },
+ "lessons": [
+  "Hadis ini mengingatkan setiap individu mengenai keperluan membina kehidupan yang baik dengan menjauhi segala perkara yang meragukan diri.",
+  "Sekiranya bertembung antara keyakinan dengan syak, maka seseorang seharusnya berpegang pada perkara yang diyakini olehnya.",
+  "Meninggalkan sesuatu yang meragukan kerana ingin menjaga maruah diri dan kehormatan agama adalah sifat yang terpuji."
+ ],
+ "appreciation": [
+  "Murid hendaklah sentiasa berhati-hati terhadap masalah syak dan keraguan dalam diri.",
+  "Murid mesti mendapatkan nasihat daripada guru yang boleh membimbing supaya dapat menghindarkan diri daripada perkara syak dan keraguan.",
+  "Murid wajib menguasai ilmu terutama perkara yang melibatkan ibadah bagi mendapatkan keyakinan semasa melaksanakannya.",
+  "Murid melazimi diri melakukan perkara yang baik untuk menghilangkan rasa syak."
+ ],
+ "focusValues": [
+  "Keyakinan",
+  "Hormat"
+ ],
+ "suggestedActivities": [
+  {
+   "title": "Sudut info",
+   "description": ""
   },
-  "referenceArabic": "رَوَاهُ التِّرْمِذِيُّ وَالنَّسَائِيُّ، وَقَالَ التِّرْمِذِيُّ: حَدِيثٌ حَسَنٌ صَحِيحٌ.",
-  "reference": "Hadis ini diriwayatkan oleh Imam al-Tirmizi dan Imam al-Nasa’i. Imam al-Tirmizi berkata, “Hadis ini hasan sahih.”",
-  "learningObjectives": [],
-  "explanations": [
-    "Hadis ini menjelaskan kepada kita supaya meninggalkan semua perbuatan yang meragukan.",
-    "Perbuatan yang meragukan ialah perkara yang tidak menyenangkan perasaan, rasa sangsi, samar-samar dan kabur terutama dalam perkara ibadah dan akidah.",
-    "Keyakinan berteraskan kefahaman ilmu merupakan jalan untuk menghindarkan diri daripada syak dan menjadi faktor pemeliharaan agama.",
-    "Peranan sifat yakin yang didasari kefahaman ilmu merupakan elemen utama dalam hukum-hakam ibadah. Hal ini menjadikan seseorang mampu menghilangkan syak atau keraguan dalam diri.",
-    "Ulama menetapkan kaedah mengutamakan keyakinan dan meninggalkan keraguan.",
-    "Allah SWT juga telah menegaskan dengan memperingatkan kita tentang bisikan hati melalui firman-Nya dalam Surah Qaf ayat 16."
-  ],
-  "quranEvidence": {
-    "surah": "Qaf",
-    "verse": 16,
-    "verseEnd": 16,
-    "arabicText": "وَلَقَدْ خَلَقْنَا الْإِنْسَانَ وَنَعْلَمُ مَا تُوَسْوِسُ بِهِ نَفْسُهُ ...",
-    "translationMalay": "Dan demi sesungguhnya, Kami telah mencipta manusia dan Kami sedia mengetahui apa yang dibisikkan oleh hatinya...",
-    "displayAlignment": "center",
-    "moduleDisplay": "module_excerpt"
+  {
+   "title": "Halaqah ilmu",
+   "description": ""
   },
-  "lessons": [
-    "Hadis ini mengingatkan setiap individu mengenai keperluan membina kehidupan yang baik dengan menjauhi segala perkara yang meragukan diri.",
-    "Sekiranya bertembung antara keyakinan dengan syak, maka seseorang seharusnya berpegang pada perkara yang diyakini olehnya.",
-    "Meninggalkan sesuatu yang meragukan kerana ingin menjaga maruah diri dan kehormatan agama adalah sifat yang terpuji."
-  ],
-  "appreciation": [
-    "Murid hendaklah sentiasa berhati-hati terhadap masalah syak dan keraguan dalam diri.",
-    "Murid mesti mendapatkan nasihat daripada guru yang boleh membimbing supaya dapat menghindarkan diri daripada perkara syak dan keraguan.",
-    "Murid wajib menguasai ilmu terutama perkara yang melibatkan ibadah bagi mendapatkan keyakinan semasa melaksanakannya.",
-    "Murid melazimi diri melakukan perkara yang baik untuk menghilangkan rasa syak."
-  ],
-  "focusValues": [
-    "Keyakinan",
-    "Hormat"
-  ],
-  "suggestedActivities": [
-    {
-      "title": "Sudut info",
-      "description": ""
-    },
-    {
-      "title": "Halaqah ilmu",
-      "description": ""
-    },
-    {
-      "title": "Pembelajaran berasaskan projek",
-      "description": ""
-    }
-  ],
-  "reflectionQuestions": [],
-  "quiz": [
-    {
-      "id": "h11_q01",
-      "question": "Apakah tajuk Hadis 11?",
-      "options": [
-        "Meninggalkan Keraguan adalah Ciri Warak",
-        "Rezeki Halal Asas Penerimaan Doa",
-        "Larangan Pertanyaan dan Pertikaian Melampau",
-        "Amalan yang Tertolak"
-      ],
-      "correctAnswerIndex": 0,
-      "explanation": "Tajuk Hadis 11 ialah Meninggalkan Keraguan adalah Ciri Warak."
-    },
-    {
-      "id": "h11_q02",
-      "question": "Siapakah perawi Hadis 11?",
-      "options": [
-        "Abu Muhammad al-Hasan bin Ali bin Abu Talib r.a.",
-        "Abu Hurairah r.a.",
-        "Tamim al-Dari r.a.",
-        "Abdullah bin Umar r.a."
-      ],
-      "correctAnswerIndex": 0,
-      "explanation": "Hadis 11 diriwayatkan daripada al-Hasan bin Ali bin Abu Talib r.a."
-    },
-    {
-      "id": "h11_q03",
-      "question": "Apakah maksud utama sabda دَعْ مَا يَرِيبُكَ إِلَى مَا لَا يَرِيبُكَ?",
-      "options": [
-        "Tinggalkan perkara yang meragukan dan ambil perkara yang tidak meragukan",
-        "Tinggalkan semua urusan dunia",
-        "Jangan bertanya kepada guru",
-        "Lakukan semua perkara yang samar"
-      ],
-      "correctAnswerIndex": 0,
-      "explanation": "Hadis mengarahkan meninggalkan perkara yang meragukan dan memilih yang tidak meragukan."
-    },
-    {
-      "id": "h11_q04",
-      "question": "Bagaimanakah modul menerangkan perkara yang meragukan?",
-      "options": [
-        "Perkara yang menimbulkan rasa sangsi, samar-samar dan kabur",
-        "Perkara yang pasti",
-        "Perkara yang sentiasa wajib",
-        "Perkara yang tidak berkaitan ilmu"
-      ],
-      "correctAnswerIndex": 0,
-      "explanation": "Modul menerangkan keraguan sebagai rasa sangsi, samar-samar dan kabur terutama dalam ibadah dan akidah."
-    },
-    {
-      "id": "h11_q05",
-      "question": "Apakah yang perlu diutamakan apabila keyakinan bertembung dengan syak?",
-      "options": [
-        "Perkara yang diyakini",
-        "Syak",
-        "Andaian orang lain",
-        "Perasaan semata-mata"
-      ],
-      "correctAnswerIndex": 0,
-      "explanation": "Pengajaran modul menegaskan berpegang pada perkara yang diyakini."
-    },
-    {
-      "id": "h11_q06",
-      "question": "Apakah panduan hadis Imam Muslim dalam huraian tentang keraguan ketika beribadah?",
-      "options": [
-        "Jangan keluar sehingga mendengar bunyi atau terhidu bau",
-        "Terus batalkan ibadah",
-        "Ulang semua ibadah",
-        "Ikut sangkaan"
-      ],
-      "correctAnswerIndex": 0,
-      "explanation": "Huraian modul memetik hadis agar tidak keluar sehingga ada tanda yang meyakinkan."
-    },
-    {
-      "id": "h11_q07",
-      "question": "Surah dan ayat apakah yang dirujuk dalam huraian Hadis 11?",
-      "options": [
-        "Surah Qaf ayat 16",
-        "Surah al-Ma’idah ayat 101",
-        "Surah al-Baqarah ayat 172",
-        "Surah al-Nisa’ ayat 59"
-      ],
-      "correctAnswerIndex": 0,
-      "explanation": "Modul merujuk Surah Qaf ayat 16."
-    },
-    {
-      "id": "h11_q08",
-      "question": "Apakah fokus nilai Hadis 11?",
-      "options": [
-        "Keyakinan dan Hormat",
-        "Ihsan dan Daya Cipta",
-        "Hormat dan Kesejahteraan",
-        "Ikhlas dan Ihsan"
-      ],
-      "correctAnswerIndex": 0,
-      "explanation": "Fokus nilai Hadis 11 ialah Keyakinan dan Hormat."
-    },
-    {
-      "id": "h11_q09",
-      "question": "Yang manakah cadangan aktiviti Hadis 11?",
-      "options": [
-        "Pembelajaran berasaskan projek",
-        "Forum hijrah",
-        "Kursus sembelihan",
-        "Khidmat masyarakat sahaja"
-      ],
-      "correctAnswerIndex": 0,
-      "explanation": "Pembelajaran berasaskan projek ialah antara aktiviti Hadis 11."
-    },
-    {
-      "id": "h11_q10",
-      "question": "Apakah yang perlu dilakukan untuk memperoleh keyakinan dalam perkara ibadah menurut penghayatan?",
-      "options": [
-        "Menguasai ilmu",
-        "Mengikut sangkaan",
-        "Mengelakkan guru",
-        "Mengabaikan keraguan tanpa belajar"
-      ],
-      "correctAnswerIndex": 0,
-      "explanation": "Penghayatan menekankan penguasaan ilmu terutama perkara yang melibatkan ibadah."
-    }
-  ],
-  "progressRules": {
-    "completeWhen": [
-      "Pengguna telah membuka teks hadis",
-      "Pengguna telah memainkan atau membuka bahagian audio",
-      "Pengguna telah membaca maksud hadis",
-      "Pengguna telah melihat huraian dan dalil al-Quran",
-      "Pengguna telah melihat pengajaran dan penghayatan",
-      "Pengguna telah menjawab kuiz"
-    ],
-    "passingScorePercent": 80
+  {
+   "title": "Pembelajaran berasaskan projek",
+   "description": ""
+  }
+ ],
+ "reflectionQuestions": [],
+ "quiz": [
+  {
+   "id": "h11_q01",
+   "question": "Apakah tajuk Hadis 11?",
+   "options": [
+    "Meninggalkan Keraguan adalah Ciri Warak",
+    "Rezeki Halal Asas Penerimaan Doa",
+    "Larangan Pertanyaan dan Pertikaian Melampau",
+    "Amalan yang Tertolak"
+   ],
+   "correctAnswerIndex": 0,
+   "explanation": "Tajuk Hadis 11 ialah Meninggalkan Keraguan adalah Ciri Warak."
   },
-  "audioTranscriptNote": "Teks audio menggunakan badan hadis KPM sahaja. Rujukan hadis dipisahkan sebagai teks statik dan tidak dimasukkan ke timedSegments. Timing ialah alignment awal peringkat frasa daripada jeda waveform rakaman terbaru; Kimi K3 wajib mendengar dan fine-tune sebelum menganggapnya final.",
-  "audio": {
-    "arabicRecitation": "assets/audio/hadith_11.mp3",
-    "translationMalay": "",
-    "durationMs": 19824,
-    "syncOffsetMs": 0,
-    "timingMethod": "latest_audio_waveform_pause_phrase_alignment",
-    "wordHighlightMode": "phraseOnly",
-    "timingReviewNote": "Phrase-level sahaja. Jangan guna proportional character/word timing. Semak audio sebenar dan laras sempadan frasa jika perlu.",
-    "timedSegments": [
-      {
-        "startMs": 100,
-        "endMs": 4114,
-        "text": "عَنْ أَبِي مُحَمَّدٍ الْحَسَنِ بْنِ عَلِيِّ بْنِ أَبِي طَالِبٍ"
-      },
-      {
-        "startMs": 4561,
-        "endMs": 8971,
-        "text": "سِبْطِ رَسُولِ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ وَرَيْحَانَتِهِ"
-      },
-      {
-        "startMs": 9284,
-        "endMs": 11636,
-        "text": "رَضِيَ اللَّهُ عَنْهُمَا قَالَ:"
-      },
-      {
-        "startMs": 11962,
-        "endMs": 15715,
-        "text": "حَفِظْتُ مِنْ رَسُولِ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ:"
-      },
-      {
-        "startMs": 16581,
-        "endMs": 17386,
-        "text": "دَعْ مَا يَرِيبُكَ"
-      },
-      {
-        "startMs": 18007,
-        "endMs": 19340,
-        "text": "إِلَى مَا لَا يَرِيبُكَ."
-      }
-    ]
+  {
+   "id": "h11_q02",
+   "question": "Siapakah perawi Hadis 11?",
+   "options": [
+    "Abu Muhammad al-Hasan bin Ali bin Abu Talib r.a.",
+    "Abu Hurairah r.a.",
+    "Tamim al-Dari r.a.",
+    "Abdullah bin Umar r.a."
+   ],
+   "correctAnswerIndex": 0,
+   "explanation": "Hadis 11 diriwayatkan daripada al-Hasan bin Ali bin Abu Talib r.a."
   },
-  "supplications": [],
-  "supplementaryHadiths": [
-    {
-      "title": "Hadis berkaitan keyakinan dan keraguan",
-      "arabicText": "إِذَا وَجَدَ أَحَدُكُمْ فِي بَطْنِهِ شَيْئًا فَأَشْكَلَ عَلَيْهِ أَخَرَجَ مِنْهُ شَيْءٌ أَمْ لَا، فَلَا يَخْرُجَنَّ مِنَ الْمَسْجِدِ حَتَّى يَسْمَعَ صَوْتًا، أَوْ يَجِدَ رِيحًا.",
-      "translationMalay": "Jika seseorang kamu merasai sesuatu di dalam perutnya, maka timbul kemusykilan pada dirinya sama ada angin keluar atau tidak, maka janganlah ia keluar daripada masjid sehingga seseorang mendengar bunyi kentut itu atau terhidu baunya.",
-      "reference": "Riwayat Imam Muslim",
-      "sourceScope": "Dipaparkan dalam huraian Hadis 11 modul KPM."
-    }
+  {
+   "id": "h11_q03",
+   "question": "Apakah maksud utama sabda دَعْ مَا يَرِيبُكَ إِلَى مَا لَا يَرِيبُكَ?",
+   "options": [
+    "Tinggalkan perkara yang meragukan dan ambil perkara yang tidak meragukan",
+    "Tinggalkan semua urusan dunia",
+    "Jangan bertanya kepada guru",
+    "Lakukan semua perkara yang samar"
+   ],
+   "correctAnswerIndex": 0,
+   "explanation": "Hadis mengarahkan meninggalkan perkara yang meragukan dan memilih yang tidak meragukan."
+  },
+  {
+   "id": "h11_q04",
+   "question": "Bagaimanakah modul menerangkan perkara yang meragukan?",
+   "options": [
+    "Perkara yang menimbulkan rasa sangsi, samar-samar dan kabur",
+    "Perkara yang pasti",
+    "Perkara yang sentiasa wajib",
+    "Perkara yang tidak berkaitan ilmu"
+   ],
+   "correctAnswerIndex": 0,
+   "explanation": "Modul menerangkan keraguan sebagai rasa sangsi, samar-samar dan kabur terutama dalam ibadah dan akidah."
+  },
+  {
+   "id": "h11_q05",
+   "question": "Apakah yang perlu diutamakan apabila keyakinan bertembung dengan syak?",
+   "options": [
+    "Perkara yang diyakini",
+    "Syak",
+    "Andaian orang lain",
+    "Perasaan semata-mata"
+   ],
+   "correctAnswerIndex": 0,
+   "explanation": "Pengajaran modul menegaskan berpegang pada perkara yang diyakini."
+  },
+  {
+   "id": "h11_q06",
+   "question": "Apakah panduan hadis Imam Muslim dalam huraian tentang keraguan ketika beribadah?",
+   "options": [
+    "Jangan keluar sehingga mendengar bunyi atau terhidu bau",
+    "Terus batalkan ibadah",
+    "Ulang semua ibadah",
+    "Ikut sangkaan"
+   ],
+   "correctAnswerIndex": 0,
+   "explanation": "Huraian modul memetik hadis agar tidak keluar sehingga ada tanda yang meyakinkan."
+  },
+  {
+   "id": "h11_q07",
+   "question": "Surah dan ayat apakah yang dirujuk dalam huraian Hadis 11?",
+   "options": [
+    "Surah Qaf ayat 16",
+    "Surah al-Ma’idah ayat 101",
+    "Surah al-Baqarah ayat 172",
+    "Surah al-Nisa’ ayat 59"
+   ],
+   "correctAnswerIndex": 0,
+   "explanation": "Modul merujuk Surah Qaf ayat 16."
+  },
+  {
+   "id": "h11_q08",
+   "question": "Apakah fokus nilai Hadis 11?",
+   "options": [
+    "Keyakinan dan Hormat",
+    "Ihsan dan Daya Cipta",
+    "Hormat dan Kesejahteraan",
+    "Ikhlas dan Ihsan"
+   ],
+   "correctAnswerIndex": 0,
+   "explanation": "Fokus nilai Hadis 11 ialah Keyakinan dan Hormat."
+  },
+  {
+   "id": "h11_q09",
+   "question": "Yang manakah cadangan aktiviti Hadis 11?",
+   "options": [
+    "Pembelajaran berasaskan projek",
+    "Forum hijrah",
+    "Kursus sembelihan",
+    "Khidmat masyarakat sahaja"
+   ],
+   "correctAnswerIndex": 0,
+   "explanation": "Pembelajaran berasaskan projek ialah antara aktiviti Hadis 11."
+  },
+  {
+   "id": "h11_q10",
+   "question": "Apakah yang perlu dilakukan untuk memperoleh keyakinan dalam perkara ibadah menurut penghayatan?",
+   "options": [
+    "Menguasai ilmu",
+    "Mengikut sangkaan",
+    "Mengelakkan guru",
+    "Mengabaikan keraguan tanpa belajar"
+   ],
+   "correctAnswerIndex": 0,
+   "explanation": "Penghayatan menekankan penguasaan ilmu terutama perkara yang melibatkan ibadah."
+  }
+ ],
+ "progressRules": {
+  "completeWhen": [
+   "Pengguna telah membuka teks hadis",
+   "Pengguna telah memainkan atau membuka bahagian audio",
+   "Pengguna telah membaca maksud hadis",
+   "Pengguna telah melihat huraian dan dalil al-Quran",
+   "Pengguna telah melihat pengajaran dan penghayatan",
+   "Pengguna telah menjawab kuiz"
   ],
-  "supportingExample": null,
-  "source": {
-    "document": "Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua, KPM.",
-    "hadith": 11,
-    "printedPages": [
-      52,
-      53,
-      54,
-      55
-    ],
-    "pdfPages": [
-      68,
-      69,
-      70,
-      71
-    ],
-    "coreContentPolicy": "Teks hadis, maksud, huraian, dalil, pengajaran, penghayatan, fokus nilai dan aktiviti berpandukan halaman KPM yang dinyatakan. Tiada biografi perawi luaran ditambah.",
-    "appDerivedFields": [
-      "subtitle",
-      "theme",
-      "quiz",
-      "progressRules",
-      "timedSegments"
-    ],
-    "adaptationStatus": "Prototaip pembelajaran interaktif",
-    "verificationNote": "Kuiz dan timing ialah lapisan aplikasi yang dibina hanya daripada fakta modul. Kandungan teras tidak boleh ditambah dengan fakta luar tanpa pengesahan."
-  },
-  "copyrightNotice": "© 2026 e-Hadis40 bagi reka bentuk aplikasi, interaksi, audio, kuiz dan kod sumber prototaip. Hak cipta kandungan asal Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua kekal milik Kementerian Pendidikan Malaysia dan pemegang hak masing-masing."
+  "passingScorePercent": 80
+ },
+ "audioTranscriptNote": "Teks audio menggunakan badan hadis KPM sahaja. Rujukan hadis dipisahkan sebagai teks statik dan tidak dimasukkan ke timedSegments. Timing ialah alignment awal peringkat frasa daripada jeda waveform rakaman terbaru; Kimi K3 wajib mendengar dan fine-tune sebelum menganggapnya final.",
+ "audio": {
+  "arabicRecitation": "assets/audio/hadith_11.mp3",
+  "translationMalay": "",
+  "durationMs": 19824,
+  "syncOffsetMs": 0,
+  "timingMethod": "latest_audio_waveform_pause_phrase_alignment",
+  "wordHighlightMode": "phraseOnly",
+  "timingReviewNote": "Phrase-level sahaja. Jangan guna proportional character/word timing. Semak audio sebenar dan laras sempadan frasa jika perlu.",
+  "timedSegments": [
+   {
+    "startMs": 100,
+    "endMs": 4114,
+    "text": "عَنْ أَبِي مُحَمَّدٍ الْحَسَنِ بْنِ عَلِيِّ بْنِ أَبِي طَالِبٍ"
+   },
+   {
+    "startMs": 4561,
+    "endMs": 8971,
+    "text": "سِبْطِ رَسُولِ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ وَرَيْحَانَتِهِ"
+   },
+   {
+    "startMs": 9284,
+    "endMs": 11636,
+    "text": "رَضِيَ اللَّهُ عَنْهُمَا قَالَ:"
+   },
+   {
+    "startMs": 11962,
+    "endMs": 15715,
+    "text": "حَفِظْتُ مِنْ رَسُولِ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ:"
+   },
+   {
+    "startMs": 16581,
+    "endMs": 17386,
+    "text": "دَعْ مَا يَرِيبُكَ"
+   },
+   {
+    "startMs": 18007,
+    "endMs": 19340,
+    "text": "إِلَى مَا لَا يَرِيبُكَ."
+   }
+  ]
+ },
+ "supplications": [],
+ "supplementaryHadiths": [
+  {
+   "title": "Hadis berkaitan keyakinan dan keraguan",
+   "arabicText": "إِذَا وَجَدَ أَحَدُكُمْ فِي بَطْنِهِ شَيْئًا فَأَشْكَلَ عَلَيْهِ أَخَرَجَ مِنْهُ شَيْءٌ أَمْ لَا، فَلَا يَخْرُجَنَّ مِنَ الْمَسْجِدِ حَتَّى يَسْمَعَ صَوْتًا، أَوْ يَجِدَ رِيحًا.",
+   "translationMalay": "Jika seseorang kamu merasai sesuatu di dalam perutnya, maka timbul kemusykilan pada dirinya sama ada angin keluar atau tidak, maka janganlah ia keluar daripada masjid sehingga seseorang mendengar bunyi kentut itu atau terhidu baunya.",
+   "reference": "Riwayat Imam Muslim",
+   "sourceScope": "Dipaparkan dalam huraian Hadis 11 modul KPM."
+  }
+ ],
+ "supportingExample": null,
+ "source": {
+  "document": "Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua, KPM.",
+  "hadith": 11,
+  "printedPages": [
+   52,
+   53,
+   54,
+   55
+  ],
+  "pdfPages": [
+   68,
+   69,
+   70,
+   71
+  ],
+  "coreContentPolicy": "Teks hadis, maksud, huraian, dalil, pengajaran, penghayatan, fokus nilai dan aktiviti berpandukan halaman KPM yang dinyatakan. Tiada biografi perawi luaran ditambah.",
+  "appDerivedFields": [
+   "subtitle",
+   "theme",
+   "quiz",
+   "progressRules",
+   "timedSegments"
+  ],
+  "adaptationStatus": "Prototaip pembelajaran interaktif",
+  "verificationNote": "Kuiz dan timing ialah lapisan aplikasi yang dibina hanya daripada fakta modul. Kandungan teras tidak boleh ditambah dengan fakta luar tanpa pengesahan."
+ },
+ "copyrightNotice": "© 2026 e-Hadis40 bagi reka bentuk aplikasi, interaksi, audio, kuiz dan kod sumber prototaip. Hak cipta kandungan asal Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua kekal milik Kementerian Pendidikan Malaysia dan pemegang hak masing-masing."
 }

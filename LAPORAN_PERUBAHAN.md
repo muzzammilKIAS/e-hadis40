@@ -637,3 +637,241 @@ dan timing frasa.
 - Fine-tune timing frasa mengikut pendengaran audio sebenar.
 - Sahkan durasi audio dan kedudukan frasa dengan rakaman rasmi.
 - Semakan ilmiah huraian KPM jika perlu.
+
+---
+
+## 13. Anatomi Sunnah 3D — Hadis 15, 16, 17 (16 Ogos 2026, pusingan lanjutan)
+
+Tiga fail simulasi 3D baharu (`hadith_15.html`, `hadith_16.html`, `hadith_17.html`)
+diberikan oleh pengguna dalam format mentah (CDN Tailwind/three.js/gsap,
+fon Google Inter, tiada butang kembali/responsif/arah teks). Kerja di sini
+membawanya selari sepenuhnya dengan corak piawai `hadith_01-14.html`.
+
+### 13.1 🔴 Pepijat kritikal dijumpai: teks Arab rosak (mojibake)
+
+Fail HTML yang diberikan mengandungi teks Arab dan simbol yang **rosak**
+disebabkan pengekodan berganda (UTF-8 dibaca sebagai Latin-1, kemudian
+dikodkan semula) — cth. `"Ù ÙÙ ÙÙØ§ÙÙ ÙÙØ¤ÙÙÙÙÙ..."` dan bulet `•` menjadi
+`â¢`. Emoji turut rosak (`ð¬`, `ð¡`, `ð¤²` dsb.).
+
+**Pembetulan:** Bukan menyalin teks yang rosak, tetapi mengekstrak setiap
+petikan Arab **terus daripada `timedSegments` dalam JSON yang telah
+disahkan** (`assets/data/hadith_15/16/17.json`), digabungkan mengikut
+segmen yang berkaitan, dan disuntik semula secara **bait-demi-bait** ke
+dalam fail HTML — mengelakkan risiko transkripsi semula secara manual
+(tanda diakritik Arab sangat mudah berubah walaupun kelihatan sama secara
+visual). Disahkan dengan perbandingan `substring`-terhadap-JSON automatik.
+
+Satu petikan (dalam keadaan "Dikuasai Amarah" Hadis 16) ialah hadis
+**sokongan** berasingan ("Sesungguhnya marah itu daripada syaitan...",
+Riwayat Abu Daud) — bukan sebahagian teks Hadis 16 sendiri, jadi ia
+sengaja tidak dipadankan dengan JSON. Ini ialah teks Arab klasik yang
+sangat masyhur, tetapi **belum disahkan** berbanding sumber KPM — sila
+semak jika perlu ketepatan penuh.
+
+### 13.2 🔴 Pepijat kritikal dijumpai: kerosakan WebGL/GSAP pada H16 & H17
+
+Kedua-dua fail asal menggunakan:
+```js
+gsap.to(scene.fog, { color: 0x082f49, density: 0.015, duration: 1.5 });
+```
+Ini menganimasikan `scene.fog.color` (objek `THREE.Color`) terus dengan
+nombor hex mentah — GSAP menimpa objek Color dengan nombor biasa, merosakkan
+fog itu dan menyebabkan ralat `WebGL2RenderingContext.uniform3fv` pada
+bingkai seterusnya. Oleh sebab `animate()` guna `requestAnimationFrame`
+rekursif, ralat tidak ditangkap ini **memberhentikan seluruh gelung
+animasi** — simulasi 3D beku sepenuhnya selepas pengguna menekan butang
+"Dikuasai Amarah" (H16) atau "Tanpa Ihsan" (H17).
+
+**Pembetulan:** ditukar kepada corak yang betul (dan konsisten dengan
+`hadith_11-14.html`):
+```js
+gsap.to(scene.fog, { density: 0.015, duration: 1.5 });
+gsap.to(scene.fog.color, { r: 0.031, g: 0.184, b: 0.286, duration: 1.5 });
+```
+Disahkan dengan mengklik kedua-dua butang bagi H16 dan H17 dalam kitaran
+penuh (Sabar↔Marah, Ihsan↔Zalim) — **0 ralat JS**, berbanding 6/6
+kombinasi gagal sebelum pembetulan.
+
+Saya turut mengimbas kesemua 17 fail untuk corak pepijat yang sama —
+**tiada kejadian lain dijumpai.**
+
+### 13.3 Localisasi aset (selari dengan H1-14)
+
+- `cdn.tailwindcss.com` + CDN three.js/gsap → `styles.css` (pra-kompil) +
+  `./lib/three.min.js` + `./lib/gsap.min.js` (setempat).
+- Fon Google `Inter` → **Baloo 2** (piawai Rumi app; `Inter` adalah
+  penyelewengan daripada corak sedia ada).
+- `styles.css` **dijana semula** melalui persekitaran Tailwind CLI yang
+  dipelihara daripada sesi sebelumnya, kini merangkumi kelas baharu yang
+  digunakan H15-17 (`text-[10px]`, `text-[11px]`, `py-1.5`, `py-3.5`,
+  `border-white/20`, `text-amber-200/70`, dll.) — disahkan **sifar** kelas
+  hilang selepas bina semula.
+
+### 13.4 Butang kembali, responsif, arah teks, FOV kamera
+
+Ditambah seragam mengikut corak piawai (rujuk Bahagian 2.3–2.5 laporan
+ini): butang kembali `postMessage`, blok CSS responsif telefon/tablet,
+CSS arah teks LTR/RTL, dan pelarasan FOV kamera 3D.
+
+### 13.5 Kemas kini kod Flutter
+
+- `lib/screens/anatomi_sunnah_screen.dart`: `availableHadithNumbers`
+  **14 → 17** (satu-satunya sumber kebenaran; senarai 42 kad, skrin
+  projektor dan skrin permainan semuanya bergantung padanya).
+- `lib/screens/projector_screen.dart`: dibetulkan komen dok lapuk pada
+  `_AnatomiSunnahProjectorPage` yang masih mendakwa "navigasi belum
+  disambungkan" — sedangkan kod sebenar sudah menyambungkannya sejak
+  Bahagian 2. Tiada perubahan fungsi, sekadar ketepatan dokumentasi.
+
+### 13.6 Pengesahan menyeluruh
+
+| Ujian | Skop | Keputusan |
+|---|---|---|
+| `flutter analyze` | seluruh projek | ✅ 0 isu |
+| `flutter test` | semua ujian | ✅ lulus |
+| Font Amiri + Baloo 2, canvas 3D, tiada limpahan | 17 fail × 3 saiz = 51 kombinasi | ✅ semua bersih |
+| Kitaran klik penuh (Sabar↔Marah, Ihsan↔Zalim) | H16, H17 | ✅ 0 ralat JS (selepas pembetulan fog) |
+| Butang kembali `postMessage` | H15 | ✅ menghantar `anatomi-sunnah-back` |
+| Aliran penuh: Dashboard → Senarai → Simulasi → Kembali | H15 | ✅ berfungsi |
+| Senarai 42 kad — status "Sedia Dimainkan" vs "Akan Datang" | H1-17 vs H18-42 | ✅ betul |
+| Mod Projektor: navigasi hadis, halaman "Peringatan Penting", laman "Ke Anatomi Sunnah" | H17 | ✅ semua berfungsi, dalil al-Quran 3× dipaparkan |
+| Kuiz: 10 soalan, semakan jawapan, markah, penjelasan | H17 | ✅ 100%, "Tahniah, anda lulus" |
+| Jalur belang (debug build) | 5 tab × 4 tinggi = 20 | ✅ semua bersih (kandungan 17 hadis tidak mencetuskan limpahan baharu) |
+
+### 13.7 Perlu semakan manusia
+
+- **Sahkan** petikan "إِنَّ الْغَضَبَ مِنَ الشَّيْطَانِ" (Hadis 16, keadaan
+  "Dikuasai Amarah") berbanding riwayat Abu Daud sebenar — ia teks klasik
+  masyhur yang saya taip berdasarkan pengetahuan umum, **bukan** daripada
+  JSON hadis yang disahkan aplikasi ini.
+
+---
+
+## 14. Pembetulan No. 5 — Fine-Tuning Frasa Audio H15-17 (16 Ogos 2026, susulan)
+
+Pusingan sebelumnya sekadar menyatakan "5. fine tuning frasa" *termasuk
+dalam localisasi* (saiz fon, arah teks) — tetapi maksud sebenar permintaan
+ialah **timing frasa audio** (`timedSegments.startMs/endMs`), seperti yang
+diminta secara eksplisit dalam nota JSON sendiri:
+> *"Dengar audio sebenar dan fine-tune startMs/endMs secara minimum jika
+> perlu. Jangan guna proportional word timing."*
+
+### Kaedah
+
+Oleh sebab saya tidak boleh "mendengar" secara literal, saya guna kaedah
+proksi objektif: nyahkod `hadith_15/16/17.mp3` kepada PCM (`ffmpeg`,
+dipasang khas untuk tugas ini), kira tenaga RMS setiap bingkai 5ms, dan
+kesan **detik sebenar tenaga bunyi bermula/berhenti** (*onset/offset
+ucapan*) berhampiran setiap sempadan `startMs`/`endMs` sedia ada.
+
+**Pengesahan manual sebelum digunakan:** 3 kes laras terbesar disemak
+secara manual dengan mencetak jejak tenaga mentah bingkai-demi-bingkai
+(disertakan dalam log sesi) — kesemuanya mengesahkan sempadan **asal**
+tersasar jauh ke dalam kesenyapan (cth. Hadis 17 seg 2: `startMs` asal
+4900ms berada dalam kawasan senyap ~40-150 tenaga, sedangkan ucapan
+sebenar meletus pada ~5210ms — perbezaan 300ms+ yang ketara secara audio).
+
+### Perubahan
+
+| Fail | Segmen dilaras |
+|---|---|
+| `hadith_15.json` | 7/8 |
+| `hadith_16.json` | 8/8 |
+| `hadith_17.json` | 8/8 |
+
+Kebanyakan laras `startMs` kecil (0–80ms); beberapa besar (200–310ms) pada
+sempadan yang jelas tersasar. Semua laras `endMs` **mengecilkan** tempoh
+segmen (40–275ms) — sempadan asal secara konsisten melampaui ke dalam
+kesenyapan/pause selepas ucapan tamat.
+
+**Keutuhan disahkan secara automatik:** tiada pertindihan antara segmen,
+`startMs < endMs` setiap segmen, `endMs` terakhir tidak melebihi
+`durationMs`. Kandungan JSON **lain** (kuiz, huraian, dll.) disahkan
+**tidak berubah langsung** — hanya `timedSegments` dan `timingReviewNote`
+(nota tambahan mengenai kaedah ini) yang diubah.
+
+**Diuji secara visual:** mod projektor dimainkan bagi Hadis 17 —
+sorotan perkataan segerak (`_SyncedProjectorPage`) mengesahkan kata
+"تَعَالَى" disorot dengan betul pada 00:04, sepadan dengan tetingkap
+segmen 1 yang baharu (1.67s–4.48s). Tiada ralat konsol.
+
+> ⚠️ `referenceAudioVerificationRequired: true` **dikekalkan** dalam
+> JSON — kaedah ini ialah proksi automatik bagi "mendengar audio sebenar",
+> bukan pendengaran manusia sebenar. Disyorkan semakan pendengaran akhir
+> jika ketepatan milisaat kritikal untuk penggunaan sebenar.
+
+---
+
+## 15. Biodata Ringkas Perawi (16 Ogos 2026, susulan)
+
+**Permintaan:** Modul KPM tidak menyediakan biodata ringkas bagi 6 perawi
+hadis (maklumat ini memang tiada dalam bahan rasmi KPM). Pengguna meminta
+biodata dicari daripada Shamela atau pangkalan data lain, dan dimasukkan
+ke dalam bahagian "Kenali Perawi" aplikasi.
+
+### 15.1 Penemuan seni bina penting
+
+Sebelum mengedit, saya menjejaki kod untuk memastikan perubahan benar-benar
+kelihatan dalam UI. Dapatan:
+
+- `NarratorRepository` (dibina daripada `assets/data/narrators.json`) hanya
+  digunakan sebagai **get gerbang** — untuk menyemak sama ada profil wujud
+  (`!= null`) bagi memutuskan sama ada seksyen "Kenali Perawi" dipaparkan
+  langsung.
+- Kandungan **sebenar** yang dipaparkan dalam overlay (`NarratorInfoTrigger`)
+  datang daripada objek `"narrator"` **terbenam di dalam setiap
+  `hadith_XX.json`**, bukan daripada `narrators.json` secara terus.
+
+Oleh itu, hanya mengemas kini `narrators.json` **tidak akan memberi sebarang
+kesan kelihatan** pada aplikasi — kedua-dua lapisan mesti dikemas kini
+serentak. (Ini kemungkinan sebab biodata kekal kosong walaupun beberapa
+entri `narrators.json` sudah wujud sejak awal.)
+
+### 15.2 Sumber
+
+Oleh sebab tiada akses langsung kepada al-Maktabah al-Syamilah (perpustakaan
+manuskrip Arab mentah) melalui carian web biasa, saya guna portal rujukan
+Islam yang menyusun semula kandungan kitab-kitab sirah/tabaqat klasik
+(terutamanya *al-Isabah fi Tamyiz al-Sahabah* oleh Ibn Hajar al-‘Asqalani
+dan *Siyar A‘lam al-Nubala’* oleh al-Dhahabi) — termasuk Wikipedia,
+muslim.or.id, dan maktabahalbakri.com/zulkiflialbakri.com (portal yang
+diselia oleh Mufti Wilayah Persekutuan Malaysia, menyusun biografi sahabat
+daripada sumber klasik).
+
+> ⚠️ Ini **bukan** capaian terus ke Shamela. Jika ketepatan rujukan primer
+> penting, sila sahkan semula terhadap kitab asal.
+
+### 15.3 Perawi yang dikemas kini (6 perawi, 10 fail hadis)
+
+| Perawi | Fail `hadith_XX.json` berkaitan |
+|---|---|
+| Abu Hurairah r.a. | 09, 10, 12, 15, 16 |
+| al-Nu‘man bin Basyir r.a. | 06 |
+| Tamim bin Aus al-Dari r.a. | 07 |
+| al-Hasan bin Ali r.a. | 11 |
+| Anas bin Malik r.a. | 13 |
+| Abu Ya‘la Syaddad bin Aus r.a. | 17 |
+
+Bagi setiap perawi, dikemas kini: `fullName`, `title`, `biography`/
+`shortBiography` (2-3 ayat bahasa Melayu formal, sepadan gaya entri sedia
+ada yang lengkap), `tags`, `verified: true`, dan `source` — dengan nota
+telus menyatakan **kandungan ini TIDAK terdapat dalam Modul KPM** dan
+menyenaraikan rujukan sebenar digunakan.
+
+Medan dev lapuk `"detailedProfilePolicy": "skip_until_verified_kpm_content"`
+(nota diri agen terdahulu supaya tidak mereka biografi tanpa sumber sah)
+dibuang daripada fail yang berkaitan kerana ia kini digantikan dengan
+kandungan yang benar-benar disahkan bersumber.
+
+### 15.4 Pengesahan
+
+- Skrip Python (dengan sandaran fail terlebih dahulu) mengesahkan **hanya**
+  medan `narrator` yang berubah pada setiap `hadith_XX.json` — tiada
+  kandungan lain (kuiz, huraian, audio, dll.) tersentuh.
+- `flutter analyze` — 0 isu. `flutter test` — semua lulus.
+- **Disahkan secara visual** dalam pelayar: overlay "Kenali Perawi" bagi
+  Hadis 17 (Syaddad bin Aus) dan Hadis 15 (Abu Hurairah) kini memaparkan
+  nama penuh, tajuk, biografi, tag, nota sumber telus, dan lencana
+  "Kandungan Disemak" — menggantikan mesej placeholder kosong sebelum ini.
+- Jalur belang (debug build): 5 tab × 4 tinggi — semua bersih.

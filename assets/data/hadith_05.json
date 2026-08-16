@@ -1,311 +1,311 @@
 {
-  "id": "hadith_05",
-  "moduleId": "module_01",
-  "hadithNumber": 5,
-  "title": "Amalan yang Tertolak",
-  "subtitle": "Setiap urusan agama dan amalan hendaklah berasaskan syariat, al-Quran dan al-Sunah.",
-  "theme": "Kesempurnaan agama, kepatuhan kepada syariat dan panduan sunah",
-  "learningObjectives": [
-    "Menjelaskan maksud amalan yang tertolak.",
-    "Membezakan amalan yang mempunyai asas syarak dengan amalan yang direka-reka.",
-    "Memberikan contoh kesalahan dalam ibadah dan muamalat.",
-    "Menjelaskan kepentingan merujuk al-Quran, al-Sunah dan guru berautoriti.",
-    "Mengamalkan ibadah dengan ikhlas serta menurut panduan yang sahih.",
-    "Menjawab kuiz dengan markah sekurang-kurangnya 80%."
+ "id": "hadith_05",
+ "moduleId": "module_01",
+ "hadithNumber": 5,
+ "title": "Amalan yang Tertolak",
+ "subtitle": "Setiap urusan agama dan amalan hendaklah berasaskan syariat, al-Quran dan al-Sunah.",
+ "theme": "Kesempurnaan agama, kepatuhan kepada syariat dan panduan sunah",
+ "learningObjectives": [
+  "Menjelaskan maksud amalan yang tertolak.",
+  "Membezakan amalan yang mempunyai asas syarak dengan amalan yang direka-reka.",
+  "Memberikan contoh kesalahan dalam ibadah dan muamalat.",
+  "Menjelaskan kepentingan merujuk al-Quran, al-Sunah dan guru berautoriti.",
+  "Mengamalkan ibadah dengan ikhlas serta menurut panduan yang sahih.",
+  "Menjawab kuiz dengan markah sekurang-kurangnya 80%."
+ ],
+ "arabicText": "عَنْ أُمِّ الْمُؤْمِنِينَ أُمِّ عَبْدِ اللَّهِ عَائِشَةَ رَضِيَ اللَّهُ عَنْهَا قَالَتْ: قَالَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ: مَنْ أَحْدَثَ فِي أَمْرِنَا هَذَا مَا لَيْسَ مِنْهُ فَهُوَ رَدٌّ. وَفِي رِوَايَةٍ لِمُسْلِمٍ: مَنْ عَمِلَ عَمَلًا لَيْسَ عَلَيْهِ أَمْرُنَا فَهُوَ رَدٌّ.",
+ "audioTranscriptNote": "Paparan audio menggabungkan teks hadis utama dan riwayat Imam Muslim kerana kedua-duanya dibaca secara berturutan dalam rakaman.",
+ "mainNarrationArabic": "مَنْ أَحْدَثَ فِي أَمْرِنَا هَذَا مَا لَيْسَ مِنْهُ فَهُوَ رَدٌّ.",
+ "muslimVariantArabic": "مَنْ عَمِلَ عَمَلًا لَيْسَ عَلَيْهِ أَمْرُنَا فَهُوَ رَدٌّ.",
+ "translationMalay": "Daripada Ummul Mukminin Ummu Abdillah Saidatina ‘Aisyah r.a. berkata, Rasulullah SAW bersabda: “Sesiapa yang mereka-reka dalam urusan agama kami ini perkara yang tiada asas daripadanya, maka perkara itu tertolak.” Dalam satu riwayat Imam Muslim: “Sesiapa yang melakukan sesuatu amalan yang tidak berasaskan ajaran agama kami, maka amalan itu tertolak.”",
+ "narrator": {
+  "id": "aisyah",
+  "name": "‘Aisyah r.a.",
+  "fullName": "Ummul Mukminin Ummu Abdillah ‘Aisyah r.a.",
+  "title": "Ummul Mukminin, Tokoh Ilmu dan Perawi Hadis",
+  "shortBiography": "Saidatina ‘Aisyah r.a. ialah isteri Rasulullah SAW dan salah seorang Ummul Mukminin. Beliau terkenal dengan kecerdasan, kefahaman yang mendalam terhadap agama serta peranannya menyampaikan ilmu dan hadis kepada generasi selepasnya.",
+  "tags": [
+   "Ummul Mukminin",
+   "Tokoh Ilmu",
+   "Perawi Hadis"
   ],
-  "arabicText": "عَنْ أُمِّ الْمُؤْمِنِينَ أُمِّ عَبْدِ اللَّهِ عَائِشَةَ رَضِيَ اللَّهُ عَنْهَا قَالَتْ: قَالَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ: مَنْ أَحْدَثَ فِي أَمْرِنَا هَذَا مَا لَيْسَ مِنْهُ فَهُوَ رَدٌّ. وَفِي رِوَايَةٍ لِمُسْلِمٍ: مَنْ عَمِلَ عَمَلًا لَيْسَ عَلَيْهِ أَمْرُنَا فَهُوَ رَدٌّ.",
-  "audioTranscriptNote": "Paparan audio menggabungkan teks hadis utama dan riwayat Imam Muslim kerana kedua-duanya dibaca secara berturutan dalam rakaman.",
-  "mainNarrationArabic": "مَنْ أَحْدَثَ فِي أَمْرِنَا هَذَا مَا لَيْسَ مِنْهُ فَهُوَ رَدٌّ.",
-  "muslimVariantArabic": "مَنْ عَمِلَ عَمَلًا لَيْسَ عَلَيْهِ أَمْرُنَا فَهُوَ رَدٌّ.",
-  "translationMalay": "Daripada Ummul Mukminin Ummu Abdillah Saidatina ‘Aisyah r.a. berkata, Rasulullah SAW bersabda: “Sesiapa yang mereka-reka dalam urusan agama kami ini perkara yang tiada asas daripadanya, maka perkara itu tertolak.” Dalam satu riwayat Imam Muslim: “Sesiapa yang melakukan sesuatu amalan yang tidak berasaskan ajaran agama kami, maka amalan itu tertolak.”",
-  "narrator": {
-    "id": "aishah_bint_abu_bakr",
-    "name": "‘Aisyah r.a.",
-    "fullName": "Ummul Mukminin Ummu Abdillah ‘Aisyah r.a.",
-    "title": "Ummul Mukminin, Tokoh Ilmu dan Perawi Hadis",
-    "shortBiography": "Saidatina ‘Aisyah r.a. ialah isteri Rasulullah SAW dan salah seorang Ummul Mukminin. Beliau terkenal dengan kecerdasan, kefahaman yang mendalam terhadap agama serta peranannya menyampaikan ilmu dan hadis kepada generasi selepasnya.",
-    "tags": [
-      "Ummul Mukminin",
-      "Tokoh Ilmu",
-      "Perawi Hadis"
-    ],
-    "source": "Draf biografi ringkas aplikasi; perlu semakan ilmiah sebelum penerbitan awam.",
-    "verified": false
+  "source": "Draf biografi ringkas aplikasi; perlu semakan ilmiah sebelum penerbitan awam.",
+  "verified": false
+ },
+ "reference": "Hadis utama diriwayatkan oleh Imam al-Bukhari dan Imam Muslim. Lafaz kedua merupakan riwayat Imam Muslim.",
+ "explanations": [
+  "Hadis ini menjelaskan bahawa perbuatan mengada-adakan sesuatu dalam urusan agama tanpa asas syarak adalah tertolak.",
+  "Amalan seseorang yang mukallaf tertakluk kepada hukum dan panduan syariat.",
+  "Setiap amalan yang tidak berasaskan syariat Allah SWT dianggap batil dan tidak diterima.",
+  "Dalam ibadah, contoh kesalahan ialah menambah atau mengurangkan bilangan rakaat solat tanpa dalil.",
+  "Dalam muamalat, contoh kesalahan ialah urusan jual beli barang yang diharamkan seperti arak dan bangkai.",
+  "Mengubah hukum yang telah ditetapkan oleh syarak kepada bentuk lain tanpa asas yang sah juga termasuk perkara yang tertolak.",
+  "Amalan yang membebankan diri tetapi tidak mempunyai nilai ibadah tidak semestinya diperakui oleh syarak.",
+  "Seseorang hendaklah mempelajari agama daripada sumber dan guru yang berautoriti, bukan bergantung kepada maklumat media sosial tanpa panduan."
+ ],
+ "supportingExample": {
+  "title": "Nazar Abu Israel",
+  "description": "Ketika Nabi SAW sedang berkhutbah, baginda melihat seorang lelaki berdiri di bawah terik matahari. Para sahabat menjelaskan bahawa Abu Israel bernazar untuk terus berdiri, tidak duduk, tidak berteduh, tidak bercakap dan berpuasa. Rasulullah SAW menyuruhnya bercakap, berteduh, duduk dan menyempurnakan puasanya.",
+  "reference": "Riwayat Abu Daud.",
+  "sourceNote": "Contoh ini diambil daripada huraian Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua."
+ },
+ "lessons": [
+  "Islam ialah agama yang sempurna seperti yang diajar oleh Rasulullah SAW.",
+  "Setiap Muslim mestilah menjauhkan diri daripada perbuatan yang bercanggah dengan syariat Allah SWT supaya tidak menjadi fitnah terhadap kesucian Islam.",
+  "Setiap Muslim hendaklah memastikan amalan yang dilakukan bersandarkan petunjuk al-Quran dan al-Sunah.",
+  "Keikhlasan sahaja tidak mencukupi jika sesuatu amalan dilakukan tanpa panduan syariat.",
+  "Ilmu agama hendaklah dipelajari daripada guru dan sumber yang berautoriti."
+ ],
+ "appreciation": [
+  "Murid hendaklah beramal dengan amalan yang berasaskan al-Quran dan al-Sunah agar terhindar daripada perkara yang bercanggah dengan syariat Allah SWT.",
+  "Murid hendaklah ikhlas dalam setiap amalan supaya diterima oleh Allah SWT.",
+  "Murid hendaklah mempelajari ilmu daripada guru yang berautoriti, bukan semata-mata daripada media sosial tanpa panduan."
+ ],
+ "focusValues": [
+  "Kesejahteraan",
+  "Keyakinan"
+ ],
+ "suggestedActivities": [
+  {
+   "title": "Kempen solat berjemaah dan puasa sunat",
+   "description": "Rancang kempen yang menerangkan panduan ibadah berdasarkan al-Quran dan al-Sunah serta kepentingan ikhlas."
   },
-  "reference": "Hadis utama diriwayatkan oleh Imam al-Bukhari dan Imam Muslim. Lafaz kedua merupakan riwayat Imam Muslim.",
-  "explanations": [
-    "Hadis ini menjelaskan bahawa perbuatan mengada-adakan sesuatu dalam urusan agama tanpa asas syarak adalah tertolak.",
-    "Amalan seseorang yang mukallaf tertakluk kepada hukum dan panduan syariat.",
-    "Setiap amalan yang tidak berasaskan syariat Allah SWT dianggap batil dan tidak diterima.",
-    "Dalam ibadah, contoh kesalahan ialah menambah atau mengurangkan bilangan rakaat solat tanpa dalil.",
-    "Dalam muamalat, contoh kesalahan ialah urusan jual beli barang yang diharamkan seperti arak dan bangkai.",
-    "Mengubah hukum yang telah ditetapkan oleh syarak kepada bentuk lain tanpa asas yang sah juga termasuk perkara yang tertolak.",
-    "Amalan yang membebankan diri tetapi tidak mempunyai nilai ibadah tidak semestinya diperakui oleh syarak.",
-    "Seseorang hendaklah mempelajari agama daripada sumber dan guru yang berautoriti, bukan bergantung kepada maklumat media sosial tanpa panduan."
-  ],
-  "supportingExample": {
-    "title": "Nazar Abu Israel",
-    "description": "Ketika Nabi SAW sedang berkhutbah, baginda melihat seorang lelaki berdiri di bawah terik matahari. Para sahabat menjelaskan bahawa Abu Israel bernazar untuk terus berdiri, tidak duduk, tidak berteduh, tidak bercakap dan berpuasa. Rasulullah SAW menyuruhnya bercakap, berteduh, duduk dan menyempurnakan puasanya.",
-    "reference": "Riwayat Abu Daud.",
-    "sourceNote": "Contoh ini diambil daripada huraian Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua."
+  {
+   "title": "Forum",
+   "description": "Adakan forum bertajuk “Amalan Diterima atau Tertolak?” dengan bimbingan guru."
   },
-  "lessons": [
-    "Islam ialah agama yang sempurna seperti yang diajar oleh Rasulullah SAW.",
-    "Setiap Muslim mestilah menjauhkan diri daripada perbuatan yang bercanggah dengan syariat Allah SWT supaya tidak menjadi fitnah terhadap kesucian Islam.",
-    "Setiap Muslim hendaklah memastikan amalan yang dilakukan bersandarkan petunjuk al-Quran dan al-Sunah.",
-    "Keikhlasan sahaja tidak mencukupi jika sesuatu amalan dilakukan tanpa panduan syariat.",
-    "Ilmu agama hendaklah dipelajari daripada guru dan sumber yang berautoriti."
-  ],
-  "appreciation": [
-    "Murid hendaklah beramal dengan amalan yang berasaskan al-Quran dan al-Sunah agar terhindar daripada perkara yang bercanggah dengan syariat Allah SWT.",
-    "Murid hendaklah ikhlas dalam setiap amalan supaya diterima oleh Allah SWT.",
-    "Murid hendaklah mempelajari ilmu daripada guru yang berautoriti, bukan semata-mata daripada media sosial tanpa panduan."
-  ],
-  "focusValues": [
-    "Kesejahteraan",
-    "Keyakinan"
-  ],
-  "suggestedActivities": [
-    {
-      "title": "Kempen solat berjemaah dan puasa sunat",
-      "description": "Rancang kempen yang menerangkan panduan ibadah berdasarkan al-Quran dan al-Sunah serta kepentingan ikhlas."
-    },
-    {
-      "title": "Forum",
-      "description": "Adakan forum bertajuk “Amalan Diterima atau Tertolak?” dengan bimbingan guru."
-    },
-    {
-      "title": "Kempen amalan sunah dalam kehidupan seharian",
-      "description": "Hasilkan bahan ringkas tentang amalan sunah yang sahih dan cara menyemak sumbernya."
-    }
-  ],
-  "reflectionQuestions": [
-    "Apakah maksud amalan yang tertolak?",
-    "Mengapakah niat yang baik sahaja belum mencukupi?",
-    "Apakah contoh amalan ibadah yang dilakukan tanpa panduan syariat?",
-    "Bagaimanakah saya memastikan maklumat agama di media sosial boleh dipercayai?",
-    "Siapakah guru atau pihak berautoriti yang boleh saya rujuk?",
-    "Apakah satu amalan harian yang boleh saya perbaiki supaya lebih menepati sunah?"
-  ],
-  "quiz": [
-    {
-      "id": "h05_q01",
-      "question": "Siapakah perawi Hadis 5?",
-      "options": [
-        "Umar bin al-Khattab r.a.",
-        "Abdullah bin Mas‘ud r.a.",
-        "Saidatina ‘Aisyah r.a.",
-        "Abu Hurairah r.a."
-      ],
-      "correctAnswerIndex": 2,
-      "explanation": "Hadis ini diriwayatkan daripada Ummul Mukminin Saidatina ‘Aisyah r.a."
-    },
-    {
-      "id": "h05_q02",
-      "question": "Apakah hukum amalan agama yang tiada asas syarak?",
-      "options": [
-        "Wajib",
-        "Sunat",
-        "Tertolak",
-        "Makruh sahaja"
-      ],
-      "correctAnswerIndex": 2,
-      "explanation": "Hadis menjelaskan bahawa amalan yang tidak berasaskan urusan agama yang benar adalah tertolak."
-    },
-    {
-      "id": "h05_q03",
-      "question": "Apakah maksud perkataan رَدٌّ dalam konteks hadis?",
-      "options": [
-        "Diterima",
-        "Ditangguhkan",
-        "Tertolak",
-        "Disembunyikan"
-      ],
-      "correctAnswerIndex": 2,
-      "explanation": "رَدٌّ bermaksud sesuatu itu ditolak atau tidak diterima."
-    },
-    {
-      "id": "h05_q04",
-      "question": "Yang manakah contoh kesalahan dalam ibadah?",
-      "options": [
-        "Solat mengikut bilangan rakaat yang ditetapkan",
-        "Menambah bilangan rakaat tanpa dalil",
-        "Belajar dengan guru",
-        "Membaca al-Quran"
-      ],
-      "correctAnswerIndex": 1,
-      "explanation": "Menambah atau mengurangkan bilangan rakaat tanpa dalil merupakan contoh amalan yang tidak menepati syariat."
-    },
-    {
-      "id": "h05_q05",
-      "question": "Yang manakah contoh muamalat yang tidak dibenarkan?",
-      "options": [
-        "Jual beli makanan halal",
-        "Membayar harga yang dipersetujui",
-        "Jual beli arak",
-        "Memberi sedekah"
-      ],
-      "correctAnswerIndex": 2,
-      "explanation": "Arak ialah barang yang diharamkan untuk dijual beli."
-    },
-    {
-      "id": "h05_q06",
-      "question": "Apakah dua sumber utama panduan amalan seorang Muslim?",
-      "options": [
-        "Adat dan trend",
-        "Al-Quran dan al-Sunah",
-        "Iklan dan media sosial",
-        "Pendapat sendiri dan kawan"
-      ],
-      "correctAnswerIndex": 1,
-      "explanation": "Amalan hendaklah bersandarkan petunjuk al-Quran dan al-Sunah."
-    },
-    {
-      "id": "h05_q07",
-      "question": "Apakah pengajaran daripada kisah nazar Abu Israel?",
-      "options": [
-        "Semua bentuk kesusahan diri ialah ibadah",
-        "Nazar tidak perlu mengikut syariat",
-        "Amalan perlu mempunyai panduan dan nilai ibadah yang sah",
-        "Berpuasa tidak dibenarkan"
-      ],
-      "correctAnswerIndex": 2,
-      "explanation": "Rasulullah SAW membetulkan perkara dalam nazar yang tidak mempunyai nilai ibadah dan menyuruhnya menyempurnakan puasa."
-    },
-    {
-      "id": "h05_q08",
-      "question": "Apakah sikap terbaik ketika menerima maklumat agama di media sosial?",
-      "options": [
-        "Terus menyebarkannya",
-        "Percaya jika ramai berkongsi",
-        "Semak dengan guru atau sumber berautoriti",
-        "Abaikan semua ilmu agama"
-      ],
-      "correctAnswerIndex": 2,
-      "explanation": "Maklumat agama perlu disemak dengan guru atau sumber yang berautoriti."
-    },
-    {
-      "id": "h05_q09",
-      "question": "Apakah dua nilai fokus Hadis 5?",
-      "options": [
-        "Keyakinan dan Kesejahteraan",
-        "Keberanian dan Kekayaan",
-        "Kepantasan dan Persaingan",
-        "Kemasyhuran dan Hiburan"
-      ],
-      "correctAnswerIndex": 0,
-      "explanation": "Modul menetapkan nilai Kesejahteraan dan Keyakinan."
-    },
-    {
-      "id": "h05_q10",
-      "question": "Pernyataan manakah paling tepat?",
-      "options": [
-        "Niat baik menjadikan semua perbuatan diterima",
-        "Amalan perlu ikhlas dan menepati syariat",
-        "Semua adat ialah ibadah tanpa syarat",
-        "Panduan guru tidak diperlukan"
-      ],
-      "correctAnswerIndex": 1,
-      "explanation": "Amalan yang baik memerlukan keikhlasan serta pelaksanaan yang menepati panduan syariat."
-    }
-  ],
-  "progressRules": {
-    "completeWhen": [
-      "Pengguna telah membuka teks hadis",
-      "Pengguna telah memainkan atau membuka bahagian audio",
-      "Pengguna telah membaca terjemahan",
-      "Pengguna telah melihat huraian dan contoh sokongan",
-      "Pengguna telah melihat pengajaran dan penghayatan",
-      "Pengguna telah menjawab kuiz"
-    ],
-    "passingScorePercent": 80
+  {
+   "title": "Kempen amalan sunah dalam kehidupan seharian",
+   "description": "Hasilkan bahan ringkas tentang amalan sunah yang sahih dan cara menyemak sumbernya."
+  }
+ ],
+ "reflectionQuestions": [
+  "Apakah maksud amalan yang tertolak?",
+  "Mengapakah niat yang baik sahaja belum mencukupi?",
+  "Apakah contoh amalan ibadah yang dilakukan tanpa panduan syariat?",
+  "Bagaimanakah saya memastikan maklumat agama di media sosial boleh dipercayai?",
+  "Siapakah guru atau pihak berautoriti yang boleh saya rujuk?",
+  "Apakah satu amalan harian yang boleh saya perbaiki supaya lebih menepati sunah?"
+ ],
+ "quiz": [
+  {
+   "id": "h05_q01",
+   "question": "Siapakah perawi Hadis 5?",
+   "options": [
+    "Umar bin al-Khattab r.a.",
+    "Abdullah bin Mas‘ud r.a.",
+    "Saidatina ‘Aisyah r.a.",
+    "Abu Hurairah r.a."
+   ],
+   "correctAnswerIndex": 2,
+   "explanation": "Hadis ini diriwayatkan daripada Ummul Mukminin Saidatina ‘Aisyah r.a."
   },
-  "audio": {
-    "arabicRecitation": "assets/audio/hadith_05.mp3",
-    "translationMalay": "",
-    "durationMs": 23568,
-    "syncOffsetMs": 0,
-    "timingMethod": "phrase_alignment_from_detected_pauses_review_required",
-    "timingReviewNote": "Timing ini ialah padanan awal peringkat frasa berdasarkan jeda rakaman. Uji dalam Chrome dan laraskan ±250ms jika diperlukan.",
-    "timedSegments": [
-      {
-        "startMs": 0,
-        "endMs": 1467,
-        "text": "عَنْ أُمِّ الْمُؤْمِنِينَ"
-      },
-      {
-        "startMs": 2436,
-        "endMs": 6252,
-        "text": "أُمِّ عَبْدِ اللَّهِ عَائِشَةَ رَضِيَ اللَّهُ عَنْهَا قَالَتْ:"
-      },
-      {
-        "startMs": 6944,
-        "endMs": 10221,
-        "text": "قَالَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ:"
-      },
-      {
-        "startMs": 10776,
-        "endMs": 14375,
-        "text": "مَنْ أَحْدَثَ فِي أَمْرِنَا هَذَا مَا لَيْسَ مِنْهُ فَهُوَ رَدٌّ."
-      },
-      {
-        "startMs": 15224,
-        "endMs": 16129,
-        "text": "وَفِي رِوَايَةٍ لِمُسْلِمٍ:",
-        "words": [
-          {
-            "text": "وَفِي",
-            "startMs": 15224,
-            "endMs": 15380
-          },
-          {
-            "text": "رِوَايَةٍ",
-            "startMs": 15380,
-            "endMs": 15640
-          },
-          {
-            "text": "لِمُسْلِمٍ:",
-            "startMs": 15640,
-            "endMs": 16129
-          }
-        ]
-      },
-      {
-        "startMs": 16733,
-        "endMs": 18788,
-        "text": "مَنْ عَمِلَ عَمَلًا"
-      },
-      {
-        "startMs": 19433,
-        "endMs": 22449,
-        "text": "لَيْسَ عَلَيْهِ أَمْرُنَا"
-      },
-      {
-        "startMs": 22783,
-        "endMs": 23568,
-        "text": "فَهُوَ رَدٌّ."
-      }
+  {
+   "id": "h05_q02",
+   "question": "Apakah hukum amalan agama yang tiada asas syarak?",
+   "options": [
+    "Wajib",
+    "Sunat",
+    "Tertolak",
+    "Makruh sahaja"
+   ],
+   "correctAnswerIndex": 2,
+   "explanation": "Hadis menjelaskan bahawa amalan yang tidak berasaskan urusan agama yang benar adalah tertolak."
+  },
+  {
+   "id": "h05_q03",
+   "question": "Apakah maksud perkataan رَدٌّ dalam konteks hadis?",
+   "options": [
+    "Diterima",
+    "Ditangguhkan",
+    "Tertolak",
+    "Disembunyikan"
+   ],
+   "correctAnswerIndex": 2,
+   "explanation": "رَدٌّ bermaksud sesuatu itu ditolak atau tidak diterima."
+  },
+  {
+   "id": "h05_q04",
+   "question": "Yang manakah contoh kesalahan dalam ibadah?",
+   "options": [
+    "Solat mengikut bilangan rakaat yang ditetapkan",
+    "Menambah bilangan rakaat tanpa dalil",
+    "Belajar dengan guru",
+    "Membaca al-Quran"
+   ],
+   "correctAnswerIndex": 1,
+   "explanation": "Menambah atau mengurangkan bilangan rakaat tanpa dalil merupakan contoh amalan yang tidak menepati syariat."
+  },
+  {
+   "id": "h05_q05",
+   "question": "Yang manakah contoh muamalat yang tidak dibenarkan?",
+   "options": [
+    "Jual beli makanan halal",
+    "Membayar harga yang dipersetujui",
+    "Jual beli arak",
+    "Memberi sedekah"
+   ],
+   "correctAnswerIndex": 2,
+   "explanation": "Arak ialah barang yang diharamkan untuk dijual beli."
+  },
+  {
+   "id": "h05_q06",
+   "question": "Apakah dua sumber utama panduan amalan seorang Muslim?",
+   "options": [
+    "Adat dan trend",
+    "Al-Quran dan al-Sunah",
+    "Iklan dan media sosial",
+    "Pendapat sendiri dan kawan"
+   ],
+   "correctAnswerIndex": 1,
+   "explanation": "Amalan hendaklah bersandarkan petunjuk al-Quran dan al-Sunah."
+  },
+  {
+   "id": "h05_q07",
+   "question": "Apakah pengajaran daripada kisah nazar Abu Israel?",
+   "options": [
+    "Semua bentuk kesusahan diri ialah ibadah",
+    "Nazar tidak perlu mengikut syariat",
+    "Amalan perlu mempunyai panduan dan nilai ibadah yang sah",
+    "Berpuasa tidak dibenarkan"
+   ],
+   "correctAnswerIndex": 2,
+   "explanation": "Rasulullah SAW membetulkan perkara dalam nazar yang tidak mempunyai nilai ibadah dan menyuruhnya menyempurnakan puasa."
+  },
+  {
+   "id": "h05_q08",
+   "question": "Apakah sikap terbaik ketika menerima maklumat agama di media sosial?",
+   "options": [
+    "Terus menyebarkannya",
+    "Percaya jika ramai berkongsi",
+    "Semak dengan guru atau sumber berautoriti",
+    "Abaikan semua ilmu agama"
+   ],
+   "correctAnswerIndex": 2,
+   "explanation": "Maklumat agama perlu disemak dengan guru atau sumber yang berautoriti."
+  },
+  {
+   "id": "h05_q09",
+   "question": "Apakah dua nilai fokus Hadis 5?",
+   "options": [
+    "Keyakinan dan Kesejahteraan",
+    "Keberanian dan Kekayaan",
+    "Kepantasan dan Persaingan",
+    "Kemasyhuran dan Hiburan"
+   ],
+   "correctAnswerIndex": 0,
+   "explanation": "Modul menetapkan nilai Kesejahteraan dan Keyakinan."
+  },
+  {
+   "id": "h05_q10",
+   "question": "Pernyataan manakah paling tepat?",
+   "options": [
+    "Niat baik menjadikan semua perbuatan diterima",
+    "Amalan perlu ikhlas dan menepati syariat",
+    "Semua adat ialah ibadah tanpa syarat",
+    "Panduan guru tidak diperlukan"
+   ],
+   "correctAnswerIndex": 1,
+   "explanation": "Amalan yang baik memerlukan keikhlasan serta pelaksanaan yang menepati panduan syariat."
+  }
+ ],
+ "progressRules": {
+  "completeWhen": [
+   "Pengguna telah membuka teks hadis",
+   "Pengguna telah memainkan atau membuka bahagian audio",
+   "Pengguna telah membaca terjemahan",
+   "Pengguna telah melihat huraian dan contoh sokongan",
+   "Pengguna telah melihat pengajaran dan penghayatan",
+   "Pengguna telah menjawab kuiz"
+  ],
+  "passingScorePercent": 80
+ },
+ "audio": {
+  "arabicRecitation": "assets/audio/hadith_05.mp3",
+  "translationMalay": "",
+  "durationMs": 23568,
+  "syncOffsetMs": 0,
+  "timingMethod": "phrase_alignment_from_detected_pauses_review_required",
+  "timingReviewNote": "Timing ini ialah padanan awal peringkat frasa berdasarkan jeda rakaman. Uji dalam Chrome dan laraskan ±250ms jika diperlukan.",
+  "timedSegments": [
+   {
+    "startMs": 0,
+    "endMs": 1467,
+    "text": "عَنْ أُمِّ الْمُؤْمِنِينَ"
+   },
+   {
+    "startMs": 2436,
+    "endMs": 6252,
+    "text": "أُمِّ عَبْدِ اللَّهِ عَائِشَةَ رَضِيَ اللَّهُ عَنْهَا قَالَتْ:"
+   },
+   {
+    "startMs": 6944,
+    "endMs": 10221,
+    "text": "قَالَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ:"
+   },
+   {
+    "startMs": 10776,
+    "endMs": 14375,
+    "text": "مَنْ أَحْدَثَ فِي أَمْرِنَا هَذَا مَا لَيْسَ مِنْهُ فَهُوَ رَدٌّ."
+   },
+   {
+    "startMs": 15224,
+    "endMs": 16129,
+    "text": "وَفِي رِوَايَةٍ لِمُسْلِمٍ:",
+    "words": [
+     {
+      "text": "وَفِي",
+      "startMs": 15224,
+      "endMs": 15380
+     },
+     {
+      "text": "رِوَايَةٍ",
+      "startMs": 15380,
+      "endMs": 15640
+     },
+     {
+      "text": "لِمُسْلِمٍ:",
+      "startMs": 15640,
+      "endMs": 16129
+     }
     ]
-  },
-  "source": {
-    "document": "Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua, KPM.",
-    "hadith": 5,
-    "printedPages": [
-      23,
-      24,
-      25,
-      26
-    ],
-    "pdfPages": [
-      39,
-      40,
-      41,
-      42
-    ],
-    "audioTextPolicy": "Teks paparan utama mengikut bacaan audio pengguna. Teks hadis utama dan riwayat Imam Muslim yang dipaparkan berasingan dalam modul digabungkan untuk satu pengalaman audio yang berterusan.",
-    "adaptationStatus": "Prototaip pembelajaran interaktif",
-    "verificationNote": "Kandungan teras diadaptasi daripada halaman Hadis 5 dalam Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua. Objektif digital, refleksi, kuiz, biografi ringkas dan timing audio ialah bahan tambahan aplikasi yang perlu melalui semakan ilmiah sebelum penerbitan awam. e-Hadis40 bukan aplikasi rasmi KPM."
-  },
-  "copyrightNotice": "© 2026 e-Hadis40 bagi reka bentuk aplikasi, interaksi, audio, kuiz dan kod sumber prototaip. Hak cipta kandungan asal Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua kekal milik Kementerian Pendidikan Malaysia dan pemegang hak masing-masing.",
-  "narratorId": "aisyah"
+   },
+   {
+    "startMs": 16733,
+    "endMs": 18788,
+    "text": "مَنْ عَمِلَ عَمَلًا"
+   },
+   {
+    "startMs": 19433,
+    "endMs": 22449,
+    "text": "لَيْسَ عَلَيْهِ أَمْرُنَا"
+   },
+   {
+    "startMs": 22783,
+    "endMs": 23568,
+    "text": "فَهُوَ رَدٌّ."
+   }
+  ]
+ },
+ "source": {
+  "document": "Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua, KPM.",
+  "hadith": 5,
+  "printedPages": [
+   23,
+   24,
+   25,
+   26
+  ],
+  "pdfPages": [
+   39,
+   40,
+   41,
+   42
+  ],
+  "audioTextPolicy": "Teks paparan utama mengikut bacaan audio pengguna. Teks hadis utama dan riwayat Imam Muslim yang dipaparkan berasingan dalam modul digabungkan untuk satu pengalaman audio yang berterusan.",
+  "adaptationStatus": "Prototaip pembelajaran interaktif",
+  "verificationNote": "Kandungan teras diadaptasi daripada halaman Hadis 5 dalam Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua. Objektif digital, refleksi, kuiz, biografi ringkas dan timing audio ialah bahan tambahan aplikasi yang perlu melalui semakan ilmiah sebelum penerbitan awam. e-Hadis40 bukan aplikasi rasmi KPM."
+ },
+ "copyrightNotice": "© 2026 e-Hadis40 bagi reka bentuk aplikasi, interaksi, audio, kuiz dan kod sumber prototaip. Hak cipta kandungan asal Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua kekal milik Kementerian Pendidikan Malaysia dan pemegang hak masing-masing.",
+ "narratorId": "aisyah"
 }

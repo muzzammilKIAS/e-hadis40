@@ -1,288 +1,289 @@
 {
-  "id": "hadith_07",
-  "moduleId": "module_02",
-  "hadithNumber": 7,
-  "title": "Nasihat Tonggak Agama",
-  "subtitle": "Nasihat sebagai asas agama dan tanggungjawab terhadap Allah, Rasul, pemimpin serta masyarakat.",
-  "theme": "Nasihat, ketaatan, kasih sayang dan tanggungjawab sosial",
-  "learningObjectives": [
-    "Menjelaskan maksud nasihat dalam konteks hadis.",
-    "Menyatakan pihak-pihak yang disebut sebagai penerima nasihat.",
-    "Menghuraikan bentuk nasihat kepada Allah SWT, kitab-Nya, Rasul-Nya, ulama, pemimpin dan sesama Muslim.",
-    "Menghubungkan konsep nasihat dengan ketaatan kepada Allah, Rasul dan Ulil Amri.",
-    "Mengamalkan budaya saling menasihati dengan hikmah dan berlapang dada.",
-    "Menjawab kuiz dengan markah sekurang-kurangnya 80%."
+ "id": "hadith_07",
+ "moduleId": "module_02",
+ "hadithNumber": 7,
+ "title": "Nasihat Tonggak Agama",
+ "subtitle": "Nasihat sebagai asas agama dan tanggungjawab terhadap Allah, Rasul, pemimpin serta masyarakat.",
+ "theme": "Nasihat, ketaatan, kasih sayang dan tanggungjawab sosial",
+ "learningObjectives": [
+  "Menjelaskan maksud nasihat dalam konteks hadis.",
+  "Menyatakan pihak-pihak yang disebut sebagai penerima nasihat.",
+  "Menghuraikan bentuk nasihat kepada Allah SWT, kitab-Nya, Rasul-Nya, ulama, pemimpin dan sesama Muslim.",
+  "Menghubungkan konsep nasihat dengan ketaatan kepada Allah, Rasul dan Ulil Amri.",
+  "Mengamalkan budaya saling menasihati dengan hikmah dan berlapang dada.",
+  "Menjawab kuiz dengan markah sekurang-kurangnya 80%."
+ ],
+ "arabicText": "عَنْ أَبِي رُقَيَّةَ تَمِيمِ بْنِ أَوْسٍ الدَّارِيِّ رَضِيَ اللَّهُ عَنْهُ أَنَّ النَّبِيَّ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ قَالَ:\n\nالدِّينُ النَّصِيحَةُ.\n\nقُلْنَا: لِمَنْ؟\n\nقَالَ:\n\nلِلَّهِ،\nوَلِكِتَابِهِ،\nوَلِرَسُولِهِ،\nوَلِأَئِمَّةِ الْمُسْلِمِينَ،\nوَعَامَّتِهِمْ.",
+ "translationMalay": "Daripada Saiyidina Abu Ruqayyah Tamim bin Aus al-Dari r.a. bahawa Rasulullah SAW bersabda: “Agama itu nasihat (tulus dan setia menunaikan tanggungjawab).” Kami bertanya, “Kepada siapa?” Baginda SAW bersabda, “Kepada Allah, kitab-Nya, rasul-Nya dan pemimpin kaum Muslimin serta kesemua orang Islam.”",
+ "narrator": {
+  "id": "tamim_al_dari",
+  "name": "Tamim bin Aus al-Dari r.a.",
+  "fullName": "Abu Ruqayyah Tamim bin Aus al-Dari r.a.",
+  "title": "Sahabat Rasulullah SAW, Bekas Rahib dan Perawi Hadis",
+  "shortBiography": "Tamim bin Aus al-Dari r.a. ialah bekas seorang rahib Nasrani yang memeluk Islam pada tahun ke-9 Hijrah bersama rombongan kaumnya daripada Palestin. Beliau terkenal kerana menceritakan kisah Jassasah tentang pertemuannya dengan makhluk yang mengaitkan kemunculan Dajjal, lalu disahkan sendiri oleh Rasulullah SAW di hadapan para sahabat. Beliau juga dianggap sebagai tokoh pertama yang bercerita (qasas) di dalam masjid dengan izin, dan wafat di Syam.",
+  "tags": [
+   "Sahabat Rasulullah SAW",
+   "Bekas Rahib Nasrani",
+   "Perawi Hadis"
   ],
-  "arabicText": "عَنْ أَبِي رُقَيَّةَ تَمِيمِ بْنِ أَوْسٍ الدَّارِيِّ رَضِيَ اللَّهُ عَنْهُ أَنَّ النَّبِيَّ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ قَالَ:\n\nالدِّينُ النَّصِيحَةُ.\n\nقُلْنَا: لِمَنْ؟\n\nقَالَ:\n\nلِلَّهِ،\nوَلِكِتَابِهِ،\nوَلِرَسُولِهِ،\nوَلِأَئِمَّةِ الْمُسْلِمِينَ،\nوَعَامَّتِهِمْ.",
-  "translationMalay": "Daripada Saiyidina Abu Ruqayyah Tamim bin Aus al-Dari r.a. bahawa Rasulullah SAW bersabda: “Agama itu nasihat (tulus dan setia menunaikan tanggungjawab).” Kami bertanya, “Kepada siapa?” Baginda SAW bersabda, “Kepada Allah, kitab-Nya, rasul-Nya dan pemimpin kaum Muslimin serta kesemua orang Islam.”",
-  "narrator": {
-    "id": "tamim_al_dari",
-    "name": "Tamim bin Aus al-Dari r.a.",
-    "fullName": "Abu Ruqayyah Tamim bin Aus al-Dari r.a.",
-    "title": "Sahabat Rasulullah SAW dan Perawi Hadis",
-    "shortBiography": "",
-    "tags": [
-      "Sahabat Rasulullah SAW",
-      "Perawi Hadis"
-    ],
-    "source": "",
-    "verified": false
+  "source": "Biodata ringkas ini TIDAK terdapat dalam Modul Penghayatan Hadis 40 Imam Nawawi KPM. Disumberkan daripada bahan biografi sahabat yang mapan (cth. rujukan berasaskan al-Isabah fi Tamyiz al-Sahabah oleh Ibn Hajar al-'Asqalani dan Siyar A'lam al-Nubala' oleh al-Dhahabi, melalui portal rujukan Islam yang menyusun semula kandungan kitab tersebut) bagi melengkapkan pemahaman pelajar tentang perawi hadis.",
+  "verified": true
+ },
+ "reference": "رَوَاهُ مُسْلِمٌ.",
+ "explanations": [
+  "Nasihat merupakan asas dalam agama.",
+  "Menurut Ibn Daqiq al-Id, nasihat ialah segala bentuk kebaikan yang disampaikan kepada seseorang demi kebaikan dirinya.",
+  "Nasihat meliputi peringatan untuk beriman kepada Allah SWT, mengesakan-Nya dan tidak mensyirikkan-Nya serta menerima apa yang dibawa oleh Rasulullah SAW.",
+  "Nasihat juga merupakan peringatan untuk beriman dengan kitab Allah SWT dan beramal dengannya.",
+  "Nasihat kepada ulama adalah dengan menghormati dan mengikut ajaran mereka.",
+  "Nasihat kepada pemimpin adalah dengan menyokong usaha kebaikan yang dilaksanakan selagi tidak bertentangan dengan agama.",
+  "Ketaatan kepada Allah SWT, Rasulullah SAW dan pemimpin turut menzahirkan konsep nasihat.",
+  "Nasihat kepada orang Islam boleh dilaksanakan dengan memberikan tunjuk ajar dan contoh teladan ke arah kebaikan."
+ ],
+ "quranEvidence": {
+  "surah": "al-Nisa’",
+  "verse": 59,
+  "verseEnd": 59,
+  "arabicText": "يَا أَيُّهَا الَّذِينَ آمَنُوا أَطِيعُوا اللَّهَ وَأَطِيعُوا الرَّسُولَ وَأُولِي الْأَمْرِ مِنْكُمْ ۖ فَإِنْ تَنَازَعْتُمْ فِي شَيْءٍ فَرُدُّوهُ إِلَى اللَّهِ وَالرَّسُولِ إِنْ كُنْتُمْ تُؤْمِنُونَ بِاللَّهِ وَالْيَوْمِ الْآخِرِ ۚ ذَٰلِكَ خَيْرٌ وَأَحْسَنُ تَأْوِيلًا",
+  "translationMalay": "Wahai orang beriman! Taatlah kamu kepada Allah dan taatlah kamu kepada Rasulullah dan kepada Ulil Amri (orang yang berkuasa) dalam kalangan kamu. Kemudian jika kamu berbantah-bantah (berselisihan) dalam sesuatu perkara, maka hendaklah kamu mengembalikannya kepada (Kitab) Allah (al-Quran) dan (al-Sunah) Rasul-Nya jika kamu benar beriman kepada Allah dan hari akhirat. Yang demikian adalah lebih baik (bagi kamu), dan lebih elok pula kesudahannya.",
+  "sourceNote": "Pemilihan ayat dan terjemahan Bahasa Melayu adalah berdasarkan Hadis 7 dalam Modul KPM."
+ },
+ "lessons": [
+  "Memberi nasihat adalah tuntutan daripada Allah SWT dan pelaksanaannya membawa ganjaran.",
+  "Menjadikan al-Quran dan al-Sunah sebagai panduan dalam amalan harian.",
+  "Menzahirkan kasih sayang sesama insan melalui amalan saling menasihati.",
+  "Masyarakat yang harmoni terbentuk apabila setiap individu berlapang dada menerima peringatan dan membaiki diri."
+ ],
+ "appreciation": [
+  "Murid perlu mengamalkan budaya nasihat-menasihati.",
+  "Murid perlu menghargai nasihat yang diberi oleh sesiapa sahaja dengan melaksanakan segala tunjuk ajar mereka.",
+  "Murid hendaklah sentiasa berlapang dada menerima nasihat yang baik."
+ ],
+ "focusValues": [
+  "Ihsan",
+  "Hormat"
+ ],
+ "suggestedActivities": [
+  {
+   "title": "Tazkirah",
+   "description": "Sampaikan tazkirah ringkas tentang kepentingan nasihat yang baik."
   },
-  "reference": "رَوَاهُ مُسْلِمٌ.",
-  "explanations": [
-    "Nasihat merupakan asas dalam agama.",
-    "Menurut Ibn Daqiq al-Id, nasihat ialah segala bentuk kebaikan yang disampaikan kepada seseorang demi kebaikan dirinya.",
-    "Nasihat meliputi peringatan untuk beriman kepada Allah SWT, mengesakan-Nya dan tidak mensyirikkan-Nya serta menerima apa yang dibawa oleh Rasulullah SAW.",
-    "Nasihat juga merupakan peringatan untuk beriman dengan kitab Allah SWT dan beramal dengannya.",
-    "Nasihat kepada ulama adalah dengan menghormati dan mengikut ajaran mereka.",
-    "Nasihat kepada pemimpin adalah dengan menyokong usaha kebaikan yang dilaksanakan selagi tidak bertentangan dengan agama.",
-    "Ketaatan kepada Allah SWT, Rasulullah SAW dan pemimpin turut menzahirkan konsep nasihat.",
-    "Nasihat kepada orang Islam boleh dilaksanakan dengan memberikan tunjuk ajar dan contoh teladan ke arah kebaikan."
-  ],
-  "quranEvidence": {
-    "surah": "al-Nisa’",
-    "verse": 59,
-    "verseEnd": 59,
-    "arabicText": "يَا أَيُّهَا الَّذِينَ آمَنُوا أَطِيعُوا اللَّهَ وَأَطِيعُوا الرَّسُولَ وَأُولِي الْأَمْرِ مِنْكُمْ ۖ فَإِنْ تَنَازَعْتُمْ فِي شَيْءٍ فَرُدُّوهُ إِلَى اللَّهِ وَالرَّسُولِ إِنْ كُنْتُمْ تُؤْمِنُونَ بِاللَّهِ وَالْيَوْمِ الْآخِرِ ۚ ذَٰلِكَ خَيْرٌ وَأَحْسَنُ تَأْوِيلًا",
-    "translationMalay": "Wahai orang beriman! Taatlah kamu kepada Allah dan taatlah kamu kepada Rasulullah dan kepada Ulil Amri (orang yang berkuasa) dalam kalangan kamu. Kemudian jika kamu berbantah-bantah (berselisihan) dalam sesuatu perkara, maka hendaklah kamu mengembalikannya kepada (Kitab) Allah (al-Quran) dan (al-Sunah) Rasul-Nya jika kamu benar beriman kepada Allah dan hari akhirat. Yang demikian adalah lebih baik (bagi kamu), dan lebih elok pula kesudahannya.",
-    "sourceNote": "Pemilihan ayat dan terjemahan Bahasa Melayu adalah berdasarkan Hadis 7 dalam Modul KPM."
+  {
+   "title": "Dakwah rakan sebaya",
+   "description": "Laksanakan aktiviti saling menasihati dan memberi contoh teladan dalam kalangan rakan."
   },
-  "lessons": [
-    "Memberi nasihat adalah tuntutan daripada Allah SWT dan pelaksanaannya membawa ganjaran.",
-    "Menjadikan al-Quran dan al-Sunah sebagai panduan dalam amalan harian.",
-    "Menzahirkan kasih sayang sesama insan melalui amalan saling menasihati.",
-    "Masyarakat yang harmoni terbentuk apabila setiap individu berlapang dada menerima peringatan dan membaiki diri."
-  ],
-  "appreciation": [
-    "Murid perlu mengamalkan budaya nasihat-menasihati.",
-    "Murid perlu menghargai nasihat yang diberi oleh sesiapa sahaja dengan melaksanakan segala tunjuk ajar mereka.",
-    "Murid hendaklah sentiasa berlapang dada menerima nasihat yang baik."
-  ],
-  "focusValues": [
-    "Ihsan",
-    "Hormat"
-  ],
-  "suggestedActivities": [
-    {
-      "title": "Tazkirah",
-      "description": "Sampaikan tazkirah ringkas tentang kepentingan nasihat yang baik."
-    },
-    {
-      "title": "Dakwah rakan sebaya",
-      "description": "Laksanakan aktiviti saling menasihati dan memberi contoh teladan dalam kalangan rakan."
-    },
-    {
-      "title": "Street Dakwah",
-      "description": "Rancang aktiviti dakwah beradab yang membawa mesej nasihat dan kebaikan."
-    },
-    {
-      "title": "Perkongsian dalam media sosial",
-      "description": "Hasilkan perkongsian berunsur nasihat yang baik, tepat dan berhemah."
-    }
-  ],
-  "reflectionQuestions": [
-    "Apakah maksud nasihat dalam konteks hadis ini?",
-    "Bagaimanakah saya boleh menzahirkan nasihat kepada Allah SWT dan Rasulullah SAW dalam kehidupan harian?",
-    "Mengapakah kita perlu menghormati ulama dan mengikuti panduan mereka yang benar?",
-    "Bagaimanakah nasihat kepada pemimpin boleh dilakukan dengan beradab?",
-    "Adakah saya mudah menerima teguran dan nasihat daripada orang lain?",
-    "Apakah satu cara saya boleh membina budaya nasihat yang baik dalam kalangan rakan?"
-  ],
-  "quiz": [
-    {
-      "id": "h07_q01",
-      "question": "Siapakah perawi Hadis 7?",
-      "options": [
-        "Abu Ruqayyah Tamim bin Aus al-Dari r.a.",
-        "Abu Hurairah r.a.",
-        "Abdullah bin Umar r.a.",
-        "al-Nu‘man bin Basyir r.a."
-      ],
-      "correctAnswerIndex": 0,
-      "explanation": "Hadis ini diriwayatkan daripada Abu Ruqayyah Tamim bin Aus al-Dari r.a."
-    },
-    {
-      "id": "h07_q02",
-      "question": "Apakah inti utama sabda الدِّينُ النَّصِيحَةُ?",
-      "options": [
-        "Agama hanya berkaitan ibadah khusus",
-        "Agama itu nasihat",
-        "Nasihat hanya untuk pemimpin",
-        "Nasihat tidak wajib diterima"
-      ],
-      "correctAnswerIndex": 1,
-      "explanation": "Hadis menegaskan bahawa nasihat merupakan asas penting dalam agama."
-    },
-    {
-      "id": "h07_q03",
-      "question": "Yang manakah termasuk pihak yang disebut dalam hadis?",
-      "options": [
-        "Allah, kitab-Nya, Rasul-Nya, pemimpin Muslim dan seluruh Muslim",
-        "Keluarga sahaja",
-        "Guru sahaja",
-        "Pemimpin sahaja"
-      ],
-      "correctAnswerIndex": 0,
-      "explanation": "Hadis menyebut nasihat kepada Allah, kitab-Nya, Rasul-Nya, pemimpin kaum Muslimin dan seluruh orang Islam."
-    },
-    {
-      "id": "h07_q04",
-      "question": "Bagaimanakah nasihat kepada ulama dijelaskan dalam modul?",
-      "options": [
-        "Mengabaikan pandangan mereka",
-        "Menghormati dan mengikut ajaran mereka",
-        "Mencabar semua pandangan mereka",
-        "Mengikuti mereka tanpa ilmu"
-      ],
-      "correctAnswerIndex": 1,
-      "explanation": "Modul menyatakan nasihat kepada ulama adalah dengan menghormati dan mengikut ajaran mereka."
-    },
-    {
-      "id": "h07_q05",
-      "question": "Bagaimanakah nasihat kepada pemimpin dilaksanakan menurut modul?",
-      "options": [
-        "Menyokong semua perkara tanpa syarat",
-        "Menyokong usaha kebaikan selagi tidak bertentangan dengan agama",
-        "Tidak perlu memberi perhatian kepada pemimpin",
-        "Mentaati perkara yang bertentangan dengan agama"
-      ],
-      "correctAnswerIndex": 1,
-      "explanation": "Nasihat kepada pemimpin ialah menyokong usaha kebaikan yang dilaksanakan selagi tidak bertentangan dengan agama."
-    },
-    {
-      "id": "h07_q06",
-      "question": "Surah dan ayat apakah yang dirujuk dalam huraian Hadis 7?",
-      "options": [
-        "Surah al-Baqarah ayat 172",
-        "Surah al-Nisa’ ayat 59",
-        "Surah Ali ‘Imran ayat 19",
-        "Surah al-Mukminun ayat 12"
-      ],
-      "correctAnswerIndex": 1,
-      "explanation": "Modul merujuk Surah al-Nisa’ ayat 59 tentang ketaatan kepada Allah, Rasul dan Ulil Amri."
-    },
-    {
-      "id": "h07_q07",
-      "question": "Apakah cara memberi nasihat kepada sesama Muslim yang dinyatakan dalam modul?",
-      "options": [
-        "Memalukan mereka",
-        "Memberikan tunjuk ajar dan contoh teladan ke arah kebaikan",
-        "Menghindari mereka",
-        "Menyebarkan kesalahan mereka"
-      ],
-      "correctAnswerIndex": 1,
-      "explanation": "Nasihat kepada orang Islam boleh dilakukan melalui tunjuk ajar dan contoh teladan ke arah kebaikan."
-    },
-    {
-      "id": "h07_q08",
-      "question": "Apakah dua fokus nilai Hadis 7?",
-      "options": [
-        "Ihsan dan Hormat",
-        "Keyakinan dan Kesejahteraan",
-        "Ikhlas dan Keberanian",
-        "Hormat dan Persaingan"
-      ],
-      "correctAnswerIndex": 0,
-      "explanation": "Fokus nilai Hadis 7 ialah Ihsan dan Hormat."
-    },
-    {
-      "id": "h07_q09",
-      "question": "Yang manakah cadangan aktiviti Hadis 7?",
-      "options": [
-        "Tazkirah dan dakwah rakan sebaya",
-        "Kursus sembelihan sahaja",
-        "Eksperimen sains",
-        "Latihan sukan"
-      ],
-      "correctAnswerIndex": 0,
-      "explanation": "Antara aktiviti yang dicadangkan ialah Tazkirah dan Dakwah rakan sebaya."
-    },
-    {
-      "id": "h07_q10",
-      "question": "Apakah sikap yang membantu membentuk masyarakat harmoni menurut pengajaran hadis?",
-      "options": [
-        "Menolak semua teguran",
-        "Berlapang dada menerima peringatan dan membaiki diri",
-        "Hanya menasihati orang lain",
-        "Mengelakkan semua perbincangan"
-      ],
-      "correctAnswerIndex": 1,
-      "explanation": "Masyarakat harmoni terbentuk apabila individu berlapang dada menerima peringatan dan membaiki diri."
-    }
-  ],
-  "progressRules": {
-    "completeWhen": [
-      "Pengguna telah membuka teks hadis",
-      "Pengguna telah memainkan atau membuka bahagian audio",
-      "Pengguna telah membaca maksud hadis",
-      "Pengguna telah melihat huraian dan dalil al-Quran",
-      "Pengguna telah melihat pengajaran dan penghayatan",
-      "Pengguna telah menjawab kuiz"
-    ],
-    "passingScorePercent": 80
+  {
+   "title": "Street Dakwah",
+   "description": "Rancang aktiviti dakwah beradab yang membawa mesej nasihat dan kebaikan."
   },
-  "audioTranscriptNote": "Audio Hadis 07 (22.848s). 6 frasa hadis. Segmen akhir \"وَلِأَئِمَّةِ الْمُسْلِمِينَ، وَعَامَّتِهِمْ.\" dibaca sehingga 22.65s (pengulangan/penekanan penghujung). Rujukan رَوَاهُ مُسْلِمٌ. TIDAK dibaca dalam audio — dipaparkan statik sahaja.",
-  "audio": {
-    "arabicRecitation": "assets/audio/hadith_07.mp3",
-    "translationMalay": "",
-    "durationMs": 22848,
-    "syncOffsetMs": 0,
-    "timingMethod": "waveform_major_pause_phrase_alignment",
-    "timingReviewNote": "6 phrase segments. Segmen 6 endMs diperpanjang 18915->22650 untuk liputi sebutan penuh \"وَعَامَّتِهِمْ\" yang berulang/berpanjangan (disahkan waveform 20.12-22.65s). Rujukan رَوَاهُ مُسْلِمٌ. tiada dalam audio.",
-    "timedSegments": [
-      {
-        "startMs": 127,
-        "endMs": 3459,
-        "text": "عَنْ أَبِي رُقَيَّةَ تَمِيمِ بْنِ أَوْسٍ الدَّارِيِّ رَضِيَ اللَّهُ عَنْهُ"
-      },
-      {
-        "startMs": 4110,
-        "endMs": 5819,
-        "text": "أَنَّ النَّبِيَّ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ قَالَ:"
-      },
-      {
-        "startMs": 6451,
-        "endMs": 10200,
-        "text": "الدِّينُ النَّصِيحَةُ. قُلْنَا: لِمَنْ؟ قَالَ:"
-      },
-      {
-        "startMs": 11121,
-        "endMs": 12760,
-        "text": "لِلَّهِ، وَلِكِتَابِهِ،"
-      },
-      {
-        "startMs": 13742,
-        "endMs": 14475,
-        "text": "وَلِرَسُولِهِ،"
-      },
-      {
-        "startMs": 15400,
-        "endMs": 22650,
-        "text": "وَلِأَئِمَّةِ الْمُسْلِمِينَ، وَعَامَّتِهِمْ."
-      }
-    ]
+  {
+   "title": "Perkongsian dalam media sosial",
+   "description": "Hasilkan perkongsian berunsur nasihat yang baik, tepat dan berhemah."
+  }
+ ],
+ "reflectionQuestions": [
+  "Apakah maksud nasihat dalam konteks hadis ini?",
+  "Bagaimanakah saya boleh menzahirkan nasihat kepada Allah SWT dan Rasulullah SAW dalam kehidupan harian?",
+  "Mengapakah kita perlu menghormati ulama dan mengikuti panduan mereka yang benar?",
+  "Bagaimanakah nasihat kepada pemimpin boleh dilakukan dengan beradab?",
+  "Adakah saya mudah menerima teguran dan nasihat daripada orang lain?",
+  "Apakah satu cara saya boleh membina budaya nasihat yang baik dalam kalangan rakan?"
+ ],
+ "quiz": [
+  {
+   "id": "h07_q01",
+   "question": "Siapakah perawi Hadis 7?",
+   "options": [
+    "Abu Ruqayyah Tamim bin Aus al-Dari r.a.",
+    "Abu Hurairah r.a.",
+    "Abdullah bin Umar r.a.",
+    "al-Nu‘man bin Basyir r.a."
+   ],
+   "correctAnswerIndex": 0,
+   "explanation": "Hadis ini diriwayatkan daripada Abu Ruqayyah Tamim bin Aus al-Dari r.a."
   },
-  "supplications": [],
-  "supplementaryHadiths": [],
-  "supportingExample": null,
-  "source": {
-    "document": "Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua, KPM.",
-    "hadith": 7,
-    "printedPages": [
-      32,
-      33,
-      34,
-      35
-    ],
-    "pdfPages": [
-      48,
-      49,
-      50,
-      51
-    ],
-    "adaptationStatus": "Prototaip pembelajaran interaktif",
-    "verificationNote": "Teks hadis, maksud, huraian, Surah al-Nisa’ ayat 59, pengajaran, penghayatan, fokus nilai dan cadangan aktiviti berasaskan Hadis 7 dalam modul KPM. Objektif digital, refleksi, kuiz dan timing audio ialah bahan tambahan aplikasi."
+  {
+   "id": "h07_q02",
+   "question": "Apakah inti utama sabda الدِّينُ النَّصِيحَةُ?",
+   "options": [
+    "Agama hanya berkaitan ibadah khusus",
+    "Agama itu nasihat",
+    "Nasihat hanya untuk pemimpin",
+    "Nasihat tidak wajib diterima"
+   ],
+   "correctAnswerIndex": 1,
+   "explanation": "Hadis menegaskan bahawa nasihat merupakan asas penting dalam agama."
   },
-  "copyrightNotice": "© 2026 e-Hadis40 bagi reka bentuk aplikasi, interaksi, audio, kuiz dan kod sumber prototaip. Hak cipta kandungan asal Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua kekal milik Kementerian Pendidikan Malaysia dan pemegang hak masing-masing.",
-  "narratorId": null
+  {
+   "id": "h07_q03",
+   "question": "Yang manakah termasuk pihak yang disebut dalam hadis?",
+   "options": [
+    "Allah, kitab-Nya, Rasul-Nya, pemimpin Muslim dan seluruh Muslim",
+    "Keluarga sahaja",
+    "Guru sahaja",
+    "Pemimpin sahaja"
+   ],
+   "correctAnswerIndex": 0,
+   "explanation": "Hadis menyebut nasihat kepada Allah, kitab-Nya, Rasul-Nya, pemimpin kaum Muslimin dan seluruh orang Islam."
+  },
+  {
+   "id": "h07_q04",
+   "question": "Bagaimanakah nasihat kepada ulama dijelaskan dalam modul?",
+   "options": [
+    "Mengabaikan pandangan mereka",
+    "Menghormati dan mengikut ajaran mereka",
+    "Mencabar semua pandangan mereka",
+    "Mengikuti mereka tanpa ilmu"
+   ],
+   "correctAnswerIndex": 1,
+   "explanation": "Modul menyatakan nasihat kepada ulama adalah dengan menghormati dan mengikut ajaran mereka."
+  },
+  {
+   "id": "h07_q05",
+   "question": "Bagaimanakah nasihat kepada pemimpin dilaksanakan menurut modul?",
+   "options": [
+    "Menyokong semua perkara tanpa syarat",
+    "Menyokong usaha kebaikan selagi tidak bertentangan dengan agama",
+    "Tidak perlu memberi perhatian kepada pemimpin",
+    "Mentaati perkara yang bertentangan dengan agama"
+   ],
+   "correctAnswerIndex": 1,
+   "explanation": "Nasihat kepada pemimpin ialah menyokong usaha kebaikan yang dilaksanakan selagi tidak bertentangan dengan agama."
+  },
+  {
+   "id": "h07_q06",
+   "question": "Surah dan ayat apakah yang dirujuk dalam huraian Hadis 7?",
+   "options": [
+    "Surah al-Baqarah ayat 172",
+    "Surah al-Nisa’ ayat 59",
+    "Surah Ali ‘Imran ayat 19",
+    "Surah al-Mukminun ayat 12"
+   ],
+   "correctAnswerIndex": 1,
+   "explanation": "Modul merujuk Surah al-Nisa’ ayat 59 tentang ketaatan kepada Allah, Rasul dan Ulil Amri."
+  },
+  {
+   "id": "h07_q07",
+   "question": "Apakah cara memberi nasihat kepada sesama Muslim yang dinyatakan dalam modul?",
+   "options": [
+    "Memalukan mereka",
+    "Memberikan tunjuk ajar dan contoh teladan ke arah kebaikan",
+    "Menghindari mereka",
+    "Menyebarkan kesalahan mereka"
+   ],
+   "correctAnswerIndex": 1,
+   "explanation": "Nasihat kepada orang Islam boleh dilakukan melalui tunjuk ajar dan contoh teladan ke arah kebaikan."
+  },
+  {
+   "id": "h07_q08",
+   "question": "Apakah dua fokus nilai Hadis 7?",
+   "options": [
+    "Ihsan dan Hormat",
+    "Keyakinan dan Kesejahteraan",
+    "Ikhlas dan Keberanian",
+    "Hormat dan Persaingan"
+   ],
+   "correctAnswerIndex": 0,
+   "explanation": "Fokus nilai Hadis 7 ialah Ihsan dan Hormat."
+  },
+  {
+   "id": "h07_q09",
+   "question": "Yang manakah cadangan aktiviti Hadis 7?",
+   "options": [
+    "Tazkirah dan dakwah rakan sebaya",
+    "Kursus sembelihan sahaja",
+    "Eksperimen sains",
+    "Latihan sukan"
+   ],
+   "correctAnswerIndex": 0,
+   "explanation": "Antara aktiviti yang dicadangkan ialah Tazkirah dan Dakwah rakan sebaya."
+  },
+  {
+   "id": "h07_q10",
+   "question": "Apakah sikap yang membantu membentuk masyarakat harmoni menurut pengajaran hadis?",
+   "options": [
+    "Menolak semua teguran",
+    "Berlapang dada menerima peringatan dan membaiki diri",
+    "Hanya menasihati orang lain",
+    "Mengelakkan semua perbincangan"
+   ],
+   "correctAnswerIndex": 1,
+   "explanation": "Masyarakat harmoni terbentuk apabila individu berlapang dada menerima peringatan dan membaiki diri."
+  }
+ ],
+ "progressRules": {
+  "completeWhen": [
+   "Pengguna telah membuka teks hadis",
+   "Pengguna telah memainkan atau membuka bahagian audio",
+   "Pengguna telah membaca maksud hadis",
+   "Pengguna telah melihat huraian dan dalil al-Quran",
+   "Pengguna telah melihat pengajaran dan penghayatan",
+   "Pengguna telah menjawab kuiz"
+  ],
+  "passingScorePercent": 80
+ },
+ "audioTranscriptNote": "Audio Hadis 07 (22.848s). 6 frasa hadis. Segmen akhir \"وَلِأَئِمَّةِ الْمُسْلِمِينَ، وَعَامَّتِهِمْ.\" dibaca sehingga 22.65s (pengulangan/penekanan penghujung). Rujukan رَوَاهُ مُسْلِمٌ. TIDAK dibaca dalam audio — dipaparkan statik sahaja.",
+ "audio": {
+  "arabicRecitation": "assets/audio/hadith_07.mp3",
+  "translationMalay": "",
+  "durationMs": 22848,
+  "syncOffsetMs": 0,
+  "timingMethod": "waveform_major_pause_phrase_alignment",
+  "timingReviewNote": "6 phrase segments. Segmen 6 endMs diperpanjang 18915->22650 untuk liputi sebutan penuh \"وَعَامَّتِهِمْ\" yang berulang/berpanjangan (disahkan waveform 20.12-22.65s). Rujukan رَوَاهُ مُسْلِمٌ. tiada dalam audio.",
+  "timedSegments": [
+   {
+    "startMs": 127,
+    "endMs": 3459,
+    "text": "عَنْ أَبِي رُقَيَّةَ تَمِيمِ بْنِ أَوْسٍ الدَّارِيِّ رَضِيَ اللَّهُ عَنْهُ"
+   },
+   {
+    "startMs": 4110,
+    "endMs": 5819,
+    "text": "أَنَّ النَّبِيَّ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ قَالَ:"
+   },
+   {
+    "startMs": 6451,
+    "endMs": 10200,
+    "text": "الدِّينُ النَّصِيحَةُ. قُلْنَا: لِمَنْ؟ قَالَ:"
+   },
+   {
+    "startMs": 11121,
+    "endMs": 12760,
+    "text": "لِلَّهِ، وَلِكِتَابِهِ،"
+   },
+   {
+    "startMs": 13742,
+    "endMs": 14475,
+    "text": "وَلِرَسُولِهِ،"
+   },
+   {
+    "startMs": 15400,
+    "endMs": 22650,
+    "text": "وَلِأَئِمَّةِ الْمُسْلِمِينَ، وَعَامَّتِهِمْ."
+   }
+  ]
+ },
+ "supplications": [],
+ "supplementaryHadiths": [],
+ "supportingExample": null,
+ "source": {
+  "document": "Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua, KPM.",
+  "hadith": 7,
+  "printedPages": [
+   32,
+   33,
+   34,
+   35
+  ],
+  "pdfPages": [
+   48,
+   49,
+   50,
+   51
+  ],
+  "adaptationStatus": "Prototaip pembelajaran interaktif",
+  "verificationNote": "Teks hadis, maksud, huraian, Surah al-Nisa’ ayat 59, pengajaran, penghayatan, fokus nilai dan cadangan aktiviti berasaskan Hadis 7 dalam modul KPM. Objektif digital, refleksi, kuiz dan timing audio ialah bahan tambahan aplikasi."
+ },
+ "copyrightNotice": "© 2026 e-Hadis40 bagi reka bentuk aplikasi, interaksi, audio, kuiz dan kod sumber prototaip. Hak cipta kandungan asal Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua kekal milik Kementerian Pendidikan Malaysia dan pemegang hak masing-masing.",
+ "narratorId": null
 }

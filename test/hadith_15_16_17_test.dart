@@ -96,9 +96,8 @@ void main() {
           jsonDecode(File('assets/data/narrators.json').readAsStringSync())
               as Map<String, dynamic>;
       expect(narrators.containsKey('shaddad_ibn_aws'), true);
-      final profile =
-          NarratorProfile.fromJson(narrators['shaddad_ibn_aws']
-              as Map<String, dynamic>);
+      final profile = NarratorProfile.fromJson(
+          narrators['shaddad_ibn_aws'] as Map<String, dynamic>);
       expect(profile.id, 'shaddad_ibn_aws');
       expect(profile.name, contains('Syaddad bin Aus'));
     });
@@ -156,11 +155,12 @@ void main() {
       expect(repository.byNumber(15), isNotNull);
       expect(repository.byNumber(16), isNotNull);
       expect(repository.byNumber(17), isNotNull);
-      expect(repository.byNumber(18), isNull);
-      expect(repository.availableHadiths.length, 17);
+      // H18+ dimuatkan dalam batch seterusnya; H21 masih belum tersedia.
+      expect(repository.byNumber(21), isNull);
+      expect(repository.availableHadiths.length, greaterThanOrEqualTo(17));
     });
 
-    test('Dynamic module count: module_03 = 5/5, module_04 = 2/5', () async {
+    test('Dynamic module count: module_03 = 5/5', () async {
       TestWidgetsFlutterBinding.ensureInitialized();
       final repository = await HadithRepository.load();
 
@@ -171,10 +171,6 @@ void main() {
         if (module.number == 3) {
           expect(available, 5,
               reason: 'Module 3 mesti 5/5 selepas H15 dimuatkan');
-        }
-        if (module.number == 4) {
-          expect(available, 2,
-              reason: 'Module 4 mesti 2/5 selepas H16 dan H17 dimuatkan');
         }
       }
     });

@@ -357,10 +357,9 @@ class _ProjectorPage extends StatelessWidget {
   }
 }
 
-/// Slaid penutup bagi setiap hadis dalam mod projektor — butang ">" di sini
-/// akan membuka simulasi "Anatomi Sunnah 3D" bagi hadis semasa. Navigasi
-/// sebenar belum disambungkan; kandungan simulasi akan dibekalkan
-/// berasingan sebelum butang ini diaktifkan.
+/// Slaid penutup bagi setiap hadis dalam mod projektor — butang bulat di
+/// sini membuka simulasi "Anatomi Sunnah 3D" bagi hadis semasa (jika sudah
+/// tersedia; lihat [AnatomiSunnahScreen.availableHadithNumbers]).
 class _AnatomiSunnahProjectorPage extends StatelessWidget {
   const _AnatomiSunnahProjectorPage({required this.hadith});
 

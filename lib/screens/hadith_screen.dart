@@ -193,11 +193,56 @@ class _HadithScreenState extends State<HadithScreen> {
                 ),
               ),
               const SizedBox(height: AppSpacing.xl),
-              if (hadith.narratorId != null &&
-                  context.read<NarratorRepository>().byId(hadith.narratorId!) !=
-                      null)
+              if (hadith.supplementaryNarrationText.isNotEmpty) ...[
                 HadithSection(
-                  title: 'Kenali Perawi',
+                  title: 'Riwayat Tambahan',
+                  icon: Icons.library_books_rounded,
+                  accent: true,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      if (hadith.supplementaryNarrationIntro.isNotEmpty) ...[
+                        Directionality(
+                          textDirection: TextDirection.rtl,
+                          child: Text(
+                            hadith.supplementaryNarrationIntro,
+                            textAlign: TextAlign.right,
+                            style: TextStyle(
+                              fontSize: 20 * controller.arabicScale,
+                              height: 1.9,
+                              fontFamily: AppConstants.arabicFontFamily,
+                              fontFamilyFallback:
+                                  AppConstants.arabicFontFallback,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: AppSpacing.lg),
+                      ],
+                      Directionality(
+                        textDirection: TextDirection.rtl,
+                        child: Text(
+                          hadith.supplementaryNarrationText,
+                          textAlign: TextAlign.right,
+                          style: TextStyle(
+                            fontSize: 22 * controller.arabicScale,
+                            height: 2.0,
+                            fontFamily: AppConstants.arabicFontFamily,
+                            fontFamilyFallback: AppConstants.arabicFontFallback,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: AppSpacing.xl),
+              ],
+              if (hadith.allNarratorIds.isNotEmpty &&
+                  hadith.allNarratorIds.any((id) =>
+                      context.read<NarratorRepository>().byId(id) != null))
+                HadithSection(
+                  title: hadith.allNarratorIds.length > 1
+                      ? 'Kenali Perawi'
+                      : 'Kenali Perawi',
                   icon: Icons.person_search_rounded,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -207,7 +252,16 @@ class _HadithScreenState extends State<HadithScreen> {
                         style: TextStyle(color: scheme.onSurfaceVariant),
                       ),
                       const SizedBox(height: AppSpacing.sm),
-                      NarratorInfoTrigger(narrator: hadith.narrator),
+                      for (final narratorId in hadith.allNarratorIds)
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: AppSpacing.sm),
+                          child: NarratorInfoTrigger(
+                            narrator: hadith.narrator.id == narratorId
+                                ? hadith.narrator
+                                : _narratorFallback(
+                                    context, narratorId, hadith),
+                          ),
+                        ),
                       const SizedBox(height: AppSpacing.lg),
                       Text(
                         hadith.reference,
@@ -471,6 +525,25 @@ class _HadithScreenState extends State<HadithScreen> {
         const SnackBar(content: Text('Nota refleksi telah disimpan.')),
       );
     }
+  }
+
+  /// Bina `NarratorInfo` daripada profil canonical dalam NarratorRepository
+  /// untuk perawi tambahan (H18 mempunyai dua perawi). Fallback kepada nama
+  /// sahaja jika profil tiada.
+  NarratorInfo _narratorFallback(
+      BuildContext context, String narratorId, Hadith hadith) {
+    final profile = context.read<NarratorRepository>().byId(narratorId);
+    if (profile == null) return hadith.narrator;
+    return NarratorInfo(
+      id: profile.id,
+      name: profile.name,
+      fullName: profile.fullName,
+      title: profile.title,
+      shortBiography: profile.biography,
+      tags: profile.tags,
+      source: 'Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua, KPM.',
+      verified: profile.verified,
+    );
   }
 
   Future<void> _complete(BuildContext context, AppController controller) async {

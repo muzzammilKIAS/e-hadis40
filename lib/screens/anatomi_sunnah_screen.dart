@@ -22,7 +22,7 @@ class AnatomiSunnahScreen extends StatefulWidget {
   final int hadithNumber;
 
   static const _themeStorageKey = 'ehadis40-theme';
-  static const availableHadithNumbers = 14;
+  static const availableHadithNumbers = 17;
 
   @override
   State<AnatomiSunnahScreen> createState() => _AnatomiSunnahScreenState();

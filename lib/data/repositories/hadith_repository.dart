@@ -28,6 +28,9 @@ class HadithRepository {
       'assets/data/hadith_15.json',
       'assets/data/hadith_16.json',
       'assets/data/hadith_17.json',
+      'assets/data/hadith_18.json',
+      'assets/data/hadith_19.json',
+      'assets/data/hadith_20.json',
     ];
 
     final hadiths = <Hadith>[];

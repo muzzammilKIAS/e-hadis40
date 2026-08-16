@@ -20,15 +20,16 @@
  "narrator": {
   "id": "abu_hurairah",
   "name": "Abu Hurairah r.a.",
-  "fullName": "Abu Hurairah r.a.",
-  "title": "Perawi Hadis",
-  "shortBiography": "",
+  "fullName": "Abu Hurairah ‘Abdul Rahman bin Sakhr al-Dausi r.a.",
+  "title": "Sahabat Rasulullah SAW dan Perawi Hadis Paling Prolifik",
+  "shortBiography": "Abu Hurairah r.a. ialah seorang sahabat Rasulullah SAW daripada Bani Daus yang memeluk Islam pada tahun ke-7 Hijrah dan sentiasa menyertai Baginda SAW demi menuntut ilmu, walaupun hidup dalam kesempitan pada mulanya. Nama sebenarnya diperselisihkan ulama, namun pendapat masyhur menyebutnya ‘Abdul Rahman bin Sakhr. Beliau dikenali sebagai perawi hadis yang paling banyak meriwayatkan hadis Rasulullah SAW berbanding sahabat lain, dan wafat di Madinah sekitar tahun 57 Hijrah.",
   "tags": [
    "Sahabat Rasulullah SAW",
-   "Perawi Hadis"
+   "Perawi Hadis Paling Prolifik",
+   "Bani Daus"
   ],
-  "source": "Gunakan profil canonical sedia ada daripada NarratorRepository kerana perawi yang sama telah digunakan pada hadis terdahulu. Jangan cipta profil kedua.",
-  "verified": false
+  "source": "Biodata ringkas ini TIDAK terdapat dalam Modul Penghayatan Hadis 40 Imam Nawawi KPM. Disumberkan daripada bahan biografi sahabat yang mapan (cth. rujukan berasaskan al-Isabah fi Tamyiz al-Sahabah oleh Ibn Hajar al-'Asqalani dan Siyar A'lam al-Nubala' oleh al-Dhahabi, melalui portal rujukan Islam yang menyusun semula kandungan kitab tersebut) bagi melengkapkan pemahaman pelajar tentang perawi hadis.",
+  "verified": true
  },
  "referenceArabic": "رَوَاهُ الْبُخَارِيُّ وَمُسْلِمٌ.",
  "reference": "Hadis ini diriwayatkan oleh Imam al-Bukhari dan Imam Muslim.",
@@ -230,17 +231,17 @@
   "syncOffsetMs": 0,
   "wordHighlightMode": "phraseOnly",
   "timingMethod": "waveform/silence-derived phrase timing starting point",
-  "timingReviewNote": "Timing frasa ialah padanan awal daripada jeda rakaman (CSV starting point). Dengar audio sebenar dan fine-tune startMs/endMs secara minimum jika perlu. Jangan guna proportional word timing. Rujukan hadis kekal statik kecuali pendengaran mengesahkan ia dibaca.",
+  "timingReviewNote": "Timing frasa ialah padanan awal daripada jeda rakaman (CSV starting point). Dengar audio sebenar dan fine-tune startMs/endMs secara minimum jika perlu. Jangan guna proportional word timing. Rujukan hadis kekal statik kecuali pendengaran mengesahkan ia dibaca. [Dikemas kini 16 Ogos 2026: startMs/endMs dilaraskan secara automatik berdasarkan pengesanan tenaga RMS audio sebenar (onset/offset ucapan) sebagai proksi 'mendengar audio' — referenceAudioVerificationRequired kekal true untuk semakan pendengaran manusia akhir.]",
   "referenceAudioVerificationRequired": true,
   "timedSegments": [
    {
     "startMs": 80,
-    "endMs": 2450,
+    "endMs": 2385,
     "text": "عَنْ أَبِي هُرَيْرَةَ رَضِيَ اللَّهُ عَنْهُ،"
    },
    {
     "startMs": 2770,
-    "endMs": 6740,
+    "endMs": 6695,
     "text": "عَنْ رَسُولِ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ قَالَ:"
    },
    {
@@ -250,27 +251,27 @@
    },
    {
     "startMs": 10680,
-    "endMs": 13260,
+    "endMs": 13210,
     "text": "فَلْيَقُلْ خَيْرًا أَوْ لِيَصْمُتْ،"
    },
    {
-    "startMs": 13620,
-    "endMs": 16720,
+    "startMs": 13645,
+    "endMs": 16525,
     "text": "وَمَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الْآخِرِ"
    },
    {
-    "startMs": 17250,
-    "endMs": 18400,
+    "startMs": 17330,
+    "endMs": 18310,
     "text": "فَلْيُكْرِمْ جَارَهُ،"
    },
    {
-    "startMs": 18850,
-    "endMs": 21690,
+    "startMs": 18870,
+    "endMs": 21495,
     "text": "وَمَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الْآخِرِ"
    },
    {
-    "startMs": 22340,
-    "endMs": 23470,
+    "startMs": 22385,
+    "endMs": 23430,
     "text": "فَلْيُكْرِمْ ضَيْفَهُ."
    }
   ]
