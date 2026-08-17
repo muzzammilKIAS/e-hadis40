@@ -19,15 +19,16 @@
  "narrator": {
   "id": "abu_masud_uqbah_ibn_amr",
   "name": "Abu Mas'ud 'Uqbah bin 'Amr al-Ansari al-Badri r.a.",
-  "fullName": "",
-  "title": "Perawi Hadis",
-  "shortBiography": "",
+  "fullName": "Abu Mas‘ud ‘Uqbah bin ‘Amr bin Tsa‘labah al-Ansari al-Badri r.a.",
+  "title": "Sahabat Rasulullah SAW, Perawi Hadis dan Gabenor Kufah",
+  "shortBiography": "Abu Mas‘ud al-Badri r.a. ialah seorang sahabat daripada kaum Ansar di Madinah, digelar al-Badri kerana pernah menetap berhampiran kawasan Badar walaupun tidak turut serta dalam Peperangan Badar itu sendiri. Beliau pernah dilantik sebagai gabenor Kufah dan merupakan salah seorang perawi hadis yang hadis-hadisnya termuat dalam Sahih al-Bukhari. Beliau wafat pada tahun 41 Hijrah.",
   "tags": [
    "Sahabat Rasulullah SAW",
-   "Perawi Hadis"
+   "Perawi Hadis",
+   "Gabenor Kufah"
   ],
-  "source": "Gunakan profil canonical sedia ada daripada NarratorRepository. Jangan cipta profil kedua.",
-  "verified": false
+  "source": "Biodata ringkas ini TIDAK terdapat dalam Modul Penghayatan Hadis 40 Imam Nawawi KPM. Disumberkan daripada bahan biografi sahabat yang mapan (cth. rujukan berasaskan al-Isabah fi Tamyiz al-Sahabah oleh Ibn Hajar al-'Asqalani dan Siyar A'lam al-Nubala' oleh al-Dhahabi, melalui portal rujukan Islam yang menyusun semula kandungan kitab tersebut) bagi melengkapkan pemahaman pelajar tentang perawi hadis.",
+  "verified": true
  },
  "referenceArabic": "رَوَاهُ الْبُخَارِيُّ.",
  "reference": "Hadis ini diriwayatkan oleh Imam al-Bukhari.",

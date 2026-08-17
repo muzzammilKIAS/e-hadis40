@@ -541,9 +541,24 @@ class _HadithScreenState extends State<HadithScreen> {
       title: profile.title,
       shortBiography: profile.biography,
       tags: profile.tags,
-      source: 'Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua, KPM.',
+      // `profile.source` datang daripada `narrators.json` — biodata
+      // sesetengah perawi (cth. yang tiada dalam Modul KPM) disumberkan
+      // daripada bahan biografi luar, BUKAN Modul KPM. Sebelum ini nota
+      // sumber di sini sentiasa dikeraskodkan sebagai "Modul KPM"
+      // walau apa pun kandungan `profile.source` sebenar — memberi
+      // atribusi yang salah. Kini paparkan nota sumber SEBENAR daripada
+      // profil itu sendiri.
+      source: _narratorSourceLabel(profile.source),
       verified: profile.verified,
     );
+  }
+
+  String _narratorSourceLabel(Map<String, dynamic> source) {
+    final note = source['note'];
+    if (note is String && note.trim().isNotEmpty) return note;
+    final document = source['document'];
+    if (document is String && document.trim().isNotEmpty) return document;
+    return 'Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua, KPM.';
   }
 
   Future<void> _complete(BuildContext context, AppController controller) async {

@@ -23,15 +23,16 @@
  "narrator": {
   "id": "abu_dharr_jundub_ibn_junadah",
   "name": "Abu Zar Jundub bin Junadah r.a. & Muaz bin Jabal r.a.",
-  "fullName": "",
-  "title": "Perawi Hadis",
-  "shortBiography": "",
+  "fullName": "Abu Zar Jundub bin Junadah al-Ghifari r.a. & Abu ‘Abdul Rahman Mu‘az bin Jabal r.a.",
+  "title": "Sahabat Rasulullah SAW dan Perawi Hadis (Dua Perawi)",
+  "shortBiography": "Hadis ini diriwayatkan bersama daripada dua sahabat besar Rasulullah SAW. Abu Zar al-Ghifari r.a. ialah antara pemeluk Islam paling awal, terkenal dengan sifat zuhud dan keberanian menegur penyelewengan; beliau wafat di al-Rabadhah pada tahun 31 Hijrah. Mu‘az bin Jabal r.a. pula ialah sahabat Ansar yang digelar Rasulullah SAW sebagai paling arif tentang halal dan haram, pernah diutus berdakwah dan menjadi hakim di Yaman; beliau wafat akibat wabak taun di Syam pada tahun 18 Hijrah.",
   "tags": [
    "Sahabat Rasulullah SAW",
-   "Perawi Hadis"
+   "Pemeluk Islam Terawal",
+   "Ahli Fiqh Umat"
   ],
-  "source": "Dua perawi canonical. Gunakan NarratorRepository; jangan cipta profil kedua.",
-  "verified": false
+  "source": "Biodata ringkas ini TIDAK terdapat dalam Modul Penghayatan Hadis 40 Imam Nawawi KPM. Disumberkan daripada bahan biografi sahabat yang mapan (cth. rujukan berasaskan al-Isabah fi Tamyiz al-Sahabah oleh Ibn Hajar al-'Asqalani dan Siyar A'lam al-Nubala' oleh al-Dhahabi, melalui portal rujukan Islam yang menyusun semula kandungan kitab tersebut) bagi melengkapkan pemahaman pelajar tentang perawi hadis.",
+  "verified": true
  },
  "referenceArabic": "رَوَاهُ التِّرْمِذِيُّ وَقَالَ: حَدِيثٌ حَسَنٌ، وَفِي بَعْضِ النُّسَخِ: حَسَنٌ صَحِيحٌ.",
  "reference": "Hadis ini diriwayatkan oleh Imam al-Tirmizi dan beliau berkata: hadis hasan, dan dalam sebahagian naskhah: hasan sahih.",

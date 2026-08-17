@@ -875,3 +875,107 @@ kandungan yang benar-benar disahkan bersumber.
   nama penuh, tajuk, biografi, tag, nota sumber telus, dan lencana
   "Kandungan Disemak" — menggantikan mesej placeholder kosong sebelum ini.
 - Jalur belang (debug build): 5 tab × 4 tinggi — semua bersih.
+
+---
+
+## 16. Semakan Perubahan Pengguna + Sambungan Kerja (17 Ogos 2026)
+
+Pengguna menambah Hadis 18-20 (data KPM, audio, fail simulasi Anatomi
+Sunnah) dan membuat beberapa penambahbaikan kod sendiri semasa sesi
+disunting. Sebelum menyambung kerja, saya semak dahulu setiap perubahan.
+
+### 16.1 Semakan perubahan pengguna — semua sah
+
+| Fail | Perubahan | Penilaian |
+|---|---|---|
+| `anatomi_sunnah_screen.dart` | `availableHadithNumbers` 17→20 | ✅ Betul, sepadan penambahan H18-20 |
+| `projector_screen.dart` + `synced_hadith_reader.dart` | Mod `phraseOnly`: sorot **seluruh frasa aktif** (bukan satu "perkataan aktif" hasil anggaran berkadar) | ✅ Pembetulan tepat — mengelak kesan ketepatan palsu pada hadis yang hanya ada timing peringkat-frasa |
+| `test/hadith_15_16_17_test.dart` | Kemas kini jangkaan ujian kepada `availableHadithNumbers=20` | ✅ Perlu, sepadan perubahan di atas |
+
+Fail `web/anatomi_sunnah/hadith_18/19/20.html` (belum di-commit) turut
+disemak — didapati **sudah** menggunakan corak setempat yang betul (fon
+Baloo 2, tiada CDN, butang kembali, blok responsif) — jauh lebih bersih
+berbanding fail Hadis 15-17 yang asalnya mentah.
+
+### 16.2 🔴 Pepijat dijumpai & dibetulkan dalam H18-20
+
+**Arah teks panel bawah** — sama seperti pepijat yang dibetulkan pada
+Hadis 1-17 (Bahagian 2.5), ketiga-tiga fail baharu masih mempunyai
+`ml-auto text-right` pada panel kawalan bawah (Rumi), menyebabkan tajuk &
+keterangan panel itu dijajar ke kanan. Dibetulkan kepada `text-left` pada
+ketiga-tiga fail.
+
+**Kelas Tailwind hilang daripada `styles.css`** — semakan menyeluruh
+merentasi **kesemua 20 fail** (bukan sekadar 3 fail baharu) menemui:
+- `text-rose-200/70` — digunakan oleh Hadis 19/20, tiada dalam pra-kompil.
+- `shadow-[0_0_15px_rgba(139,92,246,0.3)]`, `shadow-[0_0_15px_rgba(56,189,248,0.4)]`,
+  `shadow-[0_0_20px_rgba(251,191,36,0.4)]` — **pepijat lama** (bukan
+  daripada H18-20) yang tersembunyi sejak Hadis 03/05/08 dahulu, hanya
+  terserlah kerana pemeriksaan kali ini merangkumi kesemua 20 fail
+  sekali gus (semakan terdahulu tidak pernah membuat audit menyeluruh).
+
+`styles.css` dijana semula merangkumi kesemua kelas — disahkan **0 kelas
+hilang** merentasi 20 fail selepas bina semula.
+
+**Semakan silang teks Arab & pepijat GSAP fog-color** (corak yang sama
+seperti dibetulkan pada H16/H17, Bahagian 13.2) — kedua-duanya **BERSIH**
+pada H18-20: tiada mojibake, tiada `gsap.to(scene.fog, {color: 0xHEX})`.
+
+### 16.3 🔴 Pepijat dijumpai & dibetulkan: atribusi sumber salah pada perawi kedua
+
+Semasa mengesahkan kad "Kenali Perawi" bagi Hadis 18 (satu-satunya hadis
+dengan **dua perawi**, iaitu Abu Zar al-Ghifari & Mu‘az bin Jabal r.a.),
+saya perasan `hadith_screen.dart` mempunyai mekanisme sedia ada untuk
+memaparkan **berbilang** kad perawi melalui medan `narratorIds` (senarai)
+— perawi pertama guna objek `narrator` terbenam dalam JSON hadis, tetapi
+perawi **kedua** (dan seterusnya) diambil terus daripada
+`NarratorRepository` (`narrators.json`) melalui fungsi `_narratorFallback`.
+
+Fungsi itu mengeraskodkan (`hardcode`) nota sumber sebagai:
+```dart
+source: 'Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua, KPM.',
+```
+**tanpa mengira** kandungan `source` sebenar dalam `narrators.json` —
+bermakna biodata Mu‘az bin Jabal r.a. yang saya sumberkan daripada bahan
+luar (bukan KPM) akan **dipaparkan seolah-olah ia daripada Modul KPM**,
+bercanggah terus dengan ketelusan sumber yang menjadi keutamaan tugasan
+ini sejak Bahagian 15.
+
+**Pembetulan** — `_narratorFallback` kini membaca `profile.source['note']`
+(atau `['document']`) sebenar daripada `narrators.json`, dan hanya
+kembali kepada label KPM lalai jika profil itu benar-benar tiada nota
+sumber lain:
+```dart
+source: _narratorSourceLabel(profile.source),
+```
+
+**Pengesahan visual:** dibuka lembaran bawah (bottom sheet) penuh bagi
+kad "Abu Abdul Rahman Muaz bin Jabal r.a." pada Hadis 18 — teks "Sumber:"
+kini betul memaparkan nota telus ("Biodata ringkas ini TIDAK terdapat
+dalam Modul... KPM. Disumberkan daripada...") menggantikan label KPM
+palsu yang sebelum ini sentiasa dipaparkan.
+
+### 16.4 Biodata 4 perawi baharu (Hadis 18-20)
+
+Mengikut kaedah dan sumber yang sama seperti Bahagian 15: Abu Zar Jundub
+bin Junadah al-Ghifari r.a., Mu‘az bin Jabal r.a., ‘Abdullah bin ‘Abbas
+r.a., dan Abu Mas‘ud ‘Uqbah bin ‘Amr al-Ansari al-Badri r.a. — kesemua
+dikemas kini dalam `narrators.json` **dan** objek `narrator` terbenam
+masing-masing dalam `hadith_18/19/20.json`.
+
+Hadis 18 istimewa kerana narratornya berbilang: objek `narrator` terbenam
+menggunakan **biografi gabungan** memperkenalkan kedua-dua sahabat,
+manakala perawi kedua (Mu‘az bin Jabal) dipaparkan berasingan melalui
+`narrators.json` terus (rujuk 16.3).
+
+### 16.5 Pengesahan
+
+| Ujian | Skop | Keputusan |
+|---|---|---|
+| `flutter analyze` | seluruh projek | ✅ 0 isu |
+| `flutter test` | 46 ujian | ✅ semua lulus |
+| Font, canvas 3D, arah teks, butang kembali | H18-20 × 3 saiz = 9 kombinasi | ✅ semua bersih |
+| Klik kesemua butang keadaan interaktif | H18 (3), H19 (3), H20 (2) = 8 klik | ✅ 0 ralat JS |
+| Kelas Tailwind lengkap | 20 fail, 294 kelas unik | ✅ 0 hilang selepas bina semula |
+| Kad "Kenali Perawi" berbilang perawi | H18 (kad 1 & kad 2) | ✅ kedua-dua kad papar biografi & sumber betul |
+| Jalur belang (debug build) | 5 tab × 4 tinggi | ✅ semua bersih |

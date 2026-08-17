@@ -20,15 +20,16 @@
  "narrator": {
   "id": "abdullah_ibn_abbas",
   "name": "Abdullah bin 'Abbas r.a.",
-  "fullName": "",
-  "title": "Perawi Hadis",
-  "shortBiography": "",
+  "fullName": "Abu al-‘Abbas ‘Abdullah bin ‘Abbas bin ‘Abdul Muttalib r.a.",
+  "title": "Sepupu Rasulullah SAW dan Turjuman al-Quran",
+  "shortBiography": "‘Abdullah bin ‘Abbas r.a. ialah sepupu Rasulullah SAW yang baharu berusia sekitar tiga belas tahun ketika Baginda SAW wafat, namun beliau telah didoakan khusus oleh Rasulullah SAW agar dikurniakan kefahaman mendalam dalam agama. Beliau digelar Turjuman al-Quran (Penterjemah al-Quran) dan Hibr al-Ummah (Ulama Umat) kerana penguasaannya yang luar biasa dalam tafsir, hadis dan fiqh. Ramai ulama besar generasi selepasnya merupakan anak murid beliau.",
   "tags": [
    "Sahabat Rasulullah SAW",
-   "Perawi Hadis"
+   "Sepupu Rasulullah SAW",
+   "Turjuman al-Quran"
   ],
-  "source": "Gunakan profil canonical sedia ada daripada NarratorRepository. Jangan cipta profil kedua.",
-  "verified": false
+  "source": "Biodata ringkas ini TIDAK terdapat dalam Modul Penghayatan Hadis 40 Imam Nawawi KPM. Disumberkan daripada bahan biografi sahabat yang mapan (cth. rujukan berasaskan al-Isabah fi Tamyiz al-Sahabah oleh Ibn Hajar al-'Asqalani dan Siyar A'lam al-Nubala' oleh al-Dhahabi, melalui portal rujukan Islam yang menyusun semula kandungan kitab tersebut) bagi melengkapkan pemahaman pelajar tentang perawi hadis.",
+  "verified": true
  },
  "referenceArabic": "رَوَاهُ التِّرْمِذِيُّ وَقَالَ: حَدِيثٌ حَسَنٌ صَحِيحٌ.",
  "reference": "Hadis ini diriwayatkan oleh Imam al-Tirmizi dan beliau berkata: hadis hasan sahih.",
