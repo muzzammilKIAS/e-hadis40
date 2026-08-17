@@ -1,297 +1,355 @@
 {
-  "umar_ibn_al_khattab": {
-    "id": "umar_ibn_al_khattab",
-    "name": "Umar bin al-Khattab r.a.",
-    "fullName": "Abu Hafs Umar bin al-Khattab r.a.",
-    "kunyah": "",
-    "title": "Amirul Mukminin dan al-Faruq",
-    "biography": "Umar bin al-Khattab r.a. ialah salah seorang sahabat utama Rasulullah SAW. Beliau dikenali dengan kunyah Abu Hafs dan gelaran al-Faruq, serta menjadi khalifah kedua selepas Abu Bakr al-Siddiq r.a. Beliau terkenal dengan ketegasan, keadilan dan kebijaksanaan dalam menguruskan kepentingan umat Islam.",
-    "highlights": [],
-    "tags": [
-      "Sahabat Rasulullah SAW",
-      "Khalifah Kedua",
-      "al-Faruq"
-    ],
-    "source": {
-      "document": "Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua",
-      "publisher": "Kementerian Pendidikan Malaysia",
-      "hadithNumbers": [
-        1,
-        2
-      ],
-      "page": "Hadis 1, Hadis 2"
-    },
-    "verified": true
+ "umar_ibn_al_khattab": {
+  "id": "umar_ibn_al_khattab",
+  "name": "Umar bin al-Khattab r.a.",
+  "fullName": "Abu Hafs Umar bin al-Khattab r.a.",
+  "kunyah": "",
+  "title": "Amirul Mukminin dan al-Faruq",
+  "biography": "Umar bin al-Khattab r.a. ialah salah seorang sahabat utama Rasulullah SAW. Beliau dikenali dengan kunyah Abu Hafs dan gelaran al-Faruq, serta menjadi khalifah kedua selepas Abu Bakr al-Siddiq r.a. Beliau terkenal dengan ketegasan, keadilan dan kebijaksanaan dalam menguruskan kepentingan umat Islam.",
+  "highlights": [],
+  "tags": [
+   "Sahabat Rasulullah SAW",
+   "Khalifah Kedua",
+   "al-Faruq"
+  ],
+  "source": {
+   "document": "Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua",
+   "publisher": "Kementerian Pendidikan Malaysia",
+   "hadithNumbers": [
+    1,
+    2
+   ],
+   "page": "Hadis 1, Hadis 2"
   },
-  "abdullah_ibn_umar": {
-    "id": "abdullah_ibn_umar",
-    "name": "Abdullah bin Umar r.a.",
-    "fullName": "Abu Abdul Rahman Abdullah bin Umar bin al-Khattab r.a.",
-    "kunyah": "",
-    "title": "Sahabat Rasulullah SAW dan Perawi Hadis",
-    "biography": "Abdullah bin Umar r.a. ialah putera kepada Umar bin al-Khattab r.a. dan salah seorang sahabat Rasulullah SAW. Beliau terkenal dengan kesungguhan mengikuti sunnah Nabi SAW serta sikap berhati-hati ketika meriwayatkan hadis. Beliau juga menjadi antara sahabat yang banyak meriwayatkan hadis dan menjadi rujukan dalam ilmu hadis serta fiqh.",
-    "highlights": [],
-    "tags": [
-      "Sahabat Rasulullah SAW",
-      "Putera Umar al-Khattab",
-      "Perawi Hadis",
-      "Mengikuti Sunnah"
-    ],
-    "source": {
-      "document": "Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua",
-      "publisher": "Kementerian Pendidikan Malaysia",
-      "hadithNumbers": [
-        3,
-        8
-      ],
-      "page": "Hadis 3, Hadis 8"
-    },
-    "verified": true
+  "verified": true
+ },
+ "abdullah_ibn_umar": {
+  "id": "abdullah_ibn_umar",
+  "name": "Abdullah bin Umar r.a.",
+  "fullName": "Abu Abdul Rahman Abdullah bin Umar bin al-Khattab r.a.",
+  "kunyah": "",
+  "title": "Sahabat Rasulullah SAW dan Perawi Hadis",
+  "biography": "Abdullah bin Umar r.a. ialah putera kepada Umar bin al-Khattab r.a. dan salah seorang sahabat Rasulullah SAW. Beliau terkenal dengan kesungguhan mengikuti sunnah Nabi SAW serta sikap berhati-hati ketika meriwayatkan hadis. Beliau juga menjadi antara sahabat yang banyak meriwayatkan hadis dan menjadi rujukan dalam ilmu hadis serta fiqh.",
+  "highlights": [],
+  "tags": [
+   "Sahabat Rasulullah SAW",
+   "Putera Umar al-Khattab",
+   "Perawi Hadis",
+   "Mengikuti Sunnah"
+  ],
+  "source": {
+   "document": "Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua",
+   "publisher": "Kementerian Pendidikan Malaysia",
+   "hadithNumbers": [
+    3,
+    8
+   ],
+   "page": "Hadis 3, Hadis 8"
   },
-  "abdullah_ibn_masud": {
-    "id": "abdullah_ibn_masud",
-    "name": "Abdullah bin Mas‘ud r.a.",
-    "fullName": "Abu Abdul Rahman Abdullah bin Mas‘ud r.a.",
-    "kunyah": "",
-    "title": "Sahabat Rasulullah SAW dan Ahli al-Quran",
-    "biography": "Abdullah bin Mas‘ud r.a. ialah salah seorang sahabat Rasulullah SAW yang awal menerima Islam. Beliau terkenal dengan kefahaman yang mendalam terhadap al-Quran dan ilmu agama serta menjadi antara sahabat yang menyampaikan ilmu kepada generasi selepasnya.",
-    "highlights": [],
-    "tags": [
-      "Sahabat Rasulullah SAW",
-      "Ahli al-Quran",
-      "Perawi Hadis"
-    ],
-    "source": {
-      "document": "Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua",
-      "publisher": "Kementerian Pendidikan Malaysia",
-      "hadithNumbers": [
-        4
-      ],
-      "page": "Hadis 4"
-    },
-    "verified": true
+  "verified": true
+ },
+ "abdullah_ibn_masud": {
+  "id": "abdullah_ibn_masud",
+  "name": "Abdullah bin Mas‘ud r.a.",
+  "fullName": "Abu Abdul Rahman Abdullah bin Mas‘ud r.a.",
+  "kunyah": "",
+  "title": "Sahabat Rasulullah SAW dan Ahli al-Quran",
+  "biography": "Abdullah bin Mas‘ud r.a. ialah salah seorang sahabat Rasulullah SAW yang awal menerima Islam. Beliau terkenal dengan kefahaman yang mendalam terhadap al-Quran dan ilmu agama serta menjadi antara sahabat yang menyampaikan ilmu kepada generasi selepasnya.",
+  "highlights": [],
+  "tags": [
+   "Sahabat Rasulullah SAW",
+   "Ahli al-Quran",
+   "Perawi Hadis"
+  ],
+  "source": {
+   "document": "Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua",
+   "publisher": "Kementerian Pendidikan Malaysia",
+   "hadithNumbers": [
+    4
+   ],
+   "page": "Hadis 4"
   },
-  "aisyah": {
-    "id": "aisyah",
-    "name": "Saidatina ‘Aisyah r.a.",
-    "fullName": "Ummul Mukminin Ummu Abdillah ‘Aisyah r.a.",
-    "kunyah": "",
-    "title": "Ummul Mukminin, Tokoh Ilmu dan Perawi Hadis",
-    "biography": "Saidatina ‘Aisyah r.a. ialah isteri Rasulullah SAW dan salah seorang Ummul Mukminin. Beliau terkenal dengan kecerdasan, kefahaman yang mendalam terhadap agama serta peranannya menyampaikan ilmu dan hadis kepada generasi selepasnya.",
-    "highlights": [],
-    "tags": [
-      "Ummul Mukminin",
-      "Tokoh Ilmu",
-      "Perawi Hadis"
-    ],
-    "source": {
-      "document": "Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua",
-      "publisher": "Kementerian Pendidikan Malaysia",
-      "hadithNumbers": [
-        5
-      ],
-      "page": "Hadis 5"
-    },
-    "verified": true
+  "verified": true
+ },
+ "aisyah": {
+  "id": "aisyah",
+  "name": "Saidatina ‘Aisyah r.a.",
+  "fullName": "Ummul Mukminin Ummu Abdillah ‘Aisyah r.a.",
+  "kunyah": "",
+  "title": "Ummul Mukminin, Tokoh Ilmu dan Perawi Hadis",
+  "biography": "Saidatina ‘Aisyah r.a. ialah isteri Rasulullah SAW dan salah seorang Ummul Mukminin. Beliau terkenal dengan kecerdasan, kefahaman yang mendalam terhadap agama serta peranannya menyampaikan ilmu dan hadis kepada generasi selepasnya.",
+  "highlights": [],
+  "tags": [
+   "Ummul Mukminin",
+   "Tokoh Ilmu",
+   "Perawi Hadis"
+  ],
+  "source": {
+   "document": "Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua",
+   "publisher": "Kementerian Pendidikan Malaysia",
+   "hadithNumbers": [
+    5
+   ],
+   "page": "Hadis 5"
   },
-  "al_numan_ibn_bashir": {
-    "id": "al_numan_ibn_bashir",
-    "name": "al-Nu‘man bin Basyir r.a.",
-    "fullName": "Abu ‘Abdullah al-Nu‘man bin Basyir al-Ansari r.a.",
-    "kunyah": "",
-    "title": "Sahabat Rasulullah SAW, Perawi Hadis dan Gabenor",
-    "biography": "al-Nu‘man bin Basyir r.a. ialah anak pertama kaum Ansar yang dilahirkan selepas Rasulullah SAW berhijrah ke Madinah, dan sejak kecil sentiasa berada di sisi Baginda SAW. Beliau meriwayatkan hadis daripada Rasulullah SAW dan kemudian dilantik sebagai gabenor Kufah dan Himsh pada zaman pemerintahan Bani Umayyah. Beliau terkenal dengan keteguhan hati dan sifat adil, dan wafat di Himsh pada tahun 65 Hijrah.",
-    "highlights": [],
-    "tags": [
-      "Sahabat Rasulullah SAW",
-      "Perawi Hadis",
-      "Gabenor Himsh"
-    ],
-    "source": {
-      "document": "Bahan biografi sahabat yang mapan (bukan Modul KPM)",
-      "publisher": "Disusun semula daripada al-Isabah (Ibn Hajar al-'Asqalani) / Siyar A'lam al-Nubala' (al-Dhahabi) melalui portal rujukan Islam",
-      "note": "Biodata ringkas ini TIDAK terdapat dalam Modul Penghayatan Hadis 40 Imam Nawawi KPM. Disumberkan daripada bahan biografi sahabat yang mapan (cth. rujukan berasaskan al-Isabah fi Tamyiz al-Sahabah oleh Ibn Hajar al-'Asqalani dan Siyar A'lam al-Nubala' oleh al-Dhahabi, melalui portal rujukan Islam yang menyusun semula kandungan kitab tersebut) bagi melengkapkan pemahaman pelajar tentang perawi hadis."
-    },
-    "verified": true
+  "verified": true
+ },
+ "al_numan_ibn_bashir": {
+  "id": "al_numan_ibn_bashir",
+  "name": "al-Nu‘man bin Basyir r.a.",
+  "fullName": "Abu ‘Abdullah al-Nu‘man bin Basyir al-Ansari r.a.",
+  "kunyah": "",
+  "title": "Sahabat Rasulullah SAW, Perawi Hadis dan Gabenor",
+  "biography": "al-Nu‘man bin Basyir r.a. ialah anak pertama kaum Ansar yang dilahirkan selepas Rasulullah SAW berhijrah ke Madinah, dan sejak kecil sentiasa berada di sisi Baginda SAW. Beliau meriwayatkan hadis daripada Rasulullah SAW dan kemudian dilantik sebagai gabenor Kufah dan Himsh pada zaman pemerintahan Bani Umayyah. Beliau terkenal dengan keteguhan hati dan sifat adil, dan wafat di Himsh pada tahun 65 Hijrah.",
+  "highlights": [],
+  "tags": [
+   "Sahabat Rasulullah SAW",
+   "Perawi Hadis",
+   "Gabenor Himsh"
+  ],
+  "source": {
+   "document": "Bahan biografi sahabat yang mapan (bukan Modul KPM)",
+   "publisher": "Disusun semula daripada al-Isabah (Ibn Hajar al-'Asqalani) / Siyar A'lam al-Nubala' (al-Dhahabi) melalui portal rujukan Islam",
+   "note": "Biodata ringkas ini TIDAK terdapat dalam Modul Penghayatan Hadis 40 Imam Nawawi KPM. Disumberkan daripada bahan biografi sahabat yang mapan (cth. rujukan berasaskan al-Isabah fi Tamyiz al-Sahabah oleh Ibn Hajar al-'Asqalani dan Siyar A'lam al-Nubala' oleh al-Dhahabi, melalui portal rujukan Islam yang menyusun semula kandungan kitab tersebut) bagi melengkapkan pemahaman pelajar tentang perawi hadis."
   },
-  "tamim_al_dari": {
-    "id": "tamim_al_dari",
-    "name": "Tamim bin Aus al-Dari r.a.",
-    "fullName": "Abu Ruqayyah Tamim bin Aus al-Dari r.a.",
-    "kunyah": "",
-    "title": "Sahabat Rasulullah SAW, Bekas Rahib dan Perawi Hadis",
-    "biography": "Tamim bin Aus al-Dari r.a. ialah bekas seorang rahib Nasrani yang memeluk Islam pada tahun ke-9 Hijrah bersama rombongan kaumnya daripada Palestin. Beliau terkenal kerana menceritakan kisah Jassasah tentang pertemuannya dengan makhluk yang mengaitkan kemunculan Dajjal, lalu disahkan sendiri oleh Rasulullah SAW di hadapan para sahabat. Beliau juga dianggap sebagai tokoh pertama yang bercerita (qasas) di dalam masjid dengan izin, dan wafat di Syam.",
-    "highlights": [],
-    "tags": [
-      "Sahabat Rasulullah SAW",
-      "Bekas Rahib Nasrani",
-      "Perawi Hadis"
-    ],
-    "source": {
-      "document": "Bahan biografi sahabat yang mapan (bukan Modul KPM)",
-      "publisher": "Disusun semula daripada al-Isabah (Ibn Hajar al-'Asqalani) / Siyar A'lam al-Nubala' (al-Dhahabi) melalui portal rujukan Islam",
-      "note": "Biodata ringkas ini TIDAK terdapat dalam Modul Penghayatan Hadis 40 Imam Nawawi KPM. Disumberkan daripada bahan biografi sahabat yang mapan (cth. rujukan berasaskan al-Isabah fi Tamyiz al-Sahabah oleh Ibn Hajar al-'Asqalani dan Siyar A'lam al-Nubala' oleh al-Dhahabi, melalui portal rujukan Islam yang menyusun semula kandungan kitab tersebut) bagi melengkapkan pemahaman pelajar tentang perawi hadis."
-    },
-    "verified": true
+  "verified": true
+ },
+ "tamim_al_dari": {
+  "id": "tamim_al_dari",
+  "name": "Tamim bin Aus al-Dari r.a.",
+  "fullName": "Abu Ruqayyah Tamim bin Aus al-Dari r.a.",
+  "kunyah": "",
+  "title": "Sahabat Rasulullah SAW, Bekas Rahib dan Perawi Hadis",
+  "biography": "Tamim bin Aus al-Dari r.a. ialah bekas seorang rahib Nasrani yang memeluk Islam pada tahun ke-9 Hijrah bersama rombongan kaumnya daripada Palestin. Beliau terkenal kerana menceritakan kisah Jassasah tentang pertemuannya dengan makhluk yang mengaitkan kemunculan Dajjal, lalu disahkan sendiri oleh Rasulullah SAW di hadapan para sahabat. Beliau juga dianggap sebagai tokoh pertama yang bercerita (qasas) di dalam masjid dengan izin, dan wafat di Syam.",
+  "highlights": [],
+  "tags": [
+   "Sahabat Rasulullah SAW",
+   "Bekas Rahib Nasrani",
+   "Perawi Hadis"
+  ],
+  "source": {
+   "document": "Bahan biografi sahabat yang mapan (bukan Modul KPM)",
+   "publisher": "Disusun semula daripada al-Isabah (Ibn Hajar al-'Asqalani) / Siyar A'lam al-Nubala' (al-Dhahabi) melalui portal rujukan Islam",
+   "note": "Biodata ringkas ini TIDAK terdapat dalam Modul Penghayatan Hadis 40 Imam Nawawi KPM. Disumberkan daripada bahan biografi sahabat yang mapan (cth. rujukan berasaskan al-Isabah fi Tamyiz al-Sahabah oleh Ibn Hajar al-'Asqalani dan Siyar A'lam al-Nubala' oleh al-Dhahabi, melalui portal rujukan Islam yang menyusun semula kandungan kitab tersebut) bagi melengkapkan pemahaman pelajar tentang perawi hadis."
   },
-  "abu_hurairah": {
-    "id": "abu_hurairah",
-    "name": "Abu Hurairah r.a.",
-    "fullName": "Abu Hurairah ‘Abdul Rahman bin Sakhr al-Dausi r.a.",
-    "kunyah": "",
-    "title": "Sahabat Rasulullah SAW dan Perawi Hadis Paling Prolifik",
-    "biography": "Abu Hurairah r.a. ialah seorang sahabat Rasulullah SAW daripada Bani Daus yang memeluk Islam pada tahun ke-7 Hijrah dan sentiasa menyertai Baginda SAW demi menuntut ilmu, walaupun hidup dalam kesempitan pada mulanya. Nama sebenarnya diperselisihkan ulama, namun pendapat masyhur menyebutnya ‘Abdul Rahman bin Sakhr. Beliau dikenali sebagai perawi hadis yang paling banyak meriwayatkan hadis Rasulullah SAW berbanding sahabat lain, dan wafat di Madinah sekitar tahun 57 Hijrah.",
-    "highlights": [],
-    "tags": [
-      "Sahabat Rasulullah SAW",
-      "Perawi Hadis Paling Prolifik",
-      "Bani Daus"
-    ],
-    "source": {
-      "document": "Bahan biografi sahabat yang mapan (bukan Modul KPM)",
-      "publisher": "Disusun semula daripada al-Isabah (Ibn Hajar al-'Asqalani) / Siyar A'lam al-Nubala' (al-Dhahabi) melalui portal rujukan Islam",
-      "note": "Biodata ringkas ini TIDAK terdapat dalam Modul Penghayatan Hadis 40 Imam Nawawi KPM. Disumberkan daripada bahan biografi sahabat yang mapan (cth. rujukan berasaskan al-Isabah fi Tamyiz al-Sahabah oleh Ibn Hajar al-'Asqalani dan Siyar A'lam al-Nubala' oleh al-Dhahabi, melalui portal rujukan Islam yang menyusun semula kandungan kitab tersebut) bagi melengkapkan pemahaman pelajar tentang perawi hadis."
-    },
-    "verified": true
+  "verified": true
+ },
+ "abu_hurairah": {
+  "id": "abu_hurairah",
+  "name": "Abu Hurairah r.a.",
+  "fullName": "Abu Hurairah ‘Abdul Rahman bin Sakhr al-Dausi r.a.",
+  "kunyah": "",
+  "title": "Sahabat Rasulullah SAW dan Perawi Hadis Paling Prolifik",
+  "biography": "Abu Hurairah r.a. ialah seorang sahabat Rasulullah SAW daripada Bani Daus yang memeluk Islam pada tahun ke-7 Hijrah dan sentiasa menyertai Baginda SAW demi menuntut ilmu, walaupun hidup dalam kesempitan pada mulanya. Nama sebenarnya diperselisihkan ulama, namun pendapat masyhur menyebutnya ‘Abdul Rahman bin Sakhr. Beliau dikenali sebagai perawi hadis yang paling banyak meriwayatkan hadis Rasulullah SAW berbanding sahabat lain, dan wafat di Madinah sekitar tahun 57 Hijrah.",
+  "highlights": [],
+  "tags": [
+   "Sahabat Rasulullah SAW",
+   "Perawi Hadis Paling Prolifik",
+   "Bani Daus"
+  ],
+  "source": {
+   "document": "Bahan biografi sahabat yang mapan (bukan Modul KPM)",
+   "publisher": "Disusun semula daripada al-Isabah (Ibn Hajar al-'Asqalani) / Siyar A'lam al-Nubala' (al-Dhahabi) melalui portal rujukan Islam",
+   "note": "Biodata ringkas ini TIDAK terdapat dalam Modul Penghayatan Hadis 40 Imam Nawawi KPM. Disumberkan daripada bahan biografi sahabat yang mapan (cth. rujukan berasaskan al-Isabah fi Tamyiz al-Sahabah oleh Ibn Hajar al-'Asqalani dan Siyar A'lam al-Nubala' oleh al-Dhahabi, melalui portal rujukan Islam yang menyusun semula kandungan kitab tersebut) bagi melengkapkan pemahaman pelajar tentang perawi hadis."
   },
-  "shaddad_ibn_aws": {
-    "id": "shaddad_ibn_aws",
-    "name": "Abu Ya‘la Syaddad bin Aus r.a.",
-    "fullName": "Abu Ya‘la Syaddad bin Aus al-Ansari r.a.",
-    "kunyah": "",
-    "title": "Sahabat Rasulullah SAW, Perawi Hadis dan Gabenor Himsh",
-    "biography": "Syaddad bin Aus r.a., digelar Abu Ya‘la, ialah seorang sahabat Rasulullah SAW daripada kalangan Ansar yang terkenal dengan kefasihan, kesabaran dan kebijaksanaan. Beliau pernah dilantik oleh Khalifah Umar bin al-Khattab r.a. sebagai gabenor wilayah Himsh, dan pada akhir hayatnya beliau mengasingkan diri di Palestin untuk memperbanyakkan ibadah. Beliau turut dikenali sebagai salah seorang sahabat yang zuhud, dan wafat pada usia sekitar 75 tahun.",
-    "highlights": [],
-    "tags": [
-      "Sahabat Rasulullah SAW",
-      "Perawi Hadis",
-      "Gabenor Himsh"
-    ],
-    "source": {
-      "document": "Bahan biografi sahabat yang mapan (bukan Modul KPM)",
-      "publisher": "Disusun semula daripada al-Isabah (Ibn Hajar al-'Asqalani) / Siyar A'lam al-Nubala' (al-Dhahabi) melalui portal rujukan Islam",
-      "note": "Biodata ringkas ini TIDAK terdapat dalam Modul Penghayatan Hadis 40 Imam Nawawi KPM. Disumberkan daripada bahan biografi sahabat yang mapan (cth. rujukan berasaskan al-Isabah fi Tamyiz al-Sahabah oleh Ibn Hajar al-'Asqalani dan Siyar A'lam al-Nubala' oleh al-Dhahabi, melalui portal rujukan Islam yang menyusun semula kandungan kitab tersebut) bagi melengkapkan pemahaman pelajar tentang perawi hadis."
-    },
-    "verified": true
+  "verified": true
+ },
+ "shaddad_ibn_aws": {
+  "id": "shaddad_ibn_aws",
+  "name": "Abu Ya‘la Syaddad bin Aus r.a.",
+  "fullName": "Abu Ya‘la Syaddad bin Aus al-Ansari r.a.",
+  "kunyah": "",
+  "title": "Sahabat Rasulullah SAW, Perawi Hadis dan Gabenor Himsh",
+  "biography": "Syaddad bin Aus r.a., digelar Abu Ya‘la, ialah seorang sahabat Rasulullah SAW daripada kalangan Ansar yang terkenal dengan kefasihan, kesabaran dan kebijaksanaan. Beliau pernah dilantik oleh Khalifah Umar bin al-Khattab r.a. sebagai gabenor wilayah Himsh, dan pada akhir hayatnya beliau mengasingkan diri di Palestin untuk memperbanyakkan ibadah. Beliau turut dikenali sebagai salah seorang sahabat yang zuhud, dan wafat pada usia sekitar 75 tahun.",
+  "highlights": [],
+  "tags": [
+   "Sahabat Rasulullah SAW",
+   "Perawi Hadis",
+   "Gabenor Himsh"
+  ],
+  "source": {
+   "document": "Bahan biografi sahabat yang mapan (bukan Modul KPM)",
+   "publisher": "Disusun semula daripada al-Isabah (Ibn Hajar al-'Asqalani) / Siyar A'lam al-Nubala' (al-Dhahabi) melalui portal rujukan Islam",
+   "note": "Biodata ringkas ini TIDAK terdapat dalam Modul Penghayatan Hadis 40 Imam Nawawi KPM. Disumberkan daripada bahan biografi sahabat yang mapan (cth. rujukan berasaskan al-Isabah fi Tamyiz al-Sahabah oleh Ibn Hajar al-'Asqalani dan Siyar A'lam al-Nubala' oleh al-Dhahabi, melalui portal rujukan Islam yang menyusun semula kandungan kitab tersebut) bagi melengkapkan pemahaman pelajar tentang perawi hadis."
   },
-  "al_hasan_ibn_ali": {
-    "id": "al_hasan_ibn_ali",
-    "name": "al-Hasan bin Ali r.a.",
-    "fullName": "Abu Muhammad al-Hasan bin Ali bin Abu Talib r.a.",
-    "kunyah": "",
-    "title": "Cucu Rasulullah SAW dan Perawi Hadis",
-    "biography": "al-Hasan bin Ali r.a. ialah cucu kesayangan Rasulullah SAW, putera Saidina Ali bin Abi Talib dan Saidatina Fatimah al-Zahra r.a. Baginda SAW pernah bersabda bahawa al-Hasan dan adiknya al-Husain adalah penghulu pemuda ahli syurga. Beliau dikenali dengan sifat pendamai kerana menyerahkan jawatan khalifah kepada Mu‘awiyah bin Abi Sufyan demi menjaga perpaduan umat Islam, dan wafat di Madinah.",
-    "highlights": [],
-    "tags": [
-      "Sahabat Rasulullah SAW",
-      "Cucu Rasulullah SAW",
-      "Ahli Bait"
-    ],
-    "source": {
-      "document": "Bahan biografi sahabat yang mapan (bukan Modul KPM)",
-      "publisher": "Disusun semula daripada al-Isabah (Ibn Hajar al-'Asqalani) / Siyar A'lam al-Nubala' (al-Dhahabi) melalui portal rujukan Islam",
-      "note": "Biodata ringkas ini TIDAK terdapat dalam Modul Penghayatan Hadis 40 Imam Nawawi KPM. Disumberkan daripada bahan biografi sahabat yang mapan (cth. rujukan berasaskan al-Isabah fi Tamyiz al-Sahabah oleh Ibn Hajar al-'Asqalani dan Siyar A'lam al-Nubala' oleh al-Dhahabi, melalui portal rujukan Islam yang menyusun semula kandungan kitab tersebut) bagi melengkapkan pemahaman pelajar tentang perawi hadis."
-    },
-    "verified": true
+  "verified": true
+ },
+ "al_hasan_ibn_ali": {
+  "id": "al_hasan_ibn_ali",
+  "name": "al-Hasan bin Ali r.a.",
+  "fullName": "Abu Muhammad al-Hasan bin Ali bin Abu Talib r.a.",
+  "kunyah": "",
+  "title": "Cucu Rasulullah SAW dan Perawi Hadis",
+  "biography": "al-Hasan bin Ali r.a. ialah cucu kesayangan Rasulullah SAW, putera Saidina Ali bin Abi Talib dan Saidatina Fatimah al-Zahra r.a. Baginda SAW pernah bersabda bahawa al-Hasan dan adiknya al-Husain adalah penghulu pemuda ahli syurga. Beliau dikenali dengan sifat pendamai kerana menyerahkan jawatan khalifah kepada Mu‘awiyah bin Abi Sufyan demi menjaga perpaduan umat Islam, dan wafat di Madinah.",
+  "highlights": [],
+  "tags": [
+   "Sahabat Rasulullah SAW",
+   "Cucu Rasulullah SAW",
+   "Ahli Bait"
+  ],
+  "source": {
+   "document": "Bahan biografi sahabat yang mapan (bukan Modul KPM)",
+   "publisher": "Disusun semula daripada al-Isabah (Ibn Hajar al-'Asqalani) / Siyar A'lam al-Nubala' (al-Dhahabi) melalui portal rujukan Islam",
+   "note": "Biodata ringkas ini TIDAK terdapat dalam Modul Penghayatan Hadis 40 Imam Nawawi KPM. Disumberkan daripada bahan biografi sahabat yang mapan (cth. rujukan berasaskan al-Isabah fi Tamyiz al-Sahabah oleh Ibn Hajar al-'Asqalani dan Siyar A'lam al-Nubala' oleh al-Dhahabi, melalui portal rujukan Islam yang menyusun semula kandungan kitab tersebut) bagi melengkapkan pemahaman pelajar tentang perawi hadis."
   },
-  "anas_ibn_malik": {
-    "id": "anas_ibn_malik",
-    "name": "Anas bin Malik r.a.",
-    "fullName": "Abu Hamzah Anas bin Malik r.a.",
-    "kunyah": "",
-    "title": "Pembantu Rasulullah SAW dan Perawi Hadis",
-    "biography": "Anas bin Malik r.a. diserahkan oleh ibunya, Ummu Sulaim r.a., untuk berkhidmat sebagai pembantu peribadi Rasulullah SAW sejak usia sepuluh tahun selepas Baginda berhijrah ke Madinah. Beliau sentiasa bersama Rasulullah SAW selama hampir sepuluh tahun sehingga menghafal banyak hadis serta perincian kehidupan seharian Baginda SAW. Beliau merupakan sahabat yang dikurniakan usia paling panjang serta antara yang paling banyak meriwayatkan hadis, dan wafat di Basrah.",
-    "highlights": [],
-    "tags": [
-      "Sahabat Rasulullah SAW",
-      "Pembantu Rasulullah SAW",
-      "Perawi Hadis"
-    ],
-    "source": {
-      "document": "Bahan biografi sahabat yang mapan (bukan Modul KPM)",
-      "publisher": "Disusun semula daripada al-Isabah (Ibn Hajar al-'Asqalani) / Siyar A'lam al-Nubala' (al-Dhahabi) melalui portal rujukan Islam",
-      "note": "Biodata ringkas ini TIDAK terdapat dalam Modul Penghayatan Hadis 40 Imam Nawawi KPM. Disumberkan daripada bahan biografi sahabat yang mapan (cth. rujukan berasaskan al-Isabah fi Tamyiz al-Sahabah oleh Ibn Hajar al-'Asqalani dan Siyar A'lam al-Nubala' oleh al-Dhahabi, melalui portal rujukan Islam yang menyusun semula kandungan kitab tersebut) bagi melengkapkan pemahaman pelajar tentang perawi hadis."
-    },
-    "verified": true
+  "verified": true
+ },
+ "anas_ibn_malik": {
+  "id": "anas_ibn_malik",
+  "name": "Anas bin Malik r.a.",
+  "fullName": "Abu Hamzah Anas bin Malik r.a.",
+  "kunyah": "",
+  "title": "Pembantu Rasulullah SAW dan Perawi Hadis",
+  "biography": "Anas bin Malik r.a. diserahkan oleh ibunya, Ummu Sulaim r.a., untuk berkhidmat sebagai pembantu peribadi Rasulullah SAW sejak usia sepuluh tahun selepas Baginda berhijrah ke Madinah. Beliau sentiasa bersama Rasulullah SAW selama hampir sepuluh tahun sehingga menghafal banyak hadis serta perincian kehidupan seharian Baginda SAW. Beliau merupakan sahabat yang dikurniakan usia paling panjang serta antara yang paling banyak meriwayatkan hadis, dan wafat di Basrah.",
+  "highlights": [],
+  "tags": [
+   "Sahabat Rasulullah SAW",
+   "Pembantu Rasulullah SAW",
+   "Perawi Hadis"
+  ],
+  "source": {
+   "document": "Bahan biografi sahabat yang mapan (bukan Modul KPM)",
+   "publisher": "Disusun semula daripada al-Isabah (Ibn Hajar al-'Asqalani) / Siyar A'lam al-Nubala' (al-Dhahabi) melalui portal rujukan Islam",
+   "note": "Biodata ringkas ini TIDAK terdapat dalam Modul Penghayatan Hadis 40 Imam Nawawi KPM. Disumberkan daripada bahan biografi sahabat yang mapan (cth. rujukan berasaskan al-Isabah fi Tamyiz al-Sahabah oleh Ibn Hajar al-'Asqalani dan Siyar A'lam al-Nubala' oleh al-Dhahabi, melalui portal rujukan Islam yang menyusun semula kandungan kitab tersebut) bagi melengkapkan pemahaman pelajar tentang perawi hadis."
   },
-  "abu_dharr_jundub_ibn_junadah": {
-    "id": "abu_dharr_jundub_ibn_junadah",
-    "name": "Abu Zar Jundub bin Junadah r.a.",
-    "fullName": "Abu Zar Jundub bin Junadah al-Ghifari r.a.",
-    "kunyah": "",
-    "title": "Sahabat Rasulullah SAW, Antara Pemeluk Islam Terawal dan Terkenal Zuhud",
-    "biography": "Abu Zar al-Ghifari r.a. ialah antara sahabat Rasulullah SAW yang paling awal memeluk Islam, dianggarkan orang keempat atau kelima yang beriman. Beliau berasal daripada suku Ghifar dan terkenal dengan sifat zuhud, tidak gemar kemewahan, serta berani menegur penyelewengan harta pada zaman pemerintahan Khalifah Uthman r.a. Beliau wafat dalam keadaan miskin di al-Rabadhah pada tahun 31 Hijrah.",
-    "highlights": [],
-    "tags": [
-      "Sahabat Rasulullah SAW",
-      "Pemeluk Islam Terawal",
-      "Terkenal Zuhud"
-    ],
-    "source": {
-      "document": "Bahan biografi sahabat yang mapan (bukan Modul KPM)",
-      "publisher": "Disusun semula daripada al-Isabah (Ibn Hajar al-'Asqalani) / Siyar A'lam al-Nubala' (al-Dhahabi) melalui portal rujukan Islam",
-      "note": "Biodata ringkas ini TIDAK terdapat dalam Modul Penghayatan Hadis 40 Imam Nawawi KPM. Disumberkan daripada bahan biografi sahabat yang mapan (cth. rujukan berasaskan al-Isabah fi Tamyiz al-Sahabah oleh Ibn Hajar al-'Asqalani dan Siyar A'lam al-Nubala' oleh al-Dhahabi, melalui portal rujukan Islam yang menyusun semula kandungan kitab tersebut) bagi melengkapkan pemahaman pelajar tentang perawi hadis."
-    },
-    "verified": true
+  "verified": true
+ },
+ "abu_dharr_jundub_ibn_junadah": {
+  "id": "abu_dharr_jundub_ibn_junadah",
+  "name": "Abu Zar Jundub bin Junadah r.a.",
+  "fullName": "Abu Zar Jundub bin Junadah al-Ghifari r.a.",
+  "kunyah": "",
+  "title": "Sahabat Rasulullah SAW, Antara Pemeluk Islam Terawal dan Terkenal Zuhud",
+  "biography": "Abu Zar al-Ghifari r.a. ialah antara sahabat Rasulullah SAW yang paling awal memeluk Islam, dianggarkan orang keempat atau kelima yang beriman. Beliau berasal daripada suku Ghifar dan terkenal dengan sifat zuhud, tidak gemar kemewahan, serta berani menegur penyelewengan harta pada zaman pemerintahan Khalifah Uthman r.a. Beliau wafat dalam keadaan miskin di al-Rabadhah pada tahun 31 Hijrah.",
+  "highlights": [],
+  "tags": [
+   "Sahabat Rasulullah SAW",
+   "Pemeluk Islam Terawal",
+   "Terkenal Zuhud"
+  ],
+  "source": {
+   "document": "Bahan biografi sahabat yang mapan (bukan Modul KPM)",
+   "publisher": "Disusun semula daripada al-Isabah (Ibn Hajar al-'Asqalani) / Siyar A'lam al-Nubala' (al-Dhahabi) melalui portal rujukan Islam",
+   "note": "Biodata ringkas ini TIDAK terdapat dalam Modul Penghayatan Hadis 40 Imam Nawawi KPM. Disumberkan daripada bahan biografi sahabat yang mapan (cth. rujukan berasaskan al-Isabah fi Tamyiz al-Sahabah oleh Ibn Hajar al-'Asqalani dan Siyar A'lam al-Nubala' oleh al-Dhahabi, melalui portal rujukan Islam yang menyusun semula kandungan kitab tersebut) bagi melengkapkan pemahaman pelajar tentang perawi hadis."
   },
-  "muadh_ibn_jabal": {
-    "id": "muadh_ibn_jabal",
-    "name": "Abu Abdul Rahman Muaz bin Jabal r.a.",
-    "fullName": "Abu ‘Abdul Rahman Mu‘az bin Jabal bin ‘Amr al-Ansari r.a.",
-    "kunyah": "",
-    "title": "Sahabat Rasulullah SAW dan Ahli Fiqh Umat",
-    "biography": "Mu‘az bin Jabal r.a. ialah seorang sahabat daripada kaum Ansar yang memeluk Islam sejak usia muda dan digelar Rasulullah SAW sebagai sahabat yang paling mengetahui tentang halal dan haram dalam kalangan umat. Beliau diutus oleh Rasulullah SAW ke Yaman sebagai guru dan hakim, serta turut serta dalam usaha awal pengumpulan al-Quran. Beliau wafat akibat wabak taun di Syam pada tahun 18 Hijrah.",
-    "highlights": [],
-    "tags": [
-      "Sahabat Rasulullah SAW",
-      "Ahli Fiqh Umat",
-      "Diutus ke Yaman"
-    ],
-    "source": {
-      "document": "Bahan biografi sahabat yang mapan (bukan Modul KPM)",
-      "publisher": "Disusun semula daripada al-Isabah (Ibn Hajar al-'Asqalani) / Siyar A'lam al-Nubala' (al-Dhahabi) melalui portal rujukan Islam",
-      "note": "Biodata ringkas ini TIDAK terdapat dalam Modul Penghayatan Hadis 40 Imam Nawawi KPM. Disumberkan daripada bahan biografi sahabat yang mapan (cth. rujukan berasaskan al-Isabah fi Tamyiz al-Sahabah oleh Ibn Hajar al-'Asqalani dan Siyar A'lam al-Nubala' oleh al-Dhahabi, melalui portal rujukan Islam yang menyusun semula kandungan kitab tersebut) bagi melengkapkan pemahaman pelajar tentang perawi hadis."
-    },
-    "verified": true
+  "verified": true
+ },
+ "muadh_ibn_jabal": {
+  "id": "muadh_ibn_jabal",
+  "name": "Abu Abdul Rahman Muaz bin Jabal r.a.",
+  "fullName": "Abu ‘Abdul Rahman Mu‘az bin Jabal bin ‘Amr al-Ansari r.a.",
+  "kunyah": "",
+  "title": "Sahabat Rasulullah SAW dan Ahli Fiqh Umat",
+  "biography": "Mu‘az bin Jabal r.a. ialah seorang sahabat daripada kaum Ansar yang memeluk Islam sejak usia muda dan digelar Rasulullah SAW sebagai sahabat yang paling mengetahui tentang halal dan haram dalam kalangan umat. Beliau diutus oleh Rasulullah SAW ke Yaman sebagai guru dan hakim, serta turut serta dalam usaha awal pengumpulan al-Quran. Beliau wafat akibat wabak taun di Syam pada tahun 18 Hijrah.",
+  "highlights": [],
+  "tags": [
+   "Sahabat Rasulullah SAW",
+   "Ahli Fiqh Umat",
+   "Diutus ke Yaman"
+  ],
+  "source": {
+   "document": "Bahan biografi sahabat yang mapan (bukan Modul KPM)",
+   "publisher": "Disusun semula daripada al-Isabah (Ibn Hajar al-'Asqalani) / Siyar A'lam al-Nubala' (al-Dhahabi) melalui portal rujukan Islam",
+   "note": "Biodata ringkas ini TIDAK terdapat dalam Modul Penghayatan Hadis 40 Imam Nawawi KPM. Disumberkan daripada bahan biografi sahabat yang mapan (cth. rujukan berasaskan al-Isabah fi Tamyiz al-Sahabah oleh Ibn Hajar al-'Asqalani dan Siyar A'lam al-Nubala' oleh al-Dhahabi, melalui portal rujukan Islam yang menyusun semula kandungan kitab tersebut) bagi melengkapkan pemahaman pelajar tentang perawi hadis."
   },
-  "abdullah_ibn_abbas": {
-    "id": "abdullah_ibn_abbas",
-    "name": "Abu al-‘Abbas Abdullah bin ‘Abbas r.a.",
-    "fullName": "Abu al-‘Abbas ‘Abdullah bin ‘Abbas bin ‘Abdul Muttalib r.a.",
-    "kunyah": "",
-    "title": "Sepupu Rasulullah SAW dan Turjuman al-Quran",
-    "biography": "‘Abdullah bin ‘Abbas r.a. ialah sepupu Rasulullah SAW yang baharu berusia sekitar tiga belas tahun ketika Baginda SAW wafat, namun beliau telah didoakan khusus oleh Rasulullah SAW agar dikurniakan kefahaman mendalam dalam agama. Beliau digelar Turjuman al-Quran (Penterjemah al-Quran) dan Hibr al-Ummah (Ulama Umat) kerana penguasaannya yang luar biasa dalam tafsir, hadis dan fiqh. Ramai ulama besar generasi selepasnya merupakan anak murid beliau.",
-    "highlights": [],
-    "tags": [
-      "Sahabat Rasulullah SAW",
-      "Sepupu Rasulullah SAW",
-      "Turjuman al-Quran"
-    ],
-    "source": {
-      "document": "Bahan biografi sahabat yang mapan (bukan Modul KPM)",
-      "publisher": "Disusun semula daripada al-Isabah (Ibn Hajar al-'Asqalani) / Siyar A'lam al-Nubala' (al-Dhahabi) melalui portal rujukan Islam",
-      "note": "Biodata ringkas ini TIDAK terdapat dalam Modul Penghayatan Hadis 40 Imam Nawawi KPM. Disumberkan daripada bahan biografi sahabat yang mapan (cth. rujukan berasaskan al-Isabah fi Tamyiz al-Sahabah oleh Ibn Hajar al-'Asqalani dan Siyar A'lam al-Nubala' oleh al-Dhahabi, melalui portal rujukan Islam yang menyusun semula kandungan kitab tersebut) bagi melengkapkan pemahaman pelajar tentang perawi hadis."
-    },
-    "verified": true
+  "verified": true
+ },
+ "abdullah_ibn_abbas": {
+  "id": "abdullah_ibn_abbas",
+  "name": "Abu al-‘Abbas Abdullah bin ‘Abbas r.a.",
+  "fullName": "Abu al-‘Abbas ‘Abdullah bin ‘Abbas bin ‘Abdul Muttalib r.a.",
+  "kunyah": "",
+  "title": "Sepupu Rasulullah SAW dan Turjuman al-Quran",
+  "biography": "‘Abdullah bin ‘Abbas r.a. ialah sepupu Rasulullah SAW yang baharu berusia sekitar tiga belas tahun ketika Baginda SAW wafat, namun beliau telah didoakan khusus oleh Rasulullah SAW agar dikurniakan kefahaman mendalam dalam agama. Beliau digelar Turjuman al-Quran (Penterjemah al-Quran) dan Hibr al-Ummah (Ulama Umat) kerana penguasaannya yang luar biasa dalam tafsir, hadis dan fiqh. Ramai ulama besar generasi selepasnya merupakan anak murid beliau.",
+  "highlights": [],
+  "tags": [
+   "Sahabat Rasulullah SAW",
+   "Sepupu Rasulullah SAW",
+   "Turjuman al-Quran"
+  ],
+  "source": {
+   "document": "Bahan biografi sahabat yang mapan (bukan Modul KPM)",
+   "publisher": "Disusun semula daripada al-Isabah (Ibn Hajar al-'Asqalani) / Siyar A'lam al-Nubala' (al-Dhahabi) melalui portal rujukan Islam",
+   "note": "Biodata ringkas ini TIDAK terdapat dalam Modul Penghayatan Hadis 40 Imam Nawawi KPM. Disumberkan daripada bahan biografi sahabat yang mapan (cth. rujukan berasaskan al-Isabah fi Tamyiz al-Sahabah oleh Ibn Hajar al-'Asqalani dan Siyar A'lam al-Nubala' oleh al-Dhahabi, melalui portal rujukan Islam yang menyusun semula kandungan kitab tersebut) bagi melengkapkan pemahaman pelajar tentang perawi hadis."
   },
-  "abu_masud_uqbah_ibn_amr": {
-    "id": "abu_masud_uqbah_ibn_amr",
-    "name": "Abu Mas‘ud ‘Uqbah bin ‘Amr al-Ansari al-Badri r.a.",
-    "fullName": "Abu Mas‘ud ‘Uqbah bin ‘Amr bin Tsa‘labah al-Ansari al-Badri r.a.",
-    "kunyah": "",
-    "title": "Sahabat Rasulullah SAW, Perawi Hadis dan Gabenor Kufah",
-    "biography": "Abu Mas‘ud al-Badri r.a. ialah seorang sahabat daripada kaum Ansar di Madinah, digelar al-Badri kerana pernah menetap berhampiran kawasan Badar walaupun tidak turut serta dalam Peperangan Badar itu sendiri. Beliau pernah dilantik sebagai gabenor Kufah dan merupakan salah seorang perawi hadis yang hadis-hadisnya termuat dalam Sahih al-Bukhari. Beliau wafat pada tahun 41 Hijrah.",
-    "highlights": [],
-    "tags": [
-      "Sahabat Rasulullah SAW",
-      "Perawi Hadis",
-      "Gabenor Kufah"
-    ],
-    "source": {
-      "document": "Bahan biografi sahabat yang mapan (bukan Modul KPM)",
-      "publisher": "Disusun semula daripada al-Isabah (Ibn Hajar al-'Asqalani) / Siyar A'lam al-Nubala' (al-Dhahabi) melalui portal rujukan Islam",
-      "note": "Biodata ringkas ini TIDAK terdapat dalam Modul Penghayatan Hadis 40 Imam Nawawi KPM. Disumberkan daripada bahan biografi sahabat yang mapan (cth. rujukan berasaskan al-Isabah fi Tamyiz al-Sahabah oleh Ibn Hajar al-'Asqalani dan Siyar A'lam al-Nubala' oleh al-Dhahabi, melalui portal rujukan Islam yang menyusun semula kandungan kitab tersebut) bagi melengkapkan pemahaman pelajar tentang perawi hadis."
-    },
-    "verified": true
-  }
+  "verified": true
+ },
+ "abu_masud_uqbah_ibn_amr": {
+  "id": "abu_masud_uqbah_ibn_amr",
+  "name": "Abu Mas‘ud ‘Uqbah bin ‘Amr al-Ansari al-Badri r.a.",
+  "fullName": "Abu Mas‘ud ‘Uqbah bin ‘Amr bin Tsa‘labah al-Ansari al-Badri r.a.",
+  "kunyah": "",
+  "title": "Sahabat Rasulullah SAW, Perawi Hadis dan Gabenor Kufah",
+  "biography": "Abu Mas‘ud al-Badri r.a. ialah seorang sahabat daripada kaum Ansar di Madinah, digelar al-Badri kerana pernah menetap berhampiran kawasan Badar walaupun tidak turut serta dalam Peperangan Badar itu sendiri. Beliau pernah dilantik sebagai gabenor Kufah dan merupakan salah seorang perawi hadis yang hadis-hadisnya termuat dalam Sahih al-Bukhari. Beliau wafat pada tahun 41 Hijrah.",
+  "highlights": [],
+  "tags": [
+   "Sahabat Rasulullah SAW",
+   "Perawi Hadis",
+   "Gabenor Kufah"
+  ],
+  "source": {
+   "document": "Bahan biografi sahabat yang mapan (bukan Modul KPM)",
+   "publisher": "Disusun semula daripada al-Isabah (Ibn Hajar al-'Asqalani) / Siyar A'lam al-Nubala' (al-Dhahabi) melalui portal rujukan Islam",
+   "note": "Biodata ringkas ini TIDAK terdapat dalam Modul Penghayatan Hadis 40 Imam Nawawi KPM. Disumberkan daripada bahan biografi sahabat yang mapan (cth. rujukan berasaskan al-Isabah fi Tamyiz al-Sahabah oleh Ibn Hajar al-'Asqalani dan Siyar A'lam al-Nubala' oleh al-Dhahabi, melalui portal rujukan Islam yang menyusun semula kandungan kitab tersebut) bagi melengkapkan pemahaman pelajar tentang perawi hadis."
+  },
+  "verified": true
+ },
+ "sufyan_ibn_abdullah_al_thaqafi": {
+  "id": "sufyan_ibn_abdullah_al_thaqafi",
+  "name": "Abu 'Amr / Abu 'Amrah Sufyan bin Abdullah al-Thaqafi r.a.",
+  "fullName": "Abu 'Amr Sufyan bin Abdullah bin Rabi'ah al-Thaqafi r.a.",
+  "kunyah": "",
+  "title": "Sahabat Rasulullah SAW dan Perawi Hadis",
+  "biography": "Sufyan bin Abdullah al-Thaqafi r.a. ialah seorang sahabat Rasulullah SAW daripada kabilah Tsaqif yang meriwayatkan hadis tentang istiqamah dalam Islam. Beliau pernah meminta daripada Rasulullah SAW satu ucapan yang menyeluruh dalam Islam, lalu baginda bersabda: 'Katakanlah: Aku beriman kepada Allah, kemudian beristiqamahlah.'",
+  "highlights": [],
+  "tags": [
+   "Sahabat Rasulullah SAW",
+   "Perawi Hadis"
+  ],
+  "source": {
+   "document": "Bahan biografi sahabat yang mapan (bukan Modul KPM)",
+   "publisher": "Disusun semula daripada al-Isabah (Ibn Hajar al-'Asqalani) / Siyar A'lam al-Nubala' (al-Dhahabi) melalui portal rujukan Islam",
+   "note": "Biodata ringkas ini TIDAK terdapat dalam Modul Penghayatan Hadis 40 Imam Nawawi KPM. Disumberkan daripada bahan biografi sahabat yang mapan (cth. rujukan berasaskan al-Isabah fi Tamyiz al-Sahabah oleh Ibn Hajar al-'Asqalani dan Siyar A'lam al-Nubala' oleh al-Dhahabi, melalui portal rujukan Islam yang menyusun semula kandungan kitab tersebut) bagi melengkapkan pemahaman pelajar tentang perawi hadis."
+  },
+  "verified": true
+ },
+ "jabir_ibn_abdullah_al_ansari": {
+  "id": "jabir_ibn_abdullah_al_ansari",
+  "name": "Abu Abdullah Jabir bin Abdullah al-Ansari r.a.",
+  "fullName": "Abu Abdullah Jabir bin Abdullah bin 'Amr bin Haram al-Ansari al-Salami r.a.",
+  "kunyah": "",
+  "title": "Sahabat Rasulullah SAW dan Perawi Hadis",
+  "biography": "Jabir bin Abdullah al-Ansari r.a. ialah seorang sahabat Rasulullah SAW daripada golongan Ansar yang banyak meriwayatkan hadis. Beliau antara sahabat yang terakhir meninggal dunia di Madinah dan merupakan perawi hadis-hadis dalam Sahih al-Bukhari dan Sahih Muslim.",
+  "highlights": [],
+  "tags": [
+   "Sahabat Rasulullah SAW",
+   "Perawi Hadis",
+   "Golongan Ansar"
+  ],
+  "source": {
+   "document": "Bahan biografi sahabat yang mapan (bukan Modul KPM)",
+   "publisher": "Disusun semula daripada al-Isabah (Ibn Hajar al-'Asqalani) / Siyar A'lam al-Nubala' (al-Dhahabi) melalui portal rujukan Islam",
+   "note": "Biodata ringkas ini TIDAK terdapat dalam Modul Penghayatan Hadis 40 Imam Nawawi KPM. Disumberkan daripada bahan biografi sahabat yang mapan (cth. rujukan berasaskan al-Isabah fi Tamyiz al-Sahabah oleh Ibn Hajar al-'Asqalani dan Siyar A'lam al-Nubala' oleh al-Dhahabi, melalui portal rujukan Islam yang menyusun semula kandungan kitab tersebut) bagi melengkapkan pemahaman pelajar tentang perawi hadis."
+  },
+  "verified": true
+ },
+ "al_harith_ibn_asim_al_ashari": {
+  "id": "al_harith_ibn_asim_al_ashari",
+  "name": "Abu Malik al-Harith bin Asim al-Ash'ari r.a.",
+  "fullName": "Abu Malik al-Harith bin 'Asim al-Ash'ari r.a.",
+  "kunyah": "",
+  "title": "Sahabat Rasulullah SAW dan Perawi Hadis",
+  "biography": "Abu Malik al-Harith bin Asim al-Ash'ari r.a. ialah seorang sahabat Rasulullah SAW daripada kabilah al-Ash'ariyin yang meriwayatkan hadis tentang kesucian, zikir dan amalan kebaikan. Hadisnya tentang 'bersuci itu sebahagian daripada iman' merupakan antara hadis yang terkenal dalam Sahih Muslim.",
+  "highlights": [],
+  "tags": [
+   "Sahabat Rasulullah SAW",
+   "Perawi Hadis"
+  ],
+  "source": {
+   "document": "Bahan biografi sahabat yang mapan (bukan Modul KPM)",
+   "publisher": "Disusun semula daripada al-Isabah (Ibn Hajar al-'Asqalani) / Siyar A'lam al-Nubala' (al-Dhahabi) melalui portal rujukan Islam",
+   "note": "Biodata ringkas ini TIDAK terdapat dalam Modul Penghayatan Hadis 40 Imam Nawawi KPM. Disumberkan daripada bahan biografi sahabat yang mapan (cth. rujukan berasaskan al-Isabah fi Tamyiz al-Sahabah oleh Ibn Hajar al-'Asqalani dan Siyar A'lam al-Nubala' oleh al-Dhahabi, melalui portal rujukan Islam yang menyusun semula kandungan kitab tersebut) bagi melengkapkan pemahaman pelajar tentang perawi hadis."
+  },
+  "verified": true
+ }
 }

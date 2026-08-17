@@ -116,14 +116,18 @@ void main() {
   });
 
   group('HadithRepository H18-20', () {
-    test('Repository memuatkan H1-H20 (20 hadis)', () async {
+    test('Repository memuatkan H1-H25 (25 hadis)', () async {
       TestWidgetsFlutterBinding.ensureInitialized();
       final repository = await HadithRepository.load();
-      expect(repository.availableHadiths.length, 20);
+      expect(repository.availableHadiths.length, 25);
       expect(repository.byNumber(18), isNotNull);
       expect(repository.byNumber(19), isNotNull);
       expect(repository.byNumber(20), isNotNull);
-      expect(repository.byNumber(21), isNull);
+      expect(repository.byNumber(21), isNotNull);
+      expect(repository.byNumber(22), isNotNull);
+      expect(repository.byNumber(23), isNotNull);
+      expect(repository.byNumber(24), isNotNull);
+      expect(repository.byNumber(25), isNotNull);
     });
 
     test('Module 4 denominator == 5 dan available count == 5', () async {

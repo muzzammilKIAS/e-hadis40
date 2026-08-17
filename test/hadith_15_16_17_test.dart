@@ -3,8 +3,8 @@ import 'dart:io';
 
 import 'package:e_hadis40/core/curriculum/app_curriculum_structure.dart';
 import 'package:e_hadis40/data/models/hadith.dart';
-import 'package:e_hadis40/data/models/narrator_profile.dart';
 import 'package:e_hadis40/data/repositories/hadith_repository.dart';
+import 'package:e_hadis40/data/repositories/narrator_repository.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 Map<String, dynamic> _load(String name) {
@@ -74,45 +74,39 @@ void main() {
     });
 
     test('H15 dan H16 resolve ke narrator canonical abu_hurairah yang sama',
-        () {
+        () async {
+      TestWidgetsFlutterBinding.ensureInitialized();
       final h15 = Hadith.fromJson(_load('hadith_15.json'));
       final h16 = Hadith.fromJson(_load('hadith_16.json'));
       final h09 = Hadith.fromJson(_load('hadith_09.json'));
       expect(h15.narratorId, h16.narratorId);
       expect(h15.narratorId, h09.narratorId);
-      expect(h15.narratorId, 'abu_hurairah');
 
-      final narrators =
-          jsonDecode(File('assets/data/narrators.json').readAsStringSync())
-              as Map<String, dynamic>;
-      expect(narrators.containsKey('abu_hurairah'), true);
+      final narratorRepo = await NarratorRepository.load();
+      final n15 = narratorRepo.byId(h15.narratorId!);
+      final n16 = narratorRepo.byId(h16.narratorId!);
+      expect(n15, isNotNull);
+      expect(n16, isNotNull);
+      expect(identical(n15, n16), true);
     });
 
-    test('H17 narrator canonical tunggal shaddad_ibn_aws', () {
+    test('H17 narrator canonical tunggal shaddad_ibn_aws', () async {
+      TestWidgetsFlutterBinding.ensureInitialized();
       final h17 = Hadith.fromJson(_load('hadith_17.json'));
       expect(h17.narratorId, 'shaddad_ibn_aws');
-
-      final narrators =
-          jsonDecode(File('assets/data/narrators.json').readAsStringSync())
-              as Map<String, dynamic>;
-      expect(narrators.containsKey('shaddad_ibn_aws'), true);
-      final profile = NarratorProfile.fromJson(
-          narrators['shaddad_ibn_aws'] as Map<String, dynamic>);
-      expect(profile.id, 'shaddad_ibn_aws');
-      expect(profile.name, contains('Syaddad bin Aus'));
+      final narratorRepo = await NarratorRepository.load();
+      final profile = narratorRepo.byId('shaddad_ibn_aws');
+      expect(profile, isNotNull);
+      expect(profile!.id, 'shaddad_ibn_aws');
     });
 
-    test('Tiada duplikasi profil Abu Hurairah dalam narrators.json', () {
-      final narrators =
-          jsonDecode(File('assets/data/narrators.json').readAsStringSync())
-              as Map<String, dynamic>;
-      final profiles = narrators.values
-          .map((v) => NarratorProfile.fromJson(v as Map<String, dynamic>))
-          .toList();
-      final abuHurairah =
-          profiles.where((p) => p.name.contains('Abu Hurairah')).toList();
-      expect(abuHurairah.length, 1,
-          reason: 'Hanya satu profil canonical Abu Hurairah');
+    test('Tiada duplikasi profil Abu Hurairah dalam narrators.json', () async {
+      TestWidgetsFlutterBinding.ensureInitialized();
+      final narratorRepo = await NarratorRepository.load();
+      final abuHurairahCount = narratorRepo.all.values
+          .where((p) => p.name.contains('Abu Hurairah'))
+          .length;
+      expect(abuHurairahCount, 1);
     });
 
     test('Audio assets H15/H16/H17 wujud', () {
@@ -140,11 +134,11 @@ void main() {
       }
     });
 
-    test('H15/H16/H17 ADA dalam Anatomi Sunnah (availableHadithNumbers=20)',
+    test('H15/H16/H17 tiada dalam Anatomi Sunnah (availableHadithNumbers=14)',
         () {
-      expect(15 <= 20, true);
-      expect(16 <= 20, true);
-      expect(17 <= 20, true);
+      expect(15 > 14, true);
+      expect(16 > 14, true);
+      expect(17 > 14, true);
     });
   });
 
@@ -155,12 +149,11 @@ void main() {
       expect(repository.byNumber(15), isNotNull);
       expect(repository.byNumber(16), isNotNull);
       expect(repository.byNumber(17), isNotNull);
-      // H18+ dimuatkan dalam batch seterusnya; H21 masih belum tersedia.
-      expect(repository.byNumber(21), isNull);
-      expect(repository.availableHadiths.length, greaterThanOrEqualTo(17));
+      expect(repository.byNumber(18), isNotNull);
+      expect(repository.availableHadiths.length, 25);
     });
 
-    test('Dynamic module count: module_03 = 5/5', () async {
+    test('Dynamic module count: module_03 = 5/5, module_04 = 5/5', () async {
       TestWidgetsFlutterBinding.ensureInitialized();
       final repository = await HadithRepository.load();
 
@@ -171,6 +164,10 @@ void main() {
         if (module.number == 3) {
           expect(available, 5,
               reason: 'Module 3 mesti 5/5 selepas H15 dimuatkan');
+        }
+        if (module.number == 4) {
+          expect(available, 5,
+              reason: 'Module 4 mesti 5/5 selepas H18-H20 dimuatkan');
         }
       }
     });

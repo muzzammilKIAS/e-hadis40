@@ -979,3 +979,106 @@ manakala perawi kedua (Mu‘az bin Jabal) dipaparkan berasingan melalui
 | Kelas Tailwind lengkap | 20 fail, 294 kelas unik | ✅ 0 hilang selepas bina semula |
 | Kad "Kenali Perawi" berbilang perawi | H18 (kad 1 & kad 2) | ✅ kedua-dua kad papar biografi & sumber betul |
 | Jalur belang (debug build) | 5 tab × 4 tinggi | ✅ semua bersih |
+
+## 17. Integrasi Hadis 21–25 — Modul 5 (17 Ogos 2026)
+
+### 17.1 Skop
+
+- **Modul 5**: hadis 21–25 → `module_05`, 5/5 tersedia.
+- **Audio**: `assets/audio/hadith_21.mp3` … `hadith_25.mp3` (true MP3 mono
+  24 kHz 96 kbps, bukan fail upload PCM/WAV asal).
+- **Timing**: `timing/hadith_21_25_phrase_timing.json` (pakej DeepSeek
+  TIMING_REVIEWED) digunakan **tanpa perubahan boundary**.
+  `wordHighlightMode = "phraseOnly"`.
+
+### 17.2 Fail baharu / diubah
+
+| Fail | Perubahan |
+|---|---|
+| `assets/data/hadith_21.json` … `hadith_25.json` | Baharu (5 hadis modul 5) |
+| `assets/audio/hadith_21.mp3` … `hadith_25.mp3` | Baharu (true MP3 converted) |
+| `assets/data/narrators.json` | +3 perawi: Sufyan al-Thaqafi, Jabir al-Ansari, al-Harith al-Ash'ari; Abu Dharr kekal sama (H24/H25) |
+| `lib/data/repositories/hadith_repository.dart` | Daftar hadith_21–25.json |
+| `test/hadith_21_25_test.dart` | Baharu (13 ujian) |
+| `test/hadith_15_16_17_test.dart` | Kemas kini: count 25, module_04 = 5/5, init binding |
+| `test/hadith_18_19_20_test.dart` | Kemas kini: count 25, byNumber(21–25) wujud |
+
+### 17.3 Narator canonical (dedupe)
+
+- H21 → `sufyan_ibn_abdullah_al_thaqafi`
+- H22 → `jabir_ibn_abdullah_al_ansari`
+- H23 → `al_harith_ibn_asim_al_ashari`
+- H24 → `abu_dharr_jundub_ibn_junadah` (REUSE H18)
+- H25 → `abu_dharr_jundub_ibn_junadah` (REUSE H18/H24)
+
+H24/H25 resolve ke objek perawi yang sama dengan Abu Dharr H18 (disahkan
+oleh ujian `H24/H25 narrator canonical sama dengan Abu Dharr H18`).
+
+### 17.4 Rujukan statik
+
+Semua rujukan (`رَوَاهُ مُسْلِمٌ`) kekal **statik** dan TIDAK dimasukkan
+ke `timedSegments`:
+
+- H21 audio berakhir pada `ثُمَّ اسْتَقِمْ.`
+- H22 audio berakhir pada `قَالَ: نَعَمْ.` (nota maksud lafaz diletakkan
+  dalam `explanations` sebagai kandungan statik, bukan transcript audio)
+- H23 audio berakhir pada `أَوْ مُوبِقُهَا.`
+- H24 audio berakhir pada `فَلَا يَلُومَنَّ إِلَّا نَفْسَهُ.`
+- H25 audio berakhir pada `كَانَ لَهُ أَجْرٌ.`
+
+### 17.5 Timing count
+
+| Hadis | Segmen | Durasi audio | Final endMs |
+|---|---|---|---|
+| H21 | 11 | 19.728s | 19520 |
+| H22 | 12 | 26.064s | 25710 |
+| H23 | 14 | 36.624s | 36430 |
+| H24 | 40 | 112.536s | 112300 |
+| H25 | 25 | 62.136s | 62050 |
+
+### 17.6 Pengesahan timing
+
+- CSV/JSON dipadankan dengan **waveform speech activity** sebenar
+  (afconvert → analisis tenaga isyarat 8 kHz): setiap `startMs` berada pada
+  permulaan pertuturan, setiap `endMs` berada pada hujung frasa dengan
+  selang senyap 210–960ms antara segmen.
+- Tiada proportional word timing; tiada interpolasi huruf.
+- H24 kekal 40 segmen (tidak digabung menjadi blok besar).
+- H25 dua segmen panjang sengaja menggabungkan frasa tanpa jeda audio
+  (`وَكُلِّ تَهْلِيلَةٍ...` dan `وَنَهْيٌ عَنِ الْمُنْكَرِ...`).
+- Gap tidak mengaktifkan frasa seterusnya lebih awal (`_activeSegmentIndex`
+  hanya menandakan segmen aktif apabila `positionMs >= startMs`).
+
+### 17.7 Kandungan KPM
+
+- H21: Surah Fussilat ayat 30 (disahkan daripada huraian modul).
+- H22: nota maksud lafaz `حَرَّمْتُ الْحَرَامَ` / `أَحْلَلْتُ الْحَلَالَ`
+  sebagai kandungan statik.
+- H23: lafaz variasi `تَمْلَآنِ - أَوْ تَمْلَأُ` kekal; fokus nilai
+  Kesejahteraan & Ihsan; aktiviti Gotong-royong, Tadarus al-Quran, Berzikir.
+- H24: hadis qudsi panjang (40 frasa) — auto-scroll smooth, seek tepat.
+- H25: Surah Ali 'Imran ayat 110 (khaira ummah).
+
+Huraian, pengajaran, penghayatan dan dalil tambahan di luar nota di atas
+**kekal kosong** kerana halaman KPM (97–123) tidak tersedia untuk semakan
+penuh; tidak mereka-reka kandungan.
+
+### 17.8 Global Audio / Local / Projector / Arbitration
+
+- H21–H25 masuk **playlist global** secara automatik melalui
+  `HadithRepository` (semua hadis dengan `audioAsset`).
+- HadithScreen local audio: route-scoped, phraseOnly, auto-scroll,
+  seek phrase, speed (0.75/1.0/1.25), repeat.
+- Projector: player tempatan sendiri, mula paused 00:00, tidak kongsi
+  position; H24 40 segmen auto-scroll dengan betul.
+- Audio arbitration: global ↔ local (satu audio audible sahaja).
+
+### 17.9 Pengesahan akhir
+
+| Ujian | Keputusan |
+|---|---|
+| `flutter analyze` | ✅ 0 isu |
+| `flutter test` | ✅ 61 ujian lulus |
+| `flutter build web --release --base-href "/"` | ✅ Berjaya |
+| Waveform boundary check (H21–H25, 102 segmen) | ✅ semua sejajar pertuturan |
+| Modul 5 denominator | ✅ 5/5 |
