@@ -3,32 +3,35 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 
 import '../../core/theme/app_colors.dart';
-import '../../screens/uji_minda_levels_screen.dart';
+import '../../screens/misi_pencari_hikmah_screen.dart';
 import 'islamic_atmosphere.dart';
-import 'xplorasi_minda_title.dart';
+import 'misi_mencari_hikmah_title.dart';
 
-/// Kad promosi "Xplorasi Minda" — ilustrasi roket besar di kanan, sengaja
-/// melepasi garisan kotak (seperti reka bentuk asal) supaya kelihatan
-/// "hidup"; tajuk besar di tengah kotak, dengan ikon otak bertindak sebagai
-/// butang utama. Bila ditekan (mana-mana bahagian kad, atau khusus ikon
-/// otak), roket "melepaskan diri" (terbang ke atas dengan api + asap
-/// ringan) sebelum membuka senarai level "Eksplorasi Hadis 40" (4 level ×
-/// 10 soalan, setiap level dibenamkan sebagai halaman web berasingan).
+/// Kad promosi "Misi Mencari Hikmah" — ilustrasi budak menunggang roket
+/// menghala ke kitab bercahaya di kanan, sengaja melepasi garisan kotak
+/// (seperti reka bentuk asal) supaya kelihatan "hidup"; tajuk besar di
+/// tengah kotak, dengan ikon lampu bertindak sebagai butang utama. Bila
+/// ditekan (mana-mana bahagian kad, atau khusus ikon lampu), roket
+/// "melepaskan diri" (terbang ke atas dengan api + asap ringan) sebelum
+/// membuka RPG interaktif "Misi Mencari Hikmah" (dibenamkan sebagai
+/// halaman web berasingan).
 ///
 /// Lepasan ilustrasi di sebelah kanan diukur secara langsung (RenderBox)
 /// terhadap tepi sebenar skrin — bukan anggaran mengikut lebar kotak —
 /// supaya ia sentiasa "keluar" daripada kotak seperti reka bentuk asal
 /// TANPA sekali-kali terpotong oleh tepi skrin, sama ada pada desktop
-/// (dengan bar sisi), tablet mahupun telefon. Gaya kad sepadan dengan tema
-/// emerald/emas app untuk light dan dark mode.
-class UjiMindaCard extends StatefulWidget {
-  const UjiMindaCard({super.key});
+/// (dengan bar sisi), tablet mahupun telefon. Struktur animasi & gaya kad
+/// sengaja dikekalkan sama seperti `UjiMindaCard` supaya kedua-dua kad
+/// aktiviti interaktif berasa sepadan; hanya identiti (warna aksen,
+/// ilustrasi, tajuk) yang berbeza.
+class MisiPencariHikmahCard extends StatefulWidget {
+  const MisiPencariHikmahCard({super.key});
 
   @override
-  State<UjiMindaCard> createState() => _UjiMindaCardState();
+  State<MisiPencariHikmahCard> createState() => _MisiPencariHikmahCardState();
 }
 
-class _UjiMindaCardState extends State<UjiMindaCard>
+class _MisiPencariHikmahCardState extends State<MisiPencariHikmahCard>
     with TickerProviderStateMixin {
   static const _cardHeight = 176.0;
 
@@ -83,7 +86,9 @@ class _UjiMindaCardState extends State<UjiMindaCard>
     await _launchController.forward(from: 0);
     if (!mounted) return;
     await Navigator.of(context).push(
-      MaterialPageRoute<void>(builder: (_) => const UjiMindaLevelsScreen()),
+      MaterialPageRoute<void>(
+        builder: (_) => const MisiPencariHikmahScreen(),
+      ),
     );
     if (!mounted) return;
     _launchController.reset();
@@ -100,10 +105,10 @@ class _UjiMindaCardState extends State<UjiMindaCard>
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
     final dark = scheme.brightness == Brightness.dark;
-    // Aksen dwi-tone kad ini — emas (identiti "X") berpadu dengan latar
-    // kaca, gaya sama seperti kad Modul (surface + aksen), bukan gradien
-    // pepejal tersendiri.
-    const cardAccent = AppColors.gold;
+    // Aksen dwi-tone kad ini — terakota hikmah berpadu dengan latar kaca,
+    // gaya sama seperti kad Xplorasi Minda (surface + aksen), bukan
+    // gradien pepejal tersendiri.
+    const cardAccent = AppColors.rainbowOrange;
 
     return LayoutBuilder(
       builder: (context, constraints) {
@@ -189,7 +194,7 @@ class _UjiMindaCardState extends State<UjiMindaCard>
                             Positioned.fill(
                               child: IslamicCardPattern(
                                 color: cardAccent,
-                                seed: 40,
+                                seed: 41,
                                 opacity: _hovered ? 1.15 : 1,
                               ),
                             ),
@@ -210,14 +215,14 @@ class _UjiMindaCardState extends State<UjiMindaCard>
                                       child: FittedBox(
                                         fit: BoxFit.scaleDown,
                                         alignment: Alignment.centerLeft,
-                                        child: XplorasiMindaTitle(
+                                        child: MisiMencariHikmahTitle(
                                           textColor: scheme.onSurface,
-                                          xBoxColor: cardAccent,
-                                          xIconColor: dark
+                                          mBoxColor: cardAccent,
+                                          mIconColor: dark
                                               ? scheme.surface
                                               : Colors.white,
                                           fontSize: 42,
-                                          onBrainTap: () => _handleTap(context),
+                                          onIconTap: () => _handleTap(context),
                                         ),
                                       ),
                                     ),
@@ -339,7 +344,7 @@ class _UjiMindaCardState extends State<UjiMindaCard>
                                             ],
                                           ),
                                           child: Image.asset(
-                                            'assets/images/uji_minda_rocket.png',
+                                            'assets/images/misi_pencari_hikmah_rocket.png',
                                             width: artSize * 0.9,
                                             fit: BoxFit.contain,
                                           ),

@@ -135,6 +135,49 @@ class _NarratorInfoTriggerState extends State<NarratorInfoTrigger> {
                       color: scheme.onSurface,
                     ),
               ),
+              if (narrator.highlights.isNotEmpty) ...[
+                const SizedBox(height: 16),
+                Text(
+                  'FAKTA MENARIK',
+                  style: TextStyle(
+                    fontSize: 11,
+                    fontWeight: FontWeight.w700,
+                    letterSpacing: 1.2,
+                    color: scheme.primary,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                for (final fact in narrator.highlights)
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 6),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(top: 7),
+                          child: Container(
+                            width: 5,
+                            height: 5,
+                            decoration: BoxDecoration(
+                              color: scheme.primary,
+                              shape: BoxShape.circle,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: 10),
+                        Expanded(
+                          child: Text(
+                            fact,
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodySmall
+                                ?.copyWith(height: 1.5, color: scheme.onSurface),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+              ],
               if (narrator.tags.isNotEmpty) ...[
                 const SizedBox(height: 16),
                 Wrap(
@@ -426,6 +469,49 @@ class _NarratorInfoTriggerState extends State<NarratorInfoTrigger> {
                         height: 1.7,
                       ),
                 ),
+                if (narrator.highlights.isNotEmpty) ...[
+                  const SizedBox(height: 20),
+                  Text(
+                    'FAKTA MENARIK',
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w700,
+                      letterSpacing: 1.2,
+                      color: scheme.primary,
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  for (final fact in narrator.highlights)
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 8),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(top: 8),
+                            child: Container(
+                              width: 6,
+                              height: 6,
+                              decoration: BoxDecoration(
+                                color: scheme.primary,
+                                shape: BoxShape.circle,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: 12),
+                          Expanded(
+                            child: Text(
+                              fact,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyMedium
+                                  ?.copyWith(height: 1.5),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                ],
                 if (narrator.tags.isNotEmpty) ...[
                   const SizedBox(height: 20),
                   Wrap(

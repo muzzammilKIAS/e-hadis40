@@ -257,6 +257,7 @@ class NarratorInfo {
     required this.tags,
     required this.source,
     required this.verified,
+    this.highlights = const [],
   });
 
   final String id;
@@ -267,6 +268,12 @@ class NarratorInfo {
   final List<String> tags;
   final String source;
   final bool verified;
+
+  /// Fakta menarik ringkas tentang perawi (cth. peranan, sumbangan,
+  /// tarikh penting) — disumberkan daripada profil kanonik dalam
+  /// `NarratorRepository` (bukan dibenamkan per-hadis), lihat
+  /// `_narratorFallback` di `hadith_screen.dart`.
+  final List<String> highlights;
 
   factory NarratorInfo.fromJson(Map<String, dynamic> json) {
     return NarratorInfo(
@@ -280,6 +287,23 @@ class NarratorInfo {
           : const <String>[],
       source: json['source'] as String? ?? '',
       verified: json['verified'] as bool? ?? false,
+      highlights: json['highlights'] is List
+          ? List<String>.from(json['highlights'] as List)
+          : const <String>[],
+    );
+  }
+
+  NarratorInfo copyWith({List<String>? highlights}) {
+    return NarratorInfo(
+      id: id,
+      name: name,
+      fullName: fullName,
+      title: title,
+      shortBiography: shortBiography,
+      tags: tags,
+      source: source,
+      verified: verified,
+      highlights: highlights ?? this.highlights,
     );
   }
 

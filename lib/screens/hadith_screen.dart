@@ -14,7 +14,6 @@ import '../widgets/synced_hadith_reader.dart';
 import '../widgets/app_footer.dart';
 import '../widgets/hadith_section.dart';
 import '../widgets/narrator_info_trigger.dart';
-import 'anatomi_sunnah_screen.dart';
 import 'projector_screen.dart';
 import 'quiz_screen.dart';
 
@@ -149,11 +148,6 @@ class _HadithScreenState extends State<HadithScreen> {
                 ),
               ),
               const SizedBox(height: AppSpacing.xl),
-              _AnatomiSunnahEntryCard(
-                hadithNumber: hadith.number,
-                displayNumber: hadith.displayNumber,
-              ),
-              const SizedBox(height: AppSpacing.xl),
               HadithSection(
                 title: 'Maksud Hadis',
                 icon: Icons.translate_rounded,
@@ -263,7 +257,7 @@ class _HadithScreenState extends State<HadithScreen> {
                           padding: const EdgeInsets.only(bottom: AppSpacing.sm),
                           child: NarratorInfoTrigger(
                             narrator: hadith.narrator.id == narratorId
-                                ? hadith.narrator
+                                ? _withHighlights(context, hadith.narrator)
                                 : _narratorFallback(
                                     context, narratorId, hadith),
                           ),
@@ -556,7 +550,18 @@ class _HadithScreenState extends State<HadithScreen> {
       // profil itu sendiri.
       source: _narratorSourceLabel(profile.source),
       verified: profile.verified,
+      highlights: profile.highlights,
     );
+  }
+
+  /// Perawi utama datang terus daripada JSON per-hadis (`hadith.narrator`),
+  /// tetapi fakta menarik (`highlights`) hanya disimpan secara berpusat
+  /// dalam `narrators.json` (elak pertindihan data merentasi 25 fail hadis)
+  /// — jadi ia sentiasa dilekapkan semula di sini daripada profil canonical.
+  NarratorInfo _withHighlights(BuildContext context, NarratorInfo narrator) {
+    final profile = context.read<NarratorRepository>().byId(narrator.id);
+    if (profile == null || profile.highlights.isEmpty) return narrator;
+    return narrator.copyWith(highlights: profile.highlights);
   }
 
   String _narratorSourceLabel(Map<String, dynamic> source) {
@@ -1009,133 +1014,6 @@ class _SupplementaryHadithCard extends StatelessWidget {
                     color: scheme.onSurfaceVariant,
                     fontStyle: FontStyle.italic,
                   ),
-                ),
-              ],
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-/// Kad masuk "Anatomi Sunnah 3D" pada paparan hadis — membuka simulasi
-/// Three.js penuh bagi hadis semasa (jika simulasi sudah tersedia).
-class _AnatomiSunnahEntryCard extends StatelessWidget {
-  const _AnatomiSunnahEntryCard({
-    required this.hadithNumber,
-    required this.displayNumber,
-  });
-
-  final int hadithNumber;
-  final String displayNumber;
-
-  @override
-  Widget build(BuildContext context) {
-    final scheme = Theme.of(context).colorScheme;
-    final available =
-        hadithNumber <= AnatomiSunnahScreen.availableHadithNumbers;
-
-    return HadithSection(
-      title: 'Anatomi Sunnah 3D',
-      subtitle: available
-          ? 'Simulasi interaktif visual Hadis $displayNumber'
-          : 'Simulasi untuk Hadis $displayNumber akan datang',
-      icon: Icons.view_in_ar_rounded,
-      accent: true,
-      trailing: IconButton(
-        tooltip: available ? 'Buka Anatomi Sunnah' : 'Akan datang',
-        onPressed: available
-            ? () {
-                Navigator.of(context).push(
-                  MaterialPageRoute<void>(
-                    builder: (_) => AnatomiSunnahScreen(
-                      hadithNumber: hadithNumber,
-                    ),
-                  ),
-                );
-              }
-            : null,
-        icon: const Icon(Icons.open_in_full_rounded),
-      ),
-      child: InkWell(
-        borderRadius: BorderRadius.circular(18),
-        onTap: available
-            ? () {
-                Navigator.of(context).push(
-                  MaterialPageRoute<void>(
-                    builder: (_) => AnatomiSunnahScreen(
-                      hadithNumber: hadithNumber,
-                    ),
-                  ),
-                );
-              }
-            : null,
-        child: Container(
-          width: double.infinity,
-          padding: const EdgeInsets.all(20),
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                scheme.primaryContainer.withValues(alpha: 0.55),
-                scheme.tertiaryContainer.withValues(alpha: 0.25),
-              ],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
-            borderRadius: BorderRadius.circular(18),
-            border: Border.all(
-              color: scheme.primary.withValues(alpha: 0.4),
-            ),
-          ),
-          child: Row(
-            children: [
-              Container(
-                width: 52,
-                height: 52,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: scheme.primary,
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                child: Icon(
-                  Icons.view_in_ar_rounded,
-                  color: scheme.onPrimary,
-                  size: 28,
-                ),
-              ),
-              const SizedBox(width: 16),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Terokai Visual 3D',
-                      style: Theme.of(context)
-                          .textTheme
-                          .titleMedium
-                          ?.copyWith(fontWeight: FontWeight.w700),
-                    ),
-                    const SizedBox(height: 4),
-                    Text(
-                      available
-                          ? 'Buka simulasi interaktif yang menggambarkan '
-                              'pengajaran Hadis $displayNumber.'
-                          : 'Simulasi untuk hadis ini belum tersedia.',
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodySmall
-                          ?.copyWith(color: scheme.onSurfaceVariant),
-                    ),
-                  ],
-                ),
-              ),
-              if (available) ...[
-                const SizedBox(width: 8),
-                Icon(
-                  Icons.arrow_forward_ios_rounded,
-                  size: 18,
-                  color: scheme.primary,
                 ),
               ],
             ],

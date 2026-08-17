@@ -1,262 +1,295 @@
 {
- "id": "hadith_21",
- "moduleId": "module_05",
- "hadithNumber": 21,
- "title": "Iman dan Istiqamah",
- "subtitle": "Hadis 21 menuntut agar kita beriman kepada Allah dan beristiqamah dalam mentaati perintah-Nya.",
- "theme": "Iman kepada Allah dan istiqamah dalam amalan",
- "contextNotice": "",
- "learningObjectives": [
-  "Menyatakan maksud umum Hadis 21.",
-  "Mengenal pasti perawi Hadis 21 iaitu Abu 'Amr / Abu 'Amrah Sufyan bin Abdullah al-Thaqafi r.a.",
-  "Menghuraikan maksud istiqamah dan kepentingannya dalam kehidupan seorang muslim.",
-  "Menjawab kuiz dengan markah sekurang-kurangnya 80%."
- ],
- "arabicText": "عَنْ أَبِي عَمْرٍو وَقِيلَ: أَبِي عَمْرَةَ سُفْيَانَ بْنِ عَبْدِ اللَّهِ الثَّقَفِيِّ رَضِيَ اللَّهُ عَنْهُ قَالَ: قُلْتُ: يَا رَسُولَ اللَّهِ، قُلْ لِي فِي الْإِسْلَامِ قَوْلًا لَا أَسْأَلُ عَنْهُ أَحَدًا غَيْرَكَ. قَالَ: قُلْ آمَنْتُ بِاللَّهِ ثُمَّ اسْتَقِمْ.",
- "audioTranscriptText": "عَنْ أَبِي عَمْرٍو وَقِيلَ: أَبِي عَمْرَةَ سُفْيَانَ بْنِ عَبْدِ اللَّهِ الثَّقَفِيِّ رَضِيَ اللَّهُ عَنْهُ قَالَ: قُلْتُ: يَا رَسُولَ اللَّهِ، قُلْ لِي فِي الْإِسْلَامِ قَوْلًا لَا أَسْأَلُ عَنْهُ أَحَدًا غَيْرَكَ. قَالَ: قُلْ آمَنْتُ بِاللَّهِ ثُمَّ اسْتَقِمْ.",
- "translationMalay": "Daripada Abu 'Amr, dan dikatakan Abu 'Amrah, iaitu Sufyan bin Abdullah al-Thaqafi r.a. berkata: Aku berkata: \"Wahai Rasulullah, katakanlah kepadaku dalam Islam satu ucapan yang aku tidak akan bertanya tentangnya kepada sesiapa pun selain engkau.\" Baginda bersabda: \"Katakanlah: Aku beriman kepada Allah, kemudian beristiqamahlah.\"",
- "narratorId": "sufyan_ibn_abdullah_al_thaqafi",
- "narratorIds": [
-  "sufyan_ibn_abdullah_al_thaqafi"
- ],
- "narrator": {
-  "id": "sufyan_ibn_abdullah_al_thaqafi",
-  "name": "Abu 'Amr / Abu 'Amrah Sufyan bin Abdullah al-Thaqafi r.a.",
-  "fullName": "Abu 'Amr Sufyan bin Abdullah bin Rabi'ah al-Thaqafi r.a.",
-  "title": "Sahabat Rasulullah SAW dan Perawi Hadis",
-  "shortBiography": "Sufyan bin Abdullah al-Thaqafi r.a. ialah seorang sahabat Rasulullah SAW daripada kabilah Tsaqif yang meriwayatkan hadis tentang istiqamah dalam Islam. Beliau pernah meminta daripada Rasulullah SAW satu ucapan yang menyeluruh dalam Islam, lalu baginda bersabda: \"Katakanlah: Aku beriman kepada Allah, kemudian beristiqamahlah.\"",
-  "tags": [
-   "Sahabat Rasulullah SAW",
-   "Perawi Hadis"
+  "id": "hadith_21",
+  "moduleId": "module_05",
+  "hadithNumber": 21,
+  "title": "Iman dan Istiqamah",
+  "subtitle": "Hadis 21 menuntut agar kita beriman kepada Allah dan beristiqamah dalam mentaati perintah-Nya.",
+  "theme": "Iman kepada Allah dan istiqamah dalam amalan",
+  "contextNotice": "",
+  "learningObjectives": [
+    "Menyatakan maksud umum Hadis 21.",
+    "Mengenal pasti perawi Hadis 21 iaitu Abu 'Amr / Abu 'Amrah Sufyan bin Abdullah al-Thaqafi r.a.",
+    "Menghuraikan maksud istiqamah dan kepentingannya dalam kehidupan seorang muslim.",
+    "Menjawab kuiz dengan markah sekurang-kurangnya 80%."
   ],
-  "source": "Biodata ringkas ini TIDAK terdapat dalam Modul Penghayatan Hadis 40 Imam Nawawi KPM. Disumberkan daripada bahan biografi sahabat yang mapan (cth. rujukan berasaskan al-Isabah fi Tamyiz al-Sahabah oleh Ibn Hajar al-'Asqalani dan Siyar A'lam al-Nubala' oleh al-Dhahabi, melalui portal rujukan Islam yang menyusun semula kandungan kitab tersebut) bagi melengkapkan pemahaman pelajar tentang perawi hadis.",
-  "verified": true
- },
- "referenceArabic": "رَوَاهُ مُسْلِمٌ.",
- "reference": "Hadis ini diriwayatkan oleh Imam Muslim.",
- "explanations": [],
- "quranEvidence": {
-  "surah": "Fussilat",
-  "verse": 30,
-  "verseEnd": 30,
-  "arabicText": "إِنَّ الَّذِينَ قَالُوا رَبُّنَا اللَّهُ ثُمَّ اسْتَقَامُوا تَتَنَزَّلُ عَلَيْهِمُ الْمَلَائِكَةُ أَلَّا تَخَافُوا وَلَا تَحْزَنُوا وَأَبْشِرُوا بِالْجَنَّةِ الَّتِي كُنْتُمْ تُوعَدُونَ",
-  "translationMalay": "Sesungguhnya orang-orang yang berkata: \"Tuhan kami ialah Allah\", kemudian mereka beristiqamah, maka turunlah malaikat kepada mereka (dengan berkata): \"Janganlah kamu takut dan janganlah kamu bersedih hati, dan terimalah berita gembira dengan (mendapat) syurga yang telah dijanjikan kepada kamu.\""
- },
- "quranEvidences": [],
- "lessons": [],
- "appreciation": [],
- "focusValues": [],
- "suggestedActivities": [],
- "reflectionQuestions": [
-  "Apakah maksud istiqamah dalam Hadis 21?",
-  "Mengapakah kita perlu beriman kepada Allah sebelum beristiqamah?",
-  "Bagaimanakah cara untuk beristiqamah dalam kehidupan seharian?",
-  "Apakah hubungan Hadis 21 dengan Surah Fussilat ayat 30?"
- ],
- "quiz": [
-  {
-   "id": "h21_q01",
-   "question": "Apakah tajuk Hadis 21?",
-   "options": [
-    "Iman dan Istiqamah",
-    "Syarat Asas Masuk Syurga",
-    "Keutamaan Sifat Malu",
-    "Ganjaran Amalan Kebaikan"
-   ],
-   "correctAnswerIndex": 0,
-   "explanation": "Tajuk Hadis 21 ialah 'Iman dan Istiqamah'."
-  },
-  {
-   "id": "h21_q02",
-   "question": "Siapakah perawi Hadis 21?",
-   "options": [
-    "Sufyan bin Abdullah al-Thaqafi r.a.",
-    "Jabir bin Abdullah al-Ansari r.a.",
-    "Abu Hurairah r.a.",
-    "Anas bin Malik r.a."
-   ],
-   "correctAnswerIndex": 0,
-   "explanation": "Hadis 21 diriwayatkan oleh Abu 'Amr / Abu 'Amrah Sufyan bin Abdullah al-Thaqafi r.a."
-  },
-  {
-   "id": "h21_q03",
-   "question": "Apakah permintaan perawi kepada Rasulullah SAW dalam Hadis 21?",
-   "options": [
-    "Satu ucapan dalam Islam yang tidak akan ditanya kepada sesiapa pun selain baginda",
-    "Harta yang banyak",
-    "Pangkat yang tinggi",
-    "Isteri yang cantik"
-   ],
-   "correctAnswerIndex": 0,
-   "explanation": "Perawi meminta satu ucapan dalam Islam yang tidak akan ditanya kepada sesiapa pun selain baginda."
-  },
-  {
-   "id": "h21_q04",
-   "question": "Apakah jawapan Rasulullah SAW kepada permintaan tersebut?",
-   "options": [
-    "Katakanlah: Aku beriman kepada Allah, kemudian beristiqamahlah",
-    "Peliharalah Allah nescaya Allah memeliharamu",
-    "Berkata baik atau diam",
-    "Jangan marah"
-   ],
-   "correctAnswerIndex": 0,
-   "explanation": "Rasulullah SAW menjawab: Katakanlah: Aku beriman kepada Allah, kemudian beristiqamahlah."
-  },
-  {
-   "id": "h21_q05",
-   "question": "Siapakah yang meriwayatkan Hadis 21 menurut rujukan?",
-   "options": [
-    "Imam Muslim",
-    "Imam al-Bukhari",
-    "Imam al-Tirmizi",
-    "Imam Abu Dawud"
-   ],
-   "correctAnswerIndex": 0,
-   "explanation": "Hadis 21 diriwayatkan oleh Imam Muslim."
-  },
-  {
-   "id": "h21_q06",
-   "question": "Apakah dalil al-Quran yang dikaitkan dengan Hadis 21?",
-   "options": [
-    "Surah Fussilat ayat 30",
-    "Surah Ali 'Imran ayat 110",
-    "Surah al-Baqarah ayat 172",
-    "Surah al-A'raf ayat 187"
-   ],
-   "correctAnswerIndex": 0,
-   "explanation": "Dalil al-Quran Hadis 21 ialah Surah Fussilat ayat 30."
-  },
-  {
-   "id": "h21_q07",
-   "question": "Apakah maksud istiqamah?",
-   "options": [
-    "Teguh dan konsisten dalam ketaatan kepada Allah",
-    "Bermalas-malasan dalam beribadah",
-    "Berbuat kebaikan sekali-sekala",
-    "Meninggalkan amalan"
-   ],
-   "correctAnswerIndex": 0,
-   "explanation": "Istiqamah bermaksud teguh dan konsisten dalam ketaatan kepada Allah."
-  },
-  {
-   "id": "h21_q08",
-   "question": "Apakah urutan yang dianjurkan dalam Hadis 21?",
-   "options": [
-    "Beriman kepada Allah kemudian beristiqamah",
-    "Beristiqamah kemudian beriman",
-    "Beramal tanpa beriman",
-    "Beriman tanpa beramal"
-   ],
-   "correctAnswerIndex": 0,
-   "explanation": "Urutan yang dianjurkan ialah beriman kepada Allah kemudian beristiqamah."
-  },
-  {
-   "id": "h21_q09",
-   "question": "Apakah ganjaran bagi orang yang beriman dan beristiqamah menurut Surah Fussilat ayat 30?",
-   "options": [
-    "Malaikat turun memberi ketenangan dan berita gembira dengan syurga",
-    "Dikurniakan harta yang banyak",
-    "Dilantik menjadi pemerintah",
-    "Diberi ilmu yang luas"
-   ],
-   "correctAnswerIndex": 0,
-   "explanation": "Orang yang beriman dan beristiqamah akan didatangi malaikat dengan ketenangan dan berita gembira tentang syurga."
-  },
-  {
-   "id": "h21_q10",
-   "question": "Apakah pengajaran utama Hadis 21?",
-   "options": [
-    "Iman mesti disertai istiqamah dalam ketaatan",
-    "Iman cukup sekadar di hati",
-    "Amalan tidak penting selagi beriman",
-    "Istiqamah hanya untuk golongan tertentu"
-   ],
-   "correctAnswerIndex": 0,
-   "explanation": "Pengajaran utama Hadis 21 ialah iman mesti disertai istiqamah dalam ketaatan kepada Allah."
-  }
- ],
- "progressRules": {
-  "passingScorePercent": 80
- },
- "audio": {
-  "arabicRecitation": "assets/audio/hadith_21.mp3",
-  "durationMs": 19728,
-  "syncOffsetMs": 0,
-  "wordHighlightMode": "phraseOnly",
-  "timingMethod": "waveform speech activity + real silence gaps + phrase-by-phrase matn alignment",
-  "timingReviewNote": "Timing frasa dipadankan dengan waveform sebenar dan jeda audio. Rujukan hadis kekal statik kerana audio berakhir pada 'ثُمَّ اسْتَقِمْ.' Jangan guna proportional word timing.",
-  "referenceAudioVerificationRequired": false,
-  "timedSegments": [
-   {
-    "startMs": 130,
-    "endMs": 1120,
-    "text": "عَنْ أَبِي عَمْرٍو"
-   },
-   {
-    "startMs": 1560,
-    "endMs": 2230,
-    "text": "وَقِيلَ:"
-   },
-   {
-    "startMs": 2560,
-    "endMs": 3550,
-    "text": "أَبِي عَمْرَةَ"
-   },
-   {
-    "startMs": 4040,
-    "endMs": 6400,
-    "text": "سُفْيَانَ بْنِ عَبْدِ اللَّهِ الثَّقَفِيِّ رَضِيَ اللَّهُ عَنْهُ"
-   },
-   {
-    "startMs": 6800,
-    "endMs": 8780,
-    "text": "قَالَ: قُلْتُ: يَا رَسُولَ اللَّهِ،"
-   },
-   {
-    "startMs": 9220,
-    "endMs": 9740,
-    "text": "قُلْ لِي"
-   },
-   {
-    "startMs": 10170,
-    "endMs": 11320,
-    "text": "فِي الْإِسْلَامِ قَوْلًا"
-   },
-   {
-    "startMs": 11940,
-    "endMs": 15600,
-    "text": "لَا أَسْأَلُ عَنْهُ أَحَدًا غَيْرَكَ."
-   },
-   {
-    "startMs": 16100,
-    "endMs": 16590,
-    "text": "قَالَ:"
-   },
-   {
-    "startMs": 16930,
-    "endMs": 18160,
-    "text": "قُلْ آمَنْتُ بِاللَّهِ"
-   },
-   {
-    "startMs": 18510,
-    "endMs": 19520,
-    "text": "ثُمَّ اسْتَقِمْ."
-   }
-  ]
- },
- "source": {
-  "document": "Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua, KPM.",
-  "hadith": 21,
-  "printedPages": [
-   97,
-   98,
-   99,
-   100,
-   101
+  "arabicText": "عَنْ أَبِي عَمْرٍو وَقِيلَ: أَبِي عَمْرَةَ سُفْيَانَ بْنِ عَبْدِ اللَّهِ الثَّقَفِيِّ رَضِيَ اللَّهُ عَنْهُ قَالَ: قُلْتُ: يَا رَسُولَ اللَّهِ، قُلْ لِي فِي الْإِسْلَامِ قَوْلًا لَا أَسْأَلُ عَنْهُ أَحَدًا غَيْرَكَ. قَالَ: قُلْ آمَنْتُ بِاللَّهِ ثُمَّ اسْتَقِمْ.",
+  "audioTranscriptText": "عَنْ أَبِي عَمْرٍو وَقِيلَ: أَبِي عَمْرَةَ سُفْيَانَ بْنِ عَبْدِ اللَّهِ الثَّقَفِيِّ رَضِيَ اللَّهُ عَنْهُ قَالَ: قُلْتُ: يَا رَسُولَ اللَّهِ، قُلْ لِي فِي الْإِسْلَامِ قَوْلًا لَا أَسْأَلُ عَنْهُ أَحَدًا غَيْرَكَ. قَالَ: قُلْ آمَنْتُ بِاللَّهِ ثُمَّ اسْتَقِمْ.",
+  "translationMalay": "Daripada Abu 'Amr, dan dikatakan Abu 'Amrah, iaitu Sufyan bin Abdullah al-Thaqafi r.a. berkata: Aku berkata: \"Wahai Rasulullah, katakanlah kepadaku dalam Islam satu ucapan yang aku tidak akan bertanya tentangnya kepada sesiapa pun selain engkau.\" Baginda bersabda: \"Katakanlah: Aku beriman kepada Allah, kemudian beristiqamahlah.\"",
+  "narratorId": "sufyan_ibn_abdullah_al_thaqafi",
+  "narratorIds": [
+    "sufyan_ibn_abdullah_al_thaqafi"
   ],
-  "adaptationStatus": "Prototaip pembelajaran interaktif",
-  "verificationNote": "Tajuk, perawi, teks hadis, maksud dan rujukan berasaskan Hadis 21 dalam modul KPM. Surah Fussilat ayat 30 disahkan daripada huraian modul. Huraian, pengajaran, penghayatan, fokus nilai dan aktiviti BELUM diisi kerana halaman sumber KPM (97-101) belum tersedia untuk semakan penuh. Objektif digital, refleksi dan kuiz ialah lapisan aplikasi.",
-  "timingVerificationNote": "Timing CSV daripada pakej DeepSeek TIMING_REVIEWED digunakan tanpa perubahan boundary."
- },
- "copyrightNotice": "© 2026 e-Hadis40 bagi reka bentuk aplikasi, interaksi, audio, kuiz dan kod sumber prototaip. Hak cipta kandungan asal Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua kekal milik Kementerian Pendidikan Malaysia dan pemegang hak masing-masing."
+  "narrator": {
+    "id": "sufyan_ibn_abdullah_al_thaqafi",
+    "name": "Abu 'Amr / Abu 'Amrah Sufyan bin Abdullah al-Thaqafi r.a.",
+    "fullName": "Abu 'Amr Sufyan bin Abdullah bin Rabi'ah al-Thaqafi r.a.",
+    "title": "Sahabat Rasulullah SAW dan Perawi Hadis",
+    "shortBiography": "Sufyan bin Abdullah al-Thaqafi r.a. ialah seorang sahabat Rasulullah SAW daripada kabilah Tsaqif yang meriwayatkan hadis tentang istiqamah dalam Islam. Beliau pernah meminta daripada Rasulullah SAW satu ucapan yang menyeluruh dalam Islam, lalu baginda bersabda: \"Katakanlah: Aku beriman kepada Allah, kemudian beristiqamahlah.\"",
+    "tags": [
+      "Sahabat Rasulullah SAW",
+      "Perawi Hadis"
+    ],
+    "source": "Biodata ringkas ini TIDAK terdapat dalam Modul Penghayatan Hadis 40 Imam Nawawi KPM. Disumberkan daripada bahan biografi sahabat yang mapan (cth. rujukan berasaskan al-Isabah fi Tamyiz al-Sahabah oleh Ibn Hajar al-'Asqalani dan Siyar A'lam al-Nubala' oleh al-Dhahabi, melalui portal rujukan Islam yang menyusun semula kandungan kitab tersebut) bagi melengkapkan pemahaman pelajar tentang perawi hadis.",
+    "verified": true
+  },
+  "referenceArabic": "رَوَاهُ مُسْلِمٌ.",
+  "reference": "Hadis ini diriwayatkan oleh Imam Muslim.",
+  "explanations": [
+    "Hadis ini merakamkan permintaan Sufyan bin Abdullah al-Thaqafi r.a. kepada Rasulullah SAW agar diberikan satu wasiat ringkas namun padat sebagai panduan hidup dalam Islam.",
+    "\"Aku beriman kepada Allah\" merupakan asas keimanan yang perlu diikrarkan dengan lisan, diyakini dalam hati dan dibuktikan dengan amal perbuatan.",
+    "\"Kemudian beristiqamahlah\" bermaksud teguh dan berterusan mengamalkan ajaran Islam tanpa berbelah bahagi, walau dalam apa jua keadaan.",
+    "Istiqamah merangkumi keteguhan dalam menjalankan suruhan Allah SWT dan meninggalkan larangan-Nya secara konsisten sepanjang hayat.",
+    "Wasiat ini ringkas tetapi merangkumi keseluruhan ajaran Islam kerana iman dan istiqamah menjadi teras kepada setiap amalan seorang Muslim."
+  ],
+  "quranEvidence": {
+    "surah": "Fussilat",
+    "verse": 30,
+    "verseEnd": 30,
+    "arabicText": "إِنَّ الَّذِينَ قَالُوا رَبُّنَا اللَّهُ ثُمَّ اسْتَقَامُوا تَتَنَزَّلُ عَلَيْهِمُ الْمَلَائِكَةُ أَلَّا تَخَافُوا وَلَا تَحْزَنُوا وَأَبْشِرُوا بِالْجَنَّةِ الَّتِي كُنْتُمْ تُوعَدُونَ",
+    "translationMalay": "Sesungguhnya orang-orang yang berkata: \"Tuhan kami ialah Allah\", kemudian mereka beristiqamah, maka turunlah malaikat kepada mereka (dengan berkata): \"Janganlah kamu takut dan janganlah kamu bersedih hati, dan terimalah berita gembira dengan (mendapat) syurga yang telah dijanjikan kepada kamu.\""
+  },
+  "quranEvidences": [],
+  "lessons": [
+    "Iman kepada Allah SWT hendaklah disusuli dengan keteguhan (istiqamah) dalam beramal.",
+    "Amalan yang sedikit tetapi berterusan lebih baik daripada amalan yang banyak tetapi tidak berterusan.",
+    "Islam mengajar kesederhanaan dalam bertanya sesuatu, iaitu memilih soalan yang paling penting dan memberi manfaat besar dalam kehidupan.",
+    "Ganjaran istiqamah amat besar sehingga dijanjikan syurga sebagaimana yang disebut dalam Surah Fussilat ayat 30."
+  ],
+  "appreciation": [
+    "Murid hendaklah mengucap dan meyakini keimanan kepada Allah SWT dalam setiap keadaan.",
+    "Murid hendaklah istiqamah dalam melaksanakan ibadah seperti solat lima waktu walaupun dalam kesibukan.",
+    "Murid hendaklah istiqamah menuntut ilmu dan mengulang kaji pelajaran secara berterusan, bukan hanya semasa menghadapi peperiksaan.",
+    "Murid hendaklah sentiasa berusaha memperbaiki diri secara konsisten walaupun menghadapi cabaran."
+  ],
+  "focusValues": [
+    "Keyakinan",
+    "Kesejahteraan",
+    "Kemampanan"
+  ],
+  "suggestedActivities": [
+    {
+      "title": "Sudut info",
+      "description": "Sediakan sudut info tentang kepentingan istiqamah dalam ibadah dan pembelajaran seharian."
+    },
+    {
+      "title": "Halaqah ilmu",
+      "description": "Anjurkan halaqah membincangkan cara mengekalkan istiqamah dalam kehidupan seorang pelajar."
+    },
+    {
+      "title": "Aktiviti refleksi diri",
+      "description": "Galakkan murid mencatat satu amalan kecil yang ingin diistiqamahkan setiap hari selama seminggu."
+    }
+  ],
+  "reflectionQuestions": [
+    "Apakah maksud istiqamah dalam Hadis 21?",
+    "Mengapakah kita perlu beriman kepada Allah sebelum beristiqamah?",
+    "Bagaimanakah cara untuk beristiqamah dalam kehidupan seharian?",
+    "Apakah hubungan Hadis 21 dengan Surah Fussilat ayat 30?"
+  ],
+  "quiz": [
+    {
+      "id": "h21_q01",
+      "question": "Apakah tajuk Hadis 21?",
+      "options": [
+        "Iman dan Istiqamah",
+        "Syarat Asas Masuk Syurga",
+        "Keutamaan Sifat Malu",
+        "Ganjaran Amalan Kebaikan"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Tajuk Hadis 21 ialah 'Iman dan Istiqamah'."
+    },
+    {
+      "id": "h21_q02",
+      "question": "Siapakah perawi Hadis 21?",
+      "options": [
+        "Sufyan bin Abdullah al-Thaqafi r.a.",
+        "Jabir bin Abdullah al-Ansari r.a.",
+        "Abu Hurairah r.a.",
+        "Anas bin Malik r.a."
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Hadis 21 diriwayatkan oleh Abu 'Amr / Abu 'Amrah Sufyan bin Abdullah al-Thaqafi r.a."
+    },
+    {
+      "id": "h21_q03",
+      "question": "Apakah permintaan perawi kepada Rasulullah SAW dalam Hadis 21?",
+      "options": [
+        "Satu ucapan dalam Islam yang tidak akan ditanya kepada sesiapa pun selain baginda",
+        "Harta yang banyak",
+        "Pangkat yang tinggi",
+        "Isteri yang cantik"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Perawi meminta satu ucapan dalam Islam yang tidak akan ditanya kepada sesiapa pun selain baginda."
+    },
+    {
+      "id": "h21_q04",
+      "question": "Apakah jawapan Rasulullah SAW kepada permintaan tersebut?",
+      "options": [
+        "Katakanlah: Aku beriman kepada Allah, kemudian beristiqamahlah",
+        "Peliharalah Allah nescaya Allah memeliharamu",
+        "Berkata baik atau diam",
+        "Jangan marah"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Rasulullah SAW menjawab: Katakanlah: Aku beriman kepada Allah, kemudian beristiqamahlah."
+    },
+    {
+      "id": "h21_q05",
+      "question": "Siapakah yang meriwayatkan Hadis 21 menurut rujukan?",
+      "options": [
+        "Imam Muslim",
+        "Imam al-Bukhari",
+        "Imam al-Tirmizi",
+        "Imam Abu Dawud"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Hadis 21 diriwayatkan oleh Imam Muslim."
+    },
+    {
+      "id": "h21_q06",
+      "question": "Apakah dalil al-Quran yang dikaitkan dengan Hadis 21?",
+      "options": [
+        "Surah Fussilat ayat 30",
+        "Surah Ali 'Imran ayat 110",
+        "Surah al-Baqarah ayat 172",
+        "Surah al-A'raf ayat 187"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Dalil al-Quran Hadis 21 ialah Surah Fussilat ayat 30."
+    },
+    {
+      "id": "h21_q07",
+      "question": "Apakah maksud istiqamah?",
+      "options": [
+        "Teguh dan konsisten dalam ketaatan kepada Allah",
+        "Bermalas-malasan dalam beribadah",
+        "Berbuat kebaikan sekali-sekala",
+        "Meninggalkan amalan"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Istiqamah bermaksud teguh dan konsisten dalam ketaatan kepada Allah."
+    },
+    {
+      "id": "h21_q08",
+      "question": "Apakah urutan yang dianjurkan dalam Hadis 21?",
+      "options": [
+        "Beriman kepada Allah kemudian beristiqamah",
+        "Beristiqamah kemudian beriman",
+        "Beramal tanpa beriman",
+        "Beriman tanpa beramal"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Urutan yang dianjurkan ialah beriman kepada Allah kemudian beristiqamah."
+    },
+    {
+      "id": "h21_q09",
+      "question": "Apakah ganjaran bagi orang yang beriman dan beristiqamah menurut Surah Fussilat ayat 30?",
+      "options": [
+        "Malaikat turun memberi ketenangan dan berita gembira dengan syurga",
+        "Dikurniakan harta yang banyak",
+        "Dilantik menjadi pemerintah",
+        "Diberi ilmu yang luas"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Orang yang beriman dan beristiqamah akan didatangi malaikat dengan ketenangan dan berita gembira tentang syurga."
+    },
+    {
+      "id": "h21_q10",
+      "question": "Apakah pengajaran utama Hadis 21?",
+      "options": [
+        "Iman mesti disertai istiqamah dalam ketaatan",
+        "Iman cukup sekadar di hati",
+        "Amalan tidak penting selagi beriman",
+        "Istiqamah hanya untuk golongan tertentu"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Pengajaran utama Hadis 21 ialah iman mesti disertai istiqamah dalam ketaatan kepada Allah."
+    }
+  ],
+  "progressRules": {
+    "passingScorePercent": 80
+  },
+  "audio": {
+    "arabicRecitation": "assets/audio/hadith_21.mp3",
+    "durationMs": 19728,
+    "syncOffsetMs": 0,
+    "wordHighlightMode": "phraseOnly",
+    "timingMethod": "waveform speech activity + real silence gaps + phrase-by-phrase matn alignment",
+    "timingReviewNote": "Timing frasa dipadankan dengan waveform sebenar dan jeda audio. Rujukan hadis kekal statik kerana audio berakhir pada 'ثُمَّ اسْتَقِمْ.' Jangan guna proportional word timing.",
+    "referenceAudioVerificationRequired": false,
+    "timedSegments": [
+      {
+        "startMs": 130,
+        "endMs": 1120,
+        "text": "عَنْ أَبِي عَمْرٍو"
+      },
+      {
+        "startMs": 1560,
+        "endMs": 2230,
+        "text": "وَقِيلَ:"
+      },
+      {
+        "startMs": 2560,
+        "endMs": 3550,
+        "text": "أَبِي عَمْرَةَ"
+      },
+      {
+        "startMs": 4040,
+        "endMs": 6400,
+        "text": "سُفْيَانَ بْنِ عَبْدِ اللَّهِ الثَّقَفِيِّ رَضِيَ اللَّهُ عَنْهُ"
+      },
+      {
+        "startMs": 6800,
+        "endMs": 8780,
+        "text": "قَالَ: قُلْتُ: يَا رَسُولَ اللَّهِ،"
+      },
+      {
+        "startMs": 9220,
+        "endMs": 9740,
+        "text": "قُلْ لِي"
+      },
+      {
+        "startMs": 10170,
+        "endMs": 11320,
+        "text": "فِي الْإِسْلَامِ قَوْلًا"
+      },
+      {
+        "startMs": 11940,
+        "endMs": 15600,
+        "text": "لَا أَسْأَلُ عَنْهُ أَحَدًا غَيْرَكَ."
+      },
+      {
+        "startMs": 16100,
+        "endMs": 16590,
+        "text": "قَالَ:"
+      },
+      {
+        "startMs": 16930,
+        "endMs": 18160,
+        "text": "قُلْ آمَنْتُ بِاللَّهِ"
+      },
+      {
+        "startMs": 18510,
+        "endMs": 19520,
+        "text": "ثُمَّ اسْتَقِمْ."
+      }
+    ]
+  },
+  "source": {
+    "document": "Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua, KPM.",
+    "hadith": 21,
+    "printedPages": [
+      97,
+      98,
+      99,
+      100,
+      101
+    ],
+    "adaptationStatus": "Prototaip pembelajaran interaktif",
+    "verificationNote": "Tajuk, perawi, teks hadis, maksud dan rujukan berasaskan Hadis 21 dalam modul KPM. Surah Fussilat ayat 30 disahkan daripada huraian modul. Huraian, pengajaran, penghayatan, fokus nilai dan aktiviti BELUM diisi kerana halaman sumber KPM (97-101) belum tersedia untuk semakan penuh. Objektif digital, refleksi dan kuiz ialah lapisan aplikasi.",
+    "timingVerificationNote": "Timing CSV daripada pakej DeepSeek TIMING_REVIEWED digunakan tanpa perubahan boundary."
+  },
+  "copyrightNotice": "© 2026 e-Hadis40 bagi reka bentuk aplikasi, interaksi, audio, kuiz dan kod sumber prototaip. Hak cipta kandungan asal Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua kekal milik Kementerian Pendidikan Malaysia dan pemegang hak masing-masing."
 }

@@ -14,6 +14,11 @@ import '../widgets/dashboard/xplorasi_minda_title.dart';
 /// termasuk GSAP + Phosphor Icons), dibenamkan melalui iframe kerana app ini
 /// sasaran web sahaja.
 ///
+/// [level] (1-4) menghantar `?level=N` ke iframe supaya `index.html` hanya
+/// memainkan ~10 hadis bagi level berkenaan (lihat logik `activeIndices`
+/// dalam fail itu) — bentuk & kesan permainan (roket, buih, kuiz) itu
+/// sendiri tidak disentuh langsung.
+///
 /// Integrasi tema: kunci `ehadis40-theme` ditulis ke `localStorage` app induk
 /// dengan nilai yang sama seperti dijangka oleh skrip dalam index.html itu.
 /// Kerana iframe ini sama-origin (dilayan daripada folder `web/` yang sama),
@@ -22,9 +27,11 @@ import '../widgets/dashboard/xplorasi_minda_title.dart';
 /// `storage` (didengar dalam index.html) menyegerakkan tema secara langsung
 /// walaupun iframe sudah pun dimuatkan.
 class UjiMindaScreen extends StatefulWidget {
-  const UjiMindaScreen({super.key});
+  const UjiMindaScreen({required this.level, super.key});
 
-  static const _viewType = 'uji-minda-game-iframe';
+  /// Level 1-4. `null` memainkan mod asal (semua 41 hadis).
+  final int? level;
+
   static const _themeStorageKey = 'ehadis40-theme';
 
   @override
@@ -32,7 +39,10 @@ class UjiMindaScreen extends StatefulWidget {
 }
 
 class _UjiMindaScreenState extends State<UjiMindaScreen> {
-  static bool _factoryRegistered = false;
+  static final Set<String> _registeredViewTypes = {};
+
+  late final String _viewType =
+      'uji-minda-game-iframe-${widget.level ?? 'all'}';
 
   bool _loaded = false;
   ThemeMode? _syncedMode;
@@ -40,13 +50,15 @@ class _UjiMindaScreenState extends State<UjiMindaScreen> {
   @override
   void initState() {
     super.initState();
-    if (!_factoryRegistered) {
-      _factoryRegistered = true;
+    if (_registeredViewTypes.add(_viewType)) {
+      final src = widget.level == null
+          ? 'uji_minda/index.html'
+          : 'uji_minda/index.html?level=${widget.level}';
       ui_web.platformViewRegistry.registerViewFactory(
-        UjiMindaScreen._viewType,
+        _viewType,
         (int viewId) {
           final iframe = html.IFrameElement()
-            ..src = 'uji_minda/index.html'
+            ..src = src
             ..style.border = 'none'
             ..style.width = '100%'
             ..style.height = '100%'
@@ -92,8 +104,8 @@ class _UjiMindaScreenState extends State<UjiMindaScreen> {
       ),
       body: Stack(
         children: [
-          const Positioned.fill(
-            child: HtmlElementView(viewType: UjiMindaScreen._viewType),
+          Positioned.fill(
+            child: HtmlElementView(viewType: _viewType),
           ),
           if (!_loaded)
             Positioned.fill(

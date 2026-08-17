@@ -139,6 +139,66 @@
       ],
       "correctAnswerIndex": 3,
       "explanation": "Pengetahuan tepat tentang waktu hari kiamat hanya berada di sisi Allah SWT."
+    },
+    {
+      "id": "h02_q06",
+      "question": "Hadis ini dikenali secara khusus sebagai Hadis...?",
+      "options": [
+        "Hadis Jibril",
+        "Hadis Wasiat",
+        "Hadis Niat",
+        "Hadis Iman"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Hadis ini dikenali sebagai Hadis Jibril kerana perbualan antara Malaikat Jibril dan Rasulullah SAW."
+    },
+    {
+      "id": "h02_q07",
+      "question": "Rukun Iman yang terakhir (keenam) ialah beriman kepada...?",
+      "options": [
+        "Qada' dan qadar",
+        "Kitab-kitab",
+        "Rasul-rasul",
+        "Hari akhirat"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Iman ialah keyakinan kepada Allah SWT, malaikat, kitab, rasul, hari akhirat serta qadak dan qadar sebagai rukun yang keenam."
+    },
+    {
+      "id": "h02_q08",
+      "question": "Apakah salah satu tanda kiamat yang disebut dalam hadis ini?",
+      "options": [
+        "Hamba perempuan melahirkan tuannya",
+        "Berlakunya gempa bumi besar",
+        "Matahari terbit dari barat",
+        "Lautan menjadi kering"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Antara tanda yang disebut ialah hamba perempuan melahirkan tuannya sebagai peringatan tentang hari kiamat."
+    },
+    {
+      "id": "h02_q09",
+      "question": "Ihsan bermaksud beribadah seolah-olah...?",
+      "options": [
+        "Melihat Allah SWT, atau yakin Allah melihat kita",
+        "Berada di hadapan raja",
+        "Sentiasa diperhatikan manusia",
+        "Berada di dalam masjid"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Ihsan mendorong seseorang beribadah dan bertindak dengan sebaik-baiknya kerana sedar bahawa Allah SWT sentiasa melihatnya."
+    },
+    {
+      "id": "h02_q10",
+      "question": "Apakah pengajaran utama daripada cara Malaikat Jibril bertanya kepada Rasulullah SAW?",
+      "options": [
+        "Adab bertanya dan menuntut ilmu",
+        "Kepentingan berpakaian cantik",
+        "Kepentingan berjalan kaki",
+        "Kepentingan duduk di hadapan"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Soalan yang baik bukan sahaja memberi manfaat kepada penanya, malah kepada semua yang mendengar, menunjukkan adab menuntut ilmu."
     }
   ],
   "progressRules": {

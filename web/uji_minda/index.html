@@ -371,7 +371,8 @@
             <!-- Buih hadis dijana & dialih keluar secara dinamik oleh JS -->
         </div>
 
-        <!-- Ganjaran roket - 3 imej berlainan terbang melintasi skrin pada pencapaian tertentu -->
+        <!-- Ganjaran roket - 3 imej berlainan terbang melintasi skrin (kiri/kanan bergilir)
+             setiap kali pelajar berjaya menjawab 3 soalan kuiz dengan betul -->
         <div id="rocket-perspective" class="fixed inset-0 pointer-events-none z-40" style="perspective: 900px;">
             <img id="rocket-flyby" src="rocket.png" alt="" class="absolute max-w-none opacity-0" style="width: 64vmin; top: 0; left: 0;">
         </div>
@@ -383,7 +384,7 @@
         </div>
         <div id="milestone-banner" class="fixed top-24 left-1/2 -translate-x-1/2 z-40 opacity-0 pointer-events-none">
             <div class="glass-panel px-6 py-3 rounded-full font-black text-lg md:text-xl tracking-wide shadow-xl" style="color: var(--text); border-color: var(--gold-soft) !important;">
-                🎉 Hebat! <span id="milestone-count" style="color: var(--gold-accent);">5</span> Hadis Dijumpai!
+                🎉 Hebat! <span id="milestone-count" style="color: var(--gold-accent);">3</span> Soalan Dijawab Betul!
             </div>
         </div>
     </main>
@@ -672,6 +673,44 @@
 
         const QUIZ_TYPES = ['ms', 'ar', 'tajuk'];
 
+        // Sistem level - permainan dipecahkan kepada 4 level, ~10 soalan
+        // setiap satu (level terakhir menampung baki). Level dipilih
+        // menerusi parameter URL (?level=N) yang dihantar oleh app induk;
+        // tanpa parameter, seluruh 41 hadis dimainkan seperti asal supaya
+        // fail ini kekal berfungsi jika dibuka terus.
+        const TOTAL_LEVELS = 4;
+        const QUESTIONS_PER_LEVEL = 10;
+        const LEVEL_PROGRESS_KEY = 'ehadis40-xplorasi-level-done';
+
+        function levelIndexRange(level) {
+            const start = (level - 1) * QUESTIONS_PER_LEVEL;
+            const end = level >= TOTAL_LEVELS
+                ? kpmHadisData.length
+                : Math.min(start + QUESTIONS_PER_LEVEL, kpmHadisData.length);
+            return Array.from({ length: Math.max(0, end - start) }, (_, i) => start + i);
+        }
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const requestedLevel = parseInt(urlParams.get('level'), 10);
+        const currentLevel = Number.isInteger(requestedLevel)
+            ? Math.min(Math.max(requestedLevel, 1), TOTAL_LEVELS)
+            : null; // null = mod asal, semua 41 hadis
+        let activeIndices = currentLevel
+            ? levelIndexRange(currentLevel)
+            : kpmHadisData.map((_, i) => i);
+
+        function markLevelDone(level) {
+            if (!level) return;
+            try {
+                const raw = localStorage.getItem(LEVEL_PROGRESS_KEY);
+                const done = raw ? JSON.parse(raw) : [];
+                if (!done.includes(level)) {
+                    done.push(level);
+                    localStorage.setItem(LEVEL_PROGRESS_KEY, JSON.stringify(done));
+                }
+            } catch (e) { /* localStorage tidak disokong - abaikan senyap-senyap */ }
+        }
+
         let score = 0;
         let quizCorrectCount = 0;
         let timerInterval = null;
@@ -798,8 +837,8 @@
 
         function updateProgress() {
             document.getElementById('score').innerText = score;
-            document.getElementById('total').innerText = kpmHadisData.length;
-            const pct = Math.round((score / kpmHadisData.length) * 100);
+            document.getElementById('total').innerText = activeIndices.length;
+            const pct = Math.round((score / activeIndices.length) * 100);
             document.getElementById('progress-bar-fill').style.width = `${pct}%`;
         }
 
@@ -811,8 +850,9 @@
             gamePaused = false;
             activeBubbles = {};
             kpmHadisData.forEach(item => { item.found = false; });
-            queue = shuffle(kpmHadisData.map((_, i) => i));
+            queue = shuffle([...activeIndices]);
             celebratedMilestones = new Set();
+            rocketDirectionToggle = false;
             gsap.set('#rocket-flyby', { opacity: 0 });
             gsap.set('#rocket2-flyby', { opacity: 0 });
             gsap.set('#rocket3-flyby', { opacity: 0 });
@@ -1045,8 +1085,11 @@
             }});
         }
 
-        // Ganjaran roket: 3 imej berlainan dikitar pada pencapaian tertentu (5,10,15,20,25,30,35,41)
+        // Ganjaran roket: 3 imej berlainan dikitar setiap kali pelajar berjaya
+        // menjawab 3 soalan kuiz DENGAN BETUL (bukan setiap 3 buih dibuka) -
+        // roket terbang melintasi skrin secara bergilir kiri/kanan.
         let celebratedMilestones = new Set();
+        let rocketDirectionToggle = false;
         let childVoice = null;
         let fatherVoice = null;
 
@@ -1066,26 +1109,34 @@
             pickVoices();
         }
 
-        // Susunan tetap: pada setiap pencapaian, imej + arah + suara mana yang digunakan
-        const MILESTONE_PLAN = {
-            5:  { el: 'rocket-flyby',  direction: 'rtl', voice: () => speakYahoo() },
-            10: { el: 'rocket2-flyby', direction: 'ltr', voice: () => speakYahoo() },
-            15: { el: 'rocket3-flyby', direction: 'rtl', voice: () => speakFatherChild() },
-            20: { el: 'rocket-flyby',  direction: 'ltr', voice: () => speakYeeaaahaaaa() },
-            25: { el: 'rocket2-flyby', direction: 'rtl', voice: () => speakYahoo() },
-            30: { el: 'rocket3-flyby', direction: 'ltr', voice: () => speakFatherChild() },
-            35: { el: 'rocket-flyby',  direction: 'rtl', voice: () => speakYeeaaahaaaa() },
-            41: { el: 'rocket2-flyby', direction: 'ltr', voice: () => speakYahoo() }
-        };
+        // Kitaran tetap 3 imej + suara - digilir setiap kali ganjaran dicapai,
+        // supaya roket & suara sentiasa berbeza-beza antara satu pencapaian
+        // dengan yang seterusnya.
+        const ROCKET_CYCLE = [
+            { el: 'rocket-flyby',  voice: () => speakYahoo() },
+            { el: 'rocket2-flyby', voice: () => speakFatherChild() },
+            { el: 'rocket3-flyby', voice: () => speakYeeaaahaaaa() }
+        ];
+        const QUESTIONS_PER_ROCKET = 3;
 
+        // Dipanggil selepas setiap modal kuiz ditutup - hanya beraksi apabila
+        // jumlah soalan yang dijawab BETUL (quizCorrectCount) baru sahaja
+        // mencecah gandaan 3 (3, 6, 9, ...), supaya roket + asap + bunyi jet
+        // keluar setiap kali pelajar berjaya menjawab 3 soalan.
         function maybeCelebrateMilestone() {
-            const plan = MILESTONE_PLAN[score];
-            if (!plan || celebratedMilestones.has(score)) return;
-            celebratedMilestones.add(score);
+            if (quizCorrectCount === 0 || quizCorrectCount % QUESTIONS_PER_ROCKET !== 0) return;
+            if (celebratedMilestones.has(quizCorrectCount)) return;
+            celebratedMilestones.add(quizCorrectCount);
+
+            const cycleIndex = (quizCorrectCount / QUESTIONS_PER_ROCKET - 1) % ROCKET_CYCLE.length;
+            const plan = ROCKET_CYCLE[cycleIndex];
+            const direction = rocketDirectionToggle ? 'ltr' : 'rtl';
+            rocketDirectionToggle = !rocketDirectionToggle;
+
             playRocketWhoosh(2.4);
             plan.voice();
-            showMilestoneBanner(score);
-            flyRocket(plan.el, plan.direction);
+            showMilestoneBanner(quizCorrectCount);
+            flyRocket(plan.el, direction);
         }
 
         function speakPhrase(text, { pitch, rate, voice }) {
@@ -1266,12 +1317,13 @@
         }
 
         function checkWin() {
-            if (score === kpmHadisData.length) {
+            if (score === activeIndices.length) {
                 stopTimer();
                 if (spawnTimer) clearInterval(spawnTimer);
+                markLevelDone(currentLevel);
                 document.getElementById('final-time').innerText = formatTime(secondsElapsed);
                 document.getElementById('final-quiz-score').innerText = quizCorrectCount;
-                document.getElementById('final-quiz-total').innerText = kpmHadisData.length;
+                document.getElementById('final-quiz-total').innerText = activeIndices.length;
                 const overlay = document.getElementById('success-overlay');
                 const content = document.getElementById('success-content');
 

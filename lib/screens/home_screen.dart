@@ -16,8 +16,10 @@ import '../widgets/dashboard/dashboard_activity_tile.dart';
 import '../widgets/dashboard/glass_surface.dart';
 import '../widgets/dashboard/islamic_atmosphere.dart';
 import '../widgets/dashboard/learning_progress_card.dart';
+import '../widgets/dashboard/misi_pencari_hikmah_card.dart';
 import '../widgets/dashboard/module_identity.dart';
 import '../widgets/dashboard/module_learning_card.dart';
+import '../widgets/dashboard/uji_minda_card.dart';
 import 'anatomi_sunnah_list_screen.dart';
 import 'hadith_screen.dart';
 import 'module_detail_screen.dart';
@@ -135,6 +137,8 @@ class _DashboardBody extends StatelessWidget {
         ),
         SizedBox(height: layout.sectionGap),
         _AnatomiSunnahCard(layout: layout),
+        SizedBox(height: layout.sectionGap),
+        const _InteractiveActivitySection(),
         const SizedBox(height: 18),
         const AppFooter(),
       ],
@@ -1030,6 +1034,107 @@ class _AnatomiSunnahCard extends StatelessWidget {
                     button,
                   ],
                 ),
+        ),
+      ],
+    );
+  }
+}
+
+// ───────────────────── Aktiviti Interaktif ─────────────────────────
+
+/// Kotak "Aktiviti Interaktif" — satu bekas (kotak) tunggal di dashboard
+/// yang memuatkan kumpulan permainan pembelajaran (Xplorasi Minda, Misi
+/// Mencari Hikmah) di dalamnya, di bawah kad Anatomi Sunnah 3D. Sebelum
+/// ini kedua-dua permainan bertaburan (Xplorasi berada di hujung senarai
+/// Modul, Misi Pencari Hikmah tiada kemasukan dashboard langsung) —
+/// kini disatukan dalam satu kotak supaya jelas ia sebahagian daripada
+/// kumpulan aktiviti yang sama.
+class _InteractiveActivitySection extends StatelessWidget {
+  const _InteractiveActivitySection();
+
+  @override
+  Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+    final dark = scheme.brightness == Brightness.dark;
+
+    return Stack(
+      // `Clip.none` — Stack lalai memotong (Clip.hardEdge); tanpa ini,
+      // lepasan ilustrasi roket kad di dalamnya akan terpotong di sini
+      // walaupun `GlassSurface` di bawah sudah `clip: false`.
+      clipBehavior: Clip.none,
+      children: [
+        Positioned.fill(
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(22),
+            child: IslamicCardPattern(color: scheme.tertiary, seed: 9),
+          ),
+        ),
+        GlassSurface(
+          padding: const EdgeInsets.all(18),
+          // `clip: false` — kad Xplorasi Minda & Misi Mencari Hikmah di
+          // dalam kotak ini sengaja membenarkan ilustrasi roket melepasi
+          // sempadan kad sendiri (lihat `UjiMindaCard`/
+          // `MisiPencariHikmahCard`); jika kotak luar ini turut memotong
+          // (clip), lepasan itu akan terpotong sebelum sempat "keluar"
+          // secara visual.
+          clip: false,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Row(
+                children: [
+                  Container(
+                    width: 44,
+                    height: 44,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(14),
+                      color:
+                          scheme.tertiary.withValues(alpha: dark ? 0.22 : 0.12),
+                      border: Border.all(
+                        color: scheme.tertiary.withValues(alpha: 0.32),
+                      ),
+                    ),
+                    child: Icon(
+                      Icons.sports_esports_rounded,
+                      size: 21,
+                      color: scheme.tertiary,
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          'Aktiviti Interaktif',
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleMedium
+                              ?.copyWith(
+                                fontWeight: FontWeight.w700,
+                                fontSize: 15.5,
+                              ),
+                        ),
+                        const SizedBox(height: 3),
+                        Text(
+                          'Permainan pembelajaran interaktif Hadis 40.',
+                          style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                                color: scheme.onSurfaceVariant,
+                                fontSize: 12.5,
+                              ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 6),
+              const UjiMindaCard(),
+              const MisiPencariHikmahCard(),
+            ],
+          ),
         ),
       ],
     );

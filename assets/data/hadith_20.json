@@ -1,261 +1,271 @@
 {
- "id": "hadith_20",
- "moduleId": "module_04",
- "hadithNumber": 20,
- "title": "Keutamaan Sifat Malu",
- "subtitle": "Sifat malu ialah sebahagian daripada warisan nubuwah dan benteng daripada kesalahan serta maksiat.",
- "theme": "Sifat malu sebagai akhlak mulia dan benteng diri",
- "contextNotice": "",
- "learningObjectives": [
-  "Menyatakan maksud umum Hadis 20 dan kedudukan sifat malu dalam Islam.",
-  "Mengenal pasti perawi Hadis 20 iaitu Abu Mas'ud 'Uqbah bin 'Amr al-Ansari al-Badri r.a.",
-  "Membezakan antara sifat malu yang terpuji dengan malu yang tercela.",
-  "Menjawab kuiz dengan markah sekurang-kurangnya 80%."
- ],
- "arabicText": "عَنْ أَبِي مَسْعُودٍ عُقْبَةَ بْنِ عَمْرٍو الْأَنْصَارِيِّ الْبَدْرِيِّ رَضِيَ اللَّهُ عَنْهُ قَالَ: قَالَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ: إِنَّ مِمَّا أَدْرَكَ النَّاسُ مِنْ كَلَامِ النُّبُوَّةِ الْأُولَى: إِذَا لَمْ تَسْتَحِ فَاصْنَعْ مَا شِئْتَ.",
- "audioTranscriptText": "عَنْ أَبِي مَسْعُودٍ عُقْبَةَ بْنِ عَمْرٍو الْأَنْصَارِيِّ الْبَدْرِيِّ رَضِيَ اللَّهُ عَنْهُ قَالَ: قَالَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ: إِنَّ مِمَّا أَدْرَكَ النَّاسُ مِنْ كَلَامِ النُّبُوَّةِ الْأُولَى: إِذَا لَمْ تَسْتَحِ فَاصْنَعْ مَا شِئْتَ.",
- "translationMalay": "Daripada Abu Mas'ud 'Uqbah bin 'Amr al-Ansari al-Badri r.a. berkata, Rasulullah SAW bersabda: \"Sesungguhnya antara perkara yang diwarisi manusia daripada kata-kata nubuwah terdahulu ialah: Jika engkau tidak malu, maka buatlah apa yang engkau kehendaki.\"",
- "narratorId": "abu_masud_uqbah_ibn_amr",
- "narrator": {
-  "id": "abu_masud_uqbah_ibn_amr",
-  "name": "Abu Mas'ud 'Uqbah bin 'Amr al-Ansari al-Badri r.a.",
-  "fullName": "Abu Mas‘ud ‘Uqbah bin ‘Amr bin Tsa‘labah al-Ansari al-Badri r.a.",
-  "title": "Sahabat Rasulullah SAW, Perawi Hadis dan Gabenor Kufah",
-  "shortBiography": "Abu Mas‘ud al-Badri r.a. ialah seorang sahabat daripada kaum Ansar di Madinah, digelar al-Badri kerana pernah menetap berhampiran kawasan Badar walaupun tidak turut serta dalam Peperangan Badar itu sendiri. Beliau pernah dilantik sebagai gabenor Kufah dan merupakan salah seorang perawi hadis yang hadis-hadisnya termuat dalam Sahih al-Bukhari. Beliau wafat pada tahun 41 Hijrah.",
-  "tags": [
-   "Sahabat Rasulullah SAW",
-   "Perawi Hadis",
-   "Gabenor Kufah"
+  "id": "hadith_20",
+  "moduleId": "module_04",
+  "hadithNumber": 20,
+  "title": "Keutamaan Sifat Malu",
+  "subtitle": "Sifat malu ialah sebahagian daripada warisan nubuwah dan benteng daripada kesalahan serta maksiat.",
+  "theme": "Sifat malu sebagai akhlak mulia dan benteng diri",
+  "contextNotice": "",
+  "learningObjectives": [
+    "Menyatakan maksud umum Hadis 20 dan kedudukan sifat malu dalam Islam.",
+    "Mengenal pasti perawi Hadis 20 iaitu Abu Mas'ud 'Uqbah bin 'Amr al-Ansari al-Badri r.a.",
+    "Membezakan antara sifat malu yang terpuji dengan malu yang tercela.",
+    "Menjawab kuiz dengan markah sekurang-kurangnya 80%."
   ],
-  "source": "Biodata ringkas ini TIDAK terdapat dalam Modul Penghayatan Hadis 40 Imam Nawawi KPM. Disumberkan daripada bahan biografi sahabat yang mapan (cth. rujukan berasaskan al-Isabah fi Tamyiz al-Sahabah oleh Ibn Hajar al-'Asqalani dan Siyar A'lam al-Nubala' oleh al-Dhahabi, melalui portal rujukan Islam yang menyusun semula kandungan kitab tersebut) bagi melengkapkan pemahaman pelajar tentang perawi hadis.",
-  "verified": true
- },
- "referenceArabic": "رَوَاهُ الْبُخَارِيُّ.",
- "reference": "Hadis ini diriwayatkan oleh Imam al-Bukhari.",
- "explanations": [],
- "quranEvidence": {
-  "surah": "",
-  "verse": 0,
-  "verseEnd": 0,
-  "arabicText": "",
-  "translationMalay": ""
- },
- "quranEvidences": [],
- "lessons": [],
- "appreciation": [
-  "Murid hendaklah mengamalkan sifat malu yang terpuji dan menjauhi malu yang tercela.",
-  "Murid hendaklah menghindari perkara yang menjatuhkan maruah, termasuk pendedahan aurat dan perkongsian perkara tidak benar atau keaiban di media sosial.",
-  "Murid hendaklah menjadikan malu sebagai benteng daripada kesalahan dan maksiat.",
-  "Murid hendaklah menjauhi perkara yang memalukan diri, keluarga, sekolah dan masyarakat.",
-  "Murid hendaklah berani melakukan perkara yang bermanfaat dalam akademik dan kokurikulum."
- ],
- "focusValues": [
-  "Keyakinan",
-  "Kemampanan",
-  "Daya cipta"
- ],
- "suggestedActivities": [
-  {
-   "title": "Forum",
-   "description": "Anjurkan forum yang membincangkan keutamaan sifat malu dan akhlak terpuji dalam kehidupan remaja."
+  "arabicText": "عَنْ أَبِي مَسْعُودٍ عُقْبَةَ بْنِ عَمْرٍو الْأَنْصَارِيِّ الْبَدْرِيِّ رَضِيَ اللَّهُ عَنْهُ قَالَ: قَالَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ: إِنَّ مِمَّا أَدْرَكَ النَّاسُ مِنْ كَلَامِ النُّبُوَّةِ الْأُولَى: إِذَا لَمْ تَسْتَحِ فَاصْنَعْ مَا شِئْتَ.",
+  "audioTranscriptText": "عَنْ أَبِي مَسْعُودٍ عُقْبَةَ بْنِ عَمْرٍو الْأَنْصَارِيِّ الْبَدْرِيِّ رَضِيَ اللَّهُ عَنْهُ قَالَ: قَالَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ: إِنَّ مِمَّا أَدْرَكَ النَّاسُ مِنْ كَلَامِ النُّبُوَّةِ الْأُولَى: إِذَا لَمْ تَسْتَحِ فَاصْنَعْ مَا شِئْتَ.",
+  "translationMalay": "Daripada Abu Mas'ud 'Uqbah bin 'Amr al-Ansari al-Badri r.a. berkata, Rasulullah SAW bersabda: \"Sesungguhnya antara perkara yang diwarisi manusia daripada kata-kata nubuwah terdahulu ialah: Jika engkau tidak malu, maka buatlah apa yang engkau kehendaki.\"",
+  "narratorId": "abu_masud_uqbah_ibn_amr",
+  "narrator": {
+    "id": "abu_masud_uqbah_ibn_amr",
+    "name": "Abu Mas'ud 'Uqbah bin 'Amr al-Ansari al-Badri r.a.",
+    "fullName": "Abu Mas‘ud ‘Uqbah bin ‘Amr bin Tsa‘labah al-Ansari al-Badri r.a.",
+    "title": "Sahabat Rasulullah SAW, Perawi Hadis dan Gabenor Kufah",
+    "shortBiography": "Abu Mas‘ud al-Badri r.a. ialah seorang sahabat daripada kaum Ansar di Madinah, digelar al-Badri kerana pernah menetap berhampiran kawasan Badar walaupun tidak turut serta dalam Peperangan Badar itu sendiri. Beliau pernah dilantik sebagai gabenor Kufah dan merupakan salah seorang perawi hadis yang hadis-hadisnya termuat dalam Sahih al-Bukhari. Beliau wafat pada tahun 41 Hijrah.",
+    "tags": [
+      "Sahabat Rasulullah SAW",
+      "Perawi Hadis",
+      "Gabenor Kufah"
+    ],
+    "source": "Biodata ringkas ini TIDAK terdapat dalam Modul Penghayatan Hadis 40 Imam Nawawi KPM. Disumberkan daripada bahan biografi sahabat yang mapan (cth. rujukan berasaskan al-Isabah fi Tamyiz al-Sahabah oleh Ibn Hajar al-'Asqalani dan Siyar A'lam al-Nubala' oleh al-Dhahabi, melalui portal rujukan Islam yang menyusun semula kandungan kitab tersebut) bagi melengkapkan pemahaman pelajar tentang perawi hadis.",
+    "verified": true
   },
-  {
-   "title": "Pidato",
-   "description": "Sertai pertandingan pidato bertemakan sifat malu sebagai benteng akhlak."
-  },
-  {
-   "title": "Bengkel tatarias patuh syariah",
-   "description": "Anjurkan bengkel tatarias yang patuh syariah sebagai pendidikan menjaga maruah dan aurat."
-  }
- ],
- "reflectionQuestions": [
-  "Apakah maksud sifat malu yang terpuji?",
-  "Bagaimanakah sifat malu menjadi benteng daripada kesalahan dan maksiat?",
-  "Mengapakah kita perlu menjauhi pendedahan aurat dan keaiban di media sosial?",
-  "Bagaimanakah sifat malu dapat diamalkan dalam akademik dan kokurikulum?"
- ],
- "quiz": [
-  {
-   "id": "h20_q01",
-   "question": "Apakah tajuk Hadis 20?",
-   "options": [
-    "Keutamaan Sifat Malu",
-    "Takwa dan Akhlak Mulia",
-    "Panduan Pengukuhan Iman bagi Anak Muda",
-    "Kesempurnaan dalam Perkara Kebaikan"
-   ],
-   "correctAnswerIndex": 0,
-   "explanation": "Tajuk Hadis 20 ialah 'Keutamaan Sifat Malu'."
-  },
-  {
-   "id": "h20_q02",
-   "question": "Siapakah perawi Hadis 20?",
-   "options": [
-    "Abu Mas'ud 'Uqbah bin 'Amr al-Ansari al-Badri r.a.",
-    "Abu Hurairah r.a.",
-    "Anas bin Malik r.a.",
-    "Abdullah bin 'Abbas r.a."
-   ],
-   "correctAnswerIndex": 0,
-   "explanation": "Hadis 20 diriwayatkan oleh Abu Mas'ud 'Uqbah bin 'Amr al-Ansari al-Badri r.a."
-  },
-  {
-   "id": "h20_q03",
-   "question": "Apakah maksud Hadis 20?",
-   "options": [
-    "Jika engkau tidak malu, maka buatlah apa yang engkau kehendaki",
-    "Bersegera dalam kebaikan",
-    "Jauhi sifat marah",
-    "Berkata baik atau diam"
-   ],
-   "correctAnswerIndex": 0,
-   "explanation": "Maksud Hadis 20 ialah 'Jika engkau tidak malu, maka buatlah apa yang engkau kehendaki'."
-  },
-  {
-   "id": "h20_q04",
-   "question": "Daripada apakah kata-kata tersebut diwarisi menurut Hadis 20?",
-   "options": [
-    "Kata-kata nubuwah terdahulu",
-    "Kata-kata ahli hikmah",
-    "Kata-kata penyair",
-    "Kata-kata orang biasa"
-   ],
-   "correctAnswerIndex": 0,
-   "explanation": "Ia diwarisi daripada kata-kata nubuwah terdahulu."
-  },
-  {
-   "id": "h20_q05",
-   "question": "Siapakah yang meriwayatkan Hadis 20 menurut rujukan?",
-   "options": [
-    "Imam al-Bukhari",
-    "Imam al-Tirmizi",
-    "Imam Muslim",
-    "Imam Abu Dawud"
-   ],
-   "correctAnswerIndex": 0,
-   "explanation": "Hadis 20 diriwayatkan oleh Imam al-Bukhari."
-  },
-  {
-   "id": "h20_q06",
-   "question": "Apakah fokus nilai Hadis 20?",
-   "options": [
-    "Keyakinan, Kemampanan dan Daya cipta",
-    "Ihsan dan Hormat",
-    "Keyakinan dan Kesejahteraan",
-    "Ikhlas dan Keyakinan"
-   ],
-   "correctAnswerIndex": 0,
-   "explanation": "Fokus nilai Hadis 20 ialah Keyakinan, Kemampanan dan Daya cipta."
-  },
-  {
-   "id": "h20_q07",
-   "question": "Apakah penghayatan sifat malu yang terpuji menurut Hadis 20?",
-   "options": [
-    "Mengamalkan malu yang terpuji dan menjauhi malu yang tercela",
-    "Malu untuk menuntut ilmu",
-    "Malu untuk bertanya",
-    "Malu untuk berbuat baik"
-   ],
-   "correctAnswerIndex": 0,
-   "explanation": "Mengamalkan sifat malu yang terpuji dan menjauhi malu yang tercela."
-  },
-  {
-   "id": "h20_q08",
-   "question": "Apakah perkara yang perlu dihindari menurut penghayatan Hadis 20?",
-   "options": [
-    "Pendedahan aurat dan perkongsian keaiban di media sosial",
-    "Menuntut ilmu",
-    "Bersukan",
-    "Beramal"
-   ],
-   "correctAnswerIndex": 0,
-   "explanation": "Menghindari pendedahan aurat dan perkongsian perkara tidak benar/keaiban di media sosial."
-  },
-  {
-   "id": "h20_q09",
-   "question": "Apakah cadangan aktiviti Hadis 20?",
-   "options": [
-    "Forum, Pidato dan Bengkel tatarias patuh syariah",
-    "Latihan sembelihan",
-    "Khidmat masyarakat",
-    "Tazkirah"
-   ],
-   "correctAnswerIndex": 0,
-   "explanation": "Cadangan aktiviti Hadis 20 ialah Forum, Pidato dan Bengkel tatarias patuh syariah."
-  },
-  {
-   "id": "h20_q10",
-   "question": "Apakah peranan sifat malu menurut penghayatan Hadis 20?",
-   "options": [
-    "Benteng daripada kesalahan dan maksiat",
-    "Penghalang kebaikan",
-    "Sebab kemunduran",
-    "Beban hidup"
-   ],
-   "correctAnswerIndex": 0,
-   "explanation": "Sifat malu menjadi benteng daripada kesalahan dan maksiat."
-  }
- ],
- "progressRules": {
-  "passingScorePercent": 80
- },
- "audio": {
-  "arabicRecitation": "assets/audio/hadith_20.mp3",
-  "durationMs": 19104,
-  "syncOffsetMs": 0,
-  "wordHighlightMode": "phraseOnly",
-  "timingMethod": "waveform/silence-derived phrase timing starting point",
-  "timingReviewNote": "Timing frasa ialah padanan awal daripada jeda rakaman. Dengar audio sebenar dan fine-tune startMs/endMs. Rujukan hadis kekal statik kecuali pendengaran mengesahkan ia dibaca.",
-  "referenceAudioVerificationRequired": true,
-  "timedSegments": [
-   {
-    "startMs": 0,
-    "endMs": 1090,
-    "text": "عَنْ أَبِي مَسْعُودٍ"
-   },
-   {
-    "startMs": 1900,
-    "endMs": 4320,
-    "text": "عُقْبَةَ بْنِ عَمْرٍو الْأَنْصَارِيِّ الْبَدْرِيِّ"
-   },
-   {
-    "startMs": 5210,
-    "endMs": 6690,
-    "text": "رَضِيَ اللَّهُ عَنْهُ قَالَ:"
-   },
-   {
-    "startMs": 7565,
-    "endMs": 10310,
-    "text": "قَالَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ:"
-   },
-   {
-    "startMs": 11260,
-    "endMs": 14835,
-    "text": "إِنَّ مِمَّا أَدْرَكَ النَّاسُ مِنْ كَلَامِ النُّبُوَّةِ الْأُولَى:"
-   },
-   {
-    "startMs": 15740,
-    "endMs": 16645,
-    "text": "إِذَا لَمْ تَسْتَحِ"
-   },
-   {
-    "startMs": 17750,
-    "endMs": 18515,
-    "text": "فَاصْنَعْ مَا شِئْتَ."
-   }
-  ]
- },
- "source": {
-  "document": "Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua, KPM.",
-  "hadith": 20,
-  "printedPages": [
-   93,
-   94,
-   95,
-   96
+  "referenceArabic": "رَوَاهُ الْبُخَارِيُّ.",
+  "reference": "Hadis ini diriwayatkan oleh Imam al-Bukhari.",
+  "explanations": [
+    "Hadis ini menyatakan bahawa sifat malu ialah salah satu ajaran yang diwarisi daripada nabi-nabi terdahulu, menunjukkan ia sudah lama menjadi ajaran murni sejak sekian lama.",
+    "Ungkapan \"Jika engkau tidak malu, maka buatlah apa yang engkau kehendaki\" membawa maksud teguran keras, iaitu sesiapa yang tidak mempunyai sifat malu akan mudah melakukan apa sahaja tanpa batasan, termasuk perkara yang buruk.",
+    "Sifat malu yang dimaksudkan dalam hadis ini ialah malu yang mendorong seseorang meninggalkan perkara buruk dan melakukan kebaikan, bukan malu yang menghalang seseorang daripada melakukan kebaikan.",
+    "Malu merupakan sebahagian daripada iman kerana ia menjadi pendorong dalaman yang menghalang seseorang daripada melakukan maksiat walaupun tiada sesiapa yang melihat."
   ],
-  "adaptationStatus": "Prototaip pembelajaran interaktif",
-  "verificationNote": "Tajuk, perawi, teks hadis, maksud, rujukan, penghayatan, fokus nilai dan cadangan aktiviti berasaskan Hadis 20 dalam modul KPM (halaman akhir Hadis 20). Huraian, pengajaran dan dalil al-Quran BELUM diisi kerana halaman sumber KPM (93-96) belum tersedia untuk semakan penuh. Objektif digital, refleksi dan kuiz ialah lapisan aplikasi."
- },
- "copyrightNotice": "© 2026 e-Hadis40 bagi reka bentuk aplikasi, interaksi, audio, kuiz dan kod sumber prototaip. Hak cipta kandungan asal Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua kekal milik Kementerian Pendidikan Malaysia dan pemegang hak masing-masing."
+  "quranEvidence": {
+    "surah": "al-Qasas",
+    "verse": 25,
+    "verseEnd": 25,
+    "arabicText": "فَجَاءَتْهُ إِحْدَاهُمَا تَمْشِي عَلَى اسْتِحْيَاءٍ",
+    "translationMalay": "Lalu datanglah kepadanya salah seorang daripada perempuan berdua itu berjalan dengan sopan santun (kerana malu), sambil berkata: Bapaku menjemputmu untuk membalas jasamu kerana memberi minum (ternakan kami) untuk kami."
+  },
+  "quranEvidences": [],
+  "lessons": [
+    "Sifat malu ialah akhlak mulia yang perlu dipupuk dalam diri setiap Muslim sejak kecil.",
+    "Sifat malu menjadi benteng yang menghalang seseorang daripada melakukan perkara yang dilarang oleh syarak.",
+    "Ketiadaan sifat malu boleh membawa seseorang melakukan apa sahaja tanpa mengira baik atau buruk sesuatu perbuatan.",
+    "Malu yang terpuji perlu dibezakan daripada malu yang tercela seperti malu untuk menuntut ilmu atau malu untuk melakukan kebaikan."
+  ],
+  "appreciation": [
+    "Murid hendaklah mengamalkan sifat malu yang terpuji dan menjauhi malu yang tercela.",
+    "Murid hendaklah menghindari perkara yang menjatuhkan maruah, termasuk pendedahan aurat dan perkongsian perkara tidak benar atau keaiban di media sosial.",
+    "Murid hendaklah menjadikan malu sebagai benteng daripada kesalahan dan maksiat.",
+    "Murid hendaklah menjauhi perkara yang memalukan diri, keluarga, sekolah dan masyarakat.",
+    "Murid hendaklah berani melakukan perkara yang bermanfaat dalam akademik dan kokurikulum."
+  ],
+  "focusValues": [
+    "Keyakinan",
+    "Kemampanan",
+    "Daya cipta"
+  ],
+  "suggestedActivities": [
+    {
+      "title": "Forum",
+      "description": "Anjurkan forum yang membincangkan keutamaan sifat malu dan akhlak terpuji dalam kehidupan remaja."
+    },
+    {
+      "title": "Pidato",
+      "description": "Sertai pertandingan pidato bertemakan sifat malu sebagai benteng akhlak."
+    },
+    {
+      "title": "Bengkel tatarias patuh syariah",
+      "description": "Anjurkan bengkel tatarias yang patuh syariah sebagai pendidikan menjaga maruah dan aurat."
+    }
+  ],
+  "reflectionQuestions": [
+    "Apakah maksud sifat malu yang terpuji?",
+    "Bagaimanakah sifat malu menjadi benteng daripada kesalahan dan maksiat?",
+    "Mengapakah kita perlu menjauhi pendedahan aurat dan keaiban di media sosial?",
+    "Bagaimanakah sifat malu dapat diamalkan dalam akademik dan kokurikulum?"
+  ],
+  "quiz": [
+    {
+      "id": "h20_q01",
+      "question": "Apakah tajuk Hadis 20?",
+      "options": [
+        "Keutamaan Sifat Malu",
+        "Takwa dan Akhlak Mulia",
+        "Panduan Pengukuhan Iman bagi Anak Muda",
+        "Kesempurnaan dalam Perkara Kebaikan"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Tajuk Hadis 20 ialah 'Keutamaan Sifat Malu'."
+    },
+    {
+      "id": "h20_q02",
+      "question": "Siapakah perawi Hadis 20?",
+      "options": [
+        "Abu Mas'ud 'Uqbah bin 'Amr al-Ansari al-Badri r.a.",
+        "Abu Hurairah r.a.",
+        "Anas bin Malik r.a.",
+        "Abdullah bin 'Abbas r.a."
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Hadis 20 diriwayatkan oleh Abu Mas'ud 'Uqbah bin 'Amr al-Ansari al-Badri r.a."
+    },
+    {
+      "id": "h20_q03",
+      "question": "Apakah maksud Hadis 20?",
+      "options": [
+        "Jika engkau tidak malu, maka buatlah apa yang engkau kehendaki",
+        "Bersegera dalam kebaikan",
+        "Jauhi sifat marah",
+        "Berkata baik atau diam"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Maksud Hadis 20 ialah 'Jika engkau tidak malu, maka buatlah apa yang engkau kehendaki'."
+    },
+    {
+      "id": "h20_q04",
+      "question": "Daripada apakah kata-kata tersebut diwarisi menurut Hadis 20?",
+      "options": [
+        "Kata-kata nubuwah terdahulu",
+        "Kata-kata ahli hikmah",
+        "Kata-kata penyair",
+        "Kata-kata orang biasa"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Ia diwarisi daripada kata-kata nubuwah terdahulu."
+    },
+    {
+      "id": "h20_q05",
+      "question": "Siapakah yang meriwayatkan Hadis 20 menurut rujukan?",
+      "options": [
+        "Imam al-Bukhari",
+        "Imam al-Tirmizi",
+        "Imam Muslim",
+        "Imam Abu Dawud"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Hadis 20 diriwayatkan oleh Imam al-Bukhari."
+    },
+    {
+      "id": "h20_q06",
+      "question": "Apakah fokus nilai Hadis 20?",
+      "options": [
+        "Keyakinan, Kemampanan dan Daya cipta",
+        "Ihsan dan Hormat",
+        "Keyakinan dan Kesejahteraan",
+        "Ikhlas dan Keyakinan"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Fokus nilai Hadis 20 ialah Keyakinan, Kemampanan dan Daya cipta."
+    },
+    {
+      "id": "h20_q07",
+      "question": "Apakah penghayatan sifat malu yang terpuji menurut Hadis 20?",
+      "options": [
+        "Mengamalkan malu yang terpuji dan menjauhi malu yang tercela",
+        "Malu untuk menuntut ilmu",
+        "Malu untuk bertanya",
+        "Malu untuk berbuat baik"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Mengamalkan sifat malu yang terpuji dan menjauhi malu yang tercela."
+    },
+    {
+      "id": "h20_q08",
+      "question": "Apakah perkara yang perlu dihindari menurut penghayatan Hadis 20?",
+      "options": [
+        "Pendedahan aurat dan perkongsian keaiban di media sosial",
+        "Menuntut ilmu",
+        "Bersukan",
+        "Beramal"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Menghindari pendedahan aurat dan perkongsian perkara tidak benar/keaiban di media sosial."
+    },
+    {
+      "id": "h20_q09",
+      "question": "Apakah cadangan aktiviti Hadis 20?",
+      "options": [
+        "Forum, Pidato dan Bengkel tatarias patuh syariah",
+        "Latihan sembelihan",
+        "Khidmat masyarakat",
+        "Tazkirah"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Cadangan aktiviti Hadis 20 ialah Forum, Pidato dan Bengkel tatarias patuh syariah."
+    },
+    {
+      "id": "h20_q10",
+      "question": "Apakah peranan sifat malu menurut penghayatan Hadis 20?",
+      "options": [
+        "Benteng daripada kesalahan dan maksiat",
+        "Penghalang kebaikan",
+        "Sebab kemunduran",
+        "Beban hidup"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Sifat malu menjadi benteng daripada kesalahan dan maksiat."
+    }
+  ],
+  "progressRules": {
+    "passingScorePercent": 80
+  },
+  "audio": {
+    "arabicRecitation": "assets/audio/hadith_20.mp3",
+    "durationMs": 19104,
+    "syncOffsetMs": 0,
+    "wordHighlightMode": "phraseOnly",
+    "timingMethod": "waveform/silence-derived phrase timing starting point",
+    "timingReviewNote": "Timing frasa ialah padanan awal daripada jeda rakaman. Dengar audio sebenar dan fine-tune startMs/endMs. Rujukan hadis kekal statik kecuali pendengaran mengesahkan ia dibaca.",
+    "referenceAudioVerificationRequired": true,
+    "timedSegments": [
+      {
+        "startMs": 0,
+        "endMs": 1090,
+        "text": "عَنْ أَبِي مَسْعُودٍ"
+      },
+      {
+        "startMs": 1900,
+        "endMs": 4320,
+        "text": "عُقْبَةَ بْنِ عَمْرٍو الْأَنْصَارِيِّ الْبَدْرِيِّ"
+      },
+      {
+        "startMs": 5210,
+        "endMs": 6690,
+        "text": "رَضِيَ اللَّهُ عَنْهُ قَالَ:"
+      },
+      {
+        "startMs": 7565,
+        "endMs": 10310,
+        "text": "قَالَ رَسُولُ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ:"
+      },
+      {
+        "startMs": 11260,
+        "endMs": 14835,
+        "text": "إِنَّ مِمَّا أَدْرَكَ النَّاسُ مِنْ كَلَامِ النُّبُوَّةِ الْأُولَى:"
+      },
+      {
+        "startMs": 15740,
+        "endMs": 16645,
+        "text": "إِذَا لَمْ تَسْتَحِ"
+      },
+      {
+        "startMs": 17750,
+        "endMs": 18515,
+        "text": "فَاصْنَعْ مَا شِئْتَ."
+      }
+    ]
+  },
+  "source": {
+    "document": "Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua, KPM.",
+    "hadith": 20,
+    "printedPages": [
+      93,
+      94,
+      95,
+      96
+    ],
+    "adaptationStatus": "Prototaip pembelajaran interaktif",
+    "verificationNote": "Tajuk, perawi, teks hadis, maksud, rujukan, penghayatan, fokus nilai dan cadangan aktiviti berasaskan Hadis 20 dalam modul KPM (halaman akhir Hadis 20). Huraian, pengajaran dan dalil al-Quran BELUM diisi kerana halaman sumber KPM (93-96) belum tersedia untuk semakan penuh. Objektif digital, refleksi dan kuiz ialah lapisan aplikasi."
+  },
+  "copyrightNotice": "© 2026 e-Hadis40 bagi reka bentuk aplikasi, interaksi, audio, kuiz dan kod sumber prototaip. Hak cipta kandungan asal Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua kekal milik Kementerian Pendidikan Malaysia dan pemegang hak masing-masing."
 }

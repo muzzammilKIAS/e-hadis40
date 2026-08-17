@@ -28,15 +28,17 @@ void main() {
       expect(h.audioTimings.length, 8);
     });
 
-    test('H16 load: module_04, abu_hurairah, quranEvidence kosong', () {
+    test(
+        'H16 load: module_04, abu_hurairah, dalil Ali \'Imran 134 (Jangan Marah)',
+        () {
       final h = Hadith.fromJson(_load('hadith_16.json'));
       expect(h.id, 'hadith_16');
       expect(h.number, 16);
       expect(h.moduleId, 'module_04');
       expect(h.narratorId, 'abu_hurairah');
-      expect(h.quranEvidence.surah, isEmpty);
-      expect(h.quranEvidences, isEmpty);
-      expect(h.allQuranEvidences, isEmpty);
+      expect(h.quranEvidence.surah, "Ali 'Imran");
+      expect(h.quranEvidence.verse, 134);
+      expect(h.allQuranEvidences.length, 1);
       expect(h.quiz.length, 10);
       expect(h.audioAsset, 'assets/audio/hadith_16.mp3');
       expect(h.audioTimings, isNotEmpty);

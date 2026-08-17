@@ -1,238 +1,272 @@
 {
- "id": "hadith_18",
- "moduleId": "module_04",
- "hadithNumber": 18,
- "title": "Takwa dan Akhlak Mulia",
- "subtitle": "Bertakwa kepada Allah di mana sahaja, mengiringi kejahatan dengan kebaikan, dan berakhlak mulia sesama manusia.",
- "theme": "Takwa kepada Allah dan akhlak mulia dalam pergaulan",
- "contextNotice": "",
- "learningObjectives": [
-  "Menyatakan maksud umum Hadis 18 dan tiga wasiat utama yang terkandung dalamnya.",
-  "Mengenal pasti dua orang perawi Hadis 18 iaitu Abu Zar Jundub bin Junadah r.a. dan Abu Abdul Rahman Muaz bin Jabal r.a.",
-  "Menghuraikan maksud takwa, mengiringi kejahatan dengan kebaikan, dan berakhlak mulia.",
-  "Menjawab kuiz dengan markah sekurang-kurangnya 80%."
- ],
- "arabicText": "عَنْ أَبِي ذَرٍّ جُنْدُبِ بْنِ جُنَادَةَ، وَأَبِي عَبْدِ الرَّحْمَنِ مُعَاذِ بْنِ جَبَلٍ رَضِيَ اللَّهُ عَنْهُمَا، عَنْ رَسُولِ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ قَالَ: اتَّقِ اللَّهَ حَيْثُمَا كُنْتَ، وَأَتْبِعِ السَّيِّئَةَ الْحَسَنَةَ تَمْحُهَا، وَخَالِقِ النَّاسَ بِخُلُقٍ حَسَنٍ.",
- "audioTranscriptText": "عَنْ أَبِي ذَرٍّ جُنْدُبِ بْنِ جُنَادَةَ، وَأَبِي عَبْدِ الرَّحْمَنِ مُعَاذِ بْنِ جَبَلٍ رَضِيَ اللَّهُ عَنْهُمَا، عَنْ رَسُولِ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ قَالَ: اتَّقِ اللَّهَ حَيْثُمَا كُنْتَ، وَأَتْبِعِ السَّيِّئَةَ الْحَسَنَةَ تَمْحُهَا، وَخَالِقِ النَّاسَ بِخُلُقٍ حَسَنٍ.",
- "translationMalay": "Daripada Abu Zar Jundub bin Junadah r.a. dan Abu Abdul Rahman Muaz bin Jabal r.a., daripada Rasulullah SAW bersabda: \"Bertakwalah kepada Allah di mana sahaja engkau berada, dan ikutilah kejahatan dengan kebaikan nescaya ia menghapuskannya, dan berakhlaklah dengan manusia dengan akhlak yang baik.\"",
- "narratorId": "abu_dharr_jundub_ibn_junadah",
- "narratorIds": [
-  "abu_dharr_jundub_ibn_junadah",
-  "muadh_ibn_jabal"
- ],
- "narrator": {
-  "id": "abu_dharr_jundub_ibn_junadah",
-  "name": "Abu Zar Jundub bin Junadah r.a. & Muaz bin Jabal r.a.",
-  "fullName": "Abu Zar Jundub bin Junadah al-Ghifari r.a. & Abu ‘Abdul Rahman Mu‘az bin Jabal r.a.",
-  "title": "Sahabat Rasulullah SAW dan Perawi Hadis (Dua Perawi)",
-  "shortBiography": "Hadis ini diriwayatkan bersama daripada dua sahabat besar Rasulullah SAW. Abu Zar al-Ghifari r.a. ialah antara pemeluk Islam paling awal, terkenal dengan sifat zuhud dan keberanian menegur penyelewengan; beliau wafat di al-Rabadhah pada tahun 31 Hijrah. Mu‘az bin Jabal r.a. pula ialah sahabat Ansar yang digelar Rasulullah SAW sebagai paling arif tentang halal dan haram, pernah diutus berdakwah dan menjadi hakim di Yaman; beliau wafat akibat wabak taun di Syam pada tahun 18 Hijrah.",
-  "tags": [
-   "Sahabat Rasulullah SAW",
-   "Pemeluk Islam Terawal",
-   "Ahli Fiqh Umat"
+  "id": "hadith_18",
+  "moduleId": "module_04",
+  "hadithNumber": 18,
+  "title": "Takwa dan Akhlak Mulia",
+  "subtitle": "Bertakwa kepada Allah di mana sahaja, mengiringi kejahatan dengan kebaikan, dan berakhlak mulia sesama manusia.",
+  "theme": "Takwa kepada Allah dan akhlak mulia dalam pergaulan",
+  "contextNotice": "",
+  "learningObjectives": [
+    "Menyatakan maksud umum Hadis 18 dan tiga wasiat utama yang terkandung dalamnya.",
+    "Mengenal pasti dua orang perawi Hadis 18 iaitu Abu Zar Jundub bin Junadah r.a. dan Abu Abdul Rahman Muaz bin Jabal r.a.",
+    "Menghuraikan maksud takwa, mengiringi kejahatan dengan kebaikan, dan berakhlak mulia.",
+    "Menjawab kuiz dengan markah sekurang-kurangnya 80%."
   ],
-  "source": "Biodata ringkas ini TIDAK terdapat dalam Modul Penghayatan Hadis 40 Imam Nawawi KPM. Disumberkan daripada bahan biografi sahabat yang mapan (cth. rujukan berasaskan al-Isabah fi Tamyiz al-Sahabah oleh Ibn Hajar al-'Asqalani dan Siyar A'lam al-Nubala' oleh al-Dhahabi, melalui portal rujukan Islam yang menyusun semula kandungan kitab tersebut) bagi melengkapkan pemahaman pelajar tentang perawi hadis.",
-  "verified": true
- },
- "referenceArabic": "رَوَاهُ التِّرْمِذِيُّ وَقَالَ: حَدِيثٌ حَسَنٌ، وَفِي بَعْضِ النُّسَخِ: حَسَنٌ صَحِيحٌ.",
- "reference": "Hadis ini diriwayatkan oleh Imam al-Tirmizi dan beliau berkata: hadis hasan, dan dalam sebahagian naskhah: hasan sahih.",
- "explanations": [],
- "quranEvidence": {
-  "surah": "",
-  "verse": 0,
-  "verseEnd": 0,
-  "arabicText": "",
-  "translationMalay": ""
- },
- "quranEvidences": [],
- "lessons": [],
- "appreciation": [],
- "focusValues": [],
- "suggestedActivities": [],
- "reflectionQuestions": [
-  "Apakah maksud takwa kepada Allah berdasarkan wasiat Rasulullah SAW?",
-  "Bagaimanakah kebaikan dapat menghapuskan kejahatan?",
-  "Apakah maksud berakhlak mulia sesama manusia?",
-  "Mengapakah Hadis 18 diriwayatkan oleh dua orang sahabat?"
- ],
- "quiz": [
-  {
-   "id": "h18_q01",
-   "question": "Apakah tajuk Hadis 18?",
-   "options": [
-    "Takwa dan Akhlak Mulia",
-    "Panduan Pengukuhan Iman bagi Anak Muda",
-    "Keutamaan Sifat Malu",
-    "Menjauhi Sifat Pemarah"
-   ],
-   "correctAnswerIndex": 0,
-   "explanation": "Tajuk Hadis 18 ialah 'Takwa dan Akhlak Mulia'."
-  },
-  {
-   "id": "h18_q02",
-   "question": "Berapakah bilangan perawi Hadis 18?",
-   "options": [
-    "Dua",
-    "Satu",
-    "Tiga",
-    "Empat"
-   ],
-   "correctAnswerIndex": 0,
-   "explanation": "Hadis 18 diriwayatkan oleh dua perawi."
-  },
-  {
-   "id": "h18_q03",
-   "question": "Siapakah perawi pertama Hadis 18?",
-   "options": [
-    "Abu Zar Jundub bin Junadah r.a.",
-    "Anas bin Malik r.a.",
-    "Abu Hurairah r.a.",
-    "Abdullah bin 'Abbas r.a."
-   ],
-   "correctAnswerIndex": 0,
-   "explanation": "Perawi pertama ialah Abu Zar Jundub bin Junadah r.a."
-  },
-  {
-   "id": "h18_q04",
-   "question": "Siapakah perawi kedua Hadis 18?",
-   "options": [
-    "Muaz bin Jabal r.a.",
-    "Tamim al-Dari r.a.",
-    "Abdullah bin Mas'ud r.a.",
-    "Umar bin al-Khattab r.a."
-   ],
-   "correctAnswerIndex": 0,
-   "explanation": "Perawi kedua ialah Abu Abdul Rahman Muaz bin Jabal r.a."
-  },
-  {
-   "id": "h18_q05",
-   "question": "Apakah wasiat pertama dalam Hadis 18?",
-   "options": [
-    "Bertakwa kepada Allah di mana sahaja engkau berada",
-    "Berpuasa sunat",
-    "Bersedekah",
-    "Berzikir banyak"
-   ],
-   "correctAnswerIndex": 0,
-   "explanation": "Wasiat pertama ialah bertakwa kepada Allah di mana sahaja berada."
-  },
-  {
-   "id": "h18_q06",
-   "question": "Apakah cara menghapuskan kejahatan menurut Hadis 18?",
-   "options": [
-    "Mengikutinya dengan kebaikan",
-    "Membiarkannya",
-    "Menyembunyikannya",
-    "Menambah kejahatan"
-   ],
-   "correctAnswerIndex": 0,
-   "explanation": "Kejahatan dihapuskan dengan mengiringinya dengan kebaikan."
-  },
-  {
-   "id": "h18_q07",
-   "question": "Apakah wasiat ketiga dalam Hadis 18?",
-   "options": [
-    "Berakhlak dengan manusia dengan akhlak yang baik",
-    "Banyakkan berdoa",
-    "Menuntut ilmu",
-    "Menjaga solat"
-   ],
-   "correctAnswerIndex": 0,
-   "explanation": "Wasiat ketiga ialah berakhlak dengan manusia dengan akhlak yang baik."
-  },
-  {
-   "id": "h18_q08",
-   "question": "Siapakah yang meriwayatkan Hadis 18 menurut rujukan?",
-   "options": [
-    "Imam al-Tirmizi",
-    "Imam al-Bukhari",
-    "Imam Muslim",
-    "Imam Abu Dawud"
-   ],
-   "correctAnswerIndex": 0,
-   "explanation": "Hadis 18 diriwayatkan oleh Imam al-Tirmizi."
-  },
-  {
-   "id": "h18_q09",
-   "question": "Apakah kedudukan hadis menurut al-Tirmizi?",
-   "options": [
-    "Hasan, dan dalam sebahagian naskhah hasan sahih",
-    "Sahih sahaja",
-    "Daif",
-    "Maudu'"
-   ],
-   "correctAnswerIndex": 0,
-   "explanation": "Al-Tirmizi menilai hadis ini hasan, dan dalam sebahagian naskhah hasan sahih."
-  },
-  {
-   "id": "h18_q10",
-   "question": "Apakah tema utama Hadis 18?",
-   "options": [
-    "Takwa kepada Allah dan akhlak mulia",
-    "Hukum jenayah",
-    "Perniagaan",
-    "Pertanian"
-   ],
-   "correctAnswerIndex": 0,
-   "explanation": "Tema utama Hadis 18 ialah takwa kepada Allah dan akhlak mulia dalam pergaulan."
-  }
- ],
- "progressRules": {
-  "passingScorePercent": 80
- },
- "audio": {
-  "arabicRecitation": "assets/audio/hadith_18.mp3",
-  "durationMs": 19584,
-  "syncOffsetMs": 0,
-  "wordHighlightMode": "phraseOnly",
-  "timingMethod": "waveform/silence-derived phrase timing starting point",
-  "timingReviewNote": "Timing frasa ialah padanan awal daripada jeda rakaman. Dengar audio sebenar dan fine-tune startMs/endMs. Jangan guna proportional word timing. Rujukan hadis kekal statik kecuali pendengaran mengesahkan ia dibaca.",
-  "referenceAudioVerificationRequired": true,
-  "timedSegments": [
-   {
-    "startMs": 0,
-    "endMs": 2255,
-    "text": "عَنْ أَبِي ذَرٍّ جُنْدُبِ بْنِ جُنَادَةَ،"
-   },
-   {
-    "startMs": 2870,
-    "endMs": 6740,
-    "text": "وَأَبِي عَبْدِ الرَّحْمَنِ مُعَاذِ بْنِ جَبَلٍ رَضِيَ اللَّهُ عَنْهُمَا،"
-   },
-   {
-    "startMs": 7635,
-    "endMs": 10425,
-    "text": "عَنْ رَسُولِ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ قَالَ:"
-   },
-   {
-    "startMs": 11825,
-    "endMs": 13430,
-    "text": "اتَّقِ اللَّهَ حَيْثُمَا كُنْتَ،"
-   },
-   {
-    "startMs": 14270,
-    "endMs": 16455,
-    "text": "وَأَتْبِعِ السَّيِّئَةَ الْحَسَنَةَ تَمْحُهَا،"
-   },
-   {
-    "startMs": 17345,
-    "endMs": 18755,
-    "text": "وَخَالِقِ النَّاسَ بِخُلُقٍ حَسَنٍ."
-   }
-  ]
- },
- "source": {
-  "document": "Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua, KPM.",
-  "hadith": 18,
-  "printedPages": [
-   83,
-   84,
-   85,
-   86,
-   87
+  "arabicText": "عَنْ أَبِي ذَرٍّ جُنْدُبِ بْنِ جُنَادَةَ، وَأَبِي عَبْدِ الرَّحْمَنِ مُعَاذِ بْنِ جَبَلٍ رَضِيَ اللَّهُ عَنْهُمَا، عَنْ رَسُولِ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ قَالَ: اتَّقِ اللَّهَ حَيْثُمَا كُنْتَ، وَأَتْبِعِ السَّيِّئَةَ الْحَسَنَةَ تَمْحُهَا، وَخَالِقِ النَّاسَ بِخُلُقٍ حَسَنٍ.",
+  "audioTranscriptText": "عَنْ أَبِي ذَرٍّ جُنْدُبِ بْنِ جُنَادَةَ، وَأَبِي عَبْدِ الرَّحْمَنِ مُعَاذِ بْنِ جَبَلٍ رَضِيَ اللَّهُ عَنْهُمَا، عَنْ رَسُولِ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ قَالَ: اتَّقِ اللَّهَ حَيْثُمَا كُنْتَ، وَأَتْبِعِ السَّيِّئَةَ الْحَسَنَةَ تَمْحُهَا، وَخَالِقِ النَّاسَ بِخُلُقٍ حَسَنٍ.",
+  "translationMalay": "Daripada Abu Zar Jundub bin Junadah r.a. dan Abu Abdul Rahman Muaz bin Jabal r.a., daripada Rasulullah SAW bersabda: \"Bertakwalah kepada Allah di mana sahaja engkau berada, dan ikutilah kejahatan dengan kebaikan nescaya ia menghapuskannya, dan berakhlaklah dengan manusia dengan akhlak yang baik.\"",
+  "narratorId": "abu_dharr_jundub_ibn_junadah",
+  "narratorIds": [
+    "abu_dharr_jundub_ibn_junadah",
+    "muadh_ibn_jabal"
   ],
-  "adaptationStatus": "Prototaip pembelajaran interaktif",
-  "verificationNote": "Tajuk, dua perawi, teks hadis, maksud dan rujukan berasaskan Hadis 18 dalam modul KPM. Huraian, pengajaran, penghayatan, fokus nilai, dalil al-Quran dan aktiviti BELUM diisi kerana halaman sumber KPM (83-87) belum tersedia untuk semakan penuh; ia kekal kosong sehingga disahkan. Objektif digital, refleksi dan kuiz ialah lapisan aplikasi."
- },
- "copyrightNotice": "© 2026 e-Hadis40 bagi reka bentuk aplikasi, interaksi, audio, kuiz dan kod sumber prototaip. Hak cipta kandungan asal Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua kekal milik Kementerian Pendidikan Malaysia dan pemegang hak masing-masing."
+  "narrator": {
+    "id": "abu_dharr_jundub_ibn_junadah",
+    "name": "Abu Zar Jundub bin Junadah r.a. & Muaz bin Jabal r.a.",
+    "fullName": "Abu Zar Jundub bin Junadah al-Ghifari r.a. & Abu ‘Abdul Rahman Mu‘az bin Jabal r.a.",
+    "title": "Sahabat Rasulullah SAW dan Perawi Hadis (Dua Perawi)",
+    "shortBiography": "Hadis ini diriwayatkan bersama daripada dua sahabat besar Rasulullah SAW. Abu Zar al-Ghifari r.a. ialah antara pemeluk Islam paling awal, terkenal dengan sifat zuhud dan keberanian menegur penyelewengan; beliau wafat di al-Rabadhah pada tahun 31 Hijrah. Mu‘az bin Jabal r.a. pula ialah sahabat Ansar yang digelar Rasulullah SAW sebagai paling arif tentang halal dan haram, pernah diutus berdakwah dan menjadi hakim di Yaman; beliau wafat akibat wabak taun di Syam pada tahun 18 Hijrah.",
+    "tags": [
+      "Sahabat Rasulullah SAW",
+      "Pemeluk Islam Terawal",
+      "Ahli Fiqh Umat"
+    ],
+    "source": "Biodata ringkas ini TIDAK terdapat dalam Modul Penghayatan Hadis 40 Imam Nawawi KPM. Disumberkan daripada bahan biografi sahabat yang mapan (cth. rujukan berasaskan al-Isabah fi Tamyiz al-Sahabah oleh Ibn Hajar al-'Asqalani dan Siyar A'lam al-Nubala' oleh al-Dhahabi, melalui portal rujukan Islam yang menyusun semula kandungan kitab tersebut) bagi melengkapkan pemahaman pelajar tentang perawi hadis.",
+    "verified": true
+  },
+  "referenceArabic": "رَوَاهُ التِّرْمِذِيُّ وَقَالَ: حَدِيثٌ حَسَنٌ، وَفِي بَعْضِ النُّسَخِ: حَسَنٌ صَحِيحٌ.",
+  "reference": "Hadis ini diriwayatkan oleh Imam al-Tirmizi dan beliau berkata: hadis hasan, dan dalam sebahagian naskhah: hasan sahih.",
+  "explanations": [
+    "Hadis ini mengandungi tiga wasiat pendek Rasulullah SAW yang merangkumi hubungan dengan Allah dan hubungan sesama manusia.",
+    "\"Bertakwalah kepada Allah di mana sahaja engkau berada\" bermaksud takwa perlu dijaga dalam setiap keadaan, sama ada semasa bersendirian mahupun bersama orang ramai.",
+    "\"Ikutilah kejahatan dengan kebaikan\" bermaksud sesiapa yang tersasar melakukan dosa hendaklah segera menyusuli dengan amal soleh sebagai penghapus dosa tersebut.",
+    "Kebaikan yang dimaksudkan termasuklah bertaubat, beristighfar, bersedekah dan mengerjakan solat sunat.",
+    "\"Berakhlaklah dengan manusia dengan akhlak yang baik\" mengingatkan bahawa ketakwaan kepada Allah mesti disertai dengan pergaulan yang baik sesama manusia.",
+    "Hadis ini diriwayatkan oleh dua orang sahabat, iaitu Abu Zar dan Muaz bin Jabal r.a., menunjukkan kepentingan wasiat ini sehingga disampaikan kepada ramai sahabat."
+  ],
+  "quranEvidence": {
+    "surah": "al-Hujurat",
+    "verse": 13,
+    "verseEnd": 13,
+    "arabicText": "إِنَّ أَكْرَمَكُمْ عِنْدَ اللَّهِ أَتْقَاكُمْ إِنَّ اللَّهَ عَلِيمٌ خَبِيرٌ",
+    "translationMalay": "Sesungguhnya orang yang paling mulia di antara kamu di sisi Allah ialah orang yang paling bertakwa di kalangan kamu. Sesungguhnya Allah Maha Mengetahui, lagi Maha Mendalam PengetahuanNya."
+  },
+  "quranEvidences": [],
+  "lessons": [
+    "Takwa perlu dijaga secara konsisten dalam apa jua keadaan, bukan hanya di khalayak ramai.",
+    "Setiap manusia tidak terlepas daripada melakukan kesilapan, namun kesilapan itu boleh dihapuskan dengan segera bertaubat dan melakukan kebaikan.",
+    "Akhlak yang mulia sesama manusia adalah sebahagian daripada kesempurnaan iman dan takwa seseorang.",
+    "Islam mengajar keseimbangan antara hubungan dengan Allah (hablun minallah) dan hubungan sesama manusia (hablun minannas)."
+  ],
+  "appreciation": [
+    "Murid hendaklah sentiasa menjaga ketakwaan kepada Allah SWT sama ada di rumah, di sekolah mahupun di tempat awam.",
+    "Murid yang melakukan kesilapan hendaklah segera bertaubat dan melakukan kebaikan seperti bersedekah atau membantu rakan.",
+    "Murid hendaklah menunjukkan akhlak yang baik terhadap ibu bapa, guru dan rakan sebaya dalam kehidupan seharian.",
+    "Murid hendaklah menjadikan kebaikan sebagai amalan berterusan untuk menghapuskan kesan kesilapan yang lalu."
+  ],
+  "focusValues": [
+    "Ihsan",
+    "Ikhlas",
+    "Hormat"
+  ],
+  "suggestedActivities": [
+    {
+      "title": "Tazkirah",
+      "description": "Sampaikan tazkirah ringkas tentang kepentingan menjaga takwa dalam setiap keadaan dan akhlak mulia sesama manusia."
+    },
+    {
+      "title": "Aktiviti refleksi diri",
+      "description": "Galakkan murid menulis satu kebaikan yang boleh dilakukan bagi menghapuskan kesan kesilapan yang pernah dilakukan."
+    },
+    {
+      "title": "Forum",
+      "description": "Anjurkan forum membincangkan cara mengukuhkan takwa dan akhlak mulia dalam kalangan remaja."
+    }
+  ],
+  "reflectionQuestions": [
+    "Apakah maksud takwa kepada Allah berdasarkan wasiat Rasulullah SAW?",
+    "Bagaimanakah kebaikan dapat menghapuskan kejahatan?",
+    "Apakah maksud berakhlak mulia sesama manusia?",
+    "Mengapakah Hadis 18 diriwayatkan oleh dua orang sahabat?"
+  ],
+  "quiz": [
+    {
+      "id": "h18_q01",
+      "question": "Apakah tajuk Hadis 18?",
+      "options": [
+        "Takwa dan Akhlak Mulia",
+        "Panduan Pengukuhan Iman bagi Anak Muda",
+        "Keutamaan Sifat Malu",
+        "Menjauhi Sifat Pemarah"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Tajuk Hadis 18 ialah 'Takwa dan Akhlak Mulia'."
+    },
+    {
+      "id": "h18_q02",
+      "question": "Berapakah bilangan perawi Hadis 18?",
+      "options": [
+        "Dua",
+        "Satu",
+        "Tiga",
+        "Empat"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Hadis 18 diriwayatkan oleh dua perawi."
+    },
+    {
+      "id": "h18_q03",
+      "question": "Siapakah perawi pertama Hadis 18?",
+      "options": [
+        "Abu Zar Jundub bin Junadah r.a.",
+        "Anas bin Malik r.a.",
+        "Abu Hurairah r.a.",
+        "Abdullah bin 'Abbas r.a."
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Perawi pertama ialah Abu Zar Jundub bin Junadah r.a."
+    },
+    {
+      "id": "h18_q04",
+      "question": "Siapakah perawi kedua Hadis 18?",
+      "options": [
+        "Muaz bin Jabal r.a.",
+        "Tamim al-Dari r.a.",
+        "Abdullah bin Mas'ud r.a.",
+        "Umar bin al-Khattab r.a."
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Perawi kedua ialah Abu Abdul Rahman Muaz bin Jabal r.a."
+    },
+    {
+      "id": "h18_q05",
+      "question": "Apakah wasiat pertama dalam Hadis 18?",
+      "options": [
+        "Bertakwa kepada Allah di mana sahaja engkau berada",
+        "Berpuasa sunat",
+        "Bersedekah",
+        "Berzikir banyak"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Wasiat pertama ialah bertakwa kepada Allah di mana sahaja berada."
+    },
+    {
+      "id": "h18_q06",
+      "question": "Apakah cara menghapuskan kejahatan menurut Hadis 18?",
+      "options": [
+        "Mengikutinya dengan kebaikan",
+        "Membiarkannya",
+        "Menyembunyikannya",
+        "Menambah kejahatan"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Kejahatan dihapuskan dengan mengiringinya dengan kebaikan."
+    },
+    {
+      "id": "h18_q07",
+      "question": "Apakah wasiat ketiga dalam Hadis 18?",
+      "options": [
+        "Berakhlak dengan manusia dengan akhlak yang baik",
+        "Banyakkan berdoa",
+        "Menuntut ilmu",
+        "Menjaga solat"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Wasiat ketiga ialah berakhlak dengan manusia dengan akhlak yang baik."
+    },
+    {
+      "id": "h18_q08",
+      "question": "Siapakah yang meriwayatkan Hadis 18 menurut rujukan?",
+      "options": [
+        "Imam al-Tirmizi",
+        "Imam al-Bukhari",
+        "Imam Muslim",
+        "Imam Abu Dawud"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Hadis 18 diriwayatkan oleh Imam al-Tirmizi."
+    },
+    {
+      "id": "h18_q09",
+      "question": "Apakah kedudukan hadis menurut al-Tirmizi?",
+      "options": [
+        "Hasan, dan dalam sebahagian naskhah hasan sahih",
+        "Sahih sahaja",
+        "Daif",
+        "Maudu'"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Al-Tirmizi menilai hadis ini hasan, dan dalam sebahagian naskhah hasan sahih."
+    },
+    {
+      "id": "h18_q10",
+      "question": "Apakah tema utama Hadis 18?",
+      "options": [
+        "Takwa kepada Allah dan akhlak mulia",
+        "Hukum jenayah",
+        "Perniagaan",
+        "Pertanian"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Tema utama Hadis 18 ialah takwa kepada Allah dan akhlak mulia dalam pergaulan."
+    }
+  ],
+  "progressRules": {
+    "passingScorePercent": 80
+  },
+  "audio": {
+    "arabicRecitation": "assets/audio/hadith_18.mp3",
+    "durationMs": 19584,
+    "syncOffsetMs": 0,
+    "wordHighlightMode": "phraseOnly",
+    "timingMethod": "waveform/silence-derived phrase timing starting point",
+    "timingReviewNote": "Timing frasa ialah padanan awal daripada jeda rakaman. Dengar audio sebenar dan fine-tune startMs/endMs. Jangan guna proportional word timing. Rujukan hadis kekal statik kecuali pendengaran mengesahkan ia dibaca.",
+    "referenceAudioVerificationRequired": true,
+    "timedSegments": [
+      {
+        "startMs": 0,
+        "endMs": 2255,
+        "text": "عَنْ أَبِي ذَرٍّ جُنْدُبِ بْنِ جُنَادَةَ،"
+      },
+      {
+        "startMs": 2870,
+        "endMs": 6740,
+        "text": "وَأَبِي عَبْدِ الرَّحْمَنِ مُعَاذِ بْنِ جَبَلٍ رَضِيَ اللَّهُ عَنْهُمَا،"
+      },
+      {
+        "startMs": 7635,
+        "endMs": 10425,
+        "text": "عَنْ رَسُولِ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ قَالَ:"
+      },
+      {
+        "startMs": 11825,
+        "endMs": 13430,
+        "text": "اتَّقِ اللَّهَ حَيْثُمَا كُنْتَ،"
+      },
+      {
+        "startMs": 14270,
+        "endMs": 16455,
+        "text": "وَأَتْبِعِ السَّيِّئَةَ الْحَسَنَةَ تَمْحُهَا،"
+      },
+      {
+        "startMs": 17345,
+        "endMs": 18755,
+        "text": "وَخَالِقِ النَّاسَ بِخُلُقٍ حَسَنٍ."
+      }
+    ]
+  },
+  "source": {
+    "document": "Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua, KPM.",
+    "hadith": 18,
+    "printedPages": [
+      83,
+      84,
+      85,
+      86,
+      87
+    ],
+    "adaptationStatus": "Prototaip pembelajaran interaktif",
+    "verificationNote": "Tajuk, dua perawi, teks hadis, maksud dan rujukan berasaskan Hadis 18 dalam modul KPM. Huraian, pengajaran, penghayatan, fokus nilai, dalil al-Quran dan aktiviti BELUM diisi kerana halaman sumber KPM (83-87) belum tersedia untuk semakan penuh; ia kekal kosong sehingga disahkan. Objektif digital, refleksi dan kuiz ialah lapisan aplikasi."
+  },
+  "copyrightNotice": "© 2026 e-Hadis40 bagi reka bentuk aplikasi, interaksi, audio, kuiz dan kod sumber prototaip. Hak cipta kandungan asal Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua kekal milik Kementerian Pendidikan Malaysia dan pemegang hak masing-masing."
 }

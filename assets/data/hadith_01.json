@@ -113,6 +113,90 @@
       ],
       "correctAnswerIndex": 2,
       "explanation": "Hadis ini menekankan kepentingan ikhlas kerana Allah SWT dalam setiap amalan."
+    },
+    {
+      "id": "h01_q04",
+      "question": "Hadis Keutamaan Niat diriwayatkan oleh siapa?",
+      "options": [
+        "Imam al-Bukhari dan Imam Muslim",
+        "Imam al-Tirmizi sahaja",
+        "Imam Abu Dawud sahaja",
+        "Imam al-Nasai sahaja"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Hadis ini diriwayatkan oleh Imam al-Bukhari dan Imam Muslim dalam kedua-dua kitab sahih mereka."
+    },
+    {
+      "id": "h01_q05",
+      "question": "Sesiapa yang berhijrah kerana Allah dan Rasul-Nya akan memperoleh...?",
+      "options": [
+        "Kekayaan dunia",
+        "Pahala hijrah yang sebenar",
+        "Kemasyhuran",
+        "Kedudukan tinggi"
+      ],
+      "correctAnswerIndex": 1,
+      "explanation": "Para sahabat yang berhijrah dengan ikhlas kerana Allah dan Rasul-Nya mendapat pahala hijrah yang sebenar."
+    },
+    {
+      "id": "h01_q06",
+      "question": "Dalam hadis ini, disebut seorang lelaki yang berhijrah kerana ingin mengahwini seorang wanita bernama...?",
+      "options": [
+        "Ummu Qais",
+        "Ummu Salamah",
+        "Ummu Habibah",
+        "Ummu Aiman"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Dalam peristiwa hijrah terdapat seorang lelaki yang berhijrah kerana ingin mengahwini seorang wanita yang dikatakan bernama Ummu Qais."
+    },
+    {
+      "id": "h01_q07",
+      "question": "Apakah yang dimaksudkan dengan 'ganjaran mengikut kadar niat'?",
+      "options": [
+        "Ganjaran sama rata untuk semua orang",
+        "Pahala seseorang bergantung pada keikhlasan dan tujuan niatnya",
+        "Ganjaran hanya untuk orang kaya",
+        "Ganjaran ditentukan oleh orang lain"
+      ],
+      "correctAnswerIndex": 1,
+      "explanation": "Seseorang diberi ganjaran mengikut kadar niatnya, maka digalakkan memperbanyakkan niat yang baik."
+    },
+    {
+      "id": "h01_q08",
+      "question": "Kebiasaan seperti makan dan minum boleh menjadi ibadah apabila...?",
+      "options": [
+        "Dilakukan dengan niat kerana Allah SWT",
+        "Dilakukan di tempat awam",
+        "Dilakukan bersama ramai orang",
+        "Dilakukan pada waktu malam"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Kebiasaan seperti makan, minum dan menuntut ilmu boleh menjadi ibadah apabila dilakukan kerana Allah SWT."
+    },
+    {
+      "id": "h01_q09",
+      "question": "Mengapakah niat digelar sebagai 'motivasi dalaman'?",
+      "options": [
+        "Kerana ia dapat dilihat oleh orang lain",
+        "Kerana ia menggerakkan seseorang untuk beramal",
+        "Kerana ia hanya berlaku semasa solat",
+        "Kerana ia memerlukan pengesahan orang lain"
+      ],
+      "correctAnswerIndex": 1,
+      "explanation": "Niat merupakan motivasi dalaman yang menggerakkan seseorang untuk beramal."
+    },
+    {
+      "id": "h01_q10",
+      "question": "Apakah kedudukan Hadis Keutamaan Niat dalam susunan Hadis 40 Imam Nawawi?",
+      "options": [
+        "Hadis pertama",
+        "Hadis kelima",
+        "Hadis kesepuluh",
+        "Hadis terakhir"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Hadis Keutamaan Niat merupakan hadis pertama dalam susunan Hadis 40 Imam Nawawi."
     }
   ],
   "progressRules": {

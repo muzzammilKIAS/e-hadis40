@@ -1,271 +1,298 @@
 {
- "id": "hadith_22",
- "moduleId": "module_05",
- "hadithNumber": 22,
- "title": "Syarat Asas Masuk Syurga",
- "subtitle": "Mengerjakan kewajipan asas Islam dengan memurnikan halal dan haram menjadi syarat asas untuk masuk syurga.",
- "theme": "Kewajipan asas Islam dan pemurnian halal haram sebagai jalan ke syurga",
- "contextNotice": "",
- "learningObjectives": [
-  "Menyatakan maksud umum Hadis 22.",
-  "Mengenal pasti perawi Hadis 22 iaitu Jabir bin Abdullah al-Ansari r.a.",
-  "Menghuraikan syarat-syarat asas untuk memasuki syurga menurut Hadis 22.",
-  "Menjawab kuiz dengan markah sekurang-kurangnya 80%."
- ],
- "arabicText": "عَنْ أَبِي عَبْدِ اللَّهِ جَابِرِ بْنِ عَبْدِ اللَّهِ الْأَنْصَارِيِّ رَضِيَ اللَّهُ عَنْهُ أَنَّ رَجُلًا سَأَلَ رَسُولَ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ فَقَالَ: أَرَأَيْتَ إِذَا صَلَّيْتُ الْمَكْتُوبَاتِ، وَصُمْتُ رَمَضَانَ، وَأَحْلَلْتُ الْحَلَالَ، وَحَرَّمْتُ الْحَرَامَ، وَلَمْ أَزِدْ عَلَى ذَلِكَ شَيْئًا، أَأَدْخُلُ الْجَنَّةَ؟ قَالَ: نَعَمْ.",
- "audioTranscriptText": "عَنْ أَبِي عَبْدِ اللَّهِ جَابِرِ بْنِ عَبْدِ اللَّهِ الْأَنْصَارِيِّ رَضِيَ اللَّهُ عَنْهُ أَنَّ رَجُلًا سَأَلَ رَسُولَ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ فَقَالَ: أَرَأَيْتَ إِذَا صَلَّيْتُ الْمَكْتُوبَاتِ، وَصُمْتُ رَمَضَانَ، وَأَحْلَلْتُ الْحَلَالَ، وَحَرَّمْتُ الْحَرَامَ، وَلَمْ أَزِدْ عَلَى ذَلِكَ شَيْئًا، أَأَدْخُلُ الْجَنَّةَ؟ قَالَ: نَعَمْ.",
- "translationMalay": "Daripada Abu Abdullah Jabir bin Abdullah al-Ansari r.a., bahawa seorang lelaki bertanya kepada Rasulullah SAW lalu berkata: \"Bagaimana pendapatmu sekiranya aku mengerjakan solat-solat fardu, berpuasa Ramadan, menghalalkan yang halal dan mengharamkan yang haram, dan aku tidak menambah ke atas itu sesuatu pun, adakah aku akan masuk syurga?\" Baginda menjawab: \"Ya.\"",
- "narratorId": "jabir_ibn_abdullah_al_ansari",
- "narratorIds": [
-  "jabir_ibn_abdullah_al_ansari"
- ],
- "narrator": {
-  "id": "jabir_ibn_abdullah_al_ansari",
-  "name": "Abu Abdullah Jabir bin Abdullah al-Ansari r.a.",
-  "fullName": "Abu Abdullah Jabir bin Abdullah bin 'Amr bin Haram al-Ansari al-Salami r.a.",
-  "title": "Sahabat Rasulullah SAW dan Perawi Hadis",
-  "shortBiography": "Jabir bin Abdullah al-Ansari r.a. ialah seorang sahabat Rasulullah SAW daripada golongan Ansar yang banyak meriwayatkan hadis. Beliau antara sahabat yang terakhir meninggal dunia di Madinah dan merupakan perawi hadis-hadis dalam Sahih al-Bukhari dan Sahih Muslim.",
-  "tags": [
-   "Sahabat Rasulullah SAW",
-   "Perawi Hadis",
-   "Golongan Ansar"
+  "id": "hadith_22",
+  "moduleId": "module_05",
+  "hadithNumber": 22,
+  "title": "Syarat Asas Masuk Syurga",
+  "subtitle": "Mengerjakan kewajipan asas Islam dengan memurnikan halal dan haram menjadi syarat asas untuk masuk syurga.",
+  "theme": "Kewajipan asas Islam dan pemurnian halal haram sebagai jalan ke syurga",
+  "contextNotice": "",
+  "learningObjectives": [
+    "Menyatakan maksud umum Hadis 22.",
+    "Mengenal pasti perawi Hadis 22 iaitu Jabir bin Abdullah al-Ansari r.a.",
+    "Menghuraikan syarat-syarat asas untuk memasuki syurga menurut Hadis 22.",
+    "Menjawab kuiz dengan markah sekurang-kurangnya 80%."
   ],
-  "source": "Biodata ringkas ini TIDAK terdapat dalam Modul Penghayatan Hadis 40 Imam Nawawi KPM. Disumberkan daripada bahan biografi sahabat yang mapan (cth. rujukan berasaskan al-Isabah fi Tamyiz al-Sahabah oleh Ibn Hajar al-'Asqalani dan Siyar A'lam al-Nubala' oleh al-Dhahabi, melalui portal rujukan Islam yang menyusun semula kandungan kitab tersebut) bagi melengkapkan pemahaman pelajar tentang perawi hadis.",
-  "verified": true
- },
- "referenceArabic": "رَوَاهُ مُسْلِمٌ.",
- "reference": "Hadis ini diriwayatkan oleh Imam Muslim.",
- "explanations": [
-  "وَمَعْنَى حَرَّمْتُ الْحَرَامَ: اجْتَنَبْتُهُ (Maksud 'mengharamkan yang haram' ialah: aku menjauhinya).",
-  "وَمَعْنَى أَحْلَلْتُ الْحَلَالَ: فَعَلْتُهُ مُعْتَقِدًا حِلَّهُ (Maksud 'menghalalkan yang halal' ialah: aku mengerjakannya dengan meyakini kehalalannya)."
- ],
- "quranEvidence": {
-  "surah": "",
-  "verse": 0,
-  "verseEnd": 0,
-  "arabicText": "",
-  "translationMalay": ""
- },
- "quranEvidences": [],
- "lessons": [],
- "appreciation": [],
- "focusValues": [],
- "suggestedActivities": [],
- "reflectionQuestions": [
-  "Apakah maksud menghalalkan yang halal dan mengharamkan yang haram dalam Hadis 22?",
-  "Apakah syarat-syarat asas untuk memasuki syurga menurut Hadis 22?",
-  "Mengapakah solat fardu dan puasa Ramadan menjadi asas dalam Islam?",
-  "Bagaimanakah cara memurnikan halal dan haram dalam kehidupan seharian?"
- ],
- "quiz": [
-  {
-   "id": "h22_q01",
-   "question": "Apakah tajuk Hadis 22?",
-   "options": [
-    "Syarat Asas Masuk Syurga",
-    "Iman dan Istiqamah",
-    "Keutamaan Sifat Malu",
-    "Persaingan dalam Kebaikan"
-   ],
-   "correctAnswerIndex": 0,
-   "explanation": "Tajuk Hadis 22 ialah 'Syarat Asas Masuk Syurga'."
-  },
-  {
-   "id": "h22_q02",
-   "question": "Siapakah perawi Hadis 22?",
-   "options": [
-    "Jabir bin Abdullah al-Ansari r.a.",
-    "Sufyan bin Abdullah al-Thaqafi r.a.",
-    "Abu Hurairah r.a.",
-    "Abdullah bin 'Abbas r.a."
-   ],
-   "correctAnswerIndex": 0,
-   "explanation": "Hadis 22 diriwayatkan oleh Abu Abdullah Jabir bin Abdullah al-Ansari r.a."
-  },
-  {
-   "id": "h22_q03",
-   "question": "Apakah perkara pertama yang ditanya dalam Hadis 22?",
-   "options": [
-    "Sekiranya mengerjakan solat-solat fardu, adakah akan masuk syurga",
-    "Bagaimana menjadi kaya",
-    "Bagaimana menjadi berkuasa",
-    "Bagaimana mendapat ilmu"
-   ],
-   "correctAnswerIndex": 0,
-   "explanation": "Lelaki itu bertanya sekiranya mengerjakan solat-solat fardu dan kewajipan lain, adakah dia akan masuk syurga."
-  },
-  {
-   "id": "h22_q04",
-   "question": "Apakah jawapan Rasulullah SAW kepada lelaki tersebut?",
-   "options": [
-    "Ya",
-    "Tidak",
-    "Tunggu dahulu",
-    "Allah sahaja yang tahu"
-   ],
-   "correctAnswerIndex": 0,
-   "explanation": "Rasulullah SAW menjawab: Ya (akan masuk syurga)."
-  },
-  {
-   "id": "h22_q05",
-   "question": "Siapakah yang meriwayatkan Hadis 22 menurut rujukan?",
-   "options": [
-    "Imam Muslim",
-    "Imam al-Bukhari",
-    "Imam al-Tirmizi",
-    "Imam Abu Dawud"
-   ],
-   "correctAnswerIndex": 0,
-   "explanation": "Hadis 22 diriwayatkan oleh Imam Muslim."
-  },
-  {
-   "id": "h22_q06",
-   "question": "Apakah maksud 'mengharamkan yang haram' menurut nota Hadis 22?",
-   "options": [
-    "Menjauhinya",
-    "Mengerjakannya",
-    "Memikirkannya",
-    "Membincangkannya"
-   ],
-   "correctAnswerIndex": 0,
-   "explanation": "Maksud 'mengharamkan yang haram' ialah menjauhinya (اجْتَنَبْتُهُ)."
-  },
-  {
-   "id": "h22_q07",
-   "question": "Apakah maksud 'menghalalkan yang halal' menurut nota Hadis 22?",
-   "options": [
-    "Mengerjakannya dengan meyakini kehalalannya",
-    "Meninggalkannya",
-    "Menjauhinya",
-    "Menyembunyikannya"
-   ],
-   "correctAnswerIndex": 0,
-   "explanation": "Maksud 'menghalalkan yang halal' ialah mengerjakannya dengan meyakini kehalalannya (فَعَلْتُهُ مُعْتَقِدًا حِلَّهُ)."
-  },
-  {
-   "id": "h22_q08",
-   "question": "Apakah kewajipan asas yang disebut dalam Hadis 22?",
-   "options": [
-    "Solat fardu, puasa Ramadan, menghalalkan halal dan mengharamkan haram",
-    "Hanya solat sunat",
-    "Hanya zikir",
-    "Hanya sedekah"
-   ],
-   "correctAnswerIndex": 0,
-   "explanation": "Kewajipan asas yang disebut ialah solat fardu, puasa Ramadan, menghalalkan halal dan mengharamkan haram."
-  },
-  {
-   "id": "h22_q09",
-   "question": "Apakah perkataan lelaki itu tentang amalannya?",
-   "options": [
-    "Tidak menambah ke atas itu sesuatu pun",
-    "Menambah banyak amalan",
-    "Meninggalkan solat",
-    "Tidak berpuasa"
-   ],
-   "correctAnswerIndex": 0,
-   "explanation": "Lelaki itu berkata dia tidak menambah ke atas kewajipan asas itu sesuatu pun."
-  },
-  {
-   "id": "h22_q10",
-   "question": "Apakah pengajaran utama Hadis 22?",
-   "options": [
-    "Menunaikan kewajipan asas dengan memurnikan halal haram membawa ke syurga",
-    "Kewajipan asas tidak penting",
-    "Syurga hanya untuk orang kaya",
-    "Halal haram tidak perlu diambil kira"
-   ],
-   "correctAnswerIndex": 0,
-   "explanation": "Pengajaran utama Hadis 22 ialah menunaikan kewajipan asas dengan memurnikan halal haram membawa kepada syurga."
-  }
- ],
- "progressRules": {
-  "passingScorePercent": 80
- },
- "audio": {
-  "arabicRecitation": "assets/audio/hadith_22.mp3",
-  "durationMs": 26064,
-  "syncOffsetMs": 0,
-  "wordHighlightMode": "phraseOnly",
-  "timingMethod": "waveform speech activity + real silence gaps + phrase-by-phrase matn alignment",
-  "timingReviewNote": "Timing frasa dipadankan dengan waveform sebenar dan jeda audio. Audio berakhir pada 'قَالَ: نَعَمْ.' Nota maksud lafaz selepas hadis ialah kandungan statik, BUKAN audio transcript. Rujukan hadis kekal statik.",
-  "referenceAudioVerificationRequired": false,
-  "timedSegments": [
-   {
-    "startMs": 120,
-    "endMs": 1650,
-    "text": "عَنْ أَبِي عَبْدِ اللَّهِ"
-   },
-   {
-    "startMs": 2150,
-    "endMs": 4750,
-    "text": "جَابِرِ بْنِ عَبْدِ اللَّهِ الْأَنْصَارِيِّ رَضِيَ اللَّهُ عَنْهُ"
-   },
-   {
-    "startMs": 5400,
-    "endMs": 6600,
-    "text": "أَنَّ رَجُلًا"
-   },
-   {
-    "startMs": 7200,
-    "endMs": 11660,
-    "text": "سَأَلَ رَسُولَ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ فَقَالَ:"
-   },
-   {
-    "startMs": 12620,
-    "endMs": 15070,
-    "text": "أَرَأَيْتَ إِذَا صَلَّيْتُ الْمَكْتُوبَاتِ،"
-   },
-   {
-    "startMs": 15500,
-    "endMs": 16670,
-    "text": "وَصُمْتُ رَمَضَانَ،"
-   },
-   {
-    "startMs": 17150,
-    "endMs": 18390,
-    "text": "وَأَحْلَلْتُ الْحَلَالَ،"
-   },
-   {
-    "startMs": 18880,
-    "endMs": 20000,
-    "text": "وَحَرَّمْتُ الْحَرَامَ،"
-   },
-   {
-    "startMs": 20530,
-    "endMs": 22470,
-    "text": "وَلَمْ أَزِدْ عَلَى ذَلِكَ شَيْئًا،"
-   },
-   {
-    "startMs": 22890,
-    "endMs": 23860,
-    "text": "أَأَدْخُلُ الْجَنَّةَ؟"
-   },
-   {
-    "startMs": 24490,
-    "endMs": 24830,
-    "text": "قَالَ:"
-   },
-   {
-    "startMs": 25370,
-    "endMs": 25710,
-    "text": "نَعَمْ."
-   }
-  ]
- },
- "source": {
-  "document": "Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua, KPM.",
-  "hadith": 22,
-  "printedPages": [
-   102,
-   103,
-   104,
-   105,
-   106
+  "arabicText": "عَنْ أَبِي عَبْدِ اللَّهِ جَابِرِ بْنِ عَبْدِ اللَّهِ الْأَنْصَارِيِّ رَضِيَ اللَّهُ عَنْهُ أَنَّ رَجُلًا سَأَلَ رَسُولَ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ فَقَالَ: أَرَأَيْتَ إِذَا صَلَّيْتُ الْمَكْتُوبَاتِ، وَصُمْتُ رَمَضَانَ، وَأَحْلَلْتُ الْحَلَالَ، وَحَرَّمْتُ الْحَرَامَ، وَلَمْ أَزِدْ عَلَى ذَلِكَ شَيْئًا، أَأَدْخُلُ الْجَنَّةَ؟ قَالَ: نَعَمْ.",
+  "audioTranscriptText": "عَنْ أَبِي عَبْدِ اللَّهِ جَابِرِ بْنِ عَبْدِ اللَّهِ الْأَنْصَارِيِّ رَضِيَ اللَّهُ عَنْهُ أَنَّ رَجُلًا سَأَلَ رَسُولَ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ فَقَالَ: أَرَأَيْتَ إِذَا صَلَّيْتُ الْمَكْتُوبَاتِ، وَصُمْتُ رَمَضَانَ، وَأَحْلَلْتُ الْحَلَالَ، وَحَرَّمْتُ الْحَرَامَ، وَلَمْ أَزِدْ عَلَى ذَلِكَ شَيْئًا، أَأَدْخُلُ الْجَنَّةَ؟ قَالَ: نَعَمْ.",
+  "translationMalay": "Daripada Abu Abdullah Jabir bin Abdullah al-Ansari r.a., bahawa seorang lelaki bertanya kepada Rasulullah SAW lalu berkata: \"Bagaimana pendapatmu sekiranya aku mengerjakan solat-solat fardu, berpuasa Ramadan, menghalalkan yang halal dan mengharamkan yang haram, dan aku tidak menambah ke atas itu sesuatu pun, adakah aku akan masuk syurga?\" Baginda menjawab: \"Ya.\"",
+  "narratorId": "jabir_ibn_abdullah_al_ansari",
+  "narratorIds": [
+    "jabir_ibn_abdullah_al_ansari"
   ],
-  "adaptationStatus": "Prototaip pembelajaran interaktif",
-  "verificationNote": "Tajuk, perawi, teks hadis, maksud, rujukan dan nota maksud lafaz berasaskan Hadis 22 dalam modul KPM. Huraian, pengajaran, penghayatan, fokus nilai dan aktiviti BELUM diisi kerana halaman sumber KPM (102-106) belum tersedia untuk semakan penuh. Objektif digital, refleksi dan kuiz ialah lapisan aplikasi.",
-  "timingVerificationNote": "Timing CSV daripada pakej DeepSeek TIMING_REVIEWED digunakan tanpa perubahan boundary."
- },
- "copyrightNotice": "© 2026 e-Hadis40 bagi reka bentuk aplikasi, interaksi, audio, kuiz dan kod sumber prototaip. Hak cipta kandungan asal Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua kekal milik Kementerian Pendidikan Malaysia dan pemegang hak masing-masing."
+  "narrator": {
+    "id": "jabir_ibn_abdullah_al_ansari",
+    "name": "Abu Abdullah Jabir bin Abdullah al-Ansari r.a.",
+    "fullName": "Abu Abdullah Jabir bin Abdullah bin 'Amr bin Haram al-Ansari al-Salami r.a.",
+    "title": "Sahabat Rasulullah SAW dan Perawi Hadis",
+    "shortBiography": "Jabir bin Abdullah al-Ansari r.a. ialah seorang sahabat Rasulullah SAW daripada golongan Ansar yang banyak meriwayatkan hadis. Beliau antara sahabat yang terakhir meninggal dunia di Madinah dan merupakan perawi hadis-hadis dalam Sahih al-Bukhari dan Sahih Muslim.",
+    "tags": [
+      "Sahabat Rasulullah SAW",
+      "Perawi Hadis",
+      "Golongan Ansar"
+    ],
+    "source": "Biodata ringkas ini TIDAK terdapat dalam Modul Penghayatan Hadis 40 Imam Nawawi KPM. Disumberkan daripada bahan biografi sahabat yang mapan (cth. rujukan berasaskan al-Isabah fi Tamyiz al-Sahabah oleh Ibn Hajar al-'Asqalani dan Siyar A'lam al-Nubala' oleh al-Dhahabi, melalui portal rujukan Islam yang menyusun semula kandungan kitab tersebut) bagi melengkapkan pemahaman pelajar tentang perawi hadis.",
+    "verified": true
+  },
+  "referenceArabic": "رَوَاهُ مُسْلِمٌ.",
+  "reference": "Hadis ini diriwayatkan oleh Imam Muslim.",
+  "explanations": [
+    "وَمَعْنَى حَرَّمْتُ الْحَرَامَ: اجْتَنَبْتُهُ (Maksud 'mengharamkan yang haram' ialah: aku menjauhinya).",
+    "وَمَعْنَى أَحْلَلْتُ الْحَلَالَ: فَعَلْتُهُ مُعْتَقِدًا حِلَّهُ (Maksud 'menghalalkan yang halal' ialah: aku mengerjakannya dengan meyakini kehalalannya)."
+  ],
+  "quranEvidence": {
+    "surah": "al-Nisa",
+    "verse": 13,
+    "verseEnd": 13,
+    "arabicText": "تِلْكَ حُدُودُ اللَّهِ وَمَنْ يُطِعِ اللَّهَ وَرَسُولَهُ يُدْخِلْهُ جَنَّاتٍ تَجْرِي مِنْ تَحْتِهَا الْأَنْهَارُ خَالِدِينَ فِيهَا وَذَلِكَ الْفَوْزُ الْعَظِيمُ",
+    "translationMalay": "Itulah batas-batas (hukum) Allah. Dan sesiapa yang taat kepada Allah dan Rasul-Nya, akan dimasukkan-Nya ke dalam syurga yang mengalir di bawahnya beberapa sungai, kekal mereka di dalamnya; dan itulah kemenangan yang besar."
+  },
+  "quranEvidences": [],
+  "lessons": [
+    "Melaksanakan solat fardu dan puasa Ramadan dengan sempurna merupakan asas utama keislaman seseorang.",
+    "Memurnikan pegangan terhadap halal dan haram tanpa mencampuradukkannya adalah syarat penting untuk mendapat keredaan Allah SWT.",
+    "Islam tidak menuntut penambahan ibadah sunat sebagai syarat mutlak untuk masuk syurga, sebaliknya kesempurnaan menunaikan kewajipan asas sudah memadai sebagai jalan ke syurga.",
+    "Jawapan ringkas Rasulullah SAW \"Ya\" menunjukkan kepentingan menjawab soalan agama dengan tepat dan tidak berlebih-lebihan."
+  ],
+  "appreciation": [
+    "Murid hendaklah memastikan solat fardu lima waktu dilaksanakan dengan sempurna tanpa menangguh-nangguhkannya.",
+    "Murid hendaklah berpuasa penuh sepanjang bulan Ramadan sebagai tanda ketaatan kepada Allah SWT.",
+    "Murid hendaklah memastikan makanan, pakaian dan sumber kewangan yang digunakan adalah daripada sumber yang halal.",
+    "Murid hendaklah menjauhi perkara yang haram walaupun kelihatan menguntungkan dari sudut duniawi."
+  ],
+  "focusValues": [
+    "Ihsan",
+    "Kesejahteraan",
+    "Keyakinan"
+  ],
+  "suggestedActivities": [
+    {
+      "title": "Halaqah ilmu",
+      "description": "Anjurkan halaqah membincangkan kepentingan menyempurnakan solat fardu dan puasa Ramadan sebagai asas keislaman."
+    },
+    {
+      "title": "Sudut info",
+      "description": "Sediakan sudut info tentang panduan membezakan perkara halal dan haram dalam kehidupan seharian."
+    },
+    {
+      "title": "Semakan amalan solat",
+      "description": "Galakkan murid membuat carta semakan solat fardu lima waktu selama seminggu sebagai latihan disiplin ibadah."
+    }
+  ],
+  "reflectionQuestions": [
+    "Apakah maksud menghalalkan yang halal dan mengharamkan yang haram dalam Hadis 22?",
+    "Apakah syarat-syarat asas untuk memasuki syurga menurut Hadis 22?",
+    "Mengapakah solat fardu dan puasa Ramadan menjadi asas dalam Islam?",
+    "Bagaimanakah cara memurnikan halal dan haram dalam kehidupan seharian?"
+  ],
+  "quiz": [
+    {
+      "id": "h22_q01",
+      "question": "Apakah tajuk Hadis 22?",
+      "options": [
+        "Syarat Asas Masuk Syurga",
+        "Iman dan Istiqamah",
+        "Keutamaan Sifat Malu",
+        "Persaingan dalam Kebaikan"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Tajuk Hadis 22 ialah 'Syarat Asas Masuk Syurga'."
+    },
+    {
+      "id": "h22_q02",
+      "question": "Siapakah perawi Hadis 22?",
+      "options": [
+        "Jabir bin Abdullah al-Ansari r.a.",
+        "Sufyan bin Abdullah al-Thaqafi r.a.",
+        "Abu Hurairah r.a.",
+        "Abdullah bin 'Abbas r.a."
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Hadis 22 diriwayatkan oleh Abu Abdullah Jabir bin Abdullah al-Ansari r.a."
+    },
+    {
+      "id": "h22_q03",
+      "question": "Apakah perkara pertama yang ditanya dalam Hadis 22?",
+      "options": [
+        "Sekiranya mengerjakan solat-solat fardu, adakah akan masuk syurga",
+        "Bagaimana menjadi kaya",
+        "Bagaimana menjadi berkuasa",
+        "Bagaimana mendapat ilmu"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Lelaki itu bertanya sekiranya mengerjakan solat-solat fardu dan kewajipan lain, adakah dia akan masuk syurga."
+    },
+    {
+      "id": "h22_q04",
+      "question": "Apakah jawapan Rasulullah SAW kepada lelaki tersebut?",
+      "options": [
+        "Ya",
+        "Tidak",
+        "Tunggu dahulu",
+        "Allah sahaja yang tahu"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Rasulullah SAW menjawab: Ya (akan masuk syurga)."
+    },
+    {
+      "id": "h22_q05",
+      "question": "Siapakah yang meriwayatkan Hadis 22 menurut rujukan?",
+      "options": [
+        "Imam Muslim",
+        "Imam al-Bukhari",
+        "Imam al-Tirmizi",
+        "Imam Abu Dawud"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Hadis 22 diriwayatkan oleh Imam Muslim."
+    },
+    {
+      "id": "h22_q06",
+      "question": "Apakah maksud 'mengharamkan yang haram' menurut nota Hadis 22?",
+      "options": [
+        "Menjauhinya",
+        "Mengerjakannya",
+        "Memikirkannya",
+        "Membincangkannya"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Maksud 'mengharamkan yang haram' ialah menjauhinya (اجْتَنَبْتُهُ)."
+    },
+    {
+      "id": "h22_q07",
+      "question": "Apakah maksud 'menghalalkan yang halal' menurut nota Hadis 22?",
+      "options": [
+        "Mengerjakannya dengan meyakini kehalalannya",
+        "Meninggalkannya",
+        "Menjauhinya",
+        "Menyembunyikannya"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Maksud 'menghalalkan yang halal' ialah mengerjakannya dengan meyakini kehalalannya (فَعَلْتُهُ مُعْتَقِدًا حِلَّهُ)."
+    },
+    {
+      "id": "h22_q08",
+      "question": "Apakah kewajipan asas yang disebut dalam Hadis 22?",
+      "options": [
+        "Solat fardu, puasa Ramadan, menghalalkan halal dan mengharamkan haram",
+        "Hanya solat sunat",
+        "Hanya zikir",
+        "Hanya sedekah"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Kewajipan asas yang disebut ialah solat fardu, puasa Ramadan, menghalalkan halal dan mengharamkan haram."
+    },
+    {
+      "id": "h22_q09",
+      "question": "Apakah perkataan lelaki itu tentang amalannya?",
+      "options": [
+        "Tidak menambah ke atas itu sesuatu pun",
+        "Menambah banyak amalan",
+        "Meninggalkan solat",
+        "Tidak berpuasa"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Lelaki itu berkata dia tidak menambah ke atas kewajipan asas itu sesuatu pun."
+    },
+    {
+      "id": "h22_q10",
+      "question": "Apakah pengajaran utama Hadis 22?",
+      "options": [
+        "Menunaikan kewajipan asas dengan memurnikan halal haram membawa ke syurga",
+        "Kewajipan asas tidak penting",
+        "Syurga hanya untuk orang kaya",
+        "Halal haram tidak perlu diambil kira"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Pengajaran utama Hadis 22 ialah menunaikan kewajipan asas dengan memurnikan halal haram membawa kepada syurga."
+    }
+  ],
+  "progressRules": {
+    "passingScorePercent": 80
+  },
+  "audio": {
+    "arabicRecitation": "assets/audio/hadith_22.mp3",
+    "durationMs": 26064,
+    "syncOffsetMs": 0,
+    "wordHighlightMode": "phraseOnly",
+    "timingMethod": "waveform speech activity + real silence gaps + phrase-by-phrase matn alignment",
+    "timingReviewNote": "Timing frasa dipadankan dengan waveform sebenar dan jeda audio. Audio berakhir pada 'قَالَ: نَعَمْ.' Nota maksud lafaz selepas hadis ialah kandungan statik, BUKAN audio transcript. Rujukan hadis kekal statik.",
+    "referenceAudioVerificationRequired": false,
+    "timedSegments": [
+      {
+        "startMs": 120,
+        "endMs": 1650,
+        "text": "عَنْ أَبِي عَبْدِ اللَّهِ"
+      },
+      {
+        "startMs": 2150,
+        "endMs": 4750,
+        "text": "جَابِرِ بْنِ عَبْدِ اللَّهِ الْأَنْصَارِيِّ رَضِيَ اللَّهُ عَنْهُ"
+      },
+      {
+        "startMs": 5400,
+        "endMs": 6600,
+        "text": "أَنَّ رَجُلًا"
+      },
+      {
+        "startMs": 7200,
+        "endMs": 11660,
+        "text": "سَأَلَ رَسُولَ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ فَقَالَ:"
+      },
+      {
+        "startMs": 12620,
+        "endMs": 15070,
+        "text": "أَرَأَيْتَ إِذَا صَلَّيْتُ الْمَكْتُوبَاتِ،"
+      },
+      {
+        "startMs": 15500,
+        "endMs": 16670,
+        "text": "وَصُمْتُ رَمَضَانَ،"
+      },
+      {
+        "startMs": 17150,
+        "endMs": 18390,
+        "text": "وَأَحْلَلْتُ الْحَلَالَ،"
+      },
+      {
+        "startMs": 18880,
+        "endMs": 20000,
+        "text": "وَحَرَّمْتُ الْحَرَامَ،"
+      },
+      {
+        "startMs": 20530,
+        "endMs": 22470,
+        "text": "وَلَمْ أَزِدْ عَلَى ذَلِكَ شَيْئًا،"
+      },
+      {
+        "startMs": 22890,
+        "endMs": 23860,
+        "text": "أَأَدْخُلُ الْجَنَّةَ؟"
+      },
+      {
+        "startMs": 24490,
+        "endMs": 24830,
+        "text": "قَالَ:"
+      },
+      {
+        "startMs": 25370,
+        "endMs": 25710,
+        "text": "نَعَمْ."
+      }
+    ]
+  },
+  "source": {
+    "document": "Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua, KPM.",
+    "hadith": 22,
+    "printedPages": [
+      102,
+      103,
+      104,
+      105,
+      106
+    ],
+    "adaptationStatus": "Prototaip pembelajaran interaktif",
+    "verificationNote": "Tajuk, perawi, teks hadis, maksud, rujukan dan nota maksud lafaz berasaskan Hadis 22 dalam modul KPM. Huraian, pengajaran, penghayatan, fokus nilai dan aktiviti BELUM diisi kerana halaman sumber KPM (102-106) belum tersedia untuk semakan penuh. Objektif digital, refleksi dan kuiz ialah lapisan aplikasi.",
+    "timingVerificationNote": "Timing CSV daripada pakej DeepSeek TIMING_REVIEWED digunakan tanpa perubahan boundary."
+  },
+  "copyrightNotice": "© 2026 e-Hadis40 bagi reka bentuk aplikasi, interaksi, audio, kuiz dan kod sumber prototaip. Hak cipta kandungan asal Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua kekal milik Kementerian Pendidikan Malaysia dan pemegang hak masing-masing."
 }

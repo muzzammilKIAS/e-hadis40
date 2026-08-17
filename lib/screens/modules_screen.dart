@@ -8,7 +8,6 @@ import '../data/repositories/module_repository.dart';
 import '../services/app_controller.dart';
 import '../widgets/dashboard/glass_surface.dart';
 import '../widgets/dashboard/module_learning_card.dart';
-import '../widgets/dashboard/uji_minda_card.dart';
 import 'module_detail_screen.dart';
 
 class ModulesScreen extends StatelessWidget {
@@ -26,8 +25,8 @@ class ModulesScreen extends StatelessWidget {
         return SingleChildScrollView(
           // `MainShell` guna `extendBody: true`, jadi badan skrin memanjang
           // ke BELAKANG bar navigasi bawah. Tanpa menambah tinggi bar itu
-          // pada padding bawah, kad terakhir (Xplorasi Minda) kekal
-          // tersembunyi separuh di bawah bar walau sudah skrol habis.
+          // pada padding bawah, kad terakhir kekal tersembunyi separuh di
+          // bawah bar walau sudah skrol habis.
           padding: layout.pagePadding.copyWith(
             bottom: layout.pagePadding.bottom +
                 MediaQuery.paddingOf(context).bottom,
@@ -77,8 +76,6 @@ class ModulesScreen extends StatelessWidget {
                         ),
                     ],
                   ),
-                  SizedBox(height: layout.sectionGap),
-                  const UjiMindaCard(),
                 ],
               ),
             ),

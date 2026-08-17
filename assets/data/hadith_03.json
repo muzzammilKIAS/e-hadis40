@@ -167,6 +167,42 @@
       ],
       "correctAnswerIndex": 2,
       "explanation": "Keyakinan seorang Muslim perlu diterjemahkan melalui ketaatan kepada Allah SWT dan pelaksanaan rukun Islam."
+    },
+    {
+      "id": "h03_q08",
+      "question": "Dua kalimah syahadah menyatakan pengakuan terhadap...?",
+      "options": [
+        "Keesaan Allah dan kerasulan Nabi Muhammad SAW",
+        "Kewujudan malaikat sahaja",
+        "Kewujudan kitab sahaja",
+        "Kewujudan Nabi sahaja"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Dua kalimah syahadah ialah pengakuan terhadap keesaan Allah SWT dan kerasulan Nabi Muhammad SAW."
+    },
+    {
+      "id": "h03_q09",
+      "question": "Solat dimulakan dengan ______ dan disudahi dengan salam.",
+      "options": [
+        "Takbiratul ihram",
+        "Bacaan al-Fatihah",
+        "Doa iftitah",
+        "Rukuk"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Solat ialah ibadah yang dimulakan dengan takbiratul ihram dan disudahi dengan salam."
+    },
+    {
+      "id": "h03_q10",
+      "question": "Zakat membina sikap ______ dalam masyarakat.",
+      "options": [
+        "Prihatin, kasih sayang dan saling membantu",
+        "Bermegah-megah",
+        "Bersaing harta",
+        "Individualistik"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Zakat membina sikap prihatin, kasih sayang dan saling membantu dalam masyarakat."
     }
   ],
   "progressRules": {
