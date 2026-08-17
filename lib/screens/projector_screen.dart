@@ -357,100 +357,156 @@ class _ProjectorPage extends StatelessWidget {
   }
 }
 
-/// Slaid penutup bagi setiap hadis dalam mod projektor — butang bulat di
-/// sini membuka simulasi "Anatomi Sunnah 3D" bagi hadis semasa (jika sudah
-/// tersedia; lihat [AnatomiSunnahScreen.availableHadithNumbers]).
-class _AnatomiSunnahProjectorPage extends StatelessWidget {
+/// Slaid penutup bagi setiap hadis dalam mod projektor — memaparkan
+/// simulasi "Anatomi Sunnah 3D" secara terus (terbenam) bagi hadis yang
+/// sudah tersedia (lihat [AnatomiSunnahScreen.availableHadithNumbers]).
+class _AnatomiSunnahProjectorPage extends StatefulWidget {
   const _AnatomiSunnahProjectorPage({required this.hadith});
 
   final Hadith hadith;
 
   @override
+  State<_AnatomiSunnahProjectorPage> createState() =>
+      _AnatomiSunnahProjectorPageState();
+}
+
+class _AnatomiSunnahProjectorPageState
+    extends State<_AnatomiSunnahProjectorPage> {
+  bool _loaded = false;
+  VoidCallback? _onLoadCallback;
+
+  @override
+  void initState() {
+    super.initState();
+    _onLoadCallback = () {
+      if (mounted) setState(() => _loaded = true);
+    };
+    AnatomiSunnahEmbed.register(
+      hadithNumber: widget.hadith.number,
+      onLoad: _onLoadCallback!,
+    );
+  }
+
+  @override
+  void dispose() {
+    AnatomiSunnahEmbed.unregister(
+      hadithNumber: widget.hadith.number,
+      onLoad: _onLoadCallback ?? () {},
+    );
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
+    final hadith = widget.hadith;
+    final available =
+        hadith.number <= AnatomiSunnahScreen.availableHadithNumbers;
+
+    if (!available) {
+      return Center(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(42),
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 700),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(Icons.view_in_ar_rounded, size: 56, color: scheme.primary),
+                const SizedBox(height: 24),
+                Text(
+                  'Anatomi Sunnah 3D',
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.displaySmall,
+                ),
+                const SizedBox(height: 12),
+                Text(
+                  'Simulasi Interaktif Hadis ${hadith.displayNumber} — '
+                  '${hadith.title}',
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                        color: scheme.primary,
+                      ),
+                ),
+                const SizedBox(height: 40),
+                Text(
+                  'Anatomi Sunnah untuk hadis ini akan datang tidak lama lagi.',
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.bodyLarge,
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+    }
+
     return Center(
-      child: SingleChildScrollView(
-        padding: const EdgeInsets.all(42),
-        child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 700),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Icon(Icons.view_in_ar_rounded, size: 56, color: scheme.primary),
-              const SizedBox(height: 24),
-              Text(
-                'Anatomi Sunnah 3D',
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.displaySmall,
-              ),
-              const SizedBox(height: 12),
-              Text(
-                'Simulasi Interaktif Hadis ${hadith.displayNumber} — '
-                '${hadith.title}',
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                      color: scheme.primary,
-                    ),
-              ),
-              const SizedBox(height: 40),
-              Tooltip(
-                message:
-                    hadith.number <= AnatomiSunnahScreen.availableHadithNumbers
-                        ? 'Mulakan Anatomi Sunnah'
-                        : 'Anatomi Sunnah akan datang',
-                child: InkWell(
-                  borderRadius: BorderRadius.circular(999),
-                  onTap: () {
-                    if (hadith.number <=
-                        AnatomiSunnahScreen.availableHadithNumbers) {
-                      Navigator.of(context).push(
-                        MaterialPageRoute<void>(
-                          builder: (_) => AnatomiSunnahScreen(
-                            hadithNumber: hadith.number,
+      child: Padding(
+        padding: const EdgeInsets.all(24),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Row(
+              children: [
+                Icon(Icons.view_in_ar_rounded, color: scheme.primary),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: Text(
+                    'Anatomi Sunnah 3D — Hadis ${hadith.displayNumber}',
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context)
+                        .textTheme
+                        .headlineSmall
+                        ?.copyWith(color: scheme.primary),
+                  ),
+                ),
+                Icon(Icons.view_in_ar_rounded, color: scheme.primary),
+              ],
+            ),
+            const SizedBox(height: 16),
+            Expanded(
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(color: scheme.outlineVariant),
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  clipBehavior: Clip.antiAlias,
+                  child: Stack(
+                    children: [
+                      Positioned.fill(
+                        child: AnatomiSunnahEmbed(
+                          hadithNumber: hadith.number,
+                        ),
+                      ),
+                      if (!_loaded)
+                        Positioned.fill(
+                          child: ColoredBox(
+                            color: scheme.surface,
+                            child: Center(
+                              child: CircularProgressIndicator(
+                                color: scheme.primary,
+                              ),
+                            ),
                           ),
                         ),
-                      );
-                      return;
-                    }
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content:
-                            Text('Anatomi Sunnah akan datang tidak lama lagi.'),
-                      ),
-                    );
-                  },
-                  child: Container(
-                    width: 72,
-                    height: 72,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      color: scheme.primary,
-                      shape: BoxShape.circle,
-                      boxShadow: [
-                        BoxShadow(
-                          color: scheme.primary.withValues(alpha: 0.35),
-                          blurRadius: 20,
-                          offset: const Offset(0, 8),
-                        ),
-                      ],
-                    ),
-                    child: Icon(
-                      Icons.chevron_right_rounded,
-                      size: 40,
-                      color: scheme.onPrimary,
-                    ),
+                    ],
                   ),
                 ),
               ),
-              const SizedBox(height: 16),
-              Text(
-                'Ke Anatomi Sunnah',
-                style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                      color: scheme.onSurfaceVariant,
-                    ),
-              ),
-            ],
-          ),
+            ),
+            const SizedBox(height: 12),
+            Text(
+              'Interaksi dalam tetingkap ini. Butang kembali simulasi di '
+              'sudut kiri atas menutup paparan ini.',
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                    color: scheme.onSurfaceVariant,
+                  ),
+            ),
+          ],
         ),
       ),
     );

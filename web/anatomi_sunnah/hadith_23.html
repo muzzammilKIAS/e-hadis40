@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Cahaya Amal & Pembebasan - Hadis 23 3D</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="./lib/three.min.js"></script>
+    <script src="./lib/gsap.min.js"></script>
+    <style>
+        @import url('./lib/fonts.css');
+        
+        body { margin: 0; overflow: hidden; background-color: #0f172a; font-family: 'Baloo 2', sans-serif; }
+        #canvas-container { position: absolute; top: 0; left: 0; width: 100%; height: 100vh; z-index: 1; }
+        
+        .cosmic-bg {
+            background: radial-gradient(circle at 50% 50%, #082f49 0%, #020617 100%);
+        }
+
+        .ui-layer { position: relative; z-index: 10; pointer-events: none; height: 100vh; display: flex; flex-direction: column; justify-content: space-between; padding: 2.5rem; }
+        
+        .glass-panel {
+            background: rgba(8, 47, 73, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            pointer-events: auto;
+        }
+
+        .text-arabic { font-family: 'Amiri', serif; }
+        
+        .btn-action { transition: all 0.4s ease; border: 1px solid rgba(255,255,255,0.1); }
+        .btn-action:hover { transform: translateX(-5px); background: rgba(255,255,255,0.15); }
+        
+        /* Tema Warna Butang Aktif */
+        .btn-bebas.active-btn { border-color: #06b6d4; box-shadow: 0 0 20px rgba(6, 182, 212, 0.3); background: rgba(6, 182, 212, 0.15); }
+        .btn-binasa.active-btn { border-color: #ef4444; box-shadow: 0 0 20px rgba(239, 68, 68, 0.3); background: rgba(239, 68, 68, 0.15); }
+
+        /* =====================================================
+           RESPONSIF — telefon & tablet
+           ===================================================== */
+
+        /* --- Tablet --- */
+        @media (max-width: 1024px) {
+            .ui-layer { padding: 1.15rem; padding-top: 4.25rem; }
+
+            .ui-layer .glass-panel {
+                scrollbar-width: thin;
+                scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+                overscroll-behavior: contain;
+            }
+            .ui-layer .glass-panel::-webkit-scrollbar { width: 3px; }
+            .ui-layer .glass-panel::-webkit-scrollbar-track { background: transparent; }
+            .ui-layer .glass-panel::-webkit-scrollbar-thumb {
+                background: rgba(255, 255, 255, 0.3);
+                border-radius: 3px;
+            }
+            .ui-layer .glass-panel { border-radius: 1.25rem !important; }
+            .ui-layer .p-8 { padding: 1.1rem !important; }
+            .ui-layer .p-6 { padding: 1rem !important; }
+            .ui-layer header.glass-panel { max-width: 58%; max-height: 52vh; overflow-y: auto; }
+            .ui-layer > .glass-panel:not(header) { max-width: 46%; max-height: 36vh; overflow-y: auto; }
+
+            .ui-layer .text-4xl { font-size: 2rem !important; line-height: 2.4rem !important; }
+            .ui-layer .text-3xl { font-size: 1.65rem !important; line-height: 2.1rem !important; }
+            .ui-layer .text-2xl { font-size: 1.45rem !important; line-height: 1.9rem !important; }
+            .ui-layer .text-xl  { font-size: 1.25rem !important; }
+            .ui-layer .text-lg  { font-size: 1.12rem !important; }
+            .ui-layer .text-sm  { font-size: 1rem !important; line-height: 1.45rem !important; }
+            .ui-layer .text-xs  { font-size: 0.92rem !important; line-height: 1.32rem !important; }
+            .ui-layer .text-\[12px\] { font-size: 0.86rem !important; }
+            .ui-layer .text-\[13px\] { font-size: 0.95rem !important; }
+            .ui-layer .btn-action { font-size: 1rem !important; }
+        }
+
+        /* --- Telefon --- */
+        @media (max-width: 640px) {
+            .ui-layer { padding: 0.6rem; padding-top: 3.9rem; }
+            .ui-layer .glass-panel { border-radius: 0.95rem !important; }
+            .ui-layer .p-8 { padding: 0.8rem !important; }
+            .ui-layer .p-6 { padding: 0.75rem !important; }
+
+            .ui-layer header.glass-panel { max-width: 100%; max-height: 34vh; overflow-y: auto; }
+            .ui-layer > .glass-panel:not(header) {
+                max-width: 100%; margin-left: 0; max-height: 45vh; overflow-y: auto;
+            }
+            .ui-layer .gap-3 { gap: 0.35rem !important; }
+            .ui-layer .gap-2 { gap: 0.3rem !important; }
+
+            .ui-layer .text-4xl { font-size: 1.6rem !important; line-height: 2rem !important; }
+            .ui-layer .text-3xl { font-size: 1.4rem !important; line-height: 1.85rem !important; }
+            .ui-layer .text-2xl { font-size: 1.25rem !important; line-height: 1.65rem !important; }
+            .ui-layer .text-xl  { font-size: 1.12rem !important; }
+            .ui-layer .text-lg  { font-size: 1.05rem !important; }
+            .ui-layer .text-sm  { font-size: 0.95rem !important; line-height: 1.4rem !important; }
+            .ui-layer .text-xs  { font-size: 0.88rem !important; line-height: 1.28rem !important; }
+            .ui-layer .text-\[12px\] { font-size: 0.84rem !important; }
+            .ui-layer .text-\[13px\] { font-size: 0.92rem !important; }
+
+            .ui-layer .mb-4 { margin-bottom: 0.5rem !important; }
+            .ui-layer .my-4 { margin-top: 0.5rem !important; margin-bottom: 0.5rem !important; }
+            .ui-layer .mt-4 { margin-top: 0.5rem !important; }
+            .ui-layer .mt-3 { margin-top: 0.4rem !important; }
+            .ui-layer .mb-3 { margin-bottom: 0.4rem !important; }
+            .ui-layer .pt-4 { padding-top: 0.5rem !important; }
+            .ui-layer .py-2 { padding-top: 0.3rem !important; padding-bottom: 0.3rem !important; }
+
+            .ui-layer .btn-action { padding: 0.5rem 0.75rem !important; font-size: 0.92rem !important; }
+            .ui-layer .btn-action:hover { transform: none; }
+        }
+
+
+        .ui-layer { direction: ltr; text-align: left; }
+        .ui-layer .text-arabic {
+            direction: rtl;
+            text-align: right;
+            unicode-bidi: isolate;
+        }
+
+    </style>
+</head>
+<body class="cosmic-bg">
+    <button id="anatomi-back-btn" onclick="window.parent.postMessage('anatomi-sunnah-back', window.location.origin)" aria-label="Kembali" style="position:fixed; top:16px; left:16px; z-index:9999; width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.35); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); display:flex; align-items:center; justify-content:center; cursor:pointer; color:#fff; transition:background 0.2s; padding:0;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+    </button>
+    <style>#anatomi-back-btn:hover { background: rgba(255,255,255,0.2) !important; }</style>
+
+
+    <!-- Lapisan Antara Muka (UI) -->
+    <div class="ui-layer">
+        <header class="glass-panel p-8 rounded-3xl max-w-xl relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-cyan-500 rounded-bl-full opacity-15 blur-xl transition-colors duration-500" id="ui-glow"></div>
+            
+            <div class="inline-block px-4 py-1.5 bg-cyan-950/80 rounded-full mb-3 border border-cyan-500/30 transition-colors duration-500" id="ui-badge">
+                <span class="font-bold tracking-widest uppercase text-[10px] text-cyan-400 transition-colors duration-500" id="ui-badge-text">Penghayatan Hadis 40 • Hadis 23</span>
+            </div>
+            
+            <h1 class="text-4xl font-light text-white mb-1">Cahaya Amal & <span class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-amber-300 transition-colors duration-500" id="ui-title-highlight">Pembebasan Diri</span></h1>
+            <p class="text-arabic text-2xl text-cyan-200 mt-3 mb-4 text-right leading-relaxed transition-colors duration-500" dir="rtl" id="ui-arabic">كُلُّ النَّاسِ يَغْدُو فَبَائِعٌ نَفْسَهُ، فَمُعْتِقُهَا أَوْ مُوبِقُهَا</p>
+            
+            <blockquote class="border-l-4 border-cyan-500 pl-4 py-2 my-4 bg-cyan-900/20 rounded-r-lg text-sm leading-relaxed text-gray-300 transition-colors duration-500" id="ui-quote">
+                "Bersuci itu separuh iman... Subhanallah dan Alhamdulillah memenuhi ruang antara langit dan bumi... Setiap manusia keluar pada waktu pagi lalu menjual dirinya, sama ada membebaskannya atau membinasakannya."
+            </blockquote>
+            
+            <p class="text-cyan-200/70 text-xs leading-relaxed mt-4 border-t border-cyan-800/50 pt-4" id="ui-desc">
+                <strong>Simbolisme:</strong> Amalan soleh ibarat cahaya yang memenuhi langit dan bumi, membebaskan jiwa dari azab. Jika lalai, manusia membinasakan dirinya sendiri lalu jatuh ke dalam kegelapan.
+            </p>
+        </header>
+
+        <div class="glass-panel p-6 rounded-3xl max-w-sm ml-auto text-left">
+            <h3 class="text-white font-bold text-lg mb-1">Jualan Diri Harian</h3>
+            <p class="text-gray-400 text-[11px] mb-4">Setiap hari manusia membuat pilihan. Ubah tindakan untuk melihat kesannya kepada teras jiwa.</p>
+            
+            <div class="flex flex-col gap-2">
+                <button id="btn-1" onclick="setBebas()" class="btn-action btn-bebas active-btn pointer-events-auto bg-slate-900/60 text-slate-200 py-3.5 px-5 rounded-xl text-sm font-semibold flex items-center justify-between">
+                    <span>1. Membebaskan Diri (Amal)</span> <span class="text-3xl">🌌</span>
+                </button>
+                <button id="btn-2" onclick="setBinasa()" class="btn-action btn-binasa pointer-events-auto bg-slate-900/60 text-slate-200 py-3.5 px-5 rounded-xl text-sm font-semibold flex items-center justify-between">
+                    <span>2. Membinasakan Diri (Lalai)</span> <span class="text-3xl">🥀</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enjin 3D -->
+    <div id="canvas-container"></div>
+
+    <script>
+        // --- 1. SETUP ASAS ---
+        const scene = new THREE.Scene();
+        scene.fog = new THREE.FogExp2(0x082f49, 0.015);
+
+        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+        camera.position.set(0, 5, 50);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        document.getElementById('canvas-container').appendChild(renderer.domElement);
+
+        // --- 2. PENCAHAYAAN ---
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
+        scene.add(ambientLight);
+
+        const coreLight = new THREE.PointLight(0x06b6d4, 3.5, 80); 
+        coreLight.position.set(0, 0, 0);
+        scene.add(coreLight);
+
+        // --- 3. MODEL 3D ---
+        const mainGroup = new THREE.Group();
+        scene.add(mainGroup);
+
+        // A. Teras Jiwa (The Soul / Cahaya Iman) - Saiz Besar
+        const coreGeo = new THREE.OctahedronGeometry(5.0, 2); // Gemstone look
+        const coreMat = new THREE.MeshPhysicalMaterial({
+            color: 0xffffff, emissive: 0x0891b2, emissiveIntensity: 0.8,
+            roughness: 0.1, metalness: 0.2, transmission: 0.9, thickness: 2.5,
+            clearcoat: 1.0, clearcoatRoughness: 0.1, transparent: true, opacity: 0.95
+        });
+        const coreMesh = new THREE.Mesh(coreGeo, coreMat);
+        mainGroup.add(coreMesh);
+
+        // B. Gelang Bukti (Burhan / Sedekah)
+        const ringsGroup = new THREE.Group();
+        mainGroup.add(ringsGroup);
+        const rings = [];
+        
+        // 3 Gelang bersilang seperti giroskop (melambangkan Mizan/Timbangan)
+        for(let i=0; i<3; i++) {
+            const ringGeo = new THREE.TorusGeometry(8.5, 0.15, 16, 100);
+            const ringMat = new THREE.MeshStandardMaterial({
+                color: 0xfcd34d, emissive: 0xd97706, metalness: 0.8, roughness: 0.2,
+                transparent: true, opacity: 0.7
+            });
+            const ring = new THREE.Mesh(ringGeo, ringMat);
+            
+            if(i === 0) ring.rotation.x = Math.PI / 2;
+            if(i === 1) ring.rotation.y = Math.PI / 2;
+            if(i === 2) { ring.rotation.x = Math.PI / 4; ring.rotation.y = Math.PI / 4; }
+            
+            ringsGroup.add(ring);
+            rings.push(ring);
+        }
+
+        // C. Zarah Zikir (Memenuhi ruang Langit dan Bumi)
+        const particlesCount = 1200; // Jumlah zarah yang banyak
+        const particlesGeo = new THREE.BufferGeometry();
+        const posArray = new Float32Array(particlesCount * 3);
+        const originalPosArray = new Float32Array(particlesCount * 3); // Untuk reset
+        
+        for(let i = 0; i < particlesCount * 3; i+=3) {
+            // Taburan luas di sekitar ruang
+            const x = (Math.random() - 0.5) * 80;
+            const y = (Math.random() - 0.5) * 80;
+            const z = (Math.random() - 0.5) * 80;
+            
+            posArray[i] = x; posArray[i+1] = y; posArray[i+2] = z;
+            originalPosArray[i] = x; originalPosArray[i+1] = y; originalPosArray[i+2] = z;
+        }
+        particlesGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+        
+        const particlesMat = new THREE.PointsMaterial({ 
+            size: 0.25, color: 0x67e8f9, transparent: true, opacity: 0.8, blending: THREE.AdditiveBlending 
+        });
+        const particlesMesh = new THREE.Points(particlesGeo, particlesMat);
+        scene.add(particlesMesh);
+
+        // --- 4. LOGIK ANIMASI GLOBAL ---
+        let clock = new THREE.Clock();
+        let isFree = true;
+        let shakeIntensity = 0;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            const time = clock.getElapsedTime();
+
+            if (isFree) {
+                // Teras berdegup harmoni (Solat itu Nur, Sabar itu Dhiya')
+                const pulse = 1 + Math.sin(time * 2) * 0.05;
+                coreMesh.scale.set(pulse, pulse, pulse);
+                coreMesh.rotation.y = time * 0.2;
+                coreMesh.rotation.z = Math.sin(time * 0.5) * 0.1;
+                
+                mainGroup.position.set(0, Math.sin(time) * 0.5, 0); // Terapung naik ke atas
+
+                // Gelang (Mizan) berpusing sempurna
+                rings[0].rotation.z = time * 0.2;
+                rings[1].rotation.x = time * 0.2;
+                rings[2].rotation.y = time * 0.3;
+
+                // Zarah (Zikir) berpusing dan naik memenuhi ruang
+                const positions = particlesGeo.attributes.position.array;
+                for(let i = 0; i < particlesCount * 3; i += 3) {
+                    // Vorteks naik ke atas
+                    positions[i+1] += 0.05 + Math.random() * 0.05; 
+                    
+                    // Alunan putaran
+                    positions[i] += Math.sin(time + positions[i+1]*0.1) * 0.02;
+                    positions[i+2] += Math.cos(time + positions[i+1]*0.1) * 0.02;
+
+                    // Jika sampai atas, reset ke bawah
+                    if(positions[i+1] > 40) {
+                        positions[i+1] = -40;
+                        positions[i] = originalPosArray[i];
+                        positions[i+2] = originalPosArray[i+2];
+                    }
+                }
+            } else {
+                // MEMBINASAKAN DIRI (Goyah & Runtuh)
+                shakeIntensity = Math.random() * 0.3;
+                
+                coreMesh.rotation.y += 0.05;
+                coreMesh.rotation.x += 0.05;
+                
+                mainGroup.position.set(
+                    (Math.random() - 0.5) * shakeIntensity,
+                    -2 + Math.sin(time * 3) * 0.5, // Jatuh sedikit
+                    (Math.random() - 0.5) * shakeIntensity
+                );
+
+                // Gelang hilang kawalan
+                rings[0].rotation.x += 0.02;
+                rings[1].rotation.y -= 0.01;
+                rings[2].rotation.z += 0.03;
+
+                // Zarah (Amal/Peluang) bertukar menjadi abu dan gugur ke bawah
+                const positions = particlesGeo.attributes.position.array;
+                for(let i = 0; i < particlesCount * 3; i += 3) {
+                    positions[i+1] -= 0.15 + Math.random() * 0.1; // Jatuh laju
+                    
+                    if(positions[i+1] < -40) {
+                        positions[i+1] = 40;
+                        positions[i] = originalPosArray[i] + (Math.random() - 0.5) * 10;
+                        positions[i+2] = originalPosArray[i+2] + (Math.random() - 0.5) * 10;
+                    }
+                }
+            }
+            
+            particlesGeo.attributes.position.needsUpdate = true;
+            particlesMesh.rotation.y = time * 0.02; // Keseluruhan zarah berputar perlahan
+
+            // Kamera beralun
+            camera.position.x = Math.sin(time * 0.1) * 2;
+            camera.lookAt(0, 0, 0);
+
+            renderer.render(scene, camera);
+        }
+
+        // --- 5. FUNGSI INTERAKSI (GSAP & UI) ---
+        function updateUI(btnId, titleClass, badgeBgClass, badgeTextClass, quoteBorderClass, quoteBgClass, glowClass, arabicText, quoteText, descText) {
+            for(let i=1; i<=2; i++) document.getElementById('btn-'+i).classList.remove('active-btn');
+            document.getElementById('btn-'+btnId).classList.add('active-btn');
+            
+            document.getElementById('ui-title-highlight').className = `font-extrabold text-transparent bg-clip-text bg-gradient-to-r ${titleClass} transition-colors duration-500`;
+            document.getElementById('ui-badge').className = `inline-block px-4 py-1.5 rounded-full mb-3 border border-white/10 ${badgeBgClass} transition-colors duration-500`;
+            document.getElementById('ui-badge-text').className = `font-bold tracking-widest uppercase text-[10px] ${badgeTextClass} transition-colors duration-500`;
+            document.getElementById('ui-quote').className = `border-l-4 ${quoteBorderClass} pl-4 py-2 my-4 ${quoteBgClass} rounded-r-lg text-sm leading-relaxed text-gray-200 transition-colors duration-500`;
+            document.getElementById('ui-glow').className = `absolute top-0 right-0 w-32 h-32 rounded-bl-full opacity-15 blur-xl transition-colors duration-500 ${glowClass}`;
+            
+            document.getElementById('ui-arabic').innerText = arabicText;
+            document.getElementById('ui-quote').innerText = quoteText;
+            document.getElementById('ui-desc').innerHTML = `<strong>Simbolisme:</strong> ${descText}`;
+        }
+
+        function setBebas() {
+            isFree = true;
+            updateUI(1, 
+                "from-cyan-400 to-amber-300", "bg-cyan-950/80", "text-cyan-400", 
+                "border-cyan-500", "bg-cyan-900/20", "bg-cyan-500",
+                "كُلُّ النَّاسِ يَغْدُو فَبَائِعٌ نَفْسَهُ، فَمُعْتِقُهَا",
+                '"Subhanallah dan Alhamdulillah memenuhi ruang antara langit dan bumi... Setiap manusia keluar pada waktu pagi lalu menjual dirinya, lalu dia membebaskannya."',
+                "Amalan soleh ibarat cahaya (Nur & Dhiya') yang bersinar terang. Zikirnya bertebaran mematuhi fitrah, melambangkan ia 'memenuhi ruang antara langit dan bumi' lalu membebaskan jiwa."
+            );
+
+            // Permata & Cahaya (Cyan / Amber Mizan)
+            gsap.to(coreMat.emissive, { r: 0.03, g: 0.57, b: 0.7, duration: 1.5 }); // 0891b2
+            gsap.to(coreMat, { opacity: 0.95, roughness: 0.1, transmission: 0.9, duration: 1.5 }); 
+            gsap.to(coreLight.color, { r: 0.02, g: 0.71, b: 0.83, duration: 1.5 }); // 06b6d4
+            gsap.to(coreLight, { intensity: 3.5, duration: 1.5 });
+            
+            // Cincin Mizan Bersinar
+            rings.forEach(ring => {
+                gsap.to(ring.material, { opacity: 0.7, duration: 1.5 });
+                gsap.to(ring.material.emissive, { r: 0.85, g: 0.46, b: 0.02, duration: 1.5 }); // Amber
+            });
+
+            // Zarah (Zikir) menjadi terang dan biru/emas
+            gsap.to(particlesMat.color, { r: 0.4, g: 0.9, b: 0.98, duration: 1.5 });
+            gsap.to(scene.fog.color, { r: 0.031, g: 0.184, b: 0.286, duration: 1.5 }); gsap.to(scene.fog, { density: 0.015, duration: 1.5 });
+        }
+
+        function setBinasa() {
+            isFree = false;
+            updateUI(2, 
+                "from-red-500 to-rose-700", "bg-red-950/80", "text-red-400", 
+                "border-red-500", "bg-red-900/20", "bg-red-600",
+                "أَوْ مُوبِقُهَا",
+                '"...Setiap manusia keluar pada waktu pagi, lalu menjual dirinya, sama ada membebaskannya atau membinasakannya (muubiquha)."',
+                "Apabila manusia 'menjual dirinya' kepada hawa nafsu dan kelalaian, cahaya imannya padam. Segala potensi pahalanya bertukar menjadi debu ashk yang gugur menjunamkan jiwanya."
+            );
+
+            // Permata Pudar & Gelap (Merah Karat)
+            gsap.to(coreMat.emissive, { r: 0.4, g: 0.05, b: 0.05, duration: 1.5 }); 
+            gsap.to(coreMat, { opacity: 0.5, roughness: 0.8, transmission: 0.2, duration: 1.5 }); 
+            gsap.to(coreLight.color, { r: 0.9, g: 0.2, b: 0.2, duration: 1.5 }); 
+            gsap.to(coreLight, { intensity: 1.5, duration: 1.5 });
+            
+            // Cincin Mizan Malap
+            rings.forEach(ring => {
+                gsap.to(ring.material, { opacity: 0.15, duration: 1.5 });
+                gsap.to(ring.material.emissive, { r: 0.2, g: 0.05, b: 0.05, duration: 1.5 });
+            });
+
+            // Zarah (Debu) menjadi kelabu merah gelap
+            gsap.to(particlesMat.color, { r: 0.4, g: 0.2, b: 0.2, duration: 1.5 });
+            gsap.to(scene.fog.color, { r: 0.110, g: 0.039, b: 0.039, duration: 1.5 }); gsap.to(scene.fog, { density: 0.02, duration: 1.5 }); 
+        }
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // Initialize state
+        setBebas();
+        
+        const __BASE_FOV = camera.fov;
+        const __REF_ASPECT = 16 / 9;
+        function applyResponsiveView() {
+            const w = window.innerWidth;
+            const h = window.innerHeight;
+            const aspect = w / h;
+            camera.aspect = aspect;
+            let fov = __BASE_FOV;
+            if (aspect < __REF_ASPECT) {
+                const vRad = THREE.MathUtils.degToRad(__BASE_FOV);
+                const hRad = 2 * Math.atan(Math.tan(vRad / 2) * __REF_ASPECT);
+                fov = THREE.MathUtils.radToDeg(2 * Math.atan(Math.tan(hRad / 2) / aspect));
+            }
+            if (w <= 640) fov *= 1.3;
+            else if (w <= 1024) fov *= 1.12;
+            camera.fov = Math.min(fov, 100);
+            camera.updateProjectionMatrix();
+            renderer.setSize(w, h);
+        }
+        window.addEventListener('resize', applyResponsiveView);
+        applyResponsiveView();
+
+animate();
+    </script>
+</body>
+</html>

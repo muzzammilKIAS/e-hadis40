@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Asas Syurga - Hadis 22 3D</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="./lib/three.min.js"></script>
+    <script src="./lib/gsap.min.js"></script>
+    <style>
+        @import url('./lib/fonts.css');
+        
+        body { margin: 0; overflow: hidden; background-color: #022c22; font-family: 'Baloo 2', sans-serif; }
+        #canvas-container { position: absolute; top: 0; left: 0; width: 100%; height: 100vh; z-index: 1; }
+        
+        .cosmic-bg {
+            background: radial-gradient(circle at 50% 50%, #064e3b 0%, #020617 100%);
+        }
+
+        .ui-layer { position: relative; z-index: 10; pointer-events: none; height: 100vh; display: flex; flex-direction: column; justify-content: space-between; padding: 2.5rem; }
+        
+        .glass-panel {
+            background: rgba(2, 44, 34, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            pointer-events: auto;
+        }
+
+        .text-arabic { font-family: 'Amiri', serif; }
+        
+        .btn-action { transition: all 0.4s ease; border: 1px solid rgba(255,255,255,0.1); }
+        .btn-action:hover { transform: translateX(-5px); background: rgba(255,255,255,0.15); }
+        
+        /* Tema Warna Butang Aktif */
+        .btn-fardu.active-btn { border-color: #10b981; box-shadow: 0 0 20px rgba(16, 185, 129, 0.3); background: rgba(16, 185, 129, 0.15); }
+        .btn-abai.active-btn { border-color: #ef4444; box-shadow: 0 0 20px rgba(239, 68, 68, 0.3); background: rgba(239, 68, 68, 0.15); }
+
+        /* =====================================================
+           RESPONSIF — telefon & tablet
+           ===================================================== */
+
+        /* --- Tablet --- */
+        @media (max-width: 1024px) {
+            .ui-layer { padding: 1.15rem; padding-top: 4.25rem; }
+
+            .ui-layer .glass-panel {
+                scrollbar-width: thin;
+                scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+                overscroll-behavior: contain;
+            }
+            .ui-layer .glass-panel::-webkit-scrollbar { width: 3px; }
+            .ui-layer .glass-panel::-webkit-scrollbar-track { background: transparent; }
+            .ui-layer .glass-panel::-webkit-scrollbar-thumb {
+                background: rgba(255, 255, 255, 0.3);
+                border-radius: 3px;
+            }
+            .ui-layer .glass-panel { border-radius: 1.25rem !important; }
+            .ui-layer .p-8 { padding: 1.1rem !important; }
+            .ui-layer .p-6 { padding: 1rem !important; }
+            .ui-layer header.glass-panel { max-width: 58%; max-height: 52vh; overflow-y: auto; }
+            .ui-layer > .glass-panel:not(header) { max-width: 46%; max-height: 36vh; overflow-y: auto; }
+
+            .ui-layer .text-4xl { font-size: 2rem !important; line-height: 2.4rem !important; }
+            .ui-layer .text-3xl { font-size: 1.65rem !important; line-height: 2.1rem !important; }
+            .ui-layer .text-2xl { font-size: 1.45rem !important; line-height: 1.9rem !important; }
+            .ui-layer .text-xl  { font-size: 1.25rem !important; }
+            .ui-layer .text-lg  { font-size: 1.12rem !important; }
+            .ui-layer .text-sm  { font-size: 1rem !important; line-height: 1.45rem !important; }
+            .ui-layer .text-xs  { font-size: 0.92rem !important; line-height: 1.32rem !important; }
+            .ui-layer .text-\[12px\] { font-size: 0.86rem !important; }
+            .ui-layer .text-\[13px\] { font-size: 0.95rem !important; }
+            .ui-layer .btn-action { font-size: 1rem !important; }
+        }
+
+        /* --- Telefon --- */
+        @media (max-width: 640px) {
+            .ui-layer { padding: 0.6rem; padding-top: 3.9rem; }
+            .ui-layer .glass-panel { border-radius: 0.95rem !important; }
+            .ui-layer .p-8 { padding: 0.8rem !important; }
+            .ui-layer .p-6 { padding: 0.75rem !important; }
+
+            .ui-layer header.glass-panel { max-width: 100%; max-height: 34vh; overflow-y: auto; }
+            .ui-layer > .glass-panel:not(header) {
+                max-width: 100%; margin-left: 0; max-height: 45vh; overflow-y: auto;
+            }
+            .ui-layer .gap-3 { gap: 0.35rem !important; }
+            .ui-layer .gap-2 { gap: 0.3rem !important; }
+
+            .ui-layer .text-4xl { font-size: 1.6rem !important; line-height: 2rem !important; }
+            .ui-layer .text-3xl { font-size: 1.4rem !important; line-height: 1.85rem !important; }
+            .ui-layer .text-2xl { font-size: 1.25rem !important; line-height: 1.65rem !important; }
+            .ui-layer .text-xl  { font-size: 1.12rem !important; }
+            .ui-layer .text-lg  { font-size: 1.05rem !important; }
+            .ui-layer .text-sm  { font-size: 0.95rem !important; line-height: 1.4rem !important; }
+            .ui-layer .text-xs  { font-size: 0.88rem !important; line-height: 1.28rem !important; }
+            .ui-layer .text-\[12px\] { font-size: 0.84rem !important; }
+            .ui-layer .text-\[13px\] { font-size: 0.92rem !important; }
+
+            .ui-layer .mb-4 { margin-bottom: 0.5rem !important; }
+            .ui-layer .my-4 { margin-top: 0.5rem !important; margin-bottom: 0.5rem !important; }
+            .ui-layer .mt-4 { margin-top: 0.5rem !important; }
+            .ui-layer .mt-3 { margin-top: 0.4rem !important; }
+            .ui-layer .mb-3 { margin-bottom: 0.4rem !important; }
+            .ui-layer .pt-4 { padding-top: 0.5rem !important; }
+            .ui-layer .py-2 { padding-top: 0.3rem !important; padding-bottom: 0.3rem !important; }
+
+            .ui-layer .btn-action { padding: 0.5rem 0.75rem !important; font-size: 0.92rem !important; }
+            .ui-layer .btn-action:hover { transform: none; }
+        }
+
+
+        .ui-layer { direction: ltr; text-align: left; }
+        .ui-layer .text-arabic {
+            direction: rtl;
+            text-align: right;
+            unicode-bidi: isolate;
+        }
+
+    </style>
+</head>
+<body class="cosmic-bg">
+    <button id="anatomi-back-btn" onclick="window.parent.postMessage('anatomi-sunnah-back', window.location.origin)" aria-label="Kembali" style="position:fixed; top:16px; left:16px; z-index:9999; width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.35); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); display:flex; align-items:center; justify-content:center; cursor:pointer; color:#fff; transition:background 0.2s; padding:0;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+    </button>
+    <style>#anatomi-back-btn:hover { background: rgba(255,255,255,0.2) !important; }</style>
+
+
+    <!-- Lapisan Antara Muka (UI) -->
+    <div class="ui-layer">
+        <header class="glass-panel p-8 rounded-3xl max-w-xl relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-500 rounded-bl-full opacity-15 blur-xl transition-colors duration-500" id="ui-glow"></div>
+            
+            <div class="inline-block px-4 py-1.5 bg-emerald-950/80 rounded-full mb-3 border border-emerald-500/30 transition-colors duration-500" id="ui-badge">
+                <span class="font-bold tracking-widest uppercase text-[10px] text-emerald-400 transition-colors duration-500" id="ui-badge-text">Penghayatan Hadis 40 • Hadis 22</span>
+            </div>
+            
+            <h1 class="text-4xl font-light text-white mb-1">Kecukupan Asas & <span class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300 transition-colors duration-500" id="ui-title-highlight">Jalan Syurga</span></h1>
+            <p class="text-arabic text-2xl text-emerald-200 mt-3 mb-4 text-right leading-relaxed transition-colors duration-500" dir="rtl" id="ui-arabic">أَرَأَيْتَ إِذَا صَلَّيْتُ الْمَكْتُوبَاتِ... أَأَدْخُلُ الْجَنَّةَ؟ قَالَ: نَعَمْ</p>
+            
+            <blockquote class="border-l-4 border-emerald-500 pl-4 py-2 my-4 bg-emerald-900/20 rounded-r-lg text-sm leading-relaxed text-gray-300 transition-colors duration-500" id="ui-quote">
+                "Jika aku mendirikan solat fardu, berpuasa Ramadan, menghalalkan yang halal, mengharamkan yang haram, dan aku tidak menambah apa-apa pun pada perkara itu, adakah aku akan masuk Syurga? Baginda menjawab: Ya."
+            </blockquote>
+            
+            <p class="text-emerald-200/70 text-xs leading-relaxed mt-4 border-t border-emerald-800/50 pt-4" id="ui-desc">
+                <strong>Simbolisme:</strong> Memelihara kewajipan asas (Fardu) dan menjauhi yang haram sudah cukup untuk menyusun anak tangga (titian) yang lurus menuju ke pintu Syurga.
+            </p>
+        </header>
+
+        <div class="glass-panel p-6 rounded-3xl max-w-sm ml-auto text-left">
+            <h3 class="text-white font-bold text-lg mb-1">Pilihan Jalan Hidup</h3>
+            <p class="text-gray-400 text-[11px] mb-4">Ubah tindakan untuk melihat bagaimana ia memberi kesan kepada titian ke arah Portal Syurga.</p>
+            
+            <div class="flex flex-col gap-2">
+                <button id="btn-1" onclick="setFardu()" class="btn-action btn-fardu active-btn pointer-events-auto bg-slate-900/60 text-slate-200 py-3.5 px-5 rounded-xl text-sm font-semibold flex items-center justify-between">
+                    <span>1. Pelihara Fardu (Jalan Terbuka)</span> <span class="text-3xl">🛤️</span>
+                </button>
+                <button id="btn-2" onclick="setAbai()" class="btn-action btn-abai pointer-events-auto bg-slate-900/60 text-slate-200 py-3.5 px-5 rounded-xl text-sm font-semibold flex items-center justify-between">
+                    <span>2. Langgar Asas/Haram (Runtuh)</span> <span class="text-3xl">🚧</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enjin 3D -->
+    <div id="canvas-container"></div>
+
+    <script>
+        // --- 1. SETUP ASAS ---
+        const scene = new THREE.Scene();
+        scene.fog = new THREE.FogExp2(0x022c22, 0.015);
+
+        // Kamera diletakkan di hadapan memandang ke dalam (perspektif mendalam)
+        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+        camera.position.set(0, 6, 45);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        document.getElementById('canvas-container').appendChild(renderer.domElement);
+
+        // --- 2. PENCAHAYAAN ---
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
+        scene.add(ambientLight);
+
+        // Cahaya dari arah Portal Syurga (Belakang/Tengah)
+        const portalLight = new THREE.PointLight(0x34d399, 4, 100); 
+        portalLight.position.set(0, 8, -20);
+        scene.add(portalLight);
+        
+        // Cahaya dari Teras Amalan (Depan)
+        const coreLight = new THREE.PointLight(0x10b981, 2, 50); 
+        coreLight.position.set(0, -2, 10);
+        scene.add(coreLight);
+
+        // --- 3. MODEL 3D ---
+        const mainGroup = new THREE.Group();
+        scene.add(mainGroup);
+
+        // A. Teras Asas / Foundation Core (Depan, berdekatan kamera)
+        const coreGeo = new THREE.OctahedronGeometry(4.0, 0); // Bentuk Berlian (Diamond)
+        const coreMat = new THREE.MeshPhysicalMaterial({
+            color: 0xffffff, emissive: 0x059669, emissiveIntensity: 0.8,
+            roughness: 0.1, metalness: 0.2, transmission: 0.9, thickness: 2.5,
+            clearcoat: 1.0, clearcoatRoughness: 0.1, transparent: true, opacity: 0.95
+        });
+        const coreMesh = new THREE.Mesh(coreGeo, coreMat);
+        coreMesh.position.set(0, -3, 10); // Duduk di depan
+        mainGroup.add(coreMesh);
+
+        // B. Titian Tangga (Staircase / Path to Paradise)
+        const pathGroup = new THREE.Group();
+        mainGroup.add(pathGroup);
+        const steps = [];
+        
+        // 5 anak tangga melambangkan 5 Rukun Islam / Fardu
+        for(let i=0; i<5; i++) {
+            const stepGeo = new THREE.BoxGeometry(10, 0.6, 4);
+            const stepMat = new THREE.MeshStandardMaterial({
+                color: 0xa7f3d0, emissive: 0x047857, metalness: 0.3, roughness: 0.2,
+                transparent: true, opacity: 0.85
+            });
+            const step = new THREE.Mesh(stepGeo, stepMat);
+            
+            // Susun dari depan (dekat Teras) menghala ke belakang (Portal), mendaki ke atas
+            step.userData = {
+                baseX: 0,
+                baseY: -1 + (i * 2.2), // Naik tangga
+                baseZ: 2 - (i * 6),    // Semakin jauh ke belakang
+                rotX: 0,
+                rotY: 0,
+                rotZ: 0
+            };
+            
+            step.position.set(step.userData.baseX, step.userData.baseY, step.userData.baseZ);
+            pathGroup.add(step);
+            steps.push(step);
+        }
+
+        // C. Portal Syurga (Gateway to Paradise) di hujung titian
+        const portalGroup = new THREE.Group();
+        portalGroup.position.set(0, 11, -25); // Jauh di belakang dan tinggi
+        mainGroup.add(portalGroup);
+
+        const portalGeo = new THREE.TorusGeometry(12, 0.5, 16, 100);
+        const portalMat = new THREE.MeshBasicMaterial({ color: 0x6ee7b7, transparent: true, opacity: 0.9 });
+        const portalMesh = new THREE.Mesh(portalGeo, portalMat);
+        portalGroup.add(portalMesh);
+        
+        // Membran di dalam Portal (Efek cahaya tembus/Misteri Syurga)
+        const portalMembraneGeo = new THREE.CircleGeometry(11.5, 64);
+        const portalMembraneMat = new THREE.MeshBasicMaterial({ 
+            color: 0xecfdf5, transparent: true, opacity: 0.4, side: THREE.DoubleSide, blending: THREE.AdditiveBlending 
+        });
+        const portalMembrane = new THREE.Mesh(portalMembraneGeo, portalMembraneMat);
+        portalGroup.add(portalMembrane);
+
+        // D. Zarah Nur (Cahaya Syurga)
+        const particlesCount = 500;
+        const particlesGeo = new THREE.BufferGeometry();
+        const posArray = new Float32Array(particlesCount * 3);
+        
+        for(let i = 0; i < particlesCount * 3; i+=3) {
+            posArray[i] = (Math.random() - 0.5) * 60;
+            posArray[i+1] = (Math.random() - 0.5) * 60;
+            posArray[i+2] = (Math.random() - 0.5) * 60 - 10; // Bias ke arah belakang
+        }
+        particlesGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+        const particlesMat = new THREE.PointsMaterial({ size: 0.25, color: 0xd1fae5, transparent: true, opacity: 0.8, blending: THREE.AdditiveBlending });
+        const particlesMesh = new THREE.Points(particlesGeo, particlesMat);
+        scene.add(particlesMesh);
+
+        // --- 4. LOGIK ANIMASI GLOBAL ---
+        let clock = new THREE.Clock();
+        let isFaithful = true;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            const time = clock.getElapsedTime();
+
+            // Putaran Teras Asas
+            coreMesh.rotation.y = time * 0.3;
+            if (isFaithful) {
+                coreMesh.rotation.z = Math.sin(time * 0.5) * 0.1;
+                coreMesh.position.y = -3 + Math.sin(time * 2) * 0.3; // Terapung lembut
+            } else {
+                coreMesh.rotation.x += 0.05;
+                coreMesh.position.y = -3 + Math.sin(time * 5) * 0.1; // Bergetar
+            }
+
+            // Putaran Portal Syurga
+            portalMesh.rotation.z = -time * 0.2;
+            
+            // Animasi Tangga Titian (Hover effect jika isFaithful)
+            if(isFaithful) {
+                steps.forEach((step, i) => {
+                    step.position.y = step.userData.baseY + Math.sin(time * 2 + i) * 0.2;
+                });
+            }
+
+            // Animasi Zarah (Mengalir masuk ke Portal)
+            const positions = particlesGeo.attributes.position.array;
+            for(let i = 0; i < particlesCount * 3; i += 3) {
+                if (isFaithful) {
+                    // Zarah tertarik ke arah portal (Z = -25)
+                    positions[i+2] -= 0.15; 
+                    if(positions[i+2] < -35) positions[i+2] = 25; // Reset ke depan
+                } else {
+                    // Zarah jatuh / bersepah
+                    positions[i+1] -= 0.1;
+                    if(positions[i+1] < -30) positions[i+1] = 30;
+                }
+            }
+            particlesGeo.attributes.position.needsUpdate = true;
+            particlesMesh.rotation.y = time * 0.05;
+
+            // Kamera beralun sedikit mengikut sumbu X
+            camera.position.x = Math.sin(time * 0.1) * 2;
+            camera.lookAt(0, 3, -5); // Tumpu ke arah tengah titian
+
+            renderer.render(scene, camera);
+        }
+
+        // --- 5. FUNGSI INTERAKSI (GSAP & UI) ---
+        function updateUI(btnId, titleClass, badgeBgClass, badgeTextClass, quoteBorderClass, quoteBgClass, glowClass, arabicText, quoteText, descText) {
+            for(let i=1; i<=2; i++) document.getElementById('btn-'+i).classList.remove('active-btn');
+            document.getElementById('btn-'+btnId).classList.add('active-btn');
+            
+            document.getElementById('ui-title-highlight').className = `font-extrabold text-transparent bg-clip-text bg-gradient-to-r ${titleClass} transition-colors duration-500`;
+            document.getElementById('ui-badge').className = `inline-block px-4 py-1.5 rounded-full mb-3 border border-white/10 ${badgeBgClass} transition-colors duration-500`;
+            document.getElementById('ui-badge-text').className = `font-bold tracking-widest uppercase text-[10px] ${badgeTextClass} transition-colors duration-500`;
+            document.getElementById('ui-quote').className = `border-l-4 ${quoteBorderClass} pl-4 py-2 my-4 ${quoteBgClass} rounded-r-lg text-sm leading-relaxed text-gray-200 transition-colors duration-500`;
+            document.getElementById('ui-glow').className = `absolute top-0 right-0 w-32 h-32 rounded-bl-full opacity-15 blur-xl transition-colors duration-500 ${glowClass}`;
+            
+            document.getElementById('ui-arabic').innerText = arabicText;
+            document.getElementById('ui-quote').innerText = quoteText;
+            document.getElementById('ui-desc').innerHTML = `<strong>Simbolisme:</strong> ${descText}`;
+        }
+
+        function setFardu() {
+            isFaithful = true;
+            updateUI(1, 
+                "from-emerald-400 to-teal-300", "bg-emerald-950/80", "text-emerald-400", 
+                "border-emerald-500", "bg-emerald-900/20", "bg-emerald-500",
+                "أَرَأَيْتَ إِذَا صَلَّيْتُ الْمَكْتُوبَاتِ... أَأَدْخُلُ الْجَنَّةَ؟ قَالَ: نَعَمْ",
+                '"Jika aku mendirikan solat fardu, berpuasa Ramadan, menghalalkan yang halal, mengharamkan yang haram, dan aku tidak menambah apa-apa pun, adakah aku akan masuk Syurga? Baginda menjawab: Ya."',
+                "Memelihara kewajipan asas (Fardu) dan menjauhi yang haram sudah cukup untuk menyusun anak tangga yang lurus dan teguh menuju ke Pintu Syurga (Portal Cahaya)."
+            );
+
+            // Cahaya & Teras (Emerald / Syurga)
+            gsap.to(coreMat.emissive, { r: 0.02, g: 0.59, b: 0.41, duration: 1.5 }); 
+            gsap.to(coreMat, { opacity: 0.95, roughness: 0.1, transmission: 0.9, duration: 1.5 });
+            gsap.to(coreLight.color, { r: 0.06, g: 0.72, b: 0.5, duration: 1.5 }); 
+            gsap.to(coreLight, { intensity: 2, duration: 1.5 });
+            
+            // Susun semula Titian Tangga
+            steps.forEach((step, i) => {
+                gsap.to(step.position, { 
+                    x: step.userData.baseX, 
+                    y: step.userData.baseY, 
+                    z: step.userData.baseZ, 
+                    duration: 1.5, 
+                    ease: "back.out(1.2)"
+                });
+                gsap.to(step.rotation, { x: 0, y: 0, z: 0, duration: 1.5 });
+                gsap.to(step.material.emissive, { r: 0.01, g: 0.47, b: 0.34, duration: 1.5 }); // Hijau terang
+                gsap.to(step.material, { opacity: 0.85, duration: 1.5 });
+            });
+
+            // Aktifkan Portal Syurga
+            gsap.to(portalLight.color, { r: 0.2, g: 0.82, b: 0.6, duration: 1.5 });
+            gsap.to(portalLight, { intensity: 4, duration: 1.5 });
+            gsap.to(portalMat, { opacity: 0.9, duration: 1.5 });
+            gsap.to(portalMembraneMat, { opacity: 0.4, duration: 1.5 });
+            gsap.to(portalGroup.scale, { x: 1, y: 1, z: 1, duration: 1.5, ease: "back.out(1.2)" });
+
+            gsap.to(particlesMat.color, { r: 0.82, g: 0.98, b: 0.9, duration: 1.5 });
+            gsap.to(scene.fog.color, { r: 0.008, g: 0.173, b: 0.133, duration: 1.5 }); gsap.to(scene.fog, { density: 0.015, duration: 1.5 });
+        }
+
+        function setAbai() {
+            isFaithful = false;
+            updateUI(2, 
+                "from-red-400 to-rose-600", "bg-red-950/80", "text-red-400", 
+                "border-red-500", "bg-red-900/20", "bg-red-600",
+                "تَرْكُ الْفَرَائِضِ وَانْتِهَاكُ الْمَحَارِمِ",
+                'Sesiapa yang mengabaikan kewajipan fardu atau secara sengaja mencampuradukkan hidupnya dengan perkara haram, dia telah memusnahkan jaminan asas keselamatan dirinya.',
+                "Apabila asas fardu diabaikan dan haram dilanggar, teras keimanan menjadi kelam. Titian amal akan runtuh (terputus), dan Portal Syurga akan pudar tertutup rapat."
+            );
+
+            // Cahaya & Teras (Merah / Runtuh)
+            gsap.to(coreMat.emissive, { r: 0.4, g: 0.05, b: 0.05, duration: 1.5 }); 
+            gsap.to(coreMat, { opacity: 0.6, roughness: 0.8, transmission: 0.1, duration: 1.5 });
+            gsap.to(coreLight.color, { r: 0.9, g: 0.2, b: 0.2, duration: 1.5 }); 
+            gsap.to(coreLight, { intensity: 1.5, duration: 1.5 });
+            
+            // Runtuhkan Titian Tangga (Scattered Abyss)
+            steps.forEach((step) => {
+                gsap.to(step.position, { 
+                    x: (Math.random() - 0.5) * 40, 
+                    y: -15 - Math.random() * 20, // Jatuh ke bawah
+                    z: (Math.random() - 0.5) * 30, 
+                    duration: 2.0, 
+                    ease: "power2.in"
+                });
+                gsap.to(step.rotation, { 
+                    x: Math.random() * Math.PI * 4, 
+                    y: Math.random() * Math.PI * 4, 
+                    duration: 2.0 
+                });
+                gsap.to(step.material.emissive, { r: 0.2, g: 0.05, b: 0.05, duration: 1.5 }); // Gelap
+                gsap.to(step.material, { opacity: 0.3, duration: 1.5 });
+            });
+
+            // Pudar & Tutup Portal Syurga
+            gsap.to(portalLight, { intensity: 0, duration: 1.5 });
+            gsap.to(portalMat, { opacity: 0, duration: 1.5 });
+            gsap.to(portalMembraneMat, { opacity: 0, duration: 1.5 });
+            gsap.to(portalGroup.scale, { x: 0.1, y: 0.1, z: 0.1, duration: 1.5 });
+
+            gsap.to(particlesMat.color, { r: 0.8, g: 0.3, b: 0.3, duration: 1.5 });
+            gsap.to(scene.fog.color, { r: 0.165, g: 0.031, b: 0.031, duration: 1.5 }); gsap.to(scene.fog, { density: 0.02, duration: 1.5 }); 
+        }
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // Initialize state
+        setFardu();
+        
+        const __BASE_FOV = camera.fov;
+        const __REF_ASPECT = 16 / 9;
+        function applyResponsiveView() {
+            const w = window.innerWidth;
+            const h = window.innerHeight;
+            const aspect = w / h;
+            camera.aspect = aspect;
+            let fov = __BASE_FOV;
+            if (aspect < __REF_ASPECT) {
+                const vRad = THREE.MathUtils.degToRad(__BASE_FOV);
+                const hRad = 2 * Math.atan(Math.tan(vRad / 2) * __REF_ASPECT);
+                fov = THREE.MathUtils.radToDeg(2 * Math.atan(Math.tan(hRad / 2) / aspect));
+            }
+            if (w <= 640) fov *= 1.3;
+            else if (w <= 1024) fov *= 1.12;
+            camera.fov = Math.min(fov, 100);
+            camera.updateProjectionMatrix();
+            renderer.setSize(w, h);
+        }
+        window.addEventListener('resize', applyResponsiveView);
+        applyResponsiveView();
+
+animate();
+    </script>
+</body>
+</html>

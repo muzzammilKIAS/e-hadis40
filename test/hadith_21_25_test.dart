@@ -210,5 +210,29 @@ void main() {
       expect(ids, contains('al_harith_ibn_asim_al_ashari'));
       expect(ids, contains('abu_dharr_jundub_ibn_junadah'));
     });
+
+    test('Anatomi Sunnah HTML H21-H25 wujud dan guna sumber tempatan', () {
+      for (final n in ['21', '22', '23', '24', '25']) {
+        final file = File('web/anatomi_sunnah/hadith_$n.html');
+        expect(file.existsSync(), true,
+            reason: 'web/anatomi_sunnah/hadith_$n.html mesti wujud');
+        final content = file.readAsStringSync();
+        expect(content.contains('./lib/three.min.js'), true,
+            reason: 'H$n mesti guna three.min.js tempatan');
+        expect(content.contains('cdn.tailwindcss.com'), false,
+            reason: 'H$n tidak boleh guna CDN');
+        expect(content.contains('anatomi-back-btn'), true,
+            reason: 'H$n mesti ada butang kembali');
+        expect(content.contains('applyResponsiveView'), true,
+            reason: 'H$n mesti ada responsive view');
+      }
+    });
+
+    test('AnatomiSunnahScreen.availableHadithNumbers = 25', () {
+      final source =
+          File('lib/screens/anatomi_sunnah_screen.dart').readAsStringSync();
+      expect(source.contains('availableHadithNumbers = 25'), true,
+          reason: 'availableHadithNumbers mesti 25 untuk merangkumi H21-H25');
+    });
   });
 }

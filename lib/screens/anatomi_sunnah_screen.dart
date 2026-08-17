@@ -22,33 +22,13 @@ class AnatomiSunnahScreen extends StatefulWidget {
   final int hadithNumber;
 
   static const _themeStorageKey = 'ehadis40-theme';
-  static const availableHadithNumbers = 20;
+  static const availableHadithNumbers = 25;
 
   @override
   State<AnatomiSunnahScreen> createState() => _AnatomiSunnahScreenState();
 }
 
 class _AnatomiSunnahScreenState extends State<AnatomiSunnahScreen> {
-  late final String _viewType =
-      'anatomi-sunnah-game-iframe-${widget.hadithNumber}';
-
-  /// Jenis paparan yang kilangnya (view factory) SUDAH didaftarkan.
-  ///
-  /// Mesti `static`: `registerViewFactory` hanya berjaya sekali bagi setiap
-  /// `viewType` sepanjang hayat aplikasi — panggilan kedua dikembalikan
-  /// `false` secara senyap dan kilang LAMA dikekalkan. Jika bendera ini
-  /// disimpan per-instance, kunjungan kedua ke hadis yang sama akan
-  /// menggunakan semula penutupan (closure) daripada State LAMA yang sudah
-  /// dilupuskan — `mounted` bernilai false, `setState` tidak pernah dipanggil,
-  /// dan `_loaded` skrin baharu tersekat `false` selama-lamanya.
-  static final Set<String> _registeredViewTypes = <String>{};
-
-  /// Panggil balik "iframe sudah dimuatkan" bagi State yang sedang aktif.
-  /// Kilang yang didaftarkan sekali sahaja itu merujuk peta ini (bukan
-  /// menangkap `this`), supaya ia sentiasa memberitahu State semasa.
-  static final Map<String, VoidCallback> _onLoadCallbacks =
-      <String, VoidCallback>{};
-
   bool _loaded = false;
   ThemeMode? _syncedMode;
   StreamSubscription<html.MessageEvent>? _messageSub;
@@ -60,25 +40,10 @@ class _AnatomiSunnahScreenState extends State<AnatomiSunnahScreen> {
   @override
   void initState() {
     super.initState();
-    _onLoadCallbacks[_viewType] = _onLoadCallback;
-
-    if (_registeredViewTypes.add(_viewType)) {
-      final padded = widget.hadithNumber.toString().padLeft(2, '0');
-      final viewType = _viewType;
-      ui_web.platformViewRegistry.registerViewFactory(
-        viewType,
-        (int viewId) {
-          final iframe = html.IFrameElement()
-            ..src = 'anatomi_sunnah/hadith_$padded.html'
-            ..style.border = 'none'
-            ..style.width = '100%'
-            ..style.height = '100%'
-            ..allow = 'autoplay'
-            ..onLoad.listen((_) => _onLoadCallbacks[viewType]?.call());
-          return iframe;
-        },
-      );
-    }
+    AnatomiSunnahEmbed.register(
+      hadithNumber: widget.hadithNumber,
+      onLoad: _onLoadCallback,
+    );
     // Butang kembali diletakkan di dalam HTML simulasi itu sendiri (bukan
     // widget Flutter di atas iframe) supaya klik sentiasa berfungsi — iframe
     // menelan semua event penunjuk pada ruang skrin yang ditempatinya,
@@ -95,11 +60,10 @@ class _AnatomiSunnahScreenState extends State<AnatomiSunnahScreen> {
   @override
   void dispose() {
     _messageSub?.cancel();
-    // Buang panggil balik hanya jika ia masih milik State ini — jika State
-    // baharu sudah menggantikannya, biarkan milik State baharu itu.
-    if (identical(_onLoadCallbacks[_viewType], _onLoadCallback)) {
-      _onLoadCallbacks.remove(_viewType);
-    }
+    AnatomiSunnahEmbed.unregister(
+      hadithNumber: widget.hadithNumber,
+      onLoad: _onLoadCallback,
+    );
     super.dispose();
   }
 
@@ -129,7 +93,7 @@ class _AnatomiSunnahScreenState extends State<AnatomiSunnahScreen> {
       body: Stack(
         children: [
           Positioned.fill(
-            child: HtmlElementView(viewType: _viewType),
+            child: AnatomiSunnahEmbed(hadithNumber: widget.hadithNumber),
           ),
           if (!_loaded)
             Positioned.fill(
@@ -143,5 +107,82 @@ class _AnatomiSunnahScreenState extends State<AnatomiSunnahScreen> {
         ],
       ),
     );
+  }
+}
+
+/// Pembenaman iframe "Anatomi Sunnah 3D" bagi satu hadis — boleh digunakan
+/// sebagai paparan penuh (dalam [AnatomiSunnahScreen]) atau terbenam dalam
+/// halaman lain (cth. mod projektor).
+///
+/// Pendaftaran kilang platform view hanya boleh dilakukan sekali bagi setiap
+/// `viewType` sepanjang hayat aplikasi, maka pendaftaran dilakukan secara
+/// statik kongsi melalui [register]. Widget ini sendiri TIDAK mendaftar —
+/// pemilik mesti memanggil [register] sebelum membinanya.
+class AnatomiSunnahEmbed extends StatelessWidget {
+  const AnatomiSunnahEmbed({required this.hadithNumber, super.key});
+
+  final int hadithNumber;
+
+  /// Jenis paparan yang kilangnya (view factory) SUDAH didaftarkan.
+  ///
+  /// Mesti `static`: `registerViewFactory` hanya berjaya sekali bagi setiap
+  /// `viewType` sepanjang hayat aplikasi — panggilan kedua dikembalikan
+  /// `false` secara senyap dan kilang LAMA dikekalkan. Jika bendera ini
+  /// disimpan per-instance, kunjungan kedua ke hadis yang sama akan
+  /// menggunakan semula penutupan (closure) daripada State LAMA yang sudah
+  /// dilupuskan — `mounted` bernilai false, `setState` tidak pernah dipanggil,
+  /// dan `_loaded` skrin baharu tersekat `false` selama-lamanya.
+  static final Set<String> _registeredViewTypes = <String>{};
+
+  /// Panggil balik "iframe sudah dimuatkan" bagi pemilik yang sedang aktif.
+  /// Kilang yang didaftarkan sekali sahaja itu merujuk peta ini (bukan
+  /// menangkap `this`), supaya ia sentiasa memberitahu pemilik semasa.
+  static final Map<String, VoidCallback> _onLoadCallbacks =
+      <String, VoidCallback>{};
+
+  static String _viewTypeFor(int hadithNumber) =>
+      'anatomi-sunnah-game-iframe-$hadithNumber';
+
+  /// Daftarkan kilang platform view bagi hadis tertentu (sekali sahaja).
+  static void register({
+    required int hadithNumber,
+    required VoidCallback onLoad,
+  }) {
+    final viewType = _viewTypeFor(hadithNumber);
+    _onLoadCallbacks[viewType] = onLoad;
+
+    if (_registeredViewTypes.add(viewType)) {
+      final padded = hadithNumber.toString().padLeft(2, '0');
+      ui_web.platformViewRegistry.registerViewFactory(
+        viewType,
+        (int viewId) {
+          final iframe = html.IFrameElement()
+            ..src = 'anatomi_sunnah/hadith_$padded.html'
+            ..style.border = 'none'
+            ..style.width = '100%'
+            ..style.height = '100%'
+            ..allow = 'autoplay'
+            ..onLoad.listen((_) => _onLoadCallbacks[viewType]?.call());
+          return iframe;
+        },
+      );
+    }
+  }
+
+  /// Buang panggil balik hanya jika ia masih milik pemilik yang memanggil —
+  /// jika pemilik baharu sudah menggantikannya, biarkan milik pemilik baharu.
+  static void unregister({
+    required int hadithNumber,
+    required VoidCallback onLoad,
+  }) {
+    final viewType = _viewTypeFor(hadithNumber);
+    if (identical(_onLoadCallbacks[viewType], onLoad)) {
+      _onLoadCallbacks.remove(viewType);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return HtmlElementView(viewType: _viewTypeFor(hadithNumber));
   }
 }
