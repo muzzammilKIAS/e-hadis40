@@ -38,6 +38,7 @@ class Hadith {
     required this.supportingExample,
     required this.copyrightNotice,
     required this.sourceNote,
+    this.sourceDocument = '',
   });
 
   final String id;
@@ -78,6 +79,12 @@ class Hadith {
   final SupportingExample? supportingExample;
   final String copyrightNotice;
   final String sourceNote;
+
+  /// Nama dokumen sumber teras (cth. "Modul Penghayatan Hadis 40 Imam
+  /// Nawawi Edisi Kedua, KPM") — digunakan untuk membina nota sumber yang
+  /// telus kepada pengguna (lihat `_SourceAttribution` di hadith_screen.dart),
+  /// berbeza daripada [sourceNote] yang menyimpan nota semakan dalaman.
+  final String sourceDocument;
 
   String get displayNumber => number.toString().padLeft(2, '0');
 
@@ -160,6 +167,7 @@ class Hadith {
           : null,
       copyrightNotice: json['copyrightNotice'] as String? ?? '',
       sourceNote: sourceJson['verificationNote'] as String? ?? '',
+      sourceDocument: sourceJson['document'] as String? ?? '',
     );
   }
 

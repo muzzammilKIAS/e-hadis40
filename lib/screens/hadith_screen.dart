@@ -151,45 +151,9 @@ class _HadithScreenState extends State<HadithScreen> {
               HadithSection(
                 title: 'Maksud Hadis',
                 icon: Icons.translate_rounded,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SelectableText(
-                      hadith.translationMalay,
-                      style: Theme.of(context).textTheme.bodyLarge,
-                    ),
-                    if (hadith.audioTranscriptNote.isNotEmpty) ...[
-                      const SizedBox(height: AppSpacing.md),
-                      Container(
-                        padding: const EdgeInsets.all(12),
-                        decoration: BoxDecoration(
-                          color:
-                              scheme.secondaryContainer.withValues(alpha: 0.3),
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Icon(
-                              Icons.info_outline_rounded,
-                              size: 18,
-                              color: scheme.onSecondaryContainer,
-                            ),
-                            const SizedBox(width: 10),
-                            Expanded(
-                              child: Text(
-                                hadith.audioTranscriptNote,
-                                style: TextStyle(
-                                  color: scheme.onSecondaryContainer,
-                                  fontSize: 13,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ],
+                child: SelectableText(
+                  hadith.translationMalay,
+                  style: Theme.of(context).textTheme.bodyLarge,
                 ),
               ),
               const SizedBox(height: AppSpacing.xl),
@@ -498,13 +462,7 @@ class _HadithScreenState extends State<HadithScreen> {
                 onComplete: () => _complete(context, controller),
               ),
               const SizedBox(height: AppSpacing.xl),
-              if (hadith.sourceNote.isNotEmpty)
-                Text(
-                  'Nota penerbitan: ${hadith.sourceNote}',
-                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                        color: scheme.onSurfaceVariant,
-                      ),
-                ),
+              _SourceAttribution(hadith: hadith),
               const SizedBox(height: AppSpacing.xxl),
               _HadithPrevNext(
                 hadith: hadith,
@@ -688,6 +646,84 @@ class _ActivityTile extends StatelessWidget {
   }
 }
 
+/// Nota telus tentang asal-usul kandungan halaman ini — kandungan teras
+/// (matan, terjemahan, huraian) sentiasa berasaskan Modul Penghayatan
+/// Hadis 40 Imam Nawawi (KPM), manakala lapisan aplikasi (kuiz, refleksi,
+/// masa segmen audio) disediakan oleh pasukan e-Hadis40 sendiri. Biografi
+/// perawi disemak berasingan — sesetengah perawi tiada dalam Modul KPM,
+/// jadi biodatanya disumberkan daripada bahan rujukan sahabat yang muktabar
+/// (al-Isabah fi Tamyiz al-Sahabah; Siyar A'lam al-Nubala').
+class _SourceAttribution extends StatelessWidget {
+  const _SourceAttribution({required this.hadith});
+
+  final Hadith hadith;
+
+  bool get _narratorFromExternalSource =>
+      hadith.narrator.source.contains('TIDAK terdapat dalam Modul');
+
+  @override
+  Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+    final labelStyle = Theme.of(context).textTheme.labelSmall?.copyWith(
+          color: scheme.onSurfaceVariant,
+          fontWeight: FontWeight.w700,
+          letterSpacing: 0.4,
+        );
+    final bodyStyle = Theme.of(context).textTheme.bodySmall?.copyWith(
+          color: scheme.onSurfaceVariant,
+          height: 1.5,
+        );
+    final rawDocument = hadith.sourceDocument.isNotEmpty
+        ? hadith.sourceDocument
+        : 'Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua, Kementerian '
+            'Pendidikan Malaysia';
+    // Sesetengah nilai sumber sudah berakhir dengan noktah — buang supaya
+    // tidak bertindih dengan noktah yang ditambah pada ayat di bawah.
+    final coreDocument = rawDocument.endsWith('.')
+        ? rawDocument.substring(0, rawDocument.length - 1)
+        : rawDocument;
+
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(14),
+      decoration: BoxDecoration(
+        color: scheme.surfaceContainerHighest.withValues(alpha: 0.35),
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: scheme.outlineVariant.withValues(alpha: 0.6)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text('SUMBER KANDUNGAN', style: labelStyle),
+          const SizedBox(height: 8),
+          Text(
+            '• Teks hadis, terjemahan dan huraian teras: $coreDocument.',
+            style: bodyStyle,
+          ),
+          const SizedBox(height: 4),
+          Text(
+            '• Objektif pembelajaran digital, soalan refleksi, kuiz dan '
+            'masa segmen audio: disediakan oleh pasukan pembangunan '
+            'e-Hadis40 (bukan sebahagian Modul KPM).',
+            style: bodyStyle,
+          ),
+          const SizedBox(height: 4),
+          Text(
+            _narratorFromExternalSource
+                ? '• Biografi perawi: disusun daripada bahan rujukan '
+                    'sahabat yang muktabar (al-Isabah fi Tamyiz al-Sahabah — '
+                    "Ibn Hajar al-'Asqalani; Siyar A'lam al-Nubala' — "
+                    'al-Dhahabi), bukan daripada Modul KPM.'
+                : '• Biografi perawi: berdasarkan $coreDocument.',
+            style: bodyStyle,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 class _QuizCallToAction extends StatelessWidget {
   const _QuizCallToAction({required this.hadith, required this.controller});
 
@@ -838,33 +874,62 @@ class _HadithPrevNext extends StatelessWidget {
     final nextComingSoon =
         next == null && nextNumber <= AppCurriculumStructure.totalHadiths;
 
+    // Setiap butang dibalut `Expanded` supaya tajuk hadis yang panjang
+    // (cth. "Penciptaan Manusia: Ketetapan Rezeki...") dipotong dengan
+    // `TextOverflow.ellipsis` dan tidak melimpah keluar baris (overflow),
+    // yang sebelum ini menyebabkan jalur amaran kuning-hitam Flutter
+    // kelihatan pada skrin sempit.
     return Row(
       children: [
-        if (prev != null)
-          TextButton.icon(
-            onPressed: () => _navigateReplace(context, prev),
-            icon: const Icon(Icons.arrow_back_rounded, size: 18),
-            label: Text('${prev.displayNumber}. ${prev.title}'),
-          )
-        else
-          const Spacer(),
-        if (next != null)
-          TextButton.icon(
-            onPressed: () => _navigateReplace(context, next),
-            icon: const Icon(Icons.arrow_forward_rounded, size: 18),
-            label: Text('${next.displayNumber}. ${next.title}'),
-          )
-        else if (nextComingSoon)
-          Tooltip(
-            message: 'Hadis $nextNumber akan datang selepas semakan kandungan.',
-            child: TextButton.icon(
-              onPressed: null,
-              icon: const Icon(Icons.arrow_forward_rounded, size: 18),
-              label: Text('Hadis $nextNumber · Akan Datang'),
-            ),
-          )
-        else
-          const Spacer(),
+        Expanded(
+          child: prev != null
+              ? Align(
+                  alignment: Alignment.centerLeft,
+                  child: TextButton.icon(
+                    onPressed: () => _navigateReplace(context, prev),
+                    icon: const Icon(Icons.arrow_back_rounded, size: 18),
+                    label: Flexible(
+                      child: Text(
+                        '${prev.displayNumber}. ${prev.title}',
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ),
+                )
+              : const SizedBox.shrink(),
+        ),
+        const SizedBox(width: 12),
+        Expanded(
+          child: Align(
+            alignment: Alignment.centerRight,
+            child: next != null
+                ? TextButton.icon(
+                    onPressed: () => _navigateReplace(context, next),
+                    icon: const Icon(Icons.arrow_forward_rounded, size: 18),
+                    label: Flexible(
+                      child: Text(
+                        '${next.displayNumber}. ${next.title}',
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  )
+                : nextComingSoon
+                    ? Tooltip(
+                        message:
+                            'Hadis $nextNumber akan datang selepas semakan '
+                            'kandungan.',
+                        child: TextButton.icon(
+                          onPressed: null,
+                          icon:
+                              const Icon(Icons.arrow_forward_rounded, size: 18),
+                          label: Text('Hadis $nextNumber · Akan Datang'),
+                        ),
+                      )
+                    : const SizedBox.shrink(),
+          ),
+        ),
       ],
     );
   }
