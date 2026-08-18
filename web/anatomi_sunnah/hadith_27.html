@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Kompas Hati - Hadis 27 3D</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="./lib/three.min.js"></script>
+    <script src="./lib/gsap.min.js"></script>
+    <style>
+        @import url('./lib/fonts.css');
+
+        body { margin: 0; overflow: hidden; background-color: #0f172a; font-family: 'Baloo 2', sans-serif; }
+        #canvas-container { position: absolute; top: 0; left: 0; width: 100%; height: 100vh; z-index: 1; }
+
+        .cosmic-bg {
+            background: radial-gradient(circle at 50% 50%, #064e3b 0%, #020617 100%);
+        }
+
+        .ui-layer { position: relative; z-index: 10; pointer-events: none; height: 100vh; display: flex; flex-direction: column; justify-content: space-between; padding: 2.5rem; }
+
+        .glass-panel {
+            background: rgba(2, 44, 34, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(20, 184, 166, 0.2);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            pointer-events: auto;
+        }
+
+        .text-arabic { font-family: 'Amiri', serif; }
+
+        .btn-action { transition: all 0.4s ease; border: 1px solid rgba(255,255,255,0.1); }
+        .btn-action:hover { transform: translateX(-5px); background: rgba(255,255,255,0.15); }
+
+        /* Tema Warna Butang Aktif */
+        .btn-baik.active-btn { border-color: #14b8a6; box-shadow: 0 0 20px rgba(20, 184, 166, 0.3); background: rgba(20, 184, 166, 0.15); }
+        .btn-dosa.active-btn { border-color: #ef4444; box-shadow: 0 0 20px rgba(239, 68, 68, 0.3); background: rgba(239, 68, 68, 0.15); }
+
+        /* =====================================================
+           RESPONSIF — telefon & tablet
+           ===================================================== */
+
+        /* --- Tablet --- */
+        @media (max-width: 1024px) {
+            .ui-layer { padding: 1.15rem; padding-top: 4.25rem; }
+
+            .ui-layer .glass-panel {
+                scrollbar-width: thin;
+                scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+                overscroll-behavior: contain;
+            }
+            .ui-layer .glass-panel::-webkit-scrollbar { width: 3px; }
+            .ui-layer .glass-panel::-webkit-scrollbar-track { background: transparent; }
+            .ui-layer .glass-panel::-webkit-scrollbar-thumb {
+                background: rgba(255, 255, 255, 0.3);
+                border-radius: 3px;
+            }
+            .ui-layer .glass-panel { border-radius: 1.25rem !important; }
+            .ui-layer .p-8 { padding: 1.1rem !important; }
+            .ui-layer .p-6 { padding: 1rem !important; }
+            .ui-layer header.glass-panel { max-width: 58%; max-height: 52vh; overflow-y: auto; }
+            .ui-layer > .glass-panel:not(header) { max-width: 46%; max-height: 36vh; overflow-y: auto; }
+
+            .ui-layer .text-4xl { font-size: 2rem !important; line-height: 2.4rem !important; }
+            .ui-layer .text-3xl { font-size: 1.65rem !important; line-height: 2.1rem !important; }
+            .ui-layer .text-2xl { font-size: 1.45rem !important; line-height: 1.9rem !important; }
+            .ui-layer .text-xl  { font-size: 1.25rem !important; }
+            .ui-layer .text-lg  { font-size: 1.12rem !important; }
+            .ui-layer .text-sm  { font-size: 1rem !important; line-height: 1.45rem !important; }
+            .ui-layer .text-xs  { font-size: 0.92rem !important; line-height: 1.32rem !important; }
+            .ui-layer .text-\[12px\] { font-size: 0.86rem !important; }
+            .ui-layer .text-\[13px\] { font-size: 0.95rem !important; }
+            .ui-layer .btn-action { font-size: 1rem !important; }
+        }
+
+        /* --- Telefon --- */
+        @media (max-width: 640px) {
+            .ui-layer { padding: 0.6rem; padding-top: 3.9rem; }
+            .ui-layer .glass-panel { border-radius: 0.95rem !important; }
+            .ui-layer .p-8 { padding: 0.8rem !important; }
+            .ui-layer .p-6 { padding: 0.75rem !important; }
+
+            .ui-layer header.glass-panel { max-width: 100%; max-height: 34vh; overflow-y: auto; }
+            .ui-layer > .glass-panel:not(header) {
+                max-width: 100%; margin-left: 0; max-height: 45vh; overflow-y: auto;
+            }
+            .ui-layer .gap-3 { gap: 0.35rem !important; }
+            .ui-layer .gap-2 { gap: 0.3rem !important; }
+
+            .ui-layer .text-4xl { font-size: 1.6rem !important; line-height: 2rem !important; }
+            .ui-layer .text-3xl { font-size: 1.4rem !important; line-height: 1.85rem !important; }
+            .ui-layer .text-2xl { font-size: 1.25rem !important; line-height: 1.65rem !important; }
+            .ui-layer .text-xl  { font-size: 1.12rem !important; }
+            .ui-layer .text-lg  { font-size: 1.05rem !important; }
+            .ui-layer .text-sm  { font-size: 0.95rem !important; line-height: 1.4rem !important; }
+            .ui-layer .text-xs  { font-size: 0.88rem !important; line-height: 1.28rem !important; }
+            .ui-layer .text-\[12px\] { font-size: 0.84rem !important; }
+            .ui-layer .text-\[13px\] { font-size: 0.92rem !important; }
+
+            .ui-layer .mb-4 { margin-bottom: 0.5rem !important; }
+            .ui-layer .my-4 { margin-top: 0.5rem !important; margin-bottom: 0.5rem !important; }
+            .ui-layer .mt-4 { margin-top: 0.5rem !important; }
+            .ui-layer .mt-3 { margin-top: 0.4rem !important; }
+            .ui-layer .mb-3 { margin-bottom: 0.4rem !important; }
+            .ui-layer .pt-4 { padding-top: 0.5rem !important; }
+            .ui-layer .py-2 { padding-top: 0.3rem !important; padding-bottom: 0.3rem !important; }
+
+            .ui-layer .btn-action { padding: 0.5rem 0.75rem !important; font-size: 0.92rem !important; }
+            .ui-layer .btn-action:hover { transform: none; }
+        }
+
+        .ui-layer { direction: ltr; text-align: left; }
+        .ui-layer .text-arabic {
+            direction: rtl;
+            text-align: right;
+            unicode-bidi: isolate;
+        }
+    </style>
+</head>
+<body class="cosmic-bg">
+    <button id="anatomi-back-btn" onclick="window.parent.postMessage('anatomi-sunnah-back', window.location.origin)" aria-label="Kembali" style="position:fixed; top:16px; left:16px; z-index:9999; width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.35); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); display:flex; align-items:center; justify-content:center; cursor:pointer; color:#fff; transition:background 0.2s; padding:0;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+    </button>
+    <style>#anatomi-back-btn:hover { background: rgba(255,255,255,0.2) !important; }</style>
+
+    <div class="ui-layer">
+        <header class="glass-panel p-8 rounded-3xl max-w-xl relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-teal-500 rounded-bl-full opacity-15 blur-xl transition-colors duration-500" id="ui-glow"></div>
+
+            <div class="inline-block px-4 py-1.5 bg-teal-950/80 rounded-full mb-3 border border-teal-500/30 transition-colors duration-500" id="ui-badge">
+                <span class="font-bold tracking-widest uppercase text-[10px] text-teal-400 transition-colors duration-500" id="ui-badge-text">Penghayatan Hadis 40 • Hadis 27</span>
+            </div>
+
+            <h1 class="text-4xl font-light text-white mb-1">Kompas <span class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-emerald-300 transition-colors duration-500" id="ui-title-highlight">Hati</span></h1>
+            <p class="text-arabic text-3xl text-teal-200 mt-3 mb-4 text-right leading-relaxed transition-colors duration-500" dir="rtl" id="ui-arabic">وَالْإِثْمُ مَا حَاكَ فِي نَفْسِكَ</p>
+
+            <blockquote class="border-l-4 border-teal-500 pl-4 py-2 my-4 bg-teal-900/20 rounded-r-lg text-sm leading-relaxed text-gray-300 transition-colors duration-500" id="ui-quote">
+                "Kebaikan itu ialah akhlak yang mulia, manakala dosa itu ialah apa yang bergetar (meresahkan) di dalam dadamu dan engkau benci manusia mengetahuinya."
+            </blockquote>
+
+            <p class="text-teal-200/70 text-xs leading-relaxed mt-4 border-t border-teal-800/50 pt-4" id="ui-desc">
+                <strong>Simbolisme:</strong> Jiwa diciptakan di atas fitrah. Kebaikan membawa frekuensi yang menenangkan. Dosa pula menghasilkan getaran resah (aritmia) dalam dada, dan diselubungi bayang-bayang ketakutan.
+            </p>
+        </header>
+
+        <div class="glass-panel p-6 rounded-3xl max-w-sm ml-auto text-left">
+            <h3 class="text-white font-bold text-lg mb-1">Frekuensi Jiwa</h3>
+            <p class="text-gray-400 text-[11px] mb-4">Ubah tindakan untuk melihat bagaimana jiwa memberi isyarat terhadap perbuatan anda.</p>
+
+            <div class="flex flex-col gap-2">
+                <button id="btn-1" onclick="setKebaikan()" class="btn-action btn-baik active-btn pointer-events-auto bg-slate-900/60 text-slate-200 py-3.5 px-5 rounded-xl text-sm font-semibold flex items-center justify-between">
+                    <span>1. Kebaikan (Ketenangan)</span> <span class="text-3xl">🕊️</span>
+                </button>
+                <button id="btn-2" onclick="setDosa()" class="btn-action btn-dosa pointer-events-auto bg-slate-900/60 text-slate-200 py-3.5 px-5 rounded-xl text-sm font-semibold flex items-center justify-between">
+                    <span>2. Dosa (Keresahan Hati)</span> <span class="text-3xl">😰</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="canvas-container"></div>
+
+    <script>
+        // --- 1. SETUP ASAS ---
+        const scene = new THREE.Scene();
+        scene.fog = new THREE.FogExp2(0x064e3b, 0.015);
+
+        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+        camera.position.set(0, 5, 45);
+        const __BASE_FOV = camera.fov;
+        const __REF_ASPECT = 16 / 9;
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        document.getElementById('canvas-container').appendChild(renderer.domElement);
+
+        // --- 2. PENCAHAYAAN ---
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+        scene.add(ambientLight);
+
+        const coreLight = new THREE.PointLight(0x2dd4bf, 4, 80);
+        coreLight.position.set(0, 0, 0);
+        scene.add(coreLight);
+
+        // --- 3. MODEL 3D (SAIZ DIPERBESAR) ---
+        const mainGroup = new THREE.Group();
+        scene.add(mainGroup);
+
+        // A. Teras Jiwa / Hati (Smooth Sphere) - Saiz Besar (4.5)
+        const coreGeo = new THREE.IcosahedronGeometry(4.5, 5); // Permukaan sangat halus
+        const coreMat = new THREE.MeshPhysicalMaterial({
+            color: 0xffffff, emissive: 0x0f766e, emissiveIntensity: 0.8,
+            roughness: 0.1, metalness: 0.2, transmission: 0.9, thickness: 2.5,
+            clearcoat: 1.0, clearcoatRoughness: 0.1, transparent: true, opacity: 0.95
+        });
+        const coreMesh = new THREE.Mesh(coreGeo, coreMat);
+        mainGroup.add(coreMesh);
+
+        // B. Rangka Keresahan (Duri-duri wayar yang muncul masa dosa)
+        const spikeGeo = new THREE.IcosahedronGeometry(4.7, 1); // Kurang detail = nampak tajam (bucu)
+        const spikeMat = new THREE.MeshBasicMaterial({
+            color: 0xef4444, wireframe: true, transparent: true, opacity: 0
+        });
+        const spikeMesh = new THREE.Mesh(spikeGeo, spikeMat);
+        mainGroup.add(spikeMesh);
+
+        // C. Gelombang Frekuensi (Aura Ketenangan)
+        const ringsGroup = new THREE.Group();
+        mainGroup.add(ringsGroup);
+        const rings = [];
+
+        for(let i=0; i<3; i++) {
+            const ringGeo = new THREE.TorusGeometry(6 + (i*1.5), 0.05, 16, 100);
+            const ringMat = new THREE.MeshBasicMaterial({
+                color: 0x5eead4, transparent: true, opacity: 0.5
+            });
+            const ring = new THREE.Mesh(ringGeo, ringMat);
+            ring.rotation.x = Math.PI / 2;
+
+            // Simpan kelajuan putaran
+            ring.userData = { speed: (i % 2 === 0 ? 1 : -1) * (0.01 + i*0.005) };
+
+            ringsGroup.add(ring);
+            rings.push(ring);
+        }
+
+        // D. Zarah Persekitaran (Niat / Fikiran)
+        const particlesCount = 500;
+        const particlesGeo = new THREE.BufferGeometry();
+        const posArray = new Float32Array(particlesCount * 3);
+        const velArray = new Float32Array(particlesCount * 3);
+
+        for(let i = 0; i < particlesCount * 3; i++) {
+            posArray[i] = (Math.random() - 0.5) * 60;
+            // Arah rawak untuk getaran
+            velArray[i] = (Math.random() - 0.5) * 0.2;
+        }
+        particlesGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+        particlesGeo.setAttribute('velocity', new THREE.BufferAttribute(velArray, 3));
+
+        const particlesMat = new THREE.PointsMaterial({ size: 0.2, color: 0xccfbf1, transparent: true, opacity: 0.8, blending: THREE.AdditiveBlending });
+        const particlesMesh = new THREE.Points(particlesGeo, particlesMat);
+        scene.add(particlesMesh);
+
+        // --- 4. LOGIK ANIMASI GLOBAL ---
+        let clock = new THREE.Clock();
+        let isGood = true;
+        let shakeIntensity = 0;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            const time = clock.getElapsedTime();
+
+            if (isGood) {
+                // FREKUENSI KEBAIKAN: Tenang, Berdegup Harmoni
+                const pulse = 1 + Math.sin(time * 2) * 0.03;
+                coreMesh.scale.set(pulse, pulse, pulse);
+                coreMesh.rotation.y = time * 0.15;
+                coreMesh.rotation.z = Math.sin(time * 0.5) * 0.05;
+
+                mainGroup.position.set(0, Math.sin(time) * 0.5, 0); // Terapung lembut
+
+                spikeMesh.rotation.x = time * 0.1;
+                spikeMesh.rotation.y = time * 0.1;
+
+                // Gelang berputar mendatar secara teratur
+                rings.forEach((ring) => {
+                    ring.rotation.z += ring.userData.speed;
+                    ring.rotation.x = Math.PI / 2; // Paksi stabil
+                    ring.rotation.y = 0;
+                });
+
+                // Zarah terapung perlahan
+                const positions = particlesGeo.attributes.position.array;
+                for(let i = 1; i < particlesCount * 3; i+=3) {
+                    positions[i] += Math.sin(time + i) * 0.01;
+                }
+                particlesGeo.attributes.position.needsUpdate = true;
+                particlesMesh.rotation.y = time * 0.05;
+
+            } else {
+                // FREKUENSI DOSA: Bergetar, Resah (Aritmia), Kacau Bilau
+                shakeIntensity = Math.random() * 0.35; // Hati yang bergetar resah
+
+                coreMesh.rotation.y += 0.05;
+                coreMesh.rotation.x += 0.05;
+
+                // Getaran kuat pada kedudukan paksi
+                mainGroup.position.set(
+                    (Math.random() - 0.5) * shakeIntensity,
+                    (Math.random() - 0.5) * shakeIntensity,
+                    (Math.random() - 0.5) * shakeIntensity
+                );
+
+                spikeMesh.rotation.x -= 0.1;
+                spikeMesh.rotation.y -= 0.1;
+
+                // Duri kembang kempis laju menembusi dinding jiwa
+                const spikePulse = 1.0 + Math.sin(time * 15) * 0.05;
+                spikeMesh.scale.set(spikePulse, spikePulse, spikePulse);
+
+                // Gelang hilang kawalan (Gelisah)
+                rings.forEach((ring, i) => {
+                    ring.rotation.x += (Math.random() - 0.5) * 0.05;
+                    ring.rotation.y += (Math.random() - 0.5) * 0.05;
+                    ring.rotation.z += ring.userData.speed * 3;
+                });
+
+                // Zarah bergerak rawak & laju (ketakutan rahsia terbongkar)
+                const positions = particlesGeo.attributes.position.array;
+                const velocities = particlesGeo.attributes.velocity.array;
+                for(let i = 0; i < particlesCount * 3; i++) {
+                    positions[i] += velocities[i] * 2;
+                    // Pantul balik jika keluar kawasan
+                    if(Math.abs(positions[i]) > 30) {
+                        velocities[i] *= -1;
+                    }
+                }
+                particlesGeo.attributes.position.needsUpdate = true;
+            }
+
+            // Kamera beralun
+            camera.position.x = Math.sin(time * 0.1) * 2;
+            camera.lookAt(0, 0, 0);
+
+            renderer.render(scene, camera);
+        }
+
+        // --- 5. FUNGSI INTERAKSI (GSAP & UI) ---
+        function updateUI(btnId, titleClass, badgeBgClass, badgeTextClass, quoteBorderClass, quoteBgClass, glowClass, arabicText, quoteText, descText) {
+            for(let i=1; i<=2; i++) document.getElementById('btn-'+i).classList.remove('active-btn');
+            document.getElementById('btn-'+btnId).classList.add('active-btn');
+
+            document.getElementById('ui-title-highlight').className = `font-extrabold text-transparent bg-clip-text bg-gradient-to-r ${titleClass} transition-colors duration-500`;
+            document.getElementById('ui-badge').className = `inline-block px-4 py-1.5 rounded-full mb-3 border border-white/10 ${badgeBgClass} transition-colors duration-500`;
+            document.getElementById('ui-badge-text').className = `font-bold tracking-widest uppercase text-[10px] ${badgeTextClass} transition-colors duration-500`;
+            document.getElementById('ui-quote').className = `border-l-4 ${quoteBorderClass} pl-4 py-2 my-4 ${quoteBgClass} rounded-r-lg text-sm leading-relaxed text-gray-200 transition-colors duration-500`;
+            document.getElementById('ui-glow').className = `absolute top-0 right-0 w-32 h-32 rounded-bl-full opacity-15 blur-xl transition-colors duration-500 ${glowClass}`;
+
+            document.getElementById('ui-arabic').innerText = arabicText;
+            document.getElementById('ui-quote').innerText = quoteText;
+            document.getElementById('ui-desc').innerHTML = `<strong>Simbolisme:</strong> ${descText}`;
+        }
+
+        function setKebaikan() {
+            isGood = true;
+            updateUI(1,
+                "from-teal-400 to-emerald-300", "bg-teal-950/80", "text-teal-400",
+                "border-teal-500", "bg-teal-900/20", "bg-teal-500",
+                "الْبِرُّ حُسْنُ الْخُلُقِ",
+                '"Kebaikan itu ialah akhlak yang mulia. Ia adalah sesuatu yang mententeramkan jiwa dan melapangkan dada apabila melakukannya."',
+                "Hati diciptakan di atas fitrah kebaikan. Apabila melakukan kebaikan, jiwa berdegup pada frekuensi yang harmoni, tenang, dan memancarkan cahaya yang selesa."
+            );
+
+            // Warna Teras Tenang (Teal/Emerald)
+            gsap.to(coreMat.emissive, { r: 0.06, g: 0.46, b: 0.43, duration: 1.5 }); // 0f766e
+            gsap.to(coreMat, { opacity: 0.95, roughness: 0.1, duration: 1.5 });
+            gsap.to(coreLight.color, { r: 0.17, g: 0.83, b: 0.75, duration: 1.5 }); // 2dd4bf
+            gsap.to(coreLight, { intensity: 4, duration: 1.5 });
+
+            // Sembunyikan Rangka Dosa (Spikes)
+            gsap.to(spikeMat, { opacity: 0, duration: 1.5 });
+            gsap.to(spikeMesh.scale, { x: 0.9, y: 0.9, z: 0.9, duration: 1.5 });
+
+            // Aura Tenang
+            rings.forEach(ring => {
+                gsap.to(ring.material, { opacity: 0.5, duration: 1.5 });
+                gsap.to(ring.material.color, { r: 0.37, g: 0.92, b: 0.83, duration: 1.5 }); // 5eead4
+                // Kembalikan ke paksi mendatar secara perlahan
+                gsap.to(ring.rotation, { x: Math.PI / 2, y: 0, duration: 1.5, ease: "power2.out" });
+            });
+
+            gsap.to(particlesMat.color, { r: 0.8, g: 0.98, b: 0.95, duration: 1.5 });
+            gsap.to(scene.fog, { color: 0x064e3b, density: 0.015, duration: 1.5 });
+        }
+
+        function setDosa() {
+            isGood = false;
+            updateUI(2,
+                "from-red-500 to-rose-700", "bg-red-950/80", "text-red-400",
+                "border-red-500", "bg-red-900/20", "bg-red-600",
+                "وَالْإِثْمُ مَا حَاكَ فِي نَفْسِكَ",
+                '"...manakala dosa itu ialah apa yang bergetar (meresahkan) di dalam dadamu dan engkau benci sekiranya manusia lain mengetahuinya."',
+                "Dosa mencetuskan rasa bersalah yang mengganggu fitrah. Ia menjadikan jiwa bergetar hebat (resah), hilang arah tuju, gelap, dan sentiasa dalam ketakutan bayang-bayangnya terbongkar."
+            );
+
+            // Warna Teras Gelap, Resah & Kotor (Merah Karat)
+            gsap.to(coreMat.emissive, { r: 0.3, g: 0.05, b: 0.05, duration: 1.5 });
+            gsap.to(coreMat, { opacity: 0.7, roughness: 0.8, duration: 1.5 });
+            gsap.to(coreLight.color, { r: 0.9, g: 0.2, b: 0.2, duration: 1.5 });
+            gsap.to(coreLight, { intensity: 2, duration: 1.5 });
+
+            // Timbulkan Rangka Dosa (Spikes)
+            gsap.to(spikeMat, { opacity: 0.6, duration: 1.5 });
+            gsap.to(spikeMat.color, { r: 1.0, g: 0.0, b: 0.0, duration: 1.5 });
+
+            // Aura Kacau-Bilau
+            rings.forEach(ring => {
+                gsap.to(ring.material, { opacity: 0.2, duration: 1.5 });
+                gsap.to(ring.material.color, { r: 0.6, g: 0.1, b: 0.1, duration: 1.5 });
+            });
+
+            gsap.to(particlesMat.color, { r: 0.6, g: 0.2, b: 0.2, duration: 1.5 });
+            gsap.to(scene.fog, { color: 0x1c0a0a, density: 0.025, duration: 1.5 });
+        }
+
+        function applyResponsiveView() {
+            const w = window.innerWidth;
+            const h = window.innerHeight;
+            const aspect = w / h;
+            camera.aspect = aspect;
+            let fov = __BASE_FOV;
+            if (aspect < __REF_ASPECT) {
+                const vRad = THREE.MathUtils.degToRad(__BASE_FOV);
+                const hRad = 2 * Math.atan(Math.tan(vRad / 2) * __REF_ASPECT);
+                fov = THREE.MathUtils.radToDeg(2 * Math.atan(Math.tan(hRad / 2) / aspect));
+            }
+            if (w <= 640) fov *= 1.3;
+            else if (w <= 1024) fov *= 1.12;
+            camera.fov = Math.min(fov, 100);
+            camera.updateProjectionMatrix();
+            renderer.setSize(w, h);
+        }
+        window.addEventListener('resize', applyResponsiveView);
+        applyResponsiveView();
+
+        // Initialize state
+        setKebaikan();
+        animate();
+    </script>
+</body>
+</html>

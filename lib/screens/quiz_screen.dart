@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../core/theme/app_spacing.dart';
+import '../core/utils/app_breakpoints.dart';
 import '../core/utils/responsive.dart';
 import '../data/models/hadith.dart';
 import '../services/app_controller.dart';
@@ -183,27 +185,49 @@ class _QuestionView extends StatelessWidget {
             const SizedBox(height: 18),
             Divider(color: scheme.outlineVariant),
             const SizedBox(height: 12),
-            Row(
-              children: [
-                OutlinedButton.icon(
+            LayoutBuilder(
+              builder: (context, constraints) {
+                final previousButton = OutlinedButton.icon(
                   onPressed: onPrevious,
                   icon: const Icon(Icons.arrow_back_rounded),
                   label: const Text('Sebelumnya'),
-                ),
-                const Spacer(),
-                if (!isLast)
-                  FilledButton.icon(
-                    onPressed: onNext,
-                    icon: const Icon(Icons.arrow_forward_rounded),
-                    label: const Text('Seterusnya'),
-                  )
-                else
-                  FilledButton.icon(
-                    onPressed: onSubmit,
-                    icon: const Icon(Icons.send_rounded),
-                    label: const Text('Hantar Jawapan'),
-                  ),
-              ],
+                );
+                final nextButton = isLast
+                    ? FilledButton.icon(
+                        onPressed: onSubmit,
+                        icon: const Icon(Icons.send_rounded),
+                        label: const Text('Hantar Jawapan'),
+                      )
+                    : FilledButton.icon(
+                        onPressed: onNext,
+                        icon: const Icon(Icons.arrow_forward_rounded),
+                        label: const Text('Seterusnya'),
+                      );
+                // Dua butang (ikon + label) tiada `Expanded`/`Flexible`
+                // pelindung sebelum ini — pada lebar telefon/tablet biasa
+                // (320-430px), jumlah lebar sebenar melebihi ruang kad dan
+                // menyebabkan jalur amaran kuning-hitam. Susun menegak
+                // (bertindan penuh lebar) pada skrin sempit menjamin
+                // butang sentiasa muat.
+                final compact = constraints.maxWidth < AppBreakpoints.grid2Col;
+                if (compact) {
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      nextButton,
+                      const SizedBox(height: AppSpacing.sm),
+                      previousButton,
+                    ],
+                  );
+                }
+                return Row(
+                  children: [
+                    previousButton,
+                    const Spacer(),
+                    nextButton,
+                  ],
+                );
+              },
             ),
           ],
         ),

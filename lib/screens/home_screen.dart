@@ -402,12 +402,6 @@ class _OverviewRow extends StatelessWidget {
             ],
           );
 
-    // Lebar sebenar kad hero ditentukan di sini (bukan LayoutBuilder dalaman
-    // kad) supaya ia kekal betul walaupun dibalut IntrinsicHeight.
-    final heroWidth = layout.heroBesideProgress
-        ? (layout.contentWidth - layout.gap) * 4 / 9
-        : layout.contentWidth;
-
     final hero = ContinueLearningCard(
       badgeLabel: hasHistory ? 'Sambung Pembelajaran' : 'Mulakan Pembelajaran',
       headline: 'Hadis ${hasHistory ? hadith.displayNumber : '01'}',
@@ -415,7 +409,14 @@ class _OverviewRow extends StatelessWidget {
       footnote: hadith.theme.isEmpty ? null : hadith.theme,
       actionLabel: hasHistory ? 'Teruskan' : 'Mula Hadis 1',
       onAction: () => onOpenHadith(hadith),
-      wide: heroWidth >= 480,
+      // `wide` diikat kepada `heroBesideProgress` (bukan ambang lebar
+      // 480px bebas) supaya kad ini kekal SAMA gaya (susun atur, saiz
+      // fon, padding) pada telefon dan tablet — kedua-duanya berada
+      // dalam mod "stacked" yang sama. Sebelum ini, tablet (contentWidth
+      // sering > 480) tiba-tiba beralih ke gaya "wide" bersama ilustrasi
+      // kitab, manakala telefon kekal gaya padat — dua saiz/gaya yang
+      // tidak sekata bagi konteks susun atur yang sepatutnya serupa.
+      wide: layout.heroBesideProgress,
     );
 
     if (!layout.heroBesideProgress) {

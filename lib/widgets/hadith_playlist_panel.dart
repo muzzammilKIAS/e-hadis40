@@ -340,6 +340,8 @@ class _NowPlayingCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(hadith.title,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
                         style: Theme.of(context)
                             .textTheme
                             .titleMedium
@@ -352,6 +354,8 @@ class _NowPlayingCard extends StatelessWidget {
                         const SizedBox(width: 4),
                         Flexible(
                           child: Text(hadith.theme,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
                               style: TextStyle(
                                   color: scheme.onSurfaceVariant,
                                   fontSize: 12)),
@@ -566,24 +570,50 @@ class _ProgressSlider extends StatelessWidget {
                 Padding(
                   padding:
                       const EdgeInsets.symmetric(horizontal: AppSpacing.md),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  // Kedudukan/tempoh dan togol kelajuan dipisahkan kepada
+                  // dua baris tetap (bukan satu `Row` + `spaceBetween`).
+                  // Gabungan tiga togol kelajuan sahaja sudah cukup lebar
+                  // untuk melimpah pada panel sempit (sidebar + kandungan
+                  // audio bersebelahan) walaupun dibalut `Wrap` — sebab
+                  // togol kelajuan sebagai satu unit tetap tidak boleh
+                  // mengecil lagi. Dua baris tetap ini kekal muat pada
+                  // sebarang lebar panel yang munasabah.
+                  child: Column(
                     children: [
-                      Text(_fmt(safePosition),
-                          style: TextStyle(
-                              color: scheme.onSurfaceVariant, fontSize: 11)),
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          _SpeedDot(0.75, audio, scheme),
-                          const SizedBox(width: 8),
-                          _SpeedDot(1.0, audio, scheme),
-                          const SizedBox(width: 8),
-                          _SpeedDot(1.25, audio, scheme),
+                          Text(_fmt(safePosition),
+                              style: TextStyle(
+                                  color: scheme.onSurfaceVariant,
+                                  fontSize: 11)),
+                          Text(_fmt(duration),
+                              style: TextStyle(
+                                  color: scheme.onSurfaceVariant,
+                                  fontSize: 11)),
                         ],
                       ),
-                      Text(_fmt(duration),
-                          style: TextStyle(
-                              color: scheme.onSurfaceVariant, fontSize: 11)),
+                      const SizedBox(height: 8),
+                      // `FittedBox` (skala-turun, bukan sekadar `Row`
+                      // dipusatkan) — walaupun dipisahkan ke baris sendiri,
+                      // tiga togol kelajuan masih boleh melebihi lebar
+                      // panel yang sangat sempit (cth. sidebar + tetingkap
+                      // pelayar sempit). `FittedBox` menjamin ia sentiasa
+                      // muat dengan mengecilkan togol jika perlu, tanpa
+                      // sekali-kali melimpah.
+                      FittedBox(
+                        fit: BoxFit.scaleDown,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            _SpeedDot(0.75, audio, scheme),
+                            const SizedBox(width: 8),
+                            _SpeedDot(1.0, audio, scheme),
+                            const SizedBox(width: 8),
+                            _SpeedDot(1.25, audio, scheme),
+                          ],
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -757,6 +787,8 @@ class _TrackCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(hadith.title,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
                           style: TextStyle(
                               fontWeight: isActive
                                   ? FontWeight.w600
@@ -766,6 +798,8 @@ class _TrackCard extends StatelessWidget {
                                   : scheme.onSurface)),
                       const SizedBox(height: 2),
                       Text(hadith.theme,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
                           style: TextStyle(
                               fontSize: 11,
                               color: isActive

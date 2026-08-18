@@ -152,7 +152,7 @@ void main() {
       expect(repository.byNumber(16), isNotNull);
       expect(repository.byNumber(17), isNotNull);
       expect(repository.byNumber(18), isNotNull);
-      expect(repository.availableHadiths.length, 25);
+      expect(repository.availableHadiths.length, 30);
     });
 
     test('Dynamic module count: module_03 = 5/5, module_04 = 5/5', () async {

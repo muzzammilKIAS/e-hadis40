@@ -766,8 +766,14 @@ class _QuizCallToAction extends StatelessWidget {
               label: Text(score == 0 ? 'Mulakan Kuiz' : 'Ulang Kuiz'),
             );
             if (compact) {
+              // `Column` sahaja tidak memaksa kad ini selebar kad lain
+              // (Simpan Nota, Selesai Membaca) — teks dan butang hanya
+              // sebesar kandungannya, jadi kad "Uji Kefahaman" kelihatan
+              // sempit dan tidak sekata pada mod telefon/tablet.
+              // `crossAxisAlignment.stretch` + butang lebar penuh
+              // menjadikannya sama lebar dengan kad-kad lain.
               return Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   text,
                   const SizedBox(height: AppSpacing.lg),

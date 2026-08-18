@@ -228,11 +228,12 @@ void main() {
       }
     });
 
-    test('AnatomiSunnahScreen.availableHadithNumbers = 25', () {
+    test('AnatomiSunnahScreen.availableHadithNumbers >= 25', () {
       final source =
           File('lib/screens/anatomi_sunnah_screen.dart').readAsStringSync();
-      expect(source.contains('availableHadithNumbers = 25'), true,
-          reason: 'availableHadithNumbers mesti 25 untuk merangkumi H21-H25');
+      expect(source.contains('availableHadithNumbers = 30'), true,
+          reason:
+              'availableHadithNumbers mesti sekurang-kurangnya 25 untuk merangkumi H21-H25');
     });
   });
 }

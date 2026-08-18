@@ -244,18 +244,28 @@ class _DashboardSidebarState extends State<_DashboardSidebar> {
             height: 56,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 12),
-              child: Row(
-                children: [
-                  _CollapseToggle(
-                    collapsed: collapsed,
-                    onToggle: () => setState(() => _collapsed = !_collapsed),
-                  ),
-                  if (!collapsed) ...[
-                    const SizedBox(width: 4),
-                    const _AudioAppBarControls(),
-                    const _ThemeModeMenu(),
+              // `FittedBox` — apabila audio sedang dimainkan, kawalan
+              // audio menambah 3 butang ikon (sebelum/jeda/seterusnya) di
+              // samping togol kecilkan dan menu tema. Jumlah lebar butang
+              // tidak muat dalam lajur sisi 264px, menyebabkan jalur
+              // amaran kuning-hitam. `FittedBox` menjamin baris ini
+              // sentiasa muat, mengecil sedikit jika perlu.
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                alignment: Alignment.centerLeft,
+                child: Row(
+                  children: [
+                    _CollapseToggle(
+                      collapsed: collapsed,
+                      onToggle: () => setState(() => _collapsed = !_collapsed),
+                    ),
+                    if (!collapsed) ...[
+                      const SizedBox(width: 4),
+                      const _AudioAppBarControls(),
+                      const _ThemeModeMenu(),
+                    ],
                   ],
-                ],
+                ),
               ),
             ),
           ),
