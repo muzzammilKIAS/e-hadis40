@@ -469,7 +469,7 @@ class _AudioAppBarControls extends StatelessWidget {
               icon: const Icon(Icons.skip_previous_rounded, size: 20),
             ),
             IconButton(
-              tooltip: 'Jeda',
+              tooltip: 'Berhenti',
               onPressed: audio.togglePlay,
               icon: const Icon(Icons.pause_rounded, size: 20),
             ),

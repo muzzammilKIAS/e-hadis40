@@ -29,6 +29,18 @@ class _SyncedHadithReaderState extends State<SyncedHadithReader> {
   bool _followAudio = true;
   int _lastScrolledIndex = -1;
 
+  /// Kelajuan sorotan TEKS sahaja — berasingan daripada kelajuan main balik
+  /// audio sebenar (`_audio.speed`). Digunakan untuk menskalakan kedudukan
+  /// audio semasa mengira segmen/perkataan aktif, supaya pelajar boleh
+  /// melajukan atau memperlahankan pergerakan sorotan teks tanpa mengubah
+  /// kelajuan bacaan audio itu sendiri.
+  double _textSpeed = 1.0;
+
+  /// Indeks petikan yang sedang diulang (loop) apabila ikon ulang petikan
+  /// ditekan — `null` jika tiada petikan dalam mod ulangan. Menekan teks
+  /// petikan (bukan ikon ulang) kekal seperti asal: main terus ke hadapan.
+  int? _loopSegmentIndex;
+
   @override
   void initState() {
     super.initState();
@@ -47,6 +59,7 @@ class _SyncedHadithReaderState extends State<SyncedHadithReader> {
             widget.hadith.audioTimings.length) {
       _segmentKeys = _buildSegmentKeys();
       _lastScrolledIndex = -1;
+      _loopSegmentIndex = null;
       _audio.load(widget.hadith.audioAsset);
     }
   }
@@ -118,12 +131,19 @@ class _SyncedHadithReaderState extends State<SyncedHadithReader> {
               stream: _audio.player.positionStream,
               builder: (context, positionSnapshot) {
                 final position = positionSnapshot.data ?? Duration.zero;
+                // `_textSpeed` menskalakan kedudukan audio SEBELUM ditolak
+                // dengan offset segerak — audio terus bermain pada kelajuan
+                // sebenar, tetapi sorotan teks "melihat" masa yang lebih
+                // jauh (lebih laju) atau lebih dekat (lebih perlahan)
+                // berbanding kedudukan audio sebenar.
                 final effectiveMs = math.max(
                   0,
-                  position.inMilliseconds + widget.hadith.audioSyncOffsetMs,
+                  (position.inMilliseconds * _textSpeed).round() +
+                      widget.hadith.audioSyncOffsetMs,
                 );
                 final activeIndex = _activeSegmentIndex(effectiveMs);
                 _scheduleAutoScroll(activeIndex, completed: completed);
+                _scheduleLoopCheck(position.inMilliseconds, playing: playing);
 
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -176,9 +196,11 @@ class _SyncedHadithReaderState extends State<SyncedHadithReader> {
                               segment: segment,
                               isActive: isActive,
                               isCompleted: isCompleted,
+                              isLooping: _loopSegmentIndex == index,
                               activeWordIndex: activeWordIndex,
                               textScale: widget.textScale,
                               onTap: () => _seekToSegment(segment),
+                              onToggleLoop: () => _toggleSegmentLoop(index),
                             );
                           },
                         ),
@@ -278,7 +300,7 @@ class _SyncedHadithReaderState extends State<SyncedHadithReader> {
         .toDouble();
 
     final mainLabel = playing
-        ? 'Jeda'
+        ? 'Berhenti'
         : completed
             ? 'Main semula'
             : 'Mainkan';
@@ -328,7 +350,7 @@ class _SyncedHadithReaderState extends State<SyncedHadithReader> {
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  const Text('Kelajuan'),
+                  const Text('Kelajuan Audio'),
                   const SizedBox(width: 8),
                   DropdownButton<double>(
                     value: _audio.speed,
@@ -344,6 +366,41 @@ class _SyncedHadithReaderState extends State<SyncedHadithReader> {
                     ],
                   ),
                 ],
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.only(left: 10),
+              decoration: BoxDecoration(
+                border: Border(
+                  left: BorderSide(
+                    color: Theme.of(context).colorScheme.outlineVariant,
+                  ),
+                ),
+              ),
+              child: Tooltip(
+                message: 'Melajukan atau memperlahankan sorotan teks tanpa '
+                    'mengubah kelajuan bacaan audio.',
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Text('Kelajuan Teks'),
+                    const SizedBox(width: 8),
+                    DropdownButton<double>(
+                      value: _textSpeed,
+                      underline: const SizedBox.shrink(),
+                      borderRadius: BorderRadius.circular(14),
+                      onChanged: (value) {
+                        if (value != null) setState(() => _textSpeed = value);
+                      },
+                      items: const [
+                        DropdownMenuItem(value: 0.75, child: Text('0.75×')),
+                        DropdownMenuItem(value: 1.0, child: Text('1.0×')),
+                        DropdownMenuItem(value: 1.25, child: Text('1.25×')),
+                        DropdownMenuItem(value: 1.5, child: Text('1.5×')),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
@@ -488,7 +545,46 @@ class _SyncedHadithReaderState extends State<SyncedHadithReader> {
   }
 
   Future<void> _seekToSegment(AudioTextSegment segment) async {
+    // Menekan teks petikan sentiasa bermakna "main terus ke hadapan" —
+    // batalkan mod ulangan (jika aktif) supaya ia tidak melompat balik ke
+    // petikan lama semasa pengguna cuba beralih ke hadapan.
+    if (_loopSegmentIndex != null) {
+      setState(() => _loopSegmentIndex = null);
+    }
     await _audio.seekAndPlay(segment.start);
+  }
+
+  /// Togol mod ulangan bagi petikan pada [index]. Menekan ikon ulang pada
+  /// petikan yang sama sekali lagi menghentikan ulangan (tetapi audio
+  /// terus bermain seperti biasa, tidak berhenti).
+  Future<void> _toggleSegmentLoop(int index) async {
+    if (_loopSegmentIndex == index) {
+      setState(() => _loopSegmentIndex = null);
+      return;
+    }
+    setState(() => _loopSegmentIndex = index);
+    await _audio.seekAndPlay(widget.hadith.audioTimings[index].start);
+  }
+
+  /// Semasa mod ulangan aktif DAN audio sedang bermain, apabila kedudukan
+  /// audio SEBENAR (bukan dilaraskan `_textSpeed`) melepasi hujung petikan
+  /// yang di-loop, lompat balik ke permulaan petikan tersebut dan terus
+  /// main. Kawalan `playing` mengelakkan kod ini secara tidak sengaja
+  /// menyambung semula audio yang pengguna sengaja hentikan (jeda) tepat
+  /// selepas kedudukannya melepasi hujung petikan.
+  void _scheduleLoopCheck(int rawPositionMs, {required bool playing}) {
+    final loopIndex = _loopSegmentIndex;
+    if (!playing ||
+        loopIndex == null ||
+        loopIndex >= widget.hadith.audioTimings.length) {
+      return;
+    }
+    final segment = widget.hadith.audioTimings[loopIndex];
+    if (rawPositionMs < segment.endMs) return;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted || _loopSegmentIndex != loopIndex) return;
+      _audio.seekAndPlay(segment.start);
+    });
   }
 
   String _formatDuration(Duration value) {
@@ -504,9 +600,11 @@ class _SyncedSegmentTile extends StatelessWidget {
     required this.segment,
     required this.isActive,
     required this.isCompleted,
+    required this.isLooping,
     required this.activeWordIndex,
     required this.textScale,
     required this.onTap,
+    required this.onToggleLoop,
     super.key,
   });
 
@@ -514,9 +612,11 @@ class _SyncedSegmentTile extends StatelessWidget {
   final AudioTextSegment segment;
   final bool isActive;
   final bool isCompleted;
+  final bool isLooping;
   final int activeWordIndex;
   final double textScale;
   final VoidCallback onTap;
+  final VoidCallback onToggleLoop;
 
   @override
   Widget build(BuildContext context) {
@@ -540,15 +640,25 @@ class _SyncedSegmentTile extends StatelessWidget {
             curve: Curves.easeOut,
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
             decoration: BoxDecoration(
-              color: isActive
-                  ? scheme.primaryContainer.withValues(alpha: 0.72)
-                  : isCompleted
-                      ? scheme.secondaryContainer.withValues(alpha: 0.28)
-                      : scheme.surface,
+              // Mod ulangan diberi warna tersendiri (tertiary) supaya
+              // kelihatan berbeza daripada petikan yang sekadar "aktif"
+              // (primary) — pengguna perlu nampak jelas petikan mana yang
+              // sedang di-loop.
+              color: isLooping
+                  ? scheme.tertiaryContainer.withValues(alpha: 0.65)
+                  : isActive
+                      ? scheme.primaryContainer.withValues(alpha: 0.72)
+                      : isCompleted
+                          ? scheme.secondaryContainer.withValues(alpha: 0.28)
+                          : scheme.surface,
               borderRadius: BorderRadius.circular(18),
               border: Border.all(
-                color: isActive ? scheme.primary : scheme.outlineVariant,
-                width: isActive ? 1.6 : 1,
+                color: isLooping
+                    ? scheme.tertiary
+                    : isActive
+                        ? scheme.primary
+                        : scheme.outlineVariant,
+                width: isLooping || isActive ? 1.6 : 1,
               ),
             ),
             child: Row(
@@ -621,6 +731,21 @@ class _SyncedSegmentTile extends StatelessWidget {
                   const SizedBox(width: 8),
                   Icon(Icons.graphic_eq_rounded, color: scheme.primary),
                 ],
+                const SizedBox(width: 4),
+                Tooltip(
+                  message: isLooping
+                      ? 'Henti ulangan petikan ini'
+                      : 'Ulang petikan ini sahaja',
+                  child: IconButton(
+                    onPressed: onToggleLoop,
+                    isSelected: isLooping,
+                    visualDensity: VisualDensity.compact,
+                    icon: const Icon(Icons.repeat_one_rounded),
+                    color: scheme.onSurfaceVariant,
+                    selectedIcon:
+                        Icon(Icons.repeat_one_on_rounded, color: scheme.tertiary),
+                  ),
+                ),
               ],
             ),
           ),
