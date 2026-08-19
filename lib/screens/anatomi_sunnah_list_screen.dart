@@ -92,9 +92,9 @@ class AnatomiSunnahListScreen extends StatelessWidget {
                             const SizedBox(height: 6),
                             Text(
                               'Simulasi 3D interaktif bagi meneroka makna '
-                              'sebalik setiap hadis. Hadis 1–${AnatomiSunnahScreen.availableHadithNumbers} '
-                              'sedia dimainkan; selebihnya akan ditambah '
-                              'secara berperingkat.',
+                              'sebalik setiap hadis. ${AnatomiSunnahScreen.availableHadithSet.length} '
+                              'daripada ${AppCurriculumStructure.totalHadiths} hadis sedia '
+                              'dimainkan; selebihnya akan ditambah secara berperingkat.',
                               style: TextStyle(
                                 color: scheme.onSurfaceVariant,
                                 fontSize: 13.5,
@@ -147,7 +147,7 @@ class AnatomiSunnahListScreen extends StatelessWidget {
   }) {
     final moduleId = AppCurriculumStructure.moduleIdFor(number);
     final moduleNumber = int.parse(moduleId.substring(moduleId.length - 2));
-    final available = number <= AnatomiSunnahScreen.availableHadithNumbers;
+    final available = AnatomiSunnahScreen.isAvailable(number);
 
     return AnatomiSunnahHadithCard(
       hadithNumber: number,

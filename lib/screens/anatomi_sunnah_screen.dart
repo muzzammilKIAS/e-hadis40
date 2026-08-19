@@ -22,7 +22,21 @@ class AnatomiSunnahScreen extends StatefulWidget {
   final int hadithNumber;
 
   static const _themeStorageKey = 'ehadis40-theme';
-  static const availableHadithNumbers = 30;
+
+  /// Nombor hadis yang mempunyai fail `web/anatomi_sunnah/hadith_NN.html`.
+  /// Senarai eksplisit (bukan julat `n <= X`) supaya sebarang jurang pada
+  /// masa hadapan (cth. fail belum sedia untuk sesuatu hadis) tidak
+  /// tersilap dianggap tersedia.
+  static const Set<int> availableHadithSet = <int>{
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+    11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+    21, 22, 23, 24, 25, 26, 27, 28, 29, 30,
+    31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
+    41, 42,
+  };
+
+  static bool isAvailable(int hadithNumber) =>
+      availableHadithSet.contains(hadithNumber);
 
   @override
   State<AnatomiSunnahScreen> createState() => _AnatomiSunnahScreenState();

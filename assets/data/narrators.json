@@ -529,5 +529,78 @@
       "note": "Biodata ringkas ini TIDAK terdapat dalam Modul Penghayatan Hadis 40 Imam Nawawi KPM. Disumberkan daripada bahan biografi sahabat yang muktabar (cth. rujukan berasaskan al-Isabah fi Tamyiz al-Sahabah oleh Ibn Hajar al-'Asqalani dan Siyar A'lam al-Nubala' oleh al-Dhahabi, melalui portal rujukan Islam yang menyusun semula kandungan kitab tersebut) bagi melengkapkan pemahaman pelajar tentang perawi hadis."
     },
     "verified": true
+  },
+  "sahl_ibn_sad_al_saidi": {
+    "id": "sahl_ibn_sad_al_saidi",
+    "name": "Abu al-'Abbas Sahl bin Sa'ad al-Sa'idi r.a.",
+    "fullName": "Abu al-'Abbas Sahl bin Sa'ad bin Malik al-Sa'idi al-Ansari r.a.",
+    "kunyah": "",
+    "title": "Sahabat Rasulullah SAW dan Perawi Hadis",
+    "biography": "Sahl bin Sa'ad al-Sa'idi r.a. ialah seorang sahabat daripada kaum Ansar yang masih kanak-kanak semasa Rasulullah SAW wafat, namun sempat menyaksikan dan mengingati banyak peristiwa penting era kenabian. Beliau dikenali sebagai salah seorang sahabat yang paling lama hidup selepas kewafatan Rasulullah SAW, meriwayatkan banyak hadis, dan wafat di Madinah pada usia lanjut sekitar tahun 88-91 Hijrah.",
+    "highlights": [
+      "Antara sahabat Ansar yang paling akhir wafat, meninggal pada usia melebihi 100 tahun.",
+      "Menyaksikan banyak peristiwa era kenabian walaupun masih muda ketika itu.",
+      "Perawi hadis yang dipercayai dalam kalangan generasi awal Islam."
+    ],
+    "tags": [
+      "Sahabat Rasulullah SAW",
+      "Perawi Hadis",
+      "Kaum Ansar"
+    ],
+    "source": {
+      "document": "Bahan biografi sahabat yang muktabar (bukan Modul KPM)",
+      "publisher": "Disusun semula daripada al-Isabah (Ibn Hajar al-'Asqalani) / Siyar A'lam al-Nubala' (al-Dhahabi) melalui portal rujukan Islam",
+      "note": "Biodata ringkas ini TIDAK terdapat dalam Modul Penghayatan Hadis 40 Imam Nawawi KPM. Disumberkan daripada bahan biografi sahabat yang muktabar (cth. rujukan berasaskan al-Isabah fi Tamyiz al-Sahabah oleh Ibn Hajar al-'Asqalani dan Siyar A'lam al-Nubala' oleh al-Dhahabi, melalui portal rujukan Islam yang menyusun semula kandungan kitab tersebut) bagi melengkapkan pemahaman pelajar tentang perawi hadis."
+    },
+    "verified": true
+  },
+  "abu_said_sad_ibn_malik_al_khudri": {
+    "id": "abu_said_sad_ibn_malik_al_khudri",
+    "name": "Abu Sa'id al-Khudri r.a.",
+    "fullName": "Abu Sa'id Sa'ad bin Malik bin Sinan al-Khudri al-Ansari r.a.",
+    "kunyah": "",
+    "title": "Sahabat Rasulullah SAW dan Perawi Hadis",
+    "biography": "Abu Sa'id al-Khudri r.a. ialah seorang sahabat daripada kaum Ansar, Bani Khudrah, yang masih terlalu muda untuk turut serta dalam Perang Badar dan Uhud, tetapi menyertai Perang Khandaq dan peperangan-peperangan selepasnya. Beliau dikenali sebagai antara sahabat yang paling banyak meriwayatkan hadis dan menjadi rujukan fiqh dalam kalangan sahabat, serta wafat di Madinah sekitar tahun 74 Hijrah.",
+    "highlights": [
+      "Daripada kaum Ansar, Bani Khudrah; menyertai Perang Khandaq dan peperangan selepasnya.",
+      "Antara sahabat yang paling banyak meriwayatkan hadis Rasulullah SAW.",
+      "Menjadi rujukan fiqh dan hadis dalam kalangan sahabat pada generasi selepasnya.",
+      "Wafat di Madinah sekitar tahun 74H."
+    ],
+    "tags": [
+      "Sahabat Rasulullah SAW",
+      "Perawi Hadis",
+      "Kaum Ansar"
+    ],
+    "source": {
+      "document": "Bahan biografi sahabat yang muktabar (bukan Modul KPM)",
+      "publisher": "Disusun semula daripada al-Isabah (Ibn Hajar al-'Asqalani) / Siyar A'lam al-Nubala' (al-Dhahabi) melalui portal rujukan Islam",
+      "note": "Biodata ringkas ini TIDAK terdapat dalam Modul Penghayatan Hadis 40 Imam Nawawi KPM. Disumberkan daripada bahan biografi sahabat yang muktabar (cth. rujukan berasaskan al-Isabah fi Tamyiz al-Sahabah oleh Ibn Hajar al-'Asqalani dan Siyar A'lam al-Nubala' oleh al-Dhahabi, melalui portal rujukan Islam yang menyusun semula kandungan kitab tersebut) bagi melengkapkan pemahaman pelajar tentang perawi hadis."
+    },
+    "verified": true
+  },
+  "abdullah_ibn_amr_ibn_al_as": {
+    "id": "abdullah_ibn_amr_ibn_al_as",
+    "name": "Abu Muhammad Abdullah bin 'Amr bin al-'As r.a.",
+    "fullName": "Abu Muhammad Abdullah bin 'Amr bin al-'As al-Sahmi al-Qurashi r.a.",
+    "kunyah": "",
+    "title": "Sahabat Rasulullah SAW dan Perawi Hadis",
+    "biography": "Abdullah bin 'Amr bin al-'As r.a. ialah seorang sahabat yang memeluk Islam lebih awal daripada bapanya, 'Amr bin al-'As r.a. Beliau dikenali kerana meminta izin daripada Rasulullah SAW untuk mencatat hadis, lalu menghasilkan himpunan tulisan yang dikenali sebagai al-Sahifah al-Sadiqah, serta terkenal dengan ketekunan ibadah dan ilmunya. Beliau wafat di Mesir atau Taif pada penghujung abad pertama Hijrah.",
+    "highlights": [
+      "Memeluk Islam lebih awal daripada bapanya, 'Amr bin al-'As r.a.",
+      "Meminta izin Rasulullah SAW untuk mencatat hadis — menghasilkan al-Sahifah al-Sadiqah.",
+      "Dikenali dengan ketekunan ibadah dan penelaahan kitab-kitab terdahulu."
+    ],
+    "tags": [
+      "Sahabat Rasulullah SAW",
+      "Perawi Hadis",
+      "Penulis al-Sahifah al-Sadiqah"
+    ],
+    "source": {
+      "document": "Bahan biografi sahabat yang muktabar (bukan Modul KPM)",
+      "publisher": "Disusun semula daripada al-Isabah (Ibn Hajar al-'Asqalani) / Siyar A'lam al-Nubala' (al-Dhahabi) melalui portal rujukan Islam",
+      "note": "Biodata ringkas ini TIDAK terdapat dalam Modul Penghayatan Hadis 40 Imam Nawawi KPM. Disumberkan daripada bahan biografi sahabat yang muktabar (cth. rujukan berasaskan al-Isabah fi Tamyiz al-Sahabah oleh Ibn Hajar al-'Asqalani dan Siyar A'lam al-Nubala' oleh al-Dhahabi, melalui portal rujukan Islam yang menyusun semula kandungan kitab tersebut) bagi melengkapkan pemahaman pelajar tentang perawi hadis."
+    },
+    "verified": true
   }
 }

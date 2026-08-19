@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Zuhud & Cinta Ilahi - Hadis 31 3D</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="./lib/three.min.js"></script>
+    <script src="./lib/gsap.min.js"></script>
+    <style>
+        @import url('./lib/fonts.css');
+
+        body { margin: 0; overflow: hidden; background-color: #1c1917; font-family: 'Baloo 2', sans-serif; }
+        #canvas-container { position: absolute; top: 0; left: 0; width: 100%; height: 100vh; z-index: 1; }
+
+        .cosmic-bg {
+            background: radial-gradient(circle at 50% 50%, #292524 0%, #0c0a09 100%);
+        }
+
+        .ui-layer { position: relative; z-index: 10; pointer-events: none; height: 100vh; display: flex; flex-direction: column; justify-content: space-between; padding: 2.5rem; }
+
+        .glass-panel {
+            background: rgba(28, 25, 23, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(251, 191, 36, 0.2);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            pointer-events: auto;
+        }
+
+        .text-arabic { font-family: 'Amiri', serif; }
+
+        .btn-action { transition: all 0.4s ease; border: 1px solid rgba(255,255,255,0.1); }
+        .btn-action:hover { transform: translateX(-5px); background: rgba(255,255,255,0.15); }
+
+        /* Tema Warna Butang Aktif */
+        .btn-zuhud.active-btn { border-color: #fbbf24; box-shadow: 0 0 20px rgba(251, 191, 36, 0.3); background: rgba(251, 191, 36, 0.15); }
+        .btn-dunia.active-btn { border-color: #78716c; box-shadow: 0 0 20px rgba(120, 113, 108, 0.3); background: rgba(120, 113, 108, 0.15); }
+
+        /* =====================================================
+           RESPONSIF — telefon & tablet
+           ===================================================== */
+
+        /* --- Tablet --- */
+        @media (max-width: 1024px) {
+            .ui-layer { padding: 1.15rem; padding-top: 4.25rem; }
+
+            .ui-layer .glass-panel {
+                scrollbar-width: thin;
+                scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+                overscroll-behavior: contain;
+            }
+            .ui-layer .glass-panel::-webkit-scrollbar { width: 3px; }
+            .ui-layer .glass-panel::-webkit-scrollbar-track { background: transparent; }
+            .ui-layer .glass-panel::-webkit-scrollbar-thumb {
+                background: rgba(255, 255, 255, 0.3);
+                border-radius: 3px;
+            }
+            .ui-layer .glass-panel { border-radius: 1.25rem !important; }
+            .ui-layer .p-8 { padding: 1.1rem !important; }
+            .ui-layer .p-6 { padding: 1rem !important; }
+            .ui-layer header.glass-panel { max-width: 58%; max-height: 52vh; overflow-y: auto; }
+            .ui-layer > .glass-panel:not(header) { max-width: 46%; max-height: 36vh; overflow-y: auto; }
+
+            .ui-layer .text-4xl { font-size: 2rem !important; line-height: 2.4rem !important; }
+            .ui-layer .text-3xl { font-size: 1.65rem !important; line-height: 2.1rem !important; }
+            .ui-layer .text-2xl { font-size: 1.45rem !important; line-height: 1.9rem !important; }
+            .ui-layer .text-xl  { font-size: 1.25rem !important; }
+            .ui-layer .text-lg  { font-size: 1.12rem !important; }
+            .ui-layer .text-sm  { font-size: 1rem !important; line-height: 1.45rem !important; }
+            .ui-layer .text-xs  { font-size: 0.92rem !important; line-height: 1.32rem !important; }
+            .ui-layer .text-\[12px\] { font-size: 0.86rem !important; }
+            .ui-layer .text-\[13px\] { font-size: 0.95rem !important; }
+            .ui-layer .btn-action { font-size: 1rem !important; }
+        }
+
+        /* --- Telefon --- */
+        @media (max-width: 640px) {
+            .ui-layer { padding: 0.6rem; padding-top: 3.9rem; }
+            .ui-layer .glass-panel { border-radius: 0.95rem !important; }
+            .ui-layer .p-8 { padding: 0.8rem !important; }
+            .ui-layer .p-6 { padding: 0.75rem !important; }
+
+            .ui-layer header.glass-panel { max-width: 100%; max-height: 34vh; overflow-y: auto; }
+            .ui-layer > .glass-panel:not(header) {
+                max-width: 100%; margin-left: 0; max-height: 45vh; overflow-y: auto;
+            }
+            .ui-layer .gap-3 { gap: 0.35rem !important; }
+            .ui-layer .gap-2 { gap: 0.3rem !important; }
+
+            .ui-layer .text-4xl { font-size: 1.6rem !important; line-height: 2rem !important; }
+            .ui-layer .text-3xl { font-size: 1.4rem !important; line-height: 1.85rem !important; }
+            .ui-layer .text-2xl { font-size: 1.25rem !important; line-height: 1.65rem !important; }
+            .ui-layer .text-xl  { font-size: 1.12rem !important; }
+            .ui-layer .text-lg  { font-size: 1.05rem !important; }
+            .ui-layer .text-sm  { font-size: 0.95rem !important; line-height: 1.4rem !important; }
+            .ui-layer .text-xs  { font-size: 0.88rem !important; line-height: 1.28rem !important; }
+            .ui-layer .text-\[12px\] { font-size: 0.84rem !important; }
+            .ui-layer .text-\[13px\] { font-size: 0.92rem !important; }
+
+            .ui-layer .mb-4 { margin-bottom: 0.5rem !important; }
+            .ui-layer .my-4 { margin-top: 0.5rem !important; margin-bottom: 0.5rem !important; }
+            .ui-layer .mt-4 { margin-top: 0.5rem !important; }
+            .ui-layer .mt-3 { margin-top: 0.4rem !important; }
+            .ui-layer .mb-3 { margin-bottom: 0.4rem !important; }
+            .ui-layer .pt-4 { padding-top: 0.5rem !important; }
+            .ui-layer .py-2 { padding-top: 0.3rem !important; padding-bottom: 0.3rem !important; }
+
+            .ui-layer .btn-action { padding: 0.5rem 0.75rem !important; font-size: 0.92rem !important; }
+            .ui-layer .btn-action:hover { transform: none; }
+        }
+
+        .ui-layer { direction: ltr; text-align: left; }
+        .ui-layer .text-arabic {
+            direction: rtl;
+            text-align: right;
+            unicode-bidi: isolate;
+        }
+    </style>
+</head>
+<body class="cosmic-bg">
+    <button id="anatomi-back-btn" onclick="window.parent.postMessage('anatomi-sunnah-back', window.location.origin)" aria-label="Kembali" style="position:fixed; top:16px; left:16px; z-index:9999; width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.35); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); display:flex; align-items:center; justify-content:center; cursor:pointer; color:#fff; transition:background 0.2s; padding:0;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+    </button>
+    <style>#anatomi-back-btn:hover { background: rgba(255,255,255,0.2) !important; }</style>
+
+    <!-- Lapisan Antara Muka (UI) -->
+    <div class="ui-layer">
+        <header class="glass-panel p-8 rounded-3xl max-w-xl relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-amber-500 rounded-bl-full opacity-15 blur-xl transition-colors duration-500" id="ui-glow"></div>
+
+            <div class="inline-block px-4 py-1.5 bg-amber-950/80 rounded-full mb-3 border border-amber-500/30 transition-colors duration-500" id="ui-badge">
+                <span class="font-bold tracking-widest uppercase text-[10px] text-amber-400 transition-colors duration-500" id="ui-badge-text">Penghayatan Hadis 40 • Hadis 31</span>
+            </div>
+
+            <h1 class="text-4xl font-light text-white mb-1">Zuhud & <span class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-yellow-300 transition-colors duration-500" id="ui-title-highlight">Cinta Ilahi</span></h1>
+            <p class="text-arabic text-3xl text-amber-200 mt-3 mb-4 text-right leading-relaxed transition-colors duration-500" dir="rtl" id="ui-arabic">ازْهَدْ فِي الدُّنْيَا يُحِبَّكَ اللَّهُ</p>
+
+            <blockquote class="border-l-4 border-amber-500 pl-4 py-2 my-4 bg-amber-900/20 rounded-r-lg text-sm leading-relaxed text-gray-300 transition-colors duration-500" id="ui-quote">
+                "Zuhudlah terhadap dunia, nescaya Allah akan mencintaimu. Dan zuhudlah terhadap apa yang ada di tangan manusia, nescaya manusia akan mencintaimu."
+            </blockquote>
+
+            <p class="text-amber-200/70 text-xs leading-relaxed mt-4 border-t border-amber-800/50 pt-4" id="ui-desc">
+                <strong>Simbolisme:</strong> Zuhud bukanlah membuang dunia, tetapi meletakkannya di luar, bukan di dalam hati. Jiwa yang zuhud menjadi ringan, bebas, dan bersinar. Cinta dunia membenamkan dan menggelapkan jiwa.
+            </p>
+        </header>
+
+        <div class="glass-panel p-6 rounded-3xl max-w-sm ml-auto text-left">
+            <h3 class="text-white font-bold text-lg mb-1">Status Ikatan Hati</h3>
+            <p class="text-gray-400 text-[11px] mb-4">Ubah tarikan hati terhadap habuan dunia untuk melihat kesannya pada berat dan cahaya jiwa.</p>
+
+            <div class="flex flex-col gap-2">
+                <button id="btn-1" onclick="setZuhud()" class="btn-action btn-zuhud active-btn pointer-events-auto bg-slate-900/60 text-slate-200 py-3.5 px-5 rounded-xl text-sm font-semibold flex items-center justify-between">
+                    <span>1. Zuhud Dunia (Hati Bebas)</span> <span class="text-3xl">🕊️</span>
+                </button>
+                <button id="btn-2" onclick="setCintaDunia()" class="btn-action btn-dunia pointer-events-auto bg-slate-900/60 text-slate-200 py-3.5 px-5 rounded-xl text-sm font-semibold flex items-center justify-between">
+                    <span>2. Gila Dunia (Bebanan/Tamak)</span> <span class="text-3xl">🪨</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enjin 3D -->
+    <div id="canvas-container"></div>
+
+    <script>
+        // --- 1. SETUP ASAS ---
+        const scene = new THREE.Scene();
+        scene.fog = new THREE.FogExp2(0x0c0a09, 0.015);
+
+        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+        camera.position.set(0, 5, 50);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        document.getElementById('canvas-container').appendChild(renderer.domElement);
+
+        // --- 2. PENCAHAYAAN ---
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
+        scene.add(ambientLight);
+
+        const coreLight = new THREE.PointLight(0xfbbf24, 4, 80);
+        coreLight.position.set(0, 0, 0);
+        scene.add(coreLight);
+
+        // --- 3. MODEL 3D ---
+        const mainGroup = new THREE.Group();
+        scene.add(mainGroup);
+
+        // A. Teras Jiwa (The Soul) - Saiz Besar (Radius 4.5)
+        const coreGeo = new THREE.IcosahedronGeometry(4.5, 6); // Sphere yang sangat halus
+        const coreMat = new THREE.MeshPhysicalMaterial({
+            color: 0xffffff, emissive: 0xb45309, emissiveIntensity: 0.8,
+            roughness: 0.1, metalness: 0.2, transmission: 0.9, thickness: 2.5,
+            clearcoat: 1.0, clearcoatRoughness: 0.1, transparent: true, opacity: 0.95
+        });
+        const coreMesh = new THREE.Mesh(coreGeo, coreMat);
+        mainGroup.add(coreMesh);
+
+        // Aura Kasih Sayang (Aura of Love)
+        const auraGeo = new THREE.SphereGeometry(4.8, 32, 32);
+        const auraMat = new THREE.MeshBasicMaterial({
+            color: 0xfde68a, transparent: true, opacity: 0.3, blending: THREE.AdditiveBlending
+        });
+        const auraMesh = new THREE.Mesh(auraGeo, auraMat);
+        mainGroup.add(auraMesh);
+
+        // B. Harta & Habuan Dunia (Worldly Attachments)
+        const worldObjects = [];
+        const worldObjCount = 25;
+        // Pelbagai bentuk geometri untuk melambangkan pangkat, harta, wang
+        const geos = [
+            new THREE.DodecahedronGeometry(0.8, 0),
+            new THREE.OctahedronGeometry(0.9, 0),
+            new THREE.BoxGeometry(1.2, 1.2, 1.2)
+        ];
+
+        for(let i=0; i<worldObjCount; i++) {
+            const geo = geos[Math.floor(Math.random() * geos.length)];
+            const mat = new THREE.MeshStandardMaterial({
+                color: 0xd6d3d1, emissive: 0x44403c, metalness: 0.8, roughness: 0.3
+            });
+            const mesh = new THREE.Mesh(geo, mat);
+
+            const theta = Math.random() * Math.PI * 2;
+            const phi = Math.acos(2 * Math.random() - 1);
+
+            mesh.userData = {
+                theta: theta,
+                phi: phi,
+                baseDistance: 14 + Math.random() * 8, // Orbit jauh dari hati jika zuhud
+                speed: 0.2 + Math.random() * 0.5,
+                rotSpeedX: (Math.random() - 0.5) * 0.05,
+                rotSpeedY: (Math.random() - 0.5) * 0.05
+            };
+
+            mesh.position.setFromSphericalCoords(mesh.userData.baseDistance, phi, theta);
+            scene.add(mesh);
+            worldObjects.push(mesh);
+        }
+
+        // C. Zarah Kosmik (Aliran Keberkatan / Berat Dosa)
+        const particlesCount = 500;
+        const particlesGeo = new THREE.BufferGeometry();
+        const posArray = new Float32Array(particlesCount * 3);
+        const velArray = new Float32Array(particlesCount);
+
+        for(let i = 0; i < particlesCount; i++) {
+            posArray[i*3] = (Math.random() - 0.5) * 60;
+            posArray[i*3+1] = (Math.random() - 0.5) * 60;
+            posArray[i*3+2] = (Math.random() - 0.5) * 60;
+            velArray[i] = 0.02 + Math.random() * 0.03;
+        }
+        particlesGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+        particlesGeo.setAttribute('velocity', new THREE.BufferAttribute(velArray, 1));
+
+        const particlesMat = new THREE.PointsMaterial({
+            size: 0.2, color: 0xfef3c7, transparent: true, opacity: 0.8, blending: THREE.AdditiveBlending
+        });
+        const particlesMesh = new THREE.Points(particlesGeo, particlesMat);
+        scene.add(particlesMesh);
+
+        // --- 4. LOGIK ANIMASI GLOBAL ---
+        let clock = new THREE.Clock();
+        let isZuhud = true;
+        let shakeIntensity = 0;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            const time = clock.getElapsedTime();
+
+            if (isZuhud) {
+                // JIWA ZUHUD: Ringan, bercahaya, terapung tinggi
+                const pulse = 1 + Math.sin(time * 2) * 0.02;
+                coreMesh.scale.set(pulse, pulse, pulse);
+                coreMesh.rotation.y = time * 0.15;
+
+                auraMesh.scale.set(1 + Math.sin(time*3)*0.03, 1 + Math.sin(time*3)*0.03, 1 + Math.sin(time*3)*0.03);
+
+                // Terapung di paksi Y
+                mainGroup.position.set(0, Math.sin(time) * 1.5, 0);
+
+                // Zarah berlegar/naik (Ringan)
+                const pPositions = particlesGeo.attributes.position.array;
+                const pVelocities = particlesGeo.attributes.velocity.array;
+                for(let i = 0; i < particlesCount; i++) {
+                    pPositions[i*3+1] += pVelocities[i];
+                    if(pPositions[i*3+1] > 30) pPositions[i*3+1] = -30;
+                }
+                particlesGeo.attributes.position.needsUpdate = true;
+
+            } else {
+                // GILA DUNIA: Berat, malap, jatuh ke bawah
+                shakeIntensity = Math.random() * 0.15;
+
+                coreMesh.rotation.y += 0.02;
+
+                // Jatuh ke bawah (Y negatif) dan bergetar akibat berat dunia
+                mainGroup.position.set(
+                    (Math.random() - 0.5) * shakeIntensity,
+                    -4 + Math.sin(time * 5) * 0.1,
+                    (Math.random() - 0.5) * shakeIntensity
+                );
+
+                // Zarah jatuh (Beban)
+                const pPositions = particlesGeo.attributes.position.array;
+                const pVelocities = particlesGeo.attributes.velocity.array;
+                for(let i = 0; i < particlesCount; i++) {
+                    pPositions[i*3+1] -= pVelocities[i] * 2;
+                    if(pPositions[i*3+1] < -30) pPositions[i*3+1] = 30;
+                }
+                particlesGeo.attributes.position.needsUpdate = true;
+            }
+
+            // Animasi Habuan Dunia (World Objects)
+            worldObjects.forEach((obj) => {
+                const ud = obj.userData;
+                ud.theta += 0.01 * ud.speed; // Sentiasa mengorbit
+
+                // Radius sasaran
+                // Jika Zuhud: Habuan dunia berada jauh dari hati (baseDistance)
+                // Jika Cinta Dunia: Habuan tersedut, melekat, dan mencengkam jiwa (Radius ~4.8)
+                const targetRadius = isZuhud ? ud.baseDistance : 4.8 + Math.random() * 0.8;
+
+                // Smooth transition (Lerp radius)
+                const currentPos = new THREE.Vector3().copy(obj.position);
+                const targetPos = new THREE.Vector3().setFromSphericalCoords(targetRadius, ud.phi, ud.theta);
+
+                // Tambah sedikit gegaran bila melekat (Tamak)
+                if(!isZuhud) {
+                    targetPos.x += (Math.random() - 0.5) * 0.2;
+                    targetPos.y += (Math.random() - 0.5) * 0.2 + mainGroup.position.y; // Ikut posisi Y mainGroup yang jatuh
+                } else {
+                    targetPos.y += mainGroup.position.y * 0.2; // Sedikit respon kepada apungan jiwa
+                }
+
+                obj.position.lerp(targetPos, isZuhud ? 0.05 : 0.1);
+
+                obj.rotation.x += ud.rotSpeedX;
+                obj.rotation.y += ud.rotSpeedY;
+
+                // Warna material objek dunia
+                if(!isZuhud && obj.position.distanceTo(mainGroup.position) < 6.0) {
+                    obj.material.color.setHex(0x57534e); // Kelabu kotor (Membebankan)
+                    obj.material.emissive.setHex(0x292524);
+                } else if(isZuhud) {
+                    obj.material.color.setHex(0xd6d3d1); // Neutral jauh
+                    obj.material.emissive.setHex(0x44403c);
+                }
+            });
+
+            // Kamera beralun lembut
+            camera.position.x = Math.sin(time * 0.1) * 2;
+            camera.lookAt(0, mainGroup.position.y * 0.5, 0); // Focus follows the core drop slightly
+
+            renderer.render(scene, camera);
+        }
+
+        // --- 5. FUNGSI INTERAKSI (GSAP & UI) ---
+        function updateUI(btnId, titleClass, badgeBgClass, badgeTextClass, quoteBorderClass, quoteBgClass, glowClass, arabicText, quoteText, descText) {
+            for(let i=1; i<=2; i++) document.getElementById('btn-'+i).classList.remove('active-btn');
+            document.getElementById('btn-'+btnId).classList.add('active-btn');
+
+            document.getElementById('ui-title-highlight').className = `font-extrabold text-transparent bg-clip-text bg-gradient-to-r ${titleClass} transition-colors duration-500`;
+            document.getElementById('ui-badge').className = `inline-block px-4 py-1.5 rounded-full mb-3 border border-white/10 ${badgeBgClass} transition-colors duration-500`;
+            document.getElementById('ui-badge-text').className = `font-bold tracking-widest uppercase text-[10px] ${badgeTextClass} transition-colors duration-500`;
+            document.getElementById('ui-quote').className = `border-l-4 ${quoteBorderClass} pl-4 py-2 my-4 ${quoteBgClass} rounded-r-lg text-sm leading-relaxed text-gray-200 transition-colors duration-500`;
+            document.getElementById('ui-glow').className = `absolute top-0 right-0 w-32 h-32 rounded-bl-full opacity-15 blur-xl transition-colors duration-500 ${glowClass}`;
+
+            document.getElementById('ui-arabic').innerText = arabicText;
+            document.getElementById('ui-quote').innerText = quoteText;
+            document.getElementById('ui-desc').innerHTML = `<strong>Simbolisme:</strong> ${descText}`;
+        }
+
+        function setZuhud() {
+            isZuhud = true;
+            updateUI(1,
+                "from-amber-400 to-yellow-300", "bg-amber-950/80", "text-amber-400",
+                "border-amber-500", "bg-amber-900/20", "bg-amber-500",
+                "ازْهَدْ فِي الدُّنْيَا يُحِبَّكَ اللَّهُ",
+                '"Zuhudlah terhadap dunia, nescaya Allah akan mencintaimu. Dan zuhudlah terhadap apa yang ada di tangan manusia, nescaya manusia akan mencintaimu."',
+                "Zuhud adalah kebebasan hati. Dunia (harta/pangkat) dibiarkan beredar di tangan (luar), bukan di dalam hati. Jiwa menjadi sangat ringan, bersih, dan memancarkan cahaya cinta Ilahi."
+            );
+
+            // Cahaya Teras Zuhud (Emas/Kuning Murni)
+            gsap.to(coreMat.emissive, { r: 0.7, g: 0.32, b: 0.04, duration: 1.5 }); // b45309
+            gsap.to(coreMat, { opacity: 0.95, roughness: 0.1, duration: 1.5 });
+            gsap.to(coreLight.color, { r: 0.98, g: 0.75, b: 0.14, duration: 1.5 }); // fbbf24
+            gsap.to(coreLight, { intensity: 4, duration: 1.5 });
+
+            // Aura Kasih Sayang Menyala
+            gsap.to(auraMat, { opacity: 0.3, duration: 1.5 });
+
+            gsap.to(particlesMat.color, { r: 0.99, g: 0.95, b: 0.78, duration: 1.5 });
+            gsap.to(scene.fog, { color: 0x0c0a09, density: 0.015, duration: 1.5 });
+        }
+
+        function setCintaDunia() {
+            isZuhud = false;
+            updateUI(2,
+                "from-stone-400 to-stone-600", "bg-stone-950/80", "text-stone-400",
+                "border-stone-500", "bg-stone-900/20", "bg-stone-600",
+                "حُبُّ الدُّنْيَا رَأْسُ كُلِّ خَطِيئَةٍ",
+                '"Cinta kepada dunia (gila dunia) akan menghilangkan cahaya dan kewibawaan. Manusia akan membenci orang yang sentiasa mendambakan (tamak) apa yang ada pada mereka."',
+                "Apabila gila dunia menguasai, graviti tamak menarik semua harta dan status sehingga melekat dan membelenggu jiwa. Jiwa menjadi amat berat, jatuh terperosok, dan cahayanya terpadam kusam."
+            );
+
+            // Cahaya Teras Malap & Berat (Kelabu / Batu / Pudar)
+            gsap.to(coreMat.emissive, { r: 0.16, g: 0.16, b: 0.15, duration: 1.5 }); // 292524
+            gsap.to(coreMat, { opacity: 0.7, roughness: 0.8, duration: 1.5 });
+            gsap.to(coreLight.color, { r: 0.47, g: 0.44, b: 0.42, duration: 1.5 }); // 78716c
+            gsap.to(coreLight, { intensity: 1.5, duration: 1.5 });
+
+            // Aura Padam
+            gsap.to(auraMat, { opacity: 0, duration: 1.0 });
+
+            gsap.to(particlesMat.color, { r: 0.47, g: 0.44, b: 0.42, duration: 1.5 });
+            gsap.to(scene.fog, { color: 0x1c1917, density: 0.02, duration: 1.5 }); // Debu kelabu
+        }
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // Initialize state
+        setZuhud();
+        animate();
+    </script>
+</body>
+</html>

@@ -228,12 +228,14 @@ void main() {
       }
     });
 
-    test('AnatomiSunnahScreen.availableHadithNumbers >= 25', () {
+    test('AnatomiSunnahScreen.availableHadithSet merangkumi H21-H25', () {
+      // Baca sumber sebagai teks (bukan import terus) supaya ujian ini
+      // boleh berjalan di platform VM — `anatomi_sunnah_screen.dart`
+      // mengimport `dart:html` yang tidak wujud di luar platform web.
       final source =
           File('lib/screens/anatomi_sunnah_screen.dart').readAsStringSync();
-      expect(source.contains('availableHadithNumbers = 30'), true,
-          reason:
-              'availableHadithNumbers mesti sekurang-kurangnya 25 untuk merangkumi H21-H25');
+      expect(source.contains('21, 22, 23, 24, 25,'), true,
+          reason: 'Hadis 21-25 mesti tersenarai dalam availableHadithSet');
     });
   });
 }

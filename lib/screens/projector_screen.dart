@@ -371,8 +371,7 @@ class _AnatomiSunnahProjectorPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
-    final available =
-        hadith.number <= AnatomiSunnahScreen.availableHadithNumbers;
+    final available = AnatomiSunnahScreen.isAvailable(hadith.number);
 
     return Center(
       child: SingleChildScrollView(

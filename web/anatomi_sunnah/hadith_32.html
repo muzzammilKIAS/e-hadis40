@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Tiada Mudharat - Hadis 32 3D</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="./lib/three.min.js"></script>
+    <script src="./lib/gsap.min.js"></script>
+    <style>
+        @import url('./lib/fonts.css');
+
+        body { margin: 0; overflow: hidden; background-color: #083344; font-family: 'Baloo 2', sans-serif; }
+        #canvas-container { position: absolute; top: 0; left: 0; width: 100%; height: 100vh; z-index: 1; }
+
+        .cosmic-bg {
+            background: radial-gradient(circle at 50% 50%, #0c4a6e 0%, #020617 100%);
+        }
+
+        .ui-layer { position: relative; z-index: 10; pointer-events: none; height: 100vh; display: flex; flex-direction: column; justify-content: space-between; padding: 2.5rem; }
+
+        .glass-panel {
+            background: rgba(8, 51, 68, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            pointer-events: auto;
+        }
+
+        .text-arabic { font-family: 'Amiri', serif; }
+
+        .btn-action { transition: all 0.4s ease; border: 1px solid rgba(255,255,255,0.1); }
+        .btn-action:hover { transform: translateX(-5px); background: rgba(255,255,255,0.15); }
+
+        /* Tema Warna Butang Aktif */
+        .btn-harmoni.active-btn { border-color: #06b6d4; box-shadow: 0 0 20px rgba(6, 182, 212, 0.3); background: rgba(6, 182, 212, 0.15); }
+        .btn-darar.active-btn { border-color: #ef4444; box-shadow: 0 0 20px rgba(239, 68, 68, 0.3); background: rgba(239, 68, 68, 0.15); }
+        .btn-dirar.active-btn { border-color: #a855f7; box-shadow: 0 0 20px rgba(168, 85, 247, 0.3); background: rgba(168, 85, 247, 0.15); }
+
+        /* =====================================================
+           RESPONSIF — telefon & tablet
+           ===================================================== */
+
+        /* --- Tablet --- */
+        @media (max-width: 1024px) {
+            .ui-layer { padding: 1.15rem; padding-top: 4.25rem; }
+
+            .ui-layer .glass-panel {
+                scrollbar-width: thin;
+                scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+                overscroll-behavior: contain;
+            }
+            .ui-layer .glass-panel::-webkit-scrollbar { width: 3px; }
+            .ui-layer .glass-panel::-webkit-scrollbar-track { background: transparent; }
+            .ui-layer .glass-panel::-webkit-scrollbar-thumb {
+                background: rgba(255, 255, 255, 0.3);
+                border-radius: 3px;
+            }
+            .ui-layer .glass-panel { border-radius: 1.25rem !important; }
+            .ui-layer .p-8 { padding: 1.1rem !important; }
+            .ui-layer .p-6 { padding: 1rem !important; }
+            .ui-layer header.glass-panel { max-width: 58%; max-height: 52vh; overflow-y: auto; }
+            .ui-layer > .glass-panel:not(header) { max-width: 46%; max-height: 36vh; overflow-y: auto; }
+
+            .ui-layer .text-4xl { font-size: 2rem !important; line-height: 2.4rem !important; }
+            .ui-layer .text-3xl { font-size: 1.65rem !important; line-height: 2.1rem !important; }
+            .ui-layer .text-2xl { font-size: 1.45rem !important; line-height: 1.9rem !important; }
+            .ui-layer .text-xl  { font-size: 1.25rem !important; }
+            .ui-layer .text-lg  { font-size: 1.12rem !important; }
+            .ui-layer .text-sm  { font-size: 1rem !important; line-height: 1.45rem !important; }
+            .ui-layer .text-xs  { font-size: 0.92rem !important; line-height: 1.32rem !important; }
+            .ui-layer .text-\[12px\] { font-size: 0.86rem !important; }
+            .ui-layer .text-\[13px\] { font-size: 0.95rem !important; }
+            .ui-layer .btn-action { font-size: 1rem !important; }
+        }
+
+        /* --- Telefon --- */
+        @media (max-width: 640px) {
+            .ui-layer { padding: 0.6rem; padding-top: 3.9rem; }
+            .ui-layer .glass-panel { border-radius: 0.95rem !important; }
+            .ui-layer .p-8 { padding: 0.8rem !important; }
+            .ui-layer .p-6 { padding: 0.75rem !important; }
+
+            .ui-layer header.glass-panel { max-width: 100%; max-height: 34vh; overflow-y: auto; }
+            .ui-layer > .glass-panel:not(header) {
+                max-width: 100%; margin-left: 0; max-height: 45vh; overflow-y: auto;
+            }
+            .ui-layer .gap-3 { gap: 0.35rem !important; }
+            .ui-layer .gap-2 { gap: 0.3rem !important; }
+
+            .ui-layer .text-4xl { font-size: 1.6rem !important; line-height: 2rem !important; }
+            .ui-layer .text-3xl { font-size: 1.4rem !important; line-height: 1.85rem !important; }
+            .ui-layer .text-2xl { font-size: 1.25rem !important; line-height: 1.65rem !important; }
+            .ui-layer .text-xl  { font-size: 1.12rem !important; }
+            .ui-layer .text-lg  { font-size: 1.05rem !important; }
+            .ui-layer .text-sm  { font-size: 0.95rem !important; line-height: 1.4rem !important; }
+            .ui-layer .text-xs  { font-size: 0.88rem !important; line-height: 1.28rem !important; }
+            .ui-layer .text-\[12px\] { font-size: 0.84rem !important; }
+            .ui-layer .text-\[13px\] { font-size: 0.92rem !important; }
+
+            .ui-layer .mb-4 { margin-bottom: 0.5rem !important; }
+            .ui-layer .my-4 { margin-top: 0.5rem !important; margin-bottom: 0.5rem !important; }
+            .ui-layer .mt-4 { margin-top: 0.5rem !important; }
+            .ui-layer .mt-3 { margin-top: 0.4rem !important; }
+            .ui-layer .mb-3 { margin-bottom: 0.4rem !important; }
+            .ui-layer .pt-4 { padding-top: 0.5rem !important; }
+            .ui-layer .py-2 { padding-top: 0.3rem !important; padding-bottom: 0.3rem !important; }
+
+            .ui-layer .btn-action { padding: 0.5rem 0.75rem !important; font-size: 0.92rem !important; }
+            .ui-layer .btn-action:hover { transform: none; }
+        }
+
+        .ui-layer { direction: ltr; text-align: left; }
+        .ui-layer .text-arabic {
+            direction: rtl;
+            text-align: right;
+            unicode-bidi: isolate;
+        }
+    </style>
+</head>
+<body class="cosmic-bg">
+    <button id="anatomi-back-btn" onclick="window.parent.postMessage('anatomi-sunnah-back', window.location.origin)" aria-label="Kembali" style="position:fixed; top:16px; left:16px; z-index:9999; width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.35); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); display:flex; align-items:center; justify-content:center; cursor:pointer; color:#fff; transition:background 0.2s; padding:0;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+    </button>
+    <style>#anatomi-back-btn:hover { background: rgba(255,255,255,0.2) !important; }</style>
+
+    <!-- Lapisan Antara Muka (UI) -->
+    <div class="ui-layer">
+        <header class="glass-panel p-8 rounded-3xl max-w-xl relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-cyan-500 rounded-bl-full opacity-15 blur-xl transition-colors duration-500" id="ui-glow"></div>
+
+            <div class="inline-block px-4 py-1.5 bg-cyan-950/80 rounded-full mb-3 border border-cyan-500/30 transition-colors duration-500" id="ui-badge">
+                <span class="font-bold tracking-widest uppercase text-[10px] text-cyan-400 transition-colors duration-500" id="ui-badge-text">Penghayatan Hadis 40 • Hadis 32</span>
+            </div>
+
+            <h1 class="text-4xl font-light text-white mb-1">Prinsip <span class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-300 transition-colors duration-500" id="ui-title-highlight">Tiada Kemudharatan</span></h1>
+            <p class="text-arabic text-4xl text-cyan-200 mt-3 mb-4 text-right leading-relaxed transition-colors duration-500" dir="rtl" id="ui-arabic">لَا ضَرَرَ وَلَا ضِرَارَ</p>
+
+            <blockquote class="border-l-4 border-cyan-500 pl-4 py-2 my-4 bg-cyan-900/20 rounded-r-lg text-sm leading-relaxed text-gray-300 transition-colors duration-500" id="ui-quote">
+                "Tidak boleh memudharatkan orang lain (darar), dan tidak boleh membalas kemudharatan dengan kemudharatan (dirar)."
+            </blockquote>
+
+            <p class="text-cyan-200/70 text-xs leading-relaxed mt-4 border-t border-cyan-800/50 pt-4" id="ui-desc">
+                <strong>Simbolisme:</strong> Islam melarang kita memulakan bahaya kepada sesiapa pun. Ia juga melarang tindak balas dendam kerana 'dirar' hanya akan mencetuskan reaksi berantai yang memusnahkan keseluruhan ekosistem.
+            </p>
+        </header>
+
+        <div class="glass-panel p-6 rounded-3xl max-w-sm ml-auto text-left">
+            <h3 class="text-white font-bold text-lg mb-1">Dinamik Masyarakat</h3>
+            <p class="text-gray-400 text-[11px] mb-4">Pilih tindakan untuk melihat kesannya terhadap rantaian keseimbangan ekosistem.</p>
+
+            <div class="flex flex-col gap-2">
+                <button id="btn-1" onclick="setHarmoni()" class="btn-action btn-harmoni active-btn pointer-events-auto bg-slate-900/60 text-slate-200 py-3.5 px-5 rounded-xl text-sm font-semibold flex items-center justify-between">
+                    <span>1. Tiada Mudharat (Harmoni)</span> <span class="text-3xl">🕊️</span>
+                </button>
+                <button id="btn-2" onclick="setDarar()" class="btn-action btn-darar pointer-events-auto bg-slate-900/60 text-slate-200 py-3.5 px-5 rounded-xl text-sm font-semibold flex items-center justify-between">
+                    <span>2. Darar (Memulakan Mudharat)</span> <span class="text-3xl">🔥</span>
+                </button>
+                <button id="btn-3" onclick="setDirar()" class="btn-action btn-dirar pointer-events-auto bg-slate-900/60 text-slate-200 py-3.5 px-5 rounded-xl text-sm font-semibold flex items-center justify-between">
+                    <span>3. Dirar (Membalas / Dendam)</span> <span class="text-3xl">💥</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enjin 3D -->
+    <div id="canvas-container"></div>
+
+    <script>
+        // --- 1. SETUP ASAS ---
+        const scene = new THREE.Scene();
+        scene.fog = new THREE.FogExp2(0x083344, 0.015);
+
+        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+        camera.position.set(0, 5, 55);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        document.getElementById('canvas-container').appendChild(renderer.domElement);
+
+        // --- 2. PENCAHAYAAN ---
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
+        scene.add(ambientLight);
+
+        const coreLight = new THREE.PointLight(0x06b6d4, 4, 80);
+        coreLight.position.set(0, 0, 0);
+        scene.add(coreLight);
+
+        // --- 3. MODEL 3D (Rangkaian Ekosistem) ---
+        const mainGroup = new THREE.Group();
+        scene.add(mainGroup);
+
+        // A. Teras Individu (The Core)
+        const coreGeo = new THREE.IcosahedronGeometry(4.0, 4); // Halus/Bulat
+        const coreMat = new THREE.MeshPhysicalMaterial({
+            color: 0xffffff, emissive: 0x0891b2, emissiveIntensity: 0.8,
+            roughness: 0.1, metalness: 0.2, transmission: 0.9, thickness: 2.5,
+            clearcoat: 1.0, clearcoatRoughness: 0.1, transparent: true, opacity: 0.95
+        });
+        const coreMesh = new THREE.Mesh(coreGeo, coreMat);
+        mainGroup.add(coreMesh);
+
+        // B. Rangka "Duri Kemudharatan" (Hidden by default)
+        const spikeGeo = new THREE.IcosahedronGeometry(4.2, 1); // Rangka tajam
+        const spikeMat = new THREE.MeshBasicMaterial({
+            color: 0xef4444, wireframe: true, transparent: true, opacity: 0
+        });
+        const spikeMesh = new THREE.Mesh(spikeGeo, spikeMat);
+        mainGroup.add(spikeMesh);
+
+        // C. Satelit (Masyarakat/Ekosistem) & Jaringan Hubungan
+        const satellites = [];
+        const satCount = 8;
+        const satGeo = new THREE.SphereGeometry(1.2, 32, 32);
+
+        for(let i=0; i<satCount; i++) {
+            const satMat = new THREE.MeshPhysicalMaterial({
+                color: 0xffffff, emissive: 0x0d9488, emissiveIntensity: 0.8, // Teal
+                roughness: 0.2, metalness: 0.5, transparent: true, opacity: 0.9
+            });
+            const satMesh = new THREE.Mesh(satGeo, satMat);
+
+            const angle = (i / satCount) * Math.PI * 2;
+            const baseRadius = 16;
+
+            satMesh.userData = {
+                angle: angle,
+                baseRadius: baseRadius,
+                currentRadius: baseRadius,
+                speed: 0.2 + (Math.random() * 0.2),
+                wobble: Math.random() * Math.PI,
+                energyState: 'calm'
+            };
+
+            mainGroup.add(satMesh);
+
+            // Tali Penghubung (Tenaga antara individu & masyarakat)
+            const linkGeo = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(0,0,0), new THREE.Vector3(0,0,0)]);
+            const linkMat = new THREE.LineBasicMaterial({ color: 0x22d3ee, transparent: true, opacity: 0.5 });
+            const linkMesh = new THREE.Line(linkGeo, linkMat);
+            mainGroup.add(linkMesh);
+
+            satellites.push({ mesh: satMesh, link: linkMesh, mat: satMat, linkMat: linkMat });
+        }
+
+        // D. Zarah Persekitaran (Kesan Tindakan)
+        const particlesCount = 600;
+        const particlesGeo = new THREE.BufferGeometry();
+        const posArray = new Float32Array(particlesCount * 3);
+        const originalPosArray = new Float32Array(particlesCount * 3);
+
+        for(let i = 0; i < particlesCount * 3; i++) {
+            const val = (Math.random() - 0.5) * 70;
+            posArray[i] = val;
+            originalPosArray[i] = val;
+        }
+        particlesGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+
+        const particlesMat = new THREE.PointsMaterial({
+            size: 0.25, color: 0xcffafe, transparent: true, opacity: 0.7, blending: THREE.AdditiveBlending
+        });
+        const particlesMesh = new THREE.Points(particlesGeo, particlesMat);
+        scene.add(particlesMesh);
+
+        // --- 4. LOGIK ANIMASI GLOBAL ---
+        let clock = new THREE.Clock();
+        let currentState = 1; // 1: Harmoni, 2: Darar, 3: Dirar
+        let shakeIntensity = 0;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            const time = clock.getElapsedTime();
+
+            if (currentState === 1) {
+                // HARMONI: Tiada mudharat
+                const pulse = 1 + Math.sin(time * 2) * 0.03;
+                coreMesh.scale.set(pulse, pulse, pulse);
+                coreMesh.rotation.y = time * 0.2;
+                coreMesh.rotation.z = Math.sin(time * 0.5) * 0.05;
+
+                mainGroup.position.set(0, Math.sin(time) * 0.5, 0); // Terapung lembut
+
+                spikeMesh.rotation.x = time * 0.1;
+
+                // Satelit mengorbit secara seimbang dan selamat
+                satellites.forEach((sat, i) => {
+                    const ud = sat.mesh.userData;
+                    ud.angle += 0.01 * ud.speed;
+
+                    ud.currentRadius += (ud.baseRadius - ud.currentRadius) * 0.05; // Lerp ke radius asal (16)
+
+                    sat.mesh.position.x = Math.cos(ud.angle) * ud.currentRadius;
+                    sat.mesh.position.z = Math.sin(ud.angle) * ud.currentRadius;
+                    sat.mesh.position.y = Math.sin(time * 1.5 + i) * 2.0; // Alunan ombak tenang
+
+                    // Sambungan kekal di tengah
+                    sat.link.geometry.attributes.position.setXYZ(0, 0, 0, 0);
+                    sat.link.geometry.attributes.position.setXYZ(1, sat.mesh.position.x, sat.mesh.position.y, sat.mesh.position.z);
+                    sat.link.geometry.attributes.position.needsUpdate = true;
+                });
+
+                // Zarah mengalir harmoni (orbit ringan)
+                const pPositions = particlesGeo.attributes.position.array;
+                for(let i = 0; i < particlesCount * 3; i+=3) {
+                    pPositions[i+1] += 0.02;
+                    if(pPositions[i+1] > 35) pPositions[i+1] = -35;
+                }
+
+            } else if (currentState === 2) {
+                // DARAR: Memulakan Kerosakan
+                shakeIntensity = Math.random() * 0.1;
+                coreMesh.rotation.y += 0.05;
+                coreMesh.rotation.x += 0.05;
+
+                mainGroup.position.set((Math.random()-0.5)*shakeIntensity, (Math.random()-0.5)*shakeIntensity, 0);
+
+                // Duri mengembang (menusuk)
+                const spikePulse = 1.0 + Math.sin(time * 10) * 0.05;
+                spikeMesh.scale.set(spikePulse, spikePulse, spikePulse);
+
+                // Satelit ditolak keluar (Kesan mudharat)
+                satellites.forEach((sat, i) => {
+                    const ud = sat.mesh.userData;
+                    ud.angle += 0.02 * ud.speed;
+
+                    const repelRadius = 22 + Math.sin(time * 5 + i) * 2; // Ditolak kasar
+                    ud.currentRadius += (repelRadius - ud.currentRadius) * 0.1;
+
+                    sat.mesh.position.x = Math.cos(ud.angle) * ud.currentRadius;
+                    sat.mesh.position.z = Math.sin(ud.angle) * ud.currentRadius;
+                    sat.mesh.position.y = Math.sin(time * 4 + i) * 4.0; // Terumbang-ambing
+
+                    // Sambungan bergegar di hujung teras
+                    sat.link.geometry.attributes.position.setXYZ(0, (Math.random()-0.5)*2, (Math.random()-0.5)*2, (Math.random()-0.5)*2);
+                    sat.link.geometry.attributes.position.setXYZ(1, sat.mesh.position.x, sat.mesh.position.y, sat.mesh.position.z);
+                    sat.link.geometry.attributes.position.needsUpdate = true;
+                });
+
+                // Zarah menjauhi teras (Fear / Repel)
+                const pPositions = particlesGeo.attributes.position.array;
+                for(let i = 0; i < particlesCount * 3; i+=3) {
+                    const dx = pPositions[i];
+                    const dy = pPositions[i+1];
+                    const dz = pPositions[i+2];
+                    const dist = Math.sqrt(dx*dx + dy*dy + dz*dz) || 1;
+
+                    if(dist < 20) {
+                        pPositions[i] += (dx/dist) * 0.2;
+                        pPositions[i+1] += (dy/dist) * 0.2;
+                        pPositions[i+2] += (dz/dist) * 0.2;
+                    }
+                }
+
+            } else if (currentState === 3) {
+                // DIRAR: Membalas Kerosakan (Reaksi Berantai Kemusnahan)
+                shakeIntensity = Math.random() * 0.4; // Bergegar kuat
+                coreMesh.rotation.y += 0.1;
+                coreMesh.rotation.z -= 0.1;
+
+                mainGroup.position.set(
+                    (Math.random() - 0.5) * shakeIntensity,
+                    (Math.random() - 0.5) * shakeIntensity,
+                    (Math.random() - 0.5) * shakeIntensity
+                );
+
+                spikeMesh.scale.set(1.2, 1.2, 1.2); // Duri maksimum
+
+                // Satelit menyerang kembali (Chaotic clash)
+                satellites.forEach((sat, i) => {
+                    const ud = sat.mesh.userData;
+                    ud.angle += 0.05 * ud.speed; // Laju dan gila
+
+                    // Satelit "melanggar" masuk (membalas dendam)
+                    const clashRadius = 8 + Math.sin(time * 15 + i) * 4;
+                    ud.currentRadius += (clashRadius - ud.currentRadius) * 0.2;
+
+                    sat.mesh.position.x = Math.cos(ud.angle) * ud.currentRadius + (Math.random()-0.5);
+                    sat.mesh.position.z = Math.sin(ud.angle) * ud.currentRadius + (Math.random()-0.5);
+                    sat.mesh.position.y = Math.sin(time * 10 + i) * 6.0;
+
+                    // Sambungan menjadi petir kacau-bilau
+                    sat.link.geometry.attributes.position.setXYZ(0, (Math.random()-0.5)*3, (Math.random()-0.5)*3, (Math.random()-0.5)*3);
+                    sat.link.geometry.attributes.position.setXYZ(1, sat.mesh.position.x, sat.mesh.position.y, sat.mesh.position.z);
+                    sat.link.geometry.attributes.position.needsUpdate = true;
+                });
+
+                // Zarah berpusing seperti ribut (Tornado kemusnahan)
+                const pPositions = particlesGeo.attributes.position.array;
+                for(let i = 0; i < particlesCount * 3; i+=3) {
+                    const x = pPositions[i];
+                    const z = pPositions[i+2];
+
+                    pPositions[i] = x * Math.cos(0.05) - z * Math.sin(0.05);
+                    pPositions[i+2] = x * Math.sin(0.05) + z * Math.cos(0.05);
+                    pPositions[i+1] += (Math.random() - 0.5) * 1.5;
+
+                    if(Math.abs(pPositions[i+1]) > 35) pPositions[i+1] = (Math.random()-0.5)*70;
+                }
+            }
+
+            particlesGeo.attributes.position.needsUpdate = true;
+            particlesMesh.rotation.y = time * (currentState === 3 ? 0.05 : 0.02);
+
+            // Kamera beralun / bergetar
+            if(currentState === 3) {
+                camera.position.x = (Math.random()-0.5)*0.5;
+                camera.position.y = 5 + (Math.random()-0.5)*0.5;
+            } else {
+                camera.position.x = Math.sin(time * 0.1) * 2;
+                camera.position.y = 5;
+            }
+            camera.lookAt(0, 0, 0);
+
+            renderer.render(scene, camera);
+        }
+
+        // --- 5. FUNGSI INTERAKSI (GSAP & UI) ---
+        function updateUI(btnId, titleClass, badgeBgClass, badgeTextClass, quoteBorderClass, quoteBgClass, glowClass, arabicText, quoteText, descText) {
+            for(let i=1; i<=3; i++) document.getElementById('btn-'+i).classList.remove('active-btn');
+            document.getElementById('btn-'+btnId).classList.add('active-btn');
+
+            document.getElementById('ui-title-highlight').className = `font-extrabold text-transparent bg-clip-text bg-gradient-to-r ${titleClass} transition-colors duration-500`;
+            document.getElementById('ui-badge').className = `inline-block px-4 py-1.5 rounded-full mb-3 border border-white/10 ${badgeBgClass} transition-colors duration-500`;
+            document.getElementById('ui-badge-text').className = `font-bold tracking-widest uppercase text-[10px] ${badgeTextClass} transition-colors duration-500`;
+            document.getElementById('ui-quote').className = `border-l-4 ${quoteBorderClass} pl-4 py-2 my-4 ${quoteBgClass} rounded-r-lg text-sm leading-relaxed text-gray-200 transition-colors duration-500`;
+            document.getElementById('ui-glow').className = `absolute top-0 right-0 w-32 h-32 rounded-bl-full opacity-15 blur-xl transition-colors duration-500 ${glowClass}`;
+
+            document.getElementById('ui-arabic').innerText = arabicText;
+            document.getElementById('ui-quote').innerText = quoteText;
+            document.getElementById('ui-desc').innerHTML = `<strong>Simbolisme:</strong> ${descText}`;
+        }
+
+        function setHarmoni() {
+            currentState = 1;
+            updateUI(1,
+                "from-cyan-400 to-teal-300", "bg-cyan-950/80", "text-cyan-400",
+                "border-cyan-500", "bg-cyan-900/20", "bg-cyan-500",
+                "لَا ضَرَرَ",
+                '"Tidak boleh memudharatkan orang lain..." (Membawa maksud haram memulakan sebarang bentuk kerosakan, penganiayaan atau kezaliman terhadap manusia, haiwan, dan alam).',
+                "Teras harmoni. Selagi kita tidak memulakan kemudharatan (Darar), ekosistem sosial kekal dalam keseimbangan, berhubung secara menyokong, dan memancarkan cahaya ketenangan."
+            );
+
+            // Warna Harmoni (Cyan / Teal)
+            gsap.to(coreMat.emissive, { r: 0.03, g: 0.57, b: 0.7, duration: 1.5 }); // 0891b2
+            gsap.to(coreMat, { opacity: 0.95, roughness: 0.1, duration: 1.5 });
+            gsap.to(coreLight.color, { r: 0.02, g: 0.71, b: 0.83, duration: 1.5 });
+            gsap.to(coreLight, { intensity: 4, duration: 1.5 });
+
+            // Sembunyikan Duri
+            gsap.to(spikeMat, { opacity: 0, duration: 1.0 });
+
+            // Satelit & Jaringan Sihat
+            satellites.forEach(sat => {
+                gsap.to(sat.mat.emissive, { r: 0.05, g: 0.58, b: 0.53, duration: 1.5 }); // 0d9488
+                gsap.to(sat.linkMat, { opacity: 0.5, duration: 1.5 });
+                gsap.to(sat.linkMat.color, { r: 0.13, g: 0.83, b: 0.93, duration: 1.5 }); // 22d3ee
+            });
+
+            gsap.to(particlesMat.color, { r: 0.81, g: 0.98, b: 1.0, duration: 1.5 });
+            gsap.to(scene.fog, { color: 0x083344, density: 0.015, duration: 1.5 });
+        }
+
+        function setDarar() {
+            currentState = 2;
+            updateUI(2,
+                "from-red-400 to-orange-500", "bg-red-950/80", "text-red-400",
+                "border-red-500", "bg-red-900/20", "bg-red-600",
+                "لَا ضَرَرَ",
+                '"Darar bermaksud memulakan tindakan yang memudharatkan orang lain tanpa hak, sama ada melibatkan tubuh badan, harta, atau kehormatan seseorang."',
+                "Apabila individu memulakan kerosakan (Darar), teras mengeluarkan duri toksik. Ia menolak dan merosakkan satelit sekeliling, memecahkan rantaian keseimbangan masyarakat."
+            );
+
+            // Warna Toksik (Merah/Oren)
+            gsap.to(coreMat.emissive, { r: 0.5, g: 0.1, b: 0.05, duration: 1.5 });
+            gsap.to(coreMat, { opacity: 0.8, roughness: 0.6, duration: 1.5 });
+            gsap.to(coreLight.color, { r: 0.94, g: 0.27, b: 0.27, duration: 1.5 }); // ef4444
+            gsap.to(coreLight, { intensity: 3, duration: 1.5 });
+
+            // Timbulkan Duri Merah
+            gsap.to(spikeMat, { opacity: 0.6, duration: 1.0 });
+            gsap.to(spikeMat.color, { r: 1.0, g: 0.0, b: 0.0, duration: 1.0 });
+
+            // Satelit Merah Beramaran
+            satellites.forEach(sat => {
+                gsap.to(sat.mat.emissive, { r: 0.6, g: 0.2, b: 0.1, duration: 1.5 });
+                gsap.to(sat.linkMat, { opacity: 0.3, duration: 1.5 });
+                gsap.to(sat.linkMat.color, { r: 0.9, g: 0.3, b: 0.2, duration: 1.5 });
+            });
+
+            gsap.to(particlesMat.color, { r: 0.9, g: 0.4, b: 0.2, duration: 1.5 });
+            gsap.to(scene.fog, { color: 0x1f0909, density: 0.015, duration: 1.5 });
+        }
+
+        function setDirar() {
+            currentState = 3;
+            updateUI(3,
+                "from-purple-500 to-fuchsia-600", "bg-purple-950/80", "text-purple-400",
+                "border-purple-500", "bg-purple-900/20", "bg-purple-600",
+                "وَلَا ضِرَارَ",
+                '"...dan tidak boleh membalas kemudharatan dengan kemudharatan (dirar)." (Membawa maksud tidak boleh membalas dendam dengan menzalimi, sebaliknya menggunakan jalan perundangan).',
+                "Membalas kemudharatan dengan dendam (Dirar) mengakibatkan kemusnahan bersilang. Saling bertembung dan memusnahkan satu sama lain hingga seluruh ekosistem diselubungi huru-hara dan kegelapan."
+            );
+
+            // Warna Kekacauan / Huru-hara (Ungu Gelap / Purple Zulumat)
+            gsap.to(coreMat.emissive, { r: 0.2, g: 0.05, b: 0.4, duration: 1.5 });
+            gsap.to(coreMat, { opacity: 0.5, roughness: 0.9, duration: 1.5 });
+            gsap.to(coreLight.color, { r: 0.66, g: 0.33, b: 0.97, duration: 1.5 }); // a855f7
+            gsap.to(coreLight, { intensity: 2.5, duration: 1.5 });
+
+            // Duri menajam
+            gsap.to(spikeMat, { opacity: 0.9, duration: 1.0 });
+            gsap.to(spikeMat.color, { r: 0.5, g: 0.0, b: 0.8, duration: 1.0 });
+
+            // Satelit Bertembung & Tali menjadi kilat kacau bilau
+            satellites.forEach(sat => {
+                gsap.to(sat.mat.emissive, { r: 0.5, g: 0.1, b: 0.6, duration: 1.5 });
+                gsap.to(sat.linkMat, { opacity: 0.8, duration: 1.5 });
+                gsap.to(sat.linkMat.color, { r: 0.8, g: 0.2, b: 1.0, duration: 1.5 });
+            });
+
+            gsap.to(particlesMat.color, { r: 0.8, g: 0.3, b: 0.9, duration: 1.5 });
+            gsap.to(scene.fog, { color: 0x120421, density: 0.025, duration: 1.5 }); // Gelap pekat
+        }
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // Initialize state
+        setHarmoni();
+        animate();
+    </script>
+</body>
+</html>

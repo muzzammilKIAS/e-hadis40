@@ -193,11 +193,11 @@ void main() {
       }
     });
 
-    test('AnatomiSunnahScreen.availableHadithNumbers = 30', () {
+    test('AnatomiSunnahScreen.availableHadithSet merangkumi H26-H30', () {
       final source =
           File('lib/screens/anatomi_sunnah_screen.dart').readAsStringSync();
-      expect(source.contains('availableHadithNumbers = 30'), true,
-          reason: 'availableHadithNumbers mesti 30 untuk merangkumi H26-H30');
+      expect(source.contains('26, 27, 28, 29, 30,'), true,
+          reason: 'Hadis 26-30 mesti tersenarai dalam availableHadithSet');
     });
   });
 }

@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Neraca Keadilan - Hadis 33 3D</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="./lib/three.min.js"></script>
+    <script src="./lib/gsap.min.js"></script>
+    <style>
+        @import url('./lib/fonts.css');
+
+        body { margin: 0; overflow: hidden; background-color: #0f172a; font-family: 'Baloo 2', sans-serif; }
+        #canvas-container { position: absolute; top: 0; left: 0; width: 100%; height: 100vh; z-index: 1; }
+
+        .cosmic-bg {
+            background: radial-gradient(circle at 50% 50%, #1e293b 0%, #020617 100%);
+        }
+
+        .ui-layer { position: relative; z-index: 10; pointer-events: none; height: 100vh; display: flex; flex-direction: column; justify-content: space-between; padding: 2.5rem; }
+
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(14, 165, 233, 0.2);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            pointer-events: auto;
+        }
+
+        .text-arabic { font-family: 'Amiri', serif; }
+
+        .btn-action { transition: all 0.4s ease; border: 1px solid rgba(255,255,255,0.1); }
+        .btn-action:hover { transform: translateX(-5px); background: rgba(255,255,255,0.15); }
+
+        /* Tema Warna Butang Aktif */
+        .btn-asas.active-btn { border-color: #0ea5e9; box-shadow: 0 0 20px rgba(14, 165, 233, 0.3); background: rgba(14, 165, 233, 0.15); }
+        .btn-bukti.active-btn { border-color: #f59e0b; box-shadow: 0 0 20px rgba(245, 158, 11, 0.3); background: rgba(245, 158, 11, 0.15); }
+        .btn-sumpah.active-btn { border-color: #10b981; box-shadow: 0 0 20px rgba(16, 185, 129, 0.3); background: rgba(16, 185, 129, 0.15); }
+
+        /* =====================================================
+           RESPONSIF — telefon & tablet
+           ===================================================== */
+
+        /* --- Tablet --- */
+        @media (max-width: 1024px) {
+            .ui-layer { padding: 1.15rem; padding-top: 4.25rem; }
+
+            .ui-layer .glass-panel {
+                scrollbar-width: thin;
+                scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+                overscroll-behavior: contain;
+            }
+            .ui-layer .glass-panel::-webkit-scrollbar { width: 3px; }
+            .ui-layer .glass-panel::-webkit-scrollbar-track { background: transparent; }
+            .ui-layer .glass-panel::-webkit-scrollbar-thumb {
+                background: rgba(255, 255, 255, 0.3);
+                border-radius: 3px;
+            }
+            .ui-layer .glass-panel { border-radius: 1.25rem !important; }
+            .ui-layer .p-8 { padding: 1.1rem !important; }
+            .ui-layer .p-6 { padding: 1rem !important; }
+            .ui-layer header.glass-panel { max-width: 58%; max-height: 52vh; overflow-y: auto; }
+            .ui-layer > .glass-panel:not(header) { max-width: 46%; max-height: 36vh; overflow-y: auto; }
+
+            .ui-layer .text-4xl { font-size: 2rem !important; line-height: 2.4rem !important; }
+            .ui-layer .text-3xl { font-size: 1.65rem !important; line-height: 2.1rem !important; }
+            .ui-layer .text-2xl { font-size: 1.45rem !important; line-height: 1.9rem !important; }
+            .ui-layer .text-xl  { font-size: 1.25rem !important; }
+            .ui-layer .text-lg  { font-size: 1.12rem !important; }
+            .ui-layer .text-sm  { font-size: 1rem !important; line-height: 1.45rem !important; }
+            .ui-layer .text-xs  { font-size: 0.92rem !important; line-height: 1.32rem !important; }
+            .ui-layer .text-\[12px\] { font-size: 0.86rem !important; }
+            .ui-layer .text-\[13px\] { font-size: 0.95rem !important; }
+            .ui-layer .btn-action { font-size: 1rem !important; }
+        }
+
+        /* --- Telefon --- */
+        @media (max-width: 640px) {
+            .ui-layer { padding: 0.6rem; padding-top: 3.9rem; }
+            .ui-layer .glass-panel { border-radius: 0.95rem !important; }
+            .ui-layer .p-8 { padding: 0.8rem !important; }
+            .ui-layer .p-6 { padding: 0.75rem !important; }
+
+            .ui-layer header.glass-panel { max-width: 100%; max-height: 34vh; overflow-y: auto; }
+            .ui-layer > .glass-panel:not(header) {
+                max-width: 100%; margin-left: 0; max-height: 45vh; overflow-y: auto;
+            }
+            .ui-layer .gap-3 { gap: 0.35rem !important; }
+            .ui-layer .gap-2 { gap: 0.3rem !important; }
+
+            .ui-layer .text-4xl { font-size: 1.6rem !important; line-height: 2rem !important; }
+            .ui-layer .text-3xl { font-size: 1.4rem !important; line-height: 1.85rem !important; }
+            .ui-layer .text-2xl { font-size: 1.25rem !important; line-height: 1.65rem !important; }
+            .ui-layer .text-xl  { font-size: 1.12rem !important; }
+            .ui-layer .text-lg  { font-size: 1.05rem !important; }
+            .ui-layer .text-sm  { font-size: 0.95rem !important; line-height: 1.4rem !important; }
+            .ui-layer .text-xs  { font-size: 0.88rem !important; line-height: 1.28rem !important; }
+            .ui-layer .text-\[12px\] { font-size: 0.84rem !important; }
+            .ui-layer .text-\[13px\] { font-size: 0.92rem !important; }
+
+            .ui-layer .mb-4 { margin-bottom: 0.5rem !important; }
+            .ui-layer .my-4 { margin-top: 0.5rem !important; margin-bottom: 0.5rem !important; }
+            .ui-layer .mt-4 { margin-top: 0.5rem !important; }
+            .ui-layer .mt-3 { margin-top: 0.4rem !important; }
+            .ui-layer .mb-3 { margin-bottom: 0.4rem !important; }
+            .ui-layer .pt-4 { padding-top: 0.5rem !important; }
+            .ui-layer .py-2 { padding-top: 0.3rem !important; padding-bottom: 0.3rem !important; }
+
+            .ui-layer .btn-action { padding: 0.5rem 0.75rem !important; font-size: 0.92rem !important; }
+            .ui-layer .btn-action:hover { transform: none; }
+        }
+
+        .ui-layer { direction: ltr; text-align: left; }
+        .ui-layer .text-arabic {
+            direction: rtl;
+            text-align: right;
+            unicode-bidi: isolate;
+        }
+    </style>
+</head>
+<body class="cosmic-bg">
+    <button id="anatomi-back-btn" onclick="window.parent.postMessage('anatomi-sunnah-back', window.location.origin)" aria-label="Kembali" style="position:fixed; top:16px; left:16px; z-index:9999; width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.35); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); display:flex; align-items:center; justify-content:center; cursor:pointer; color:#fff; transition:background 0.2s; padding:0;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+    </button>
+    <style>#anatomi-back-btn:hover { background: rgba(255,255,255,0.2) !important; }</style>
+
+    <!-- Lapisan Antara Muka (UI) -->
+    <div class="ui-layer">
+        <header class="glass-panel p-8 rounded-3xl max-w-xl relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-sky-500 rounded-bl-full opacity-15 blur-xl transition-colors duration-500" id="ui-glow"></div>
+
+            <div class="inline-block px-4 py-1.5 bg-sky-950/80 rounded-full mb-3 border border-sky-500/30 transition-colors duration-500" id="ui-badge">
+                <span class="font-bold tracking-widest uppercase text-[10px] text-sky-400 transition-colors duration-500" id="ui-badge-text">Penghayatan Hadis 40 • Hadis 33</span>
+            </div>
+
+            <h1 class="text-4xl font-light text-white mb-1">Neraca Keadilan & <span class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-blue-300 transition-colors duration-500" id="ui-title-highlight">Pembuktian</span></h1>
+            <p class="text-arabic text-3xl text-sky-200 mt-3 mb-4 text-right leading-relaxed transition-colors duration-500" dir="rtl" id="ui-arabic">الْبَيِّنَةُ عَلَى الْمُدَّعِي، وَالْيَمِينُ عَلَى مَنْ أَنْكَرَ</p>
+
+            <blockquote class="border-l-4 border-sky-500 pl-4 py-2 my-4 bg-sky-900/20 rounded-r-lg text-sm leading-relaxed text-gray-300 transition-colors duration-500" id="ui-quote">
+                "Kalaulah manusia diberikan hak hanya dengan dakwaan mereka, nescaya ramai orang akan menuntut harta dan darah orang lain. Tetapi beban pembuktian (bayyinah) adalah ke atas orang yang mendakwa, dan sumpah (yamin) ke atas orang yang menafikannya."
+            </blockquote>
+
+            <p class="text-sky-200/70 text-xs leading-relaxed mt-4 border-t border-sky-800/50 pt-4" id="ui-desc">
+                <strong>Simbolisme:</strong> Islam melindungi hak asasi manusia. Tuduhan tanpa bukti tidak akan menjejaskan timbangan. Hanya bukti yang nyata (kristal) atau sumpah perlindungan (perisai) yang menentukan arah keadilan.
+            </p>
+        </header>
+
+        <div class="glass-panel p-6 rounded-3xl max-w-sm ml-auto text-left">
+            <h3 class="text-white font-bold text-lg mb-1">Mekanisme Pengadilan</h3>
+            <p class="text-gray-400 text-[11px] mb-4">Ubah mekanisma untuk melihat bagaimana Islam memastikan keadilan ditegakkan tanpa penganiayaan.</p>
+
+            <div class="flex flex-col gap-2">
+                <button id="btn-1" onclick="setAsas()" class="btn-action btn-asas active-btn pointer-events-auto bg-slate-900/60 text-slate-200 py-3.5 px-5 rounded-xl text-sm font-semibold flex items-center justify-between">
+                    <span>1. Asas Keadilan (Seimbang)</span> <span class="text-3xl">⚖️</span>
+                </button>
+                <button id="btn-2" onclick="setBayyinah()" class="btn-action btn-bukti pointer-events-auto bg-slate-900/60 text-slate-200 py-3.5 px-5 rounded-xl text-sm font-semibold flex items-center justify-between">
+                    <span>2. Bukti Nyata (Bayyinah)</span> <span class="text-3xl">💎</span>
+                </button>
+                <button id="btn-3" onclick="setYamin()" class="btn-action btn-sumpah pointer-events-auto bg-slate-900/60 text-slate-200 py-3.5 px-5 rounded-xl text-sm font-semibold flex items-center justify-between">
+                    <span>3. Sumpah Penafian (Yamin)</span> <span class="text-3xl">🛡️</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enjin 3D -->
+    <div id="canvas-container"></div>
+
+    <script>
+        // --- 1. SETUP ASAS ---
+        const scene = new THREE.Scene();
+        scene.fog = new THREE.FogExp2(0x0f172a, 0.015);
+
+        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+        camera.position.set(0, 5, 55);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        document.getElementById('canvas-container').appendChild(renderer.domElement);
+
+        // --- 2. PENCAHAYAAN ---
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
+        scene.add(ambientLight);
+
+        const coreLight = new THREE.PointLight(0x0ea5e9, 4, 80);
+        coreLight.position.set(0, 0, 0);
+        scene.add(coreLight);
+
+        // --- 3. MODEL 3D (NERACA KOSMIK) ---
+        const mainGroup = new THREE.Group(); // Untuk efek terapung global
+        scene.add(mainGroup);
+
+        const scalePivot = new THREE.Group(); // Paksi putaran neraca (timbangan)
+        mainGroup.add(scalePivot);
+
+        // A. Teras Paksi Tengah (The Fulcrum of Justice)
+        const fulcrumGeo = new THREE.OctahedronGeometry(2.5, 0); // Bentuk Berlian
+        const fulcrumMat = new THREE.MeshPhysicalMaterial({
+            color: 0xffffff, emissive: 0x0284c7, emissiveIntensity: 0.8,
+            roughness: 0.1, metalness: 0.3, transmission: 0.9, thickness: 2,
+            clearcoat: 1.0, transparent: true, opacity: 0.95
+        });
+        const fulcrumMesh = new THREE.Mesh(fulcrumGeo, fulcrumMat);
+        mainGroup.add(fulcrumMesh); // Paksi tengah tidak ikut condong
+
+        // Tiang Cahaya (Menegak)
+        const pillarGeo = new THREE.CylinderGeometry(0.3, 0.3, 30, 16);
+        const pillarMat = new THREE.MeshBasicMaterial({ color: 0x38bdf8, transparent: true, opacity: 0.3, blending: THREE.AdditiveBlending });
+        const pillarMesh = new THREE.Mesh(pillarGeo, pillarMat);
+        mainGroup.add(pillarMesh);
+
+        // B. Lengan Neraca (The Beam)
+        const beamGeo = new THREE.CylinderGeometry(0.2, 0.2, 28, 16);
+        beamGeo.rotateZ(Math.PI / 2); // Baringkan memanjang paksi X
+        const beamMat = new THREE.MeshStandardMaterial({ color: 0xbae6fd, emissive: 0x0369a1, roughness: 0.2, metalness: 0.8 });
+        const beamMesh = new THREE.Mesh(beamGeo, beamMat);
+        scalePivot.add(beamMesh);
+
+        // C. Talam Neraca (Pans)
+        // Kiri = Pendakwa (Claimant)
+        const panGeo = new THREE.TorusGeometry(3.5, 0.2, 16, 64);
+        const panMat = new THREE.MeshStandardMaterial({ color: 0xffffff, emissive: 0x0ea5e9, roughness: 0.2, metalness: 0.5 });
+
+        const leftPanGroup = new THREE.Group();
+        leftPanGroup.position.set(-14, 0, 0);
+        scalePivot.add(leftPanGroup);
+        const leftPan = new THREE.Mesh(panGeo, panMat);
+        leftPan.rotation.x = Math.PI / 2;
+        leftPanGroup.add(leftPan);
+
+        // Kanan = Yang Didakwa (Defendant)
+        const rightPanGroup = new THREE.Group();
+        rightPanGroup.position.set(14, 0, 0);
+        scalePivot.add(rightPanGroup);
+        const rightPan = new THREE.Mesh(panGeo, panMat.clone());
+        rightPan.rotation.x = Math.PI / 2;
+        rightPanGroup.add(rightPan);
+
+        // Tali neraca
+        const linkGeo = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(0,0,0), new THREE.Vector3(0, -6, 0)]); // Akan di update
+        const linkMat = new THREE.LineBasicMaterial({ color: 0x7dd3fc, transparent: true, opacity: 0.6 });
+        const leftLink = new THREE.Line(linkGeo, linkMat);
+        leftPanGroup.add(leftLink);
+        const rightLink = new THREE.Line(linkGeo, linkMat.clone());
+        rightPanGroup.add(rightLink);
+
+        // D. Bukti Nyata (Bayyinah Crystals - Jatuh di bahagian Pendakwa/Kiri)
+        const evidenceGroup = new THREE.Group();
+        leftPanGroup.add(evidenceGroup); // Ikut condong neraca kiri
+        const evidenceBlocks = [];
+        const evGeo = new THREE.DodecahedronGeometry(1.2, 0);
+        const evMat = new THREE.MeshStandardMaterial({
+            color: 0xfcd34d, emissive: 0xb45309, metalness: 0.8, roughness: 0.2, transparent: true, opacity: 0
+        });
+
+        for(let i=0; i<3; i++) {
+            const block = new THREE.Mesh(evGeo, evMat);
+            // Susun atas talam kiri
+            block.position.set((i-1)*1.5, 2, (Math.random()-0.5)*2);
+            block.scale.set(0,0,0);
+            evidenceGroup.add(block);
+            evidenceBlocks.push(block);
+        }
+
+        // E. Sumpah Penafian (Yamin Shield - Muncul di bahagian Didakwa/Kanan)
+        const oathShieldGeo = new THREE.SphereGeometry(4.5, 32, 32);
+        const oathShieldMat = new THREE.MeshPhysicalMaterial({
+            color: 0x6ee7b7, emissive: 0x059669, emissiveIntensity: 0.5,
+            transparent: true, opacity: 0, transmission: 0.9, roughness: 0.1
+        });
+        const oathShield = new THREE.Mesh(oathShieldGeo, oathShieldMat);
+        rightPanGroup.add(oathShield); // Ikut talam kanan
+
+        // F. Zarah Kosmik (Latar)
+        const particlesCount = 400;
+        const particlesGeo = new THREE.BufferGeometry();
+        const posArray = new Float32Array(particlesCount * 3);
+        for(let i = 0; i < particlesCount * 3; i++) posArray[i] = (Math.random() - 0.5) * 80;
+        particlesGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+        const particlesMat = new THREE.PointsMaterial({ size: 0.2, color: 0xe0f2fe, transparent: true, opacity: 0.6 });
+        const particlesMesh = new THREE.Points(particlesGeo, particlesMat);
+        scene.add(particlesMesh);
+
+        // --- 4. LOGIK ANIMASI GLOBAL ---
+        let clock = new THREE.Clock();
+
+        function animate() {
+            requestAnimationFrame(animate);
+            const time = clock.getElapsedTime();
+
+            // Teras sentiasa berputar dan berdegup
+            const pulse = 1 + Math.sin(time * 2) * 0.05;
+            fulcrumMesh.scale.set(pulse, pulse, pulse);
+            fulcrumMesh.rotation.y = time * 0.5;
+
+            // Efek apungan keseluruhan sistem
+            mainGroup.position.y = Math.sin(time * 1.5) * 0.5;
+
+            // Kemaskini Tali supaya sentiasa ke bawah menegak (Graviti)
+            // Walaupun scalePivot condong, Talam harus counter-rotate supaya sentiasa datar
+            leftPan.rotation.x = Math.PI / 2; // Flat
+            rightPan.rotation.x = Math.PI / 2; // Flat
+
+            // Putar perlahan talam
+            leftPan.rotation.z = time * 0.5;
+            rightPan.rotation.z = time * -0.5;
+
+            // Animasi kristal bukti (jika ada)
+            evidenceBlocks.forEach((block, i) => {
+                block.rotation.x += 0.01 * (i+1);
+                block.rotation.y += 0.02 * (i+1);
+            });
+
+            // Animasi Perisai Sumpah (jika ada)
+            oathShield.rotation.y = -time * 0.5;
+            oathShield.rotation.x = Math.sin(time) * 0.2;
+
+            // Zarah terapung
+            particlesMesh.rotation.y = time * 0.02;
+
+            // Kamera beralun lembut
+            camera.position.x = Math.sin(time * 0.1) * 2;
+            camera.lookAt(0, 0, 0);
+
+            renderer.render(scene, camera);
+        }
+
+        // --- 5. FUNGSI INTERAKSI (GSAP & UI) ---
+        function updateUI(btnId, titleClass, badgeBgClass, badgeTextClass, quoteBorderClass, quoteBgClass, glowClass, arabicText, quoteText, descText) {
+            for(let i=1; i<=3; i++) document.getElementById('btn-'+i).classList.remove('active-btn');
+            document.getElementById('btn-'+btnId).classList.add('active-btn');
+
+            document.getElementById('ui-title-highlight').className = `font-extrabold text-transparent bg-clip-text bg-gradient-to-r ${titleClass} transition-colors duration-500`;
+            document.getElementById('ui-badge').className = `inline-block px-4 py-1.5 rounded-full mb-3 border border-white/10 ${badgeBgClass} transition-colors duration-500`;
+            document.getElementById('ui-badge-text').className = `font-bold tracking-widest uppercase text-[10px] ${badgeTextClass} transition-colors duration-500`;
+            document.getElementById('ui-quote').className = `border-l-4 ${quoteBorderClass} pl-4 py-2 my-4 ${quoteBgClass} rounded-r-lg text-sm leading-relaxed text-gray-200 transition-colors duration-500`;
+            document.getElementById('ui-glow').className = `absolute top-0 right-0 w-32 h-32 rounded-bl-full opacity-15 blur-xl transition-colors duration-500 ${glowClass}`;
+
+            document.getElementById('ui-arabic').innerText = arabicText;
+            document.getElementById('ui-quote').innerText = quoteText;
+            document.getElementById('ui-desc').innerHTML = `<strong>Simbolisme:</strong> ${descText}`;
+        }
+
+        function setAsas() {
+            updateUI(1,
+                "from-sky-400 to-blue-300", "bg-sky-950/80", "text-sky-400",
+                "border-sky-500", "bg-sky-900/20", "bg-sky-500",
+                "لَوْ يُعْطَى النَّاسُ بِدَعْوَاهُمْ...",
+                '"Kalaulah manusia diberikan hak hanya dengan dakwaan mereka semata-mata, nescaya ramai orang akan menuntut harta dan darah orang lain (sesuka hati)..."',
+                "Asal seseorang itu adalah bebas daripada kesalahan (Innocent until proven guilty). Neraca berada dalam keadaan seimbang dan stabil tanpa memihak."
+            );
+
+            // Warna Asas (Biru Langit)
+            gsap.to(fulcrumMat.emissive, { r: 0.01, g: 0.52, b: 0.78, duration: 1.5 }); // 0284c7
+            gsap.to(coreLight.color, { r: 0.05, g: 0.65, b: 0.91, duration: 1.5 }); // 0ea5e9
+            gsap.to(coreLight, { intensity: 3, duration: 1.5 });
+
+            // Timbangan Seimbang (0 Darjah)
+            gsap.to(scalePivot.rotation, { z: 0, duration: 2, ease: "elastic.out(1, 0.5)" });
+
+            // Sembunyikan Bukti (Kristal)
+            evidenceBlocks.forEach(block => {
+                gsap.to(block.scale, { x: 0, y: 0, z: 0, duration: 1 });
+                gsap.to(block.material, { opacity: 0, duration: 1 });
+            });
+
+            // Sembunyikan Perisai Sumpah
+            gsap.to(oathShieldMat, { opacity: 0, duration: 1 });
+
+            // Warna Talam & Lengan kembali neutral
+            gsap.to([panMat.emissive, beamMat.emissive], { r: 0.05, g: 0.41, b: 0.63, duration: 1.5 }); // 0369a1
+
+            gsap.to(particlesMat.color, { r: 0.88, g: 0.95, b: 1.0, duration: 1.5 });
+            gsap.to(scene.fog, { color: 0x0f172a, duration: 1.5 });
+        }
+
+        function setBayyinah() {
+            updateUI(2,
+                "from-amber-400 to-yellow-400", "bg-amber-950/80", "text-amber-400",
+                "border-amber-500", "bg-amber-900/20", "bg-amber-500",
+                "الْبَيِّنَةُ عَلَى الْمُدَّعِي",
+                '"...Tetapi beban pembuktian (bayyinah) adalah ke atas orang yang mendakwa (menuntut hak)..."',
+                "Apabila bukti nyata (kristal kebenaran) dibawa oleh pihak pendakwa, ia mempunyai 'berat' di sisi keadilan. Timbangan akan condong menyebelahi kebenaran dengan cahaya keemasan."
+            );
+
+            // Warna Bukti (Emas/Ambar)
+            gsap.to(fulcrumMat.emissive, { r: 0.85, g: 0.46, b: 0.02, duration: 1.5 }); // d97706
+            gsap.to(coreLight.color, { r: 0.96, g: 0.62, b: 0.04, duration: 1.5 }); // f59e0b
+            gsap.to(coreLight, { intensity: 4, duration: 1.5 });
+
+            // Timbangan Condong ke Kiri (Pendakwa)
+            gsap.to(scalePivot.rotation, { z: Math.PI / 8, duration: 2, ease: "power2.out" }); // ~22.5 darjah
+
+            // Munculkan Bukti (Kristal jatuh dan membesar)
+            evidenceBlocks.forEach((block, i) => {
+                gsap.to(block.material, { opacity: 0.9, duration: 0.5 });
+                gsap.fromTo(block.scale, {x:0, y:0, z:0}, {x:1, y:1, z:1, duration: 1.5, delay: i*0.2, ease: "bounce.out"});
+                // Drop effect
+                gsap.fromTo(block.position, {y: 10}, {y: 0.5 + (Math.random()*1), duration: 1.5, delay: i*0.2, ease: "bounce.out"});
+            });
+
+            // Sembunyikan Perisai Sumpah
+            gsap.to(oathShieldMat, { opacity: 0, duration: 1 });
+
+            // Warna Talam & Lengan ikut tema
+            gsap.to([panMat.emissive, beamMat.emissive], { r: 0.7, g: 0.32, b: 0.04, duration: 1.5 }); // b45309
+
+            gsap.to(particlesMat.color, { r: 1.0, g: 0.9, b: 0.6, duration: 1.5 });
+            gsap.to(scene.fog, { color: 0x291d04, duration: 1.5 });
+        }
+
+        function setYamin() {
+            updateUI(3,
+                "from-emerald-400 to-green-300", "bg-emerald-950/80", "text-emerald-400",
+                "border-emerald-500", "bg-emerald-900/20", "bg-emerald-500",
+                "وَالْيَمِينُ عَلَى مَنْ أَنْكَرَ",
+                '"...dan sumpah (yamin) ke atas orang yang menafikannya (jika pendakwa gagal membawa bukti)."',
+                "Sumpah bertindak sebagai perisai (aura hijau) yang menepis dakwaan kosong. Ia mengembalikan keseimbangan neraca untuk melindungi maruah dan hak pihak yang dituduh tanpa bukti."
+            );
+
+            // Warna Perlindungan Sumpah (Zamrud/Hijau)
+            gsap.to(fulcrumMat.emissive, { r: 0.02, g: 0.59, b: 0.41, duration: 1.5 }); // 059669
+            gsap.to(coreLight.color, { r: 0.06, g: 0.72, b: 0.5, duration: 1.5 }); // 10b981
+            gsap.to(coreLight, { intensity: 3.5, duration: 1.5 });
+
+            // Timbangan kembali Seimbang (Sumpah membersihkan nama)
+            gsap.to(scalePivot.rotation, { z: 0, duration: 2, ease: "back.out(1.5)" });
+
+            // Sembunyikan Bukti (Kerana pendakwa gagal bawa)
+            evidenceBlocks.forEach(block => {
+                gsap.to(block.scale, { x: 0, y: 0, z: 0, duration: 0.5 });
+                gsap.to(block.material, { opacity: 0, duration: 0.5 });
+            });
+
+            // Munculkan Perisai Sumpah di sebelah kanan
+            gsap.to(oathShieldMat, { opacity: 0.6, duration: 1.5 });
+            gsap.fromTo(oathShield.scale, {x:0.1, y:0.1, z:0.1}, {x:1, y:1, z:1, duration: 1.5, ease: "elastic.out(1, 0.5)"});
+
+            // Warna Talam & Lengan
+            gsap.to([panMat.emissive, beamMat.emissive], { r: 0.02, g: 0.47, b: 0.34, duration: 1.5 }); // 047857
+
+            gsap.to(particlesMat.color, { r: 0.65, g: 0.95, b: 0.82, duration: 1.5 });
+            gsap.to(scene.fog, { color: 0x064e3b, duration: 1.5 });
+        }
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // Initialize state
+        setAsas();
+        animate();
+    </script>
+</body>
+</html>

@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Darjat Wali - Hadis 38 3D</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="./lib/three.min.js"></script>
+    <script src="./lib/gsap.min.js"></script>
+    <style>
+        @import url('./lib/fonts.css');
+
+        body { margin: 0; overflow: hidden; background-color: #082f49; font-family: 'Baloo 2', sans-serif; }
+        #canvas-container { position: absolute; top: 0; left: 0; width: 100%; height: 100vh; z-index: 1; }
+
+        .cosmic-bg {
+            background: radial-gradient(circle at 50% 50%, #0c4a6e 0%, #020617 100%);
+        }
+
+        .ui-layer { position: relative; z-index: 10; pointer-events: none; height: 100vh; display: flex; flex-direction: column; justify-content: space-between; padding: 2.5rem; }
+
+        .glass-panel {
+            background: rgba(8, 47, 73, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            pointer-events: auto;
+        }
+
+        .text-arabic { font-family: 'Amiri', serif; }
+
+        .btn-action { transition: all 0.4s ease; border: 1px solid rgba(255,255,255,0.1); }
+        .btn-action:hover { transform: translateX(-5px); background: rgba(255,255,255,0.15); }
+
+        /* Tema Warna Butang Aktif */
+        .btn-fardu.active-btn { border-color: #0ea5e9; box-shadow: 0 0 20px rgba(14, 165, 233, 0.3); background: rgba(14, 165, 233, 0.15); }
+        .btn-wali.active-btn { border-color: #f59e0b; box-shadow: 0 0 20px rgba(245, 158, 11, 0.3); background: rgba(245, 158, 11, 0.15); }
+        .btn-perang.active-btn { border-color: #ef4444; box-shadow: 0 0 20px rgba(239, 68, 68, 0.3); background: rgba(239, 68, 68, 0.15); }
+
+        /* =====================================================
+           RESPONSIF — telefon & tablet
+           ===================================================== */
+
+        /* --- Tablet --- */
+        @media (max-width: 1024px) {
+            .ui-layer { padding: 1.15rem; padding-top: 4.25rem; }
+
+            .ui-layer .glass-panel {
+                scrollbar-width: thin;
+                scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+                overscroll-behavior: contain;
+            }
+            .ui-layer .glass-panel::-webkit-scrollbar { width: 3px; }
+            .ui-layer .glass-panel::-webkit-scrollbar-track { background: transparent; }
+            .ui-layer .glass-panel::-webkit-scrollbar-thumb {
+                background: rgba(255, 255, 255, 0.3);
+                border-radius: 3px;
+            }
+            .ui-layer .glass-panel { border-radius: 1.25rem !important; }
+            .ui-layer .p-8 { padding: 1.1rem !important; }
+            .ui-layer .p-6 { padding: 1rem !important; }
+            .ui-layer header.glass-panel { max-width: 58%; max-height: 52vh; overflow-y: auto; }
+            .ui-layer > .glass-panel:not(header) { max-width: 46%; max-height: 36vh; overflow-y: auto; }
+
+            .ui-layer .text-4xl { font-size: 2rem !important; line-height: 2.4rem !important; }
+            .ui-layer .text-3xl { font-size: 1.65rem !important; line-height: 2.1rem !important; }
+            .ui-layer .text-2xl { font-size: 1.45rem !important; line-height: 1.9rem !important; }
+            .ui-layer .text-xl  { font-size: 1.25rem !important; }
+            .ui-layer .text-lg  { font-size: 1.12rem !important; }
+            .ui-layer .text-sm  { font-size: 1rem !important; line-height: 1.45rem !important; }
+            .ui-layer .text-xs  { font-size: 0.92rem !important; line-height: 1.32rem !important; }
+            .ui-layer .text-\[12px\] { font-size: 0.86rem !important; }
+            .ui-layer .text-\[13px\] { font-size: 0.95rem !important; }
+            .ui-layer .btn-action { font-size: 1rem !important; }
+        }
+
+        /* --- Telefon --- */
+        @media (max-width: 640px) {
+            .ui-layer { padding: 0.6rem; padding-top: 3.9rem; }
+            .ui-layer .glass-panel { border-radius: 0.95rem !important; }
+            .ui-layer .p-8 { padding: 0.8rem !important; }
+            .ui-layer .p-6 { padding: 0.75rem !important; }
+
+            .ui-layer header.glass-panel { max-width: 100%; max-height: 34vh; overflow-y: auto; }
+            .ui-layer > .glass-panel:not(header) {
+                max-width: 100%; margin-left: 0; max-height: 45vh; overflow-y: auto;
+            }
+            .ui-layer .gap-3 { gap: 0.35rem !important; }
+            .ui-layer .gap-2 { gap: 0.3rem !important; }
+
+            .ui-layer .text-4xl { font-size: 1.6rem !important; line-height: 2rem !important; }
+            .ui-layer .text-3xl { font-size: 1.4rem !important; line-height: 1.85rem !important; }
+            .ui-layer .text-2xl { font-size: 1.25rem !important; line-height: 1.65rem !important; }
+            .ui-layer .text-xl  { font-size: 1.12rem !important; }
+            .ui-layer .text-lg  { font-size: 1.05rem !important; }
+            .ui-layer .text-sm  { font-size: 0.95rem !important; line-height: 1.4rem !important; }
+            .ui-layer .text-xs  { font-size: 0.88rem !important; line-height: 1.28rem !important; }
+            .ui-layer .text-\[12px\] { font-size: 0.84rem !important; }
+            .ui-layer .text-\[13px\] { font-size: 0.92rem !important; }
+
+            .ui-layer .mb-4 { margin-bottom: 0.5rem !important; }
+            .ui-layer .my-4 { margin-top: 0.5rem !important; margin-bottom: 0.5rem !important; }
+            .ui-layer .mt-4 { margin-top: 0.5rem !important; }
+            .ui-layer .mt-3 { margin-top: 0.4rem !important; }
+            .ui-layer .mb-3 { margin-bottom: 0.4rem !important; }
+            .ui-layer .pt-4 { padding-top: 0.5rem !important; }
+            .ui-layer .py-2 { padding-top: 0.3rem !important; padding-bottom: 0.3rem !important; }
+
+            .ui-layer .btn-action { padding: 0.5rem 0.75rem !important; font-size: 0.92rem !important; }
+            .ui-layer .btn-action:hover { transform: none; }
+        }
+
+        .ui-layer { direction: ltr; text-align: left; }
+        .ui-layer .text-arabic {
+            direction: rtl;
+            text-align: right;
+            unicode-bidi: isolate;
+        }
+    </style>
+</head>
+<body class="cosmic-bg">
+    <button id="anatomi-back-btn" onclick="window.parent.postMessage('anatomi-sunnah-back', window.location.origin)" aria-label="Kembali" style="position:fixed; top:16px; left:16px; z-index:9999; width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.35); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); display:flex; align-items:center; justify-content:center; cursor:pointer; color:#fff; transition:background 0.2s; padding:0;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+    </button>
+    <style>#anatomi-back-btn:hover { background: rgba(255,255,255,0.2) !important; }</style>
+
+    <!-- Lapisan Antara Muka (UI) -->
+    <div class="ui-layer">
+        <header class="glass-panel p-8 rounded-3xl max-w-xl relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-sky-500 rounded-bl-full opacity-15 blur-xl transition-colors duration-500" id="ui-glow"></div>
+
+            <div class="inline-block px-4 py-1.5 bg-sky-950/80 rounded-full mb-3 border border-sky-500/30 transition-colors duration-500" id="ui-badge">
+                <span class="font-bold tracking-widest uppercase text-[10px] text-sky-400 transition-colors duration-500" id="ui-badge-text">Penghayatan Hadis 40 • Hadis 38</span>
+            </div>
+
+            <h1 class="text-4xl font-light text-white mb-1">Cinta Ilahi & <span class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-amber-300 transition-colors duration-500" id="ui-title-highlight">Darjat Wali</span></h1>
+            <p class="text-arabic text-3xl text-sky-200 mt-3 mb-4 text-right leading-relaxed transition-colors duration-500" dir="rtl" id="ui-arabic">مَنْ عَادَى لِي وَلِيًّا فَقَدْ آذَنْتُهُ بِالْحَرْبِ</p>
+
+            <blockquote class="border-l-4 border-sky-500 pl-4 py-2 my-4 bg-sky-900/20 rounded-r-lg text-sm leading-relaxed text-gray-300 transition-colors duration-500" id="ui-quote">
+                "Barangsiapa memusuhi wali-Ku, Aku isytiharkan perang ke atasnya... Dan sentiasalah hamba-Ku mendekatkan diri kepada-Ku dengan amalan sunat (nawafil) sehingga Aku mencintainya..."
+            </blockquote>
+
+            <p class="text-sky-200/70 text-xs leading-relaxed mt-4 border-t border-sky-800/50 pt-4" id="ui-desc">
+                <strong>Simbolisme:</strong> Amalan fardu adalah tunjang kedudukan hamba. Amalan sunat pula mengangkat hamba kepada darjat kekasih (Wali), di mana seluruh anggotanya dipandu cahaya Ilahi.
+            </p>
+        </header>
+
+        <div class="glass-panel p-6 rounded-3xl max-w-sm ml-auto text-left">
+            <h3 class="text-white font-bold text-lg mb-1">Tingkatan Kedekatan</h3>
+            <p class="text-gray-400 text-[11px] mb-4">Ubah tindakan amalan untuk melihat perubahan spiritual pada jiwa.</p>
+
+            <div class="flex flex-col gap-2">
+                <button id="btn-1" onclick="setFardu()" class="btn-action btn-fardu active-btn pointer-events-auto bg-slate-900/60 text-slate-200 py-3.5 px-5 rounded-xl text-sm font-semibold flex items-center justify-between">
+                    <span>1. Asas Fardu (Ketaatan)</span> <span class="text-3xl">🕌</span>
+                </button>
+                <button id="btn-2" onclick="setWali()" class="btn-action btn-wali pointer-events-auto bg-slate-900/60 text-slate-200 py-3.5 px-5 rounded-xl text-sm font-semibold flex items-center justify-between">
+                    <span>2. Amalan Sunat (Darjat Wali)</span> <span class="text-3xl">✨</span>
+                </button>
+                <button id="btn-3" onclick="setPerang()" class="btn-action btn-perang pointer-events-auto bg-slate-900/60 text-slate-200 py-3.5 px-5 rounded-xl text-sm font-semibold flex items-center justify-between">
+                    <span>3. Musuhi Wali (Murka Allah)</span> <span class="text-3xl">⚡</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enjin 3D -->
+    <div id="canvas-container"></div>
+
+    <script>
+        // --- 1. SETUP ASAS ---
+        const scene = new THREE.Scene();
+        scene.fog = new THREE.FogExp2(0x082f49, 0.015);
+
+        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+        camera.position.set(0, 5, 55);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        document.getElementById('canvas-container').appendChild(renderer.domElement);
+
+        // --- 2. PENCAHAYAAN ---
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
+        scene.add(ambientLight);
+
+        const coreLight = new THREE.PointLight(0x0ea5e9, 4, 80);
+        coreLight.position.set(0, 0, 0);
+        scene.add(coreLight);
+
+        const wrathLight = new THREE.PointLight(0xef4444, 0, 100); // Lampu murka (Red)
+        wrathLight.position.set(0, 10, 0);
+        scene.add(wrathLight);
+
+        // --- 3. MODEL 3D ---
+        const mainGroup = new THREE.Group();
+        scene.add(mainGroup);
+
+        // A. Teras Jiwa Hamba (The Core of the Servant)
+        const coreGeo = new THREE.IcosahedronGeometry(4.5, 4); // Halus membulat
+        const coreMat = new THREE.MeshPhysicalMaterial({
+            color: 0xffffff, emissive: 0x0284c7, emissiveIntensity: 0.8,
+            roughness: 0.1, metalness: 0.2, transmission: 0.9, thickness: 2.5,
+            clearcoat: 1.0, transparent: true, opacity: 0.95
+        });
+        const coreMesh = new THREE.Mesh(coreGeo, coreMat);
+        mainGroup.add(coreMesh);
+
+        // B. Lingkaran Fardu / Asas Agama (Base Rings)
+        const baseRingGeo = new THREE.TorusGeometry(6.5, 0.1, 16, 64);
+        const baseRingMat = new THREE.MeshBasicMaterial({ color: 0x38bdf8, transparent: true, opacity: 0.5 });
+        const baseRing1 = new THREE.Mesh(baseRingGeo, baseRingMat);
+        baseRing1.rotation.x = Math.PI / 2;
+        const baseRing2 = new THREE.Mesh(baseRingGeo, baseRingMat);
+        baseRing2.rotation.x = Math.PI / 2;
+        baseRing2.rotation.y = Math.PI / 2;
+        mainGroup.add(baseRing1);
+        mainGroup.add(baseRing2);
+
+        // C. Gelombang Nawafil (Sunat) & Pancaran Hidayah (The 4 Senses Beams)
+        const waliGroup = new THREE.Group();
+        mainGroup.add(waliGroup);
+
+        // Pancaran Mata, Telinga, Tangan, Kaki (4 Beams of Light)
+        const beamGeo = new THREE.CylinderGeometry(0.5, 0.05, 30, 16);
+        beamGeo.translate(0, 15, 0); // Start from center
+        const beamMat = new THREE.MeshBasicMaterial({ color: 0xfde047, transparent: true, opacity: 0, blending: THREE.AdditiveBlending });
+
+        const beams = [];
+        for(let i=0; i<4; i++) {
+            const beam = new THREE.Mesh(beamGeo, beamMat.clone());
+            // Susun ke 4 arah (Atas, Bawah, Kiri, Kanan)
+            if(i===0) beam.rotation.z = 0; // Atas
+            if(i===1) beam.rotation.z = Math.PI; // Bawah
+            if(i===2) beam.rotation.z = Math.PI / 2; // Kanan
+            if(i===3) beam.rotation.z = -Math.PI / 2; // Kiri
+            waliGroup.add(beam);
+            beams.push(beam);
+        }
+
+        // Perisai Wilayah (Aura Perlindungan Allah)
+        const shieldGeo = new THREE.SphereGeometry(8, 32, 32);
+        const shieldMat = new THREE.MeshPhysicalMaterial({
+            color: 0xfef08a, emissive: 0xb45309, emissiveIntensity: 0.2,
+            transparent: true, opacity: 0, transmission: 0.9, roughness: 0.1, side: THREE.DoubleSide
+        });
+        const shieldMesh = new THREE.Mesh(shieldGeo, shieldMat);
+        waliGroup.add(shieldMesh);
+
+        // D. Zarah Kosmik & Kemurkaan Allah (Wrath Particles)
+        const particlesCount = 800;
+        const particlesGeo = new THREE.BufferGeometry();
+        const posArray = new Float32Array(particlesCount * 3);
+        const originalPosArray = new Float32Array(particlesCount * 3);
+
+        for(let i = 0; i < particlesCount * 3; i++) {
+            const val = (Math.random() - 0.5) * 80;
+            posArray[i] = val;
+            originalPosArray[i] = val;
+        }
+        particlesGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+
+        const particlesMat = new THREE.PointsMaterial({ size: 0.3, color: 0xe0f2fe, transparent: true, opacity: 0.6, blending: THREE.AdditiveBlending });
+        const particlesMesh = new THREE.Points(particlesGeo, particlesMat);
+        scene.add(particlesMesh);
+
+        // --- 4. LOGIK ANIMASI GLOBAL ---
+        let clock = new THREE.Clock();
+        let currentState = 1;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            const time = clock.getElapsedTime();
+
+            // Animasi Asas Teras (Sentiasa Berdegup & Pusing)
+            const pulse = 1 + Math.sin(time * 2) * 0.03;
+            coreMesh.scale.set(pulse, pulse, pulse);
+            coreMesh.rotation.y = time * 0.2;
+            coreMesh.rotation.z = Math.sin(time * 0.5) * 0.1;
+            mainGroup.position.set(0, Math.sin(time) * 0.5, 0);
+
+            // Putaran Cincin Fardu
+            baseRing1.rotation.y = time * 0.1;
+            baseRing2.rotation.x = (Math.PI / 2) + Math.sin(time * 0.5) * 0.2;
+
+            if (currentState === 2) {
+                // MOD WALI (Pancaran & Aura)
+                shieldMesh.scale.set(1 + Math.sin(time*3)*0.02, 1 + Math.sin(time*3)*0.02, 1 + Math.sin(time*3)*0.02);
+                waliGroup.rotation.z = time * 0.1; // Seluruh pancaran berputar perlahan
+            }
+            else if (currentState === 3) {
+                // MOD PERANG (Murka Allah terhadap musuh Wali)
+                shieldMesh.scale.set(1, 1, 1);
+                waliGroup.rotation.z += 0.05; // Pusing laju sikit
+
+                // Zarah bertukar menjadi ribut merah di luar perisai (melindungi wali)
+                const positions = particlesGeo.attributes.position.array;
+                for(let i=0; i<particlesCount*3; i+=3) {
+                    const x = positions[i];
+                    const y = positions[i+1];
+                    const z = positions[i+2];
+
+                    const dist = Math.sqrt(x*x + y*y + z*z);
+
+                    // Ribut tornado mengelilingi perisai
+                    if(dist > 8) {
+                        positions[i] = x * Math.cos(0.05) - z * Math.sin(0.05);
+                        positions[i+2] = x * Math.sin(0.05) + z * Math.cos(0.05);
+                        positions[i+1] += Math.sin(time * 5 + i) * 0.5; // Chaotic Y
+
+                        if(Math.abs(positions[i+1]) > 40) positions[i+1] = (Math.random()-0.5)*80;
+                    }
+                }
+                particlesGeo.attributes.position.needsUpdate = true;
+                particlesMesh.rotation.y = time * 0.05;
+            }
+
+            if(currentState !== 3) {
+                // Zarah normal
+                const positions = particlesGeo.attributes.position.array;
+                for(let i=1; i<particlesCount*3; i+=3) {
+                    positions[i] += 0.03;
+                    if(positions[i] > 40) positions[i] = -40;
+                }
+                particlesGeo.attributes.position.needsUpdate = true;
+                particlesMesh.rotation.y = time * 0.02;
+            }
+
+            // Kamera beralun
+            camera.position.x = Math.sin(time * 0.1) * 2;
+            camera.lookAt(0, 0, 0);
+
+            renderer.render(scene, camera);
+        }
+
+        // --- 5. FUNGSI INTERAKSI (GSAP & UI) ---
+        function updateUI(btnId, titleClass, badgeBgClass, badgeTextClass, quoteBorderClass, quoteBgClass, glowClass, arabicText, quoteText, descText) {
+            for(let i=1; i<=3; i++) document.getElementById('btn-'+i).classList.remove('active-btn');
+            document.getElementById('btn-'+btnId).classList.add('active-btn');
+
+            document.getElementById('ui-title-highlight').className = `font-extrabold text-transparent bg-clip-text bg-gradient-to-r ${titleClass} transition-colors duration-500`;
+            document.getElementById('ui-badge').className = `inline-block px-4 py-1.5 rounded-full mb-3 border border-white/10 ${badgeBgClass} transition-colors duration-500`;
+            document.getElementById('ui-badge-text').className = `font-bold tracking-widest uppercase text-[10px] ${badgeTextClass} transition-colors duration-500`;
+            document.getElementById('ui-quote').className = `border-l-4 ${quoteBorderClass} pl-4 py-2 my-4 ${quoteBgClass} rounded-r-lg text-sm leading-relaxed text-gray-200 transition-colors duration-500`;
+            document.getElementById('ui-glow').className = `absolute top-0 right-0 w-32 h-32 rounded-bl-full opacity-15 blur-xl transition-colors duration-500 ${glowClass}`;
+
+            document.getElementById('ui-arabic').innerText = arabicText;
+            document.getElementById('ui-quote').innerText = quoteText;
+            document.getElementById('ui-desc').innerHTML = `<strong>Simbolisme:</strong> ${descText}`;
+        }
+
+        function setFardu() {
+            currentState = 1;
+            updateUI(1,
+                "from-sky-400 to-blue-300", "bg-sky-950/80", "text-sky-400",
+                "border-sky-500", "bg-sky-900/20", "bg-sky-500",
+                "وَمَا تَقَرَّبَ إِلَيَّ عَبْدِي بِشَيْءٍ أَحَبَّ إِلَيَّ مِمَّا افْتَرَضْتُ عَلَيْهِ",
+                '"...Dan tiada amalan yang menghampirkan hamba-Ku kepada-Ku yang lebih Aku cintai melainkan apa yang telah Aku fardukan ke atasnya..."',
+                "Amalan fardu merupakan asas ikatan ketaatan hamba dengan Allah. Ia membina jiwa yang stabil, seimbang, dan bercahaya biru tanda ketenangan."
+            );
+
+            // Warna Asas (Biru / Cyan)
+            gsap.to(coreMat.emissive, { r: 0.01, g: 0.52, b: 0.78, duration: 1.5 }); // 0284c7
+            gsap.to(coreLight.color, { r: 0.05, g: 0.65, b: 0.91, duration: 1.5 }); // 0ea5e9
+            gsap.to(coreLight, { intensity: 3, duration: 1.5 });
+            gsap.to(baseRingMat, { opacity: 0.5, duration: 1.5 });
+
+            // Padam elemen lain
+            beams.forEach(b => gsap.to(b.material, { opacity: 0, duration: 1.0 }));
+            gsap.to(shieldMat, { opacity: 0, duration: 1.0 });
+            gsap.to(wrathLight, { intensity: 0, duration: 1.0 });
+
+            // Reset Zarah
+            gsap.to(particlesMat.color, { r: 0.88, g: 0.95, b: 1.0, duration: 1.5 }); // e0f2fe
+            gsap.to(scene.fog, { color: 0x082f49, density: 0.015, duration: 1.5 });
+        }
+
+        function setWali() {
+            currentState = 2;
+            updateUI(2,
+                "from-amber-400 to-yellow-300", "bg-amber-950/80", "text-amber-400",
+                "border-amber-500", "bg-amber-900/20", "bg-amber-500",
+                "وَلَا يَزَالُ عَبْدِي يَتَقَرَّبُ إِلَيَّ بِالنَّوَافِلِ حَتَّى أُحِبَّهُ",
+                '"Dan sentiasalah hamba-Ku mendekatkan diri kepada-Ku dengan amalan sunat (nawafil) sehingga Aku mencintainya. Maka apabila Aku mencintainya, jadilah Aku pendengarannya... penglihatannya... tangannya... dan kakinya..."',
+                "Amalan sunat yang konsisten menyempurnakan cinta Ilahi. Teras berubah menjadi emas. Empat pancaran keluar mewakili pendengaran, penglihatan, tangan, dan kaki yang sentiasa dipandu (dibimbing) oleh petunjuk Allah."
+            );
+
+            // Warna Cinta Ilahi (Emas/Kuning)
+            gsap.to(coreMat.emissive, { r: 0.7, g: 0.32, b: 0.04, duration: 1.5 }); // b45309
+            gsap.to(coreLight.color, { r: 0.98, g: 0.75, b: 0.14, duration: 1.5 }); // fbbf24
+            gsap.to(coreLight, { intensity: 4, duration: 1.5 });
+            gsap.to(baseRingMat, { opacity: 0.8, duration: 1.5 });
+            gsap.to(baseRingMat.color, { r: 0.98, g: 0.82, b: 0.2, duration: 1.5 }); // fcd34d
+
+            // Pancaran Anggota (Beams)
+            beams.forEach((b, i) => {
+                gsap.to(b.material, { opacity: 0.5, duration: 1.5, delay: i * 0.2 });
+                gsap.fromTo(b.scale, {y:0}, {y:1, duration: 1.5, delay: i * 0.2, ease: "power2.out"});
+            });
+
+            // Muncul Perisai Rahmat
+            gsap.to(shieldMat, { opacity: 0.15, duration: 1.5 });
+            gsap.to(wrathLight, { intensity: 0, duration: 1.0 });
+
+            gsap.to(particlesMat.color, { r: 0.99, g: 0.9, b: 0.54, duration: 1.5 }); // fde68a
+            gsap.to(scene.fog, { color: 0x291d04, density: 0.015, duration: 1.5 });
+        }
+
+        function setPerang() {
+            currentState = 3;
+            updateUI(3,
+                "from-red-500 to-rose-600", "bg-red-950/80", "text-red-400",
+                "border-red-500", "bg-red-900/20", "bg-red-600",
+                "مَنْ عَادَى لِي وَلِيًّا فَقَدْ آذَنْتُهُ بِالْحَرْبِ",
+                '"Barangsiapa yang memusuhi wali-Ku (kekasih-Ku yang taat), maka sesungguhnya Aku isytiharkan perang ke atasnya..."',
+                "Orang yang taat berada dalam perlindungan mutlak Allah. Apabila seseorang memusuhinya, Allah SWT sendiri yang akan bertindak. Zarah kosmik meletus menjadi ribut merah kemurkaan bagi menghancurkan ancaman tersebut."
+            );
+
+            // Teras & Wali kekal selamat dan utuh
+            gsap.to(coreMat.emissive, { r: 0.7, g: 0.32, b: 0.04, duration: 1.5 });
+            gsap.to(coreLight, { intensity: 2, duration: 1.5 });
+
+            // Perisai Wali Bertukar Solid sikit (Protection)
+            gsap.to(shieldMat, { opacity: 0.4, duration: 1.5 });
+            gsap.to(shieldMat.emissive, { r: 0.7, g: 0.2, b: 0.0, duration: 1.5 }); // Kemerahan protection
+
+            // Aktifkan Wrath Light (Murka)
+            gsap.to(wrathLight, { intensity: 5, duration: 1.5 });
+            gsap.to(wrathLight.color, { r: 1.0, g: 0.0, b: 0.0, duration: 1.5 });
+
+            // Zarah menjadi Api Peperangan
+            gsap.to(particlesMat.color, { r: 0.9, g: 0.2, b: 0.1, duration: 1.5 });
+            gsap.to(scene.fog, { color: 0x2a0808, density: 0.02, duration: 1.5 }); // Kabus peperangan
+        }
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // Initialize state
+        setFardu();
+        animate();
+    </script>
+</body>
+</html>

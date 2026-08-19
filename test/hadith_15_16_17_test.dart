@@ -136,11 +136,11 @@ void main() {
       }
     });
 
-    test('H15/H16/H17 ADA dalam Anatomi Sunnah (availableHadithNumbers=25)',
-        () {
-      expect(15 <= 25, true);
-      expect(16 <= 25, true);
-      expect(17 <= 25, true);
+    test('H15/H16/H17 ADA dalam Anatomi Sunnah (availableHadithSet)', () {
+      final source =
+          File('lib/screens/anatomi_sunnah_screen.dart').readAsStringSync();
+      expect(source.contains('15, 16, 17,'), true,
+          reason: 'Hadis 15-17 mesti tersenarai dalam availableHadithSet');
     });
   });
 
@@ -152,7 +152,7 @@ void main() {
       expect(repository.byNumber(16), isNotNull);
       expect(repository.byNumber(17), isNotNull);
       expect(repository.byNumber(18), isNotNull);
-      expect(repository.availableHadiths.length, 30);
+      expect(repository.availableHadiths.length, 42);
     });
 
     test('Dynamic module count: module_03 = 5/5, module_04 = 5/5', () async {
