@@ -102,6 +102,14 @@ class ModuleDetailScreen extends StatelessWidget {
                                         controller.isBookmarked(hadiths[i]!.id),
                                   ),
                                 ),
+                              // AppFooter (notis hak cipta) diletakkan di
+                              // dalam ListView (bukan sebagai sibling tetap
+                              // di bawah Expanded) supaya ia hanya
+                              // kelihatan selepas pengguna skrol ke
+                              // penghujung senarai hadis, bukan statik
+                              // mengganggu paparan sepanjang masa.
+                              SizedBox(height: layout.sectionGap),
+                              const AppFooter(),
                             ],
                           ),
                         ),
@@ -111,7 +119,6 @@ class ModuleDetailScreen extends StatelessWidget {
                 },
               ),
             ),
-            const AppFooter(),
           ],
         ),
       ),
