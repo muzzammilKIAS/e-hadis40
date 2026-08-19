@@ -420,11 +420,26 @@ class _OverviewRow extends StatelessWidget {
     );
 
     if (!layout.heroBesideProgress) {
+      // Kad "Sambung Pembelajaran" (hero) diletakkan DAHULU, betul-betul
+      // di bawah tajuk/carian — bukan selepas kad statistik — supaya
+      // pengguna terus nampak tindakan seterusnya sebaik membuka
+      // dashboard, sebelum melihat statistik kemajuan.
+      //
+      // `crossAxisAlignment.stretch` WAJIB di sini — `hero` ialah
+      // `AnimatedContainer` yang tiada lebar dipaksa, jadi di bawah
+      // `Column` lalai (center), ia mengecut mengikut kandungannya
+      // sendiri dan kelihatan lebih kecil (bercelah kosong kiri/kanan)
+      // berbanding kad statistik di bawahnya, yang kebetulan sentiasa
+      // memenuhi lebar penuh kerana `Row` sememangnya menuntut lebar
+      // maksimum secara lalai. `stretch` menjadikan kedua-duanya sama
+      // lebar dengan carian/tajuk di atas, konsisten pada mod tablet
+      // mahupun telefon.
       return Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          progressGroup,
-          SizedBox(height: layout.gap),
           hero,
+          SizedBox(height: layout.gap),
+          progressGroup,
         ],
       );
     }

@@ -157,7 +157,11 @@ class _DashboardSidebar extends StatefulWidget {
 }
 
 class _DashboardSidebarState extends State<_DashboardSidebar> {
-  bool _collapsed = false;
+  // Sidebar bermula dalam keadaan dikecilkan (ikon sahaja) setiap kali
+  // aplikasi diakses — pengguna boleh mengembangkannya semula dengan
+  // menekan togol jika perlu, tetapi ia tidak lagi terus mengembang
+  // secara automatik pada setiap muatan halaman.
+  bool _collapsed = true;
 
   @override
   Widget build(BuildContext context) {

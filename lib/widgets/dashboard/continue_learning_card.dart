@@ -64,6 +64,13 @@ class _ContinueLearningCardState extends State<ContinueLearningCard> {
         duration: const Duration(milliseconds: 200),
         curve: Curves.easeOut,
         clipBehavior: Clip.antiAlias,
+        // `minHeight` — pada lebar kandungan tablet, tajuk hadis kerap
+        // muat dalam satu baris sahaja (berbanding dua baris pada
+        // telefon yang lebih sempit), jadi kad ini secara semula jadi
+        // menjadi lebih pendek. Tanpa tinggi minimum, ini kelihatan
+        // seperti kad "mengecil" dan tidak sekata antara mod tablet dan
+        // telefon walaupun gaya (padding/fon) sudah sama.
+        constraints: const BoxConstraints(minHeight: 208),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(26),
           gradient: LinearGradient(
