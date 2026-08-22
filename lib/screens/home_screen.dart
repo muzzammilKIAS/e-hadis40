@@ -14,12 +14,9 @@ import '../widgets/app_footer.dart';
 import '../widgets/dashboard/continue_learning_card.dart';
 import '../widgets/dashboard/dashboard_activity_tile.dart';
 import '../widgets/dashboard/glass_surface.dart';
-import '../widgets/dashboard/islamic_atmosphere.dart';
 import '../widgets/dashboard/learning_progress_card.dart';
-import '../widgets/dashboard/misi_pencari_hikmah_card.dart';
 import '../widgets/dashboard/module_identity.dart';
 import '../widgets/dashboard/module_learning_card.dart';
-import '../widgets/dashboard/uji_minda_card.dart';
 import 'anatomi_sunnah_list_screen.dart';
 import 'hadith_screen.dart';
 import 'module_detail_screen.dart';
@@ -99,7 +96,9 @@ class _DashboardBody extends StatelessWidget {
       children: [
         _DashboardHeader(
           layout: layout,
+          controller: controller,
           onOpenSearch: () => _openSearch(context),
+          onOpenAnatomiSunnah: () => _openAnatomiSunnah(context),
         ),
         SizedBox(height: layout.sectionGap),
         _OverviewRow(
@@ -126,19 +125,8 @@ class _DashboardBody extends StatelessWidget {
           hadithRepository: hadithRepository,
           lastHadith: lastHadith,
           onOpenHadith: (hadith) => _openHadith(context, hadith),
-          onSelectTab: onSelectTab,
+          onOpenProjector: () => _openProjector(context),
         ),
-        SizedBox(height: layout.sectionGap),
-        _TeacherFeatureCard(
-          layout: layout,
-          enabled: controller.teacherMode,
-          onToggle: controller.setTeacherMode,
-          onProjector: () => _openProjector(context),
-        ),
-        SizedBox(height: layout.sectionGap),
-        _AnatomiSunnahCard(layout: layout),
-        SizedBox(height: layout.sectionGap),
-        const _InteractiveActivitySection(),
         const SizedBox(height: 18),
         const AppFooter(),
       ],
@@ -170,6 +158,14 @@ class _DashboardBody extends StatelessWidget {
     );
   }
 
+  void _openAnatomiSunnah(BuildContext context) {
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (_) => const AnatomiSunnahListScreen(),
+      ),
+    );
+  }
+
   Future<void> _openSearch(BuildContext context) async {
     final repo = context.read<HadithRepository>();
     final selected = await showSearch<Hadith?>(
@@ -186,10 +182,17 @@ class _DashboardBody extends StatelessWidget {
 // ───────────────────────────── Header ─────────────────────────────
 
 class _DashboardHeader extends StatelessWidget {
-  const _DashboardHeader({required this.layout, required this.onOpenSearch});
+  const _DashboardHeader({
+    required this.layout,
+    required this.controller,
+    required this.onOpenSearch,
+    required this.onOpenAnatomiSunnah,
+  });
 
   final DashboardLayout layout;
+  final AppController controller;
   final VoidCallback onOpenSearch;
+  final VoidCallback onOpenAnatomiSunnah;
 
   @override
   Widget build(BuildContext context) {
@@ -230,13 +233,51 @@ class _DashboardHeader extends StatelessWidget {
 
     final search = _DashboardSearchField(onTap: onOpenSearch);
 
+    // Mod gelap/cerah yang SEDANG dipaparkan — apabila `themeMode` diikat
+    // kepada sistem, kita rujuk kecerahan yang telah diselesaikan
+    // (`Theme.of(context).brightness`) supaya ikon sentiasa menggambarkan
+    // rupa sebenar skrin, bukan tetapan mentah `ThemeMode.system` itu
+    // sendiri.
+    final isDark = controller.themeMode == ThemeMode.dark ||
+        (controller.themeMode == ThemeMode.system &&
+            Theme.of(context).brightness == Brightness.dark);
+
+    final quickIcons = Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        _HeaderIconButton(
+          icon: Icons.view_in_ar_rounded,
+          tooltip: 'Anatomi Hadis',
+          onTap: onOpenAnatomiSunnah,
+        ),
+        const SizedBox(width: 10),
+        _HeaderIconButton(
+          // Togol ini sengaja HANYA bertukar antara `ThemeMode.light` dan
+          // `ThemeMode.dark` (dua mod sahaja apabila ditekan) — pilihan
+          // "Ikut Sistem" kekal tersedia di skrin Tetapan/sidebar sebagai
+          // mod lalai di sebalik tabir, bukan sebahagian daripada kitaran
+          // togol pantas ini.
+          icon: isDark ? Icons.dark_mode_rounded : Icons.light_mode_rounded,
+          tooltip: isDark ? 'Tukar ke Mod Cerah' : 'Tukar ke Mod Gelap',
+          onTap: () => controller
+              .setThemeMode(isDark ? ThemeMode.light : ThemeMode.dark),
+        ),
+      ],
+    );
+
     // Baris dikongsi hanya apabila ruang mencukupi — pada lebar sempit tajuk
     // sentiasa mendapat lebar penuh supaya tidak tersepit.
     if (!layout.inlineSearch) {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          greeting,
+          Row(
+            children: [
+              Expanded(child: greeting),
+              const SizedBox(width: 12),
+              quickIcons,
+            ],
+          ),
           const SizedBox(height: 18),
           search,
         ],
@@ -247,12 +288,61 @@ class _DashboardHeader extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Expanded(child: greeting),
-        const SizedBox(width: 24),
+        const SizedBox(width: 16),
+        quickIcons,
+        const SizedBox(width: 16),
         ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 340, minWidth: 240),
           child: search,
         ),
       ],
+    );
+  }
+}
+
+/// Ikon kecil laluan pantas di header dashboard (Anatomi Hadis, Mod
+/// Projektor) — pengganti kad besar `_TeacherFeatureCard`/`_AnatomiSunnahCard`
+/// yang sebelum ini menuntut ruang penuh satu seksyen setiap satu. Togol
+/// "Mod Guru" sendiri kekal di skrin Tetapan; ikon ini hanya laluan pantas
+/// untuk membuka paparan berkaitan terus dari dashboard.
+class _HeaderIconButton extends StatelessWidget {
+  const _HeaderIconButton({
+    required this.icon,
+    required this.tooltip,
+    required this.onTap,
+  });
+
+  final IconData icon;
+  final String tooltip;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+    final dark = scheme.brightness == Brightness.dark;
+
+    return Tooltip(
+      message: tooltip,
+      child: Material(
+        color: scheme.primary.withValues(alpha: dark ? 0.22 : 0.12),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(14),
+          side: BorderSide(color: scheme.primary.withValues(alpha: 0.32)),
+        ),
+        child: InkWell(
+          onTap: onTap,
+          borderRadius: BorderRadius.circular(14),
+          child: SizedBox(
+            width: 44,
+            height: 44,
+            child: Icon(
+              icon,
+              size: 21,
+              color: dark ? scheme.tertiary : scheme.primary,
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
@@ -606,7 +696,7 @@ class _ActivitySection extends StatelessWidget {
     required this.hadithRepository,
     required this.lastHadith,
     required this.onOpenHadith,
-    required this.onSelectTab,
+    required this.onOpenProjector,
   });
 
   final DashboardLayout layout;
@@ -614,12 +704,10 @@ class _ActivitySection extends StatelessWidget {
   final HadithRepository hadithRepository;
   final Hadith? lastHadith;
   final ValueChanged<Hadith> onOpenHadith;
-  final ValueChanged<int> onSelectTab;
+  final VoidCallback onOpenProjector;
 
   @override
   Widget build(BuildContext context) {
-    final scheme = Theme.of(context).colorScheme;
-
     final bookmarked = controller.bookmarks
         .map(hadithRepository.byId)
         .whereType<Hadith>()
@@ -668,42 +756,46 @@ class _ActivitySection extends StatelessWidget {
               ),
       ),
       _ActivityPanel(
-        icon: Icons.explore_rounded,
-        title: 'Pintasan',
-        child: Column(
-          children: [
-            DashboardActivityTile(
-              dense: true,
-              icon: Icons.grid_view_rounded,
-              title: 'Semua Modul',
-              subtitle: '${AppCurriculumStructure.totalModules} modul',
-              onTap: () => onSelectTab(1),
-            ),
-            const SizedBox(height: 8),
-            DashboardActivityTile(
-              dense: true,
-              icon: Icons.headphones_rounded,
-              title: 'Audio Semua Hadis',
-              subtitle:
-                  '${hadithRepository.availableHadiths.where((h) => h.audioAsset.isNotEmpty).length} audio tersedia',
-              accent: scheme.tertiary,
-              onTap: () => onSelectTab(3),
-            ),
-            const SizedBox(height: 8),
-            DashboardActivityTile(
-              dense: true,
-              icon: Icons.settings_rounded,
-              title: 'Tetapan',
-              subtitle: 'Tema, saiz teks Arab, mod guru',
-              onTap: () => onSelectTab(4),
-            ),
-          ],
+        icon: Icons.co_present_rounded,
+        title: 'Mod Projektor',
+        child: DashboardActivityTile(
+          icon: Icons.co_present_rounded,
+          title: 'Buka Mod Projektor',
+          subtitle: 'Paparan untuk pengajaran & skrin besar',
+          onTap: onOpenProjector,
         ),
       ),
     ];
 
-    final columns = layout.panelColumns;
-    final width = layout.itemWidth(columns);
+    // Tiga kotak (Terakhir Dibaca, Hadis Pilihan, Mod Projektor) mesti
+    // kekal SAMA besar (lebar & tinggi) apabila disusun sebaris — `Wrap`
+    // sahaja tidak menyamakan tinggi antara item dalam baris yang sama,
+    // jadi kita guna `Row` + `IntrinsicHeight` + `Expanded` (stretch)
+    // apabila ruang cukup untuk ketiga-tiganya sebaris; pada skrin sempit
+    // (satu lajur) ia disusun menegak dan lebar penuh secara semula jadi.
+    if (layout.panelColumns >= 2) {
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const DashboardSectionHeader(
+            title: 'Aktiviti Pembelajaran',
+            subtitle: 'Teruskan dari tempat anda berhenti.',
+          ),
+          SizedBox(height: layout.gap + 4),
+          IntrinsicHeight(
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                for (var i = 0; i < panels.length; i++) ...[
+                  if (i > 0) SizedBox(width: layout.gap),
+                  Expanded(child: panels[i]),
+                ],
+              ],
+            ),
+          ),
+        ],
+      );
+    }
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -713,13 +805,10 @@ class _ActivitySection extends StatelessWidget {
           subtitle: 'Teruskan dari tempat anda berhenti.',
         ),
         SizedBox(height: layout.gap + 4),
-        Wrap(
-          spacing: layout.gap,
-          runSpacing: layout.gap,
-          children: [
-            for (final panel in panels) SizedBox(width: width, child: panel),
-          ],
-        ),
+        for (var i = 0; i < panels.length; i++) ...[
+          if (i > 0) SizedBox(height: layout.gap),
+          panels[i],
+        ],
       ],
     );
   }
@@ -815,344 +904,6 @@ class _PanelEmpty extends StatelessWidget {
         message,
         style: TextStyle(color: scheme.onSurfaceVariant, fontSize: 12.5),
       ),
-    );
-  }
-}
-
-// ─────────────────────────── Mod guru ─────────────────────────────
-
-class _TeacherFeatureCard extends StatelessWidget {
-  const _TeacherFeatureCard({
-    required this.layout,
-    required this.enabled,
-    required this.onToggle,
-    required this.onProjector,
-  });
-
-  final DashboardLayout layout;
-  final bool enabled;
-  final ValueChanged<bool> onToggle;
-  final VoidCallback onProjector;
-
-  @override
-  Widget build(BuildContext context) {
-    final scheme = Theme.of(context).colorScheme;
-    final text = Theme.of(context).textTheme;
-    final dark = scheme.brightness == Brightness.dark;
-
-    final heading = Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Container(
-          width: 44,
-          height: 44,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(14),
-            color: scheme.primary.withValues(alpha: dark ? 0.22 : 0.12),
-            border: Border.all(color: scheme.primary.withValues(alpha: 0.32)),
-          ),
-          child: Icon(
-            Icons.co_present_rounded,
-            size: 21,
-            color: dark ? scheme.tertiary : scheme.primary,
-          ),
-        ),
-        const SizedBox(width: 12),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                'Mod Guru & Projektor',
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-                style: text.titleMedium?.copyWith(
-                  fontWeight: FontWeight.w700,
-                  fontSize: 15.5,
-                ),
-              ),
-              const SizedBox(height: 3),
-              Text(
-                'Paparan sesuai untuk pengajaran di kelas dan tayangan '
-                'skrin besar.',
-                maxLines: 3,
-                overflow: TextOverflow.ellipsis,
-                style: text.bodySmall?.copyWith(
-                  color: scheme.onSurfaceVariant,
-                  fontSize: 12.5,
-                ),
-              ),
-            ],
-          ),
-        ),
-      ],
-    );
-
-    final controls = Wrap(
-      spacing: 10,
-      runSpacing: 10,
-      crossAxisAlignment: WrapCrossAlignment.center,
-      children: [
-        Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const Text('Mod Guru', style: TextStyle(fontSize: 13)),
-            const SizedBox(width: 4),
-            Switch(value: enabled, onChanged: onToggle),
-          ],
-        ),
-        OutlinedButton.icon(
-          onPressed: onProjector,
-          icon: const Icon(Icons.present_to_all_rounded, size: 18),
-          label: const Text('Buka Projektor'),
-        ),
-      ],
-    );
-
-    return Stack(
-      children: [
-        Positioned.fill(
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(22),
-            child: IslamicCardPattern(color: scheme.primary, seed: 3),
-          ),
-        ),
-        GlassSurface(
-          padding: EdgeInsets.all(layout.isCompact ? 16 : 20),
-          accent: scheme.primary.withValues(alpha: 0.35),
-          child: layout.contentWidth >= 700
-              ? Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Expanded(child: heading),
-                    const SizedBox(width: 16),
-                    controls,
-                  ],
-                )
-              : Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    heading,
-                    const SizedBox(height: 14),
-                    controls,
-                  ],
-                ),
-        ),
-      ],
-    );
-  }
-}
-
-// ───────────────────────── Anatomi Sunnah ──────────────────────────
-
-/// Kotak promosi "Anatomi Sunnah 3D" di dashboard — guna ikon
-/// `view_in_ar_rounded` yang sama seperti slaid penutup mod projektor,
-/// supaya kedua-dua kemasukan mengekalkan identiti visual yang konsisten.
-/// Navigasi belum disambungkan; kandungan simulasi akan dibekalkan
-/// berasingan sebelum butang ini diaktifkan.
-class _AnatomiSunnahCard extends StatelessWidget {
-  const _AnatomiSunnahCard({required this.layout});
-
-  final DashboardLayout layout;
-
-  @override
-  Widget build(BuildContext context) {
-    final scheme = Theme.of(context).colorScheme;
-    final text = Theme.of(context).textTheme;
-    final dark = scheme.brightness == Brightness.dark;
-
-    final heading = Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Container(
-          width: 44,
-          height: 44,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(14),
-            color: scheme.primary.withValues(alpha: dark ? 0.22 : 0.12),
-            border: Border.all(color: scheme.primary.withValues(alpha: 0.32)),
-          ),
-          child: Icon(
-            Icons.view_in_ar_rounded,
-            size: 21,
-            color: dark ? scheme.tertiary : scheme.primary,
-          ),
-        ),
-        const SizedBox(width: 12),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                'Anatomi Sunnah 3D',
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-                style: text.titleMedium?.copyWith(
-                  fontWeight: FontWeight.w700,
-                  fontSize: 15.5,
-                ),
-              ),
-              const SizedBox(height: 3),
-              Text(
-                'Simulasi interaktif 3D bagi meneroka makna sebalik hadis.',
-                maxLines: 3,
-                overflow: TextOverflow.ellipsis,
-                style: text.bodySmall?.copyWith(
-                  color: scheme.onSurfaceVariant,
-                  fontSize: 12.5,
-                ),
-              ),
-            ],
-          ),
-        ),
-      ],
-    );
-
-    final button = OutlinedButton.icon(
-      onPressed: () => Navigator.of(context).push(
-        MaterialPageRoute<void>(
-          builder: (_) => const AnatomiSunnahListScreen(),
-        ),
-      ),
-      icon: const Icon(Icons.view_in_ar_rounded, size: 18),
-      label: const Text('Buka Anatomi Sunnah'),
-    );
-
-    return Stack(
-      children: [
-        Positioned.fill(
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(22),
-            child: IslamicCardPattern(color: scheme.primary, seed: 6),
-          ),
-        ),
-        GlassSurface(
-          padding: EdgeInsets.all(layout.isCompact ? 16 : 20),
-          accent: scheme.primary.withValues(alpha: 0.35),
-          child: layout.contentWidth >= 700
-              ? Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Expanded(child: heading),
-                    const SizedBox(width: 16),
-                    button,
-                  ],
-                )
-              : Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    heading,
-                    const SizedBox(height: 14),
-                    button,
-                  ],
-                ),
-        ),
-      ],
-    );
-  }
-}
-
-// ───────────────────── Aktiviti Interaktif ─────────────────────────
-
-/// Kotak "Aktiviti Interaktif" — satu bekas (kotak) tunggal di dashboard
-/// yang memuatkan kumpulan permainan pembelajaran (Xplorasi Minda, Misi
-/// Mencari Hikmah) di dalamnya, di bawah kad Anatomi Sunnah 3D. Sebelum
-/// ini kedua-dua permainan bertaburan (Xplorasi berada di hujung senarai
-/// Modul, Misi Pencari Hikmah tiada kemasukan dashboard langsung) —
-/// kini disatukan dalam satu kotak supaya jelas ia sebahagian daripada
-/// kumpulan aktiviti yang sama.
-class _InteractiveActivitySection extends StatelessWidget {
-  const _InteractiveActivitySection();
-
-  @override
-  Widget build(BuildContext context) {
-    final scheme = Theme.of(context).colorScheme;
-    final dark = scheme.brightness == Brightness.dark;
-
-    return Stack(
-      // `Clip.none` — Stack lalai memotong (Clip.hardEdge); tanpa ini,
-      // lepasan ilustrasi roket kad di dalamnya akan terpotong di sini
-      // walaupun `GlassSurface` di bawah sudah `clip: false`.
-      clipBehavior: Clip.none,
-      children: [
-        Positioned.fill(
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(22),
-            child: IslamicCardPattern(color: scheme.tertiary, seed: 9),
-          ),
-        ),
-        GlassSurface(
-          padding: const EdgeInsets.all(18),
-          // `clip: false` — kad Xplorasi Minda & Misi Mencari Hikmah di
-          // dalam kotak ini sengaja membenarkan ilustrasi roket melepasi
-          // sempadan kad sendiri (lihat `UjiMindaCard`/
-          // `MisiPencariHikmahCard`); jika kotak luar ini turut memotong
-          // (clip), lepasan itu akan terpotong sebelum sempat "keluar"
-          // secara visual.
-          clip: false,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Row(
-                children: [
-                  Container(
-                    width: 44,
-                    height: 44,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(14),
-                      color:
-                          scheme.tertiary.withValues(alpha: dark ? 0.22 : 0.12),
-                      border: Border.all(
-                        color: scheme.tertiary.withValues(alpha: 0.32),
-                      ),
-                    ),
-                    child: Icon(
-                      Icons.sports_esports_rounded,
-                      size: 21,
-                      color: scheme.tertiary,
-                    ),
-                  ),
-                  const SizedBox(width: 12),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text(
-                          'Aktiviti Interaktif',
-                          style: Theme.of(context)
-                              .textTheme
-                              .titleMedium
-                              ?.copyWith(
-                                fontWeight: FontWeight.w700,
-                                fontSize: 15.5,
-                              ),
-                        ),
-                        const SizedBox(height: 3),
-                        Text(
-                          'Permainan pembelajaran interaktif Hadis 40.',
-                          style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                                color: scheme.onSurfaceVariant,
-                                fontSize: 12.5,
-                              ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 6),
-              const UjiMindaCard(),
-              const MisiPencariHikmahCard(),
-            ],
-          ),
-        ),
-      ],
     );
   }
 }
