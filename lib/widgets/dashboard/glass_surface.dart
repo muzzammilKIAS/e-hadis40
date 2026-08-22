@@ -12,6 +12,7 @@ class GlassSurface extends StatelessWidget {
     this.accent,
     this.highlighted = false,
     this.clip = true,
+    this.background,
     super.key,
   });
 
@@ -27,11 +28,17 @@ class GlassSurface extends StatelessWidget {
 
   final bool clip;
 
+  /// Override warna latar (gantikan gradien lalai berasaskan `scheme.surface`).
+  /// Untuk kotak besar yang membungkus kad lain (contoh: `_InteractiveActivitySection`)
+  /// yang perlu kekal lebih cerah daripada kotak biasa.
+  final Color? background;
+
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
     final dark = scheme.brightness == Brightness.dark;
     final border = accent ?? scheme.outlineVariant;
+    final base = background ?? scheme.surface;
 
     return Container(
       padding: padding,
@@ -43,12 +50,12 @@ class GlassSurface extends StatelessWidget {
           end: Alignment.bottomRight,
           colors: dark
               ? [
-                  scheme.surface.withValues(alpha: 0.94),
+                  base.withValues(alpha: 0.94),
                   scheme.surfaceContainerLowest.withValues(alpha: 0.82),
                 ]
               : [
-                  scheme.surface,
-                  scheme.surface.withValues(alpha: 0.9),
+                  base,
+                  base.withValues(alpha: 0.9),
                 ],
         ),
         border: Border.all(

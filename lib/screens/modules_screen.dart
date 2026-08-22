@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../core/curriculum/app_curriculum_structure.dart';
+import '../core/theme/app_colors.dart';
 import '../core/utils/dashboard_layout.dart';
 import '../data/repositories/hadith_repository.dart';
 import '../data/repositories/module_repository.dart';
@@ -160,7 +161,11 @@ class _AnatomiSunnahCard extends StatelessWidget {
       ],
     );
 
-    final button = OutlinedButton.icon(
+    // Butang tindakan utama kad ini — sengaja `FilledButton` (bukan
+    // `OutlinedButton` seperti sebelum ini) dengan hijau lebih pekat dalam
+    // mod cerah supaya ia menonjol sebagai butang sebenar, bukan sekadar
+    // garis sempadan nipis di atas kotak yang kini turut berwarna hijau.
+    final button = FilledButton.icon(
       onPressed: () => Navigator.of(context).push(
         MaterialPageRoute<void>(
           builder: (_) => const AnatomiSunnahListScreen(),
@@ -168,6 +173,12 @@ class _AnatomiSunnahCard extends StatelessWidget {
       ),
       icon: const Icon(Icons.view_in_ar_rounded, size: 18),
       label: const Text('Buka Anatomi Sunnah'),
+      style: dark
+          ? null
+          : FilledButton.styleFrom(
+              backgroundColor: AppColors.primaryHover,
+              foregroundColor: Colors.white,
+            ),
     );
 
     return Stack(
@@ -241,6 +252,12 @@ class _InteractiveActivitySection extends StatelessWidget {
           // (clip), lepasan itu akan terpotong sebelum sempat "keluar"
           // secara visual.
           clip: false,
+          // Kotak PEMBUNGKUS luar ini sengaja lebih cerah (bukan warna
+          // `surface` pekat yang sama seperti kotak lain) dalam mod cerah
+          // sahaja — kad Xplorasi Minda & Misi Mencari Hikmah di dalamnya
+          // sudah ada latar gelap tersendiri, jadi kotak luar yang turut
+          // pekat menjadikan keseluruhan seksyen terlalu berat/gelap.
+          background: dark ? null : scheme.surfaceContainerLowest,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,

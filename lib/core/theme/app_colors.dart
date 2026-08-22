@@ -6,7 +6,14 @@ class AppColors {
 
   // ── Light ─────────────────────────────────────────────
   static const lightBackground = Color(0xFFF6FBF8);
-  static const lightSurface = Color(0xFFFFFFFF);
+  // Sebelum ini putih tulen (`0xFFFFFFFF`) — kotak/panel (GlassSurface,
+  // LearningProgressCard, ModuleLearningCard, dsb.) jadi hampir tidak
+  // kelihatan berbeza daripada latar `lightBackground` yang pucat, jadi
+  // dashboard rasa "mati". Warna hijau sage sedikit pekat ini sengaja
+  // lebih GELAP/tepu berbanding `lightBackground` supaya kotak menonjol
+  // sebagai lapisan tersendiri (kontra elevation), bukan hanya bersandar
+  // pada bayang/sempadan.
+  static const lightSurface = Color(0xFFC7E5D5);
   static const lightSecondarySurface = Color(0xFFECF6F1);
   static const lightElevatedSurface = Color(0xFFF2F8F5);
 

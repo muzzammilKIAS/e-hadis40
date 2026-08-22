@@ -37,6 +37,14 @@ class LearningProgressCard extends StatelessWidget {
     final tone = accent ?? scheme.primary;
     final percent = (progress.clamp(0.0, 1.0) * 100).round();
 
+    // Warna khusus untuk corak latar — berasingan daripada `tone` (ikon/
+    // cincin/teks). `tone` boleh jadi warna cerah (contoh `scheme.tertiary`
+    // pada kad "Modul Selesai"), yang kontrasnya terlalu rendah berbanding
+    // latar kad hampir putih dalam mod cerah sehingga corak nyaris tidak
+    // kelihatan. Mencampur ke arah `onSurface` menjamin corak sentiasa
+    // cukup kontra tanpa menukar warna ikon/teks kad.
+    final patternTone = Color.lerp(tone, scheme.onSurface, 0.45)!;
+
     return Container(
       clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
@@ -71,7 +79,7 @@ class LearningProgressCard extends StatelessWidget {
         children: [
           Positioned.fill(
             child: IslamicCardPattern(
-              color: tone,
+              color: patternTone,
               seed: label.length,
               opacity: 0.9,
             ),
