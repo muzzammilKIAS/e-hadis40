@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../core/theme/app_colors.dart';
+
 /// Identiti visual bagi setiap modul.
 ///
 /// Setiap modul mendapat ikon tema dan aksen warnanya sendiri dalam keluarga
@@ -22,10 +24,19 @@ class ModuleIdentity {
   static IconData iconFor(int moduleNumber) =>
       _icons[(moduleNumber - 1).clamp(0, _icons.length - 1)];
 
-  /// Aksen modul: interpolasi primary → tertiary mengikut nombor modul.
+  /// Aksen modul: laluan TIGA warna (primary → pink/emas → tertiary)
+  /// mengikut nombor modul — sebelum ini hanya primary → tertiary (dua
+  /// nuansa hijau sahaja), menjadikan grid 8 kad modul kelihatan hijau
+  /// seragam ("2 warna sahaja"). Pink HANYA untuk mod cerah (permintaan
+  /// pengguna); mod gelap kekal guna emas seperti asal.
   static Color accentFor(ColorScheme scheme, int moduleNumber) {
-    final t = ((moduleNumber - 1) / 7).clamp(0.0, 1.0) * 0.75;
-    return Color.lerp(scheme.primary, scheme.tertiary, t)!;
+    final dark = scheme.brightness == Brightness.dark;
+    final thirdAccent = dark ? AppColors.darkGold : AppColors.pinkAccent;
+    final t = ((moduleNumber - 1) / 7).clamp(0.0, 1.0);
+    if (t <= 0.5) {
+      return Color.lerp(scheme.primary, thirdAccent, t * 2)!;
+    }
+    return Color.lerp(thirdAccent, scheme.tertiary, (t - 0.5) * 2)!;
   }
 }
 

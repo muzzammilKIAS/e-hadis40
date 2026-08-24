@@ -60,11 +60,15 @@ class _ModuleLearningCardState extends State<ModuleLearningCard> {
             : inProgress
                 ? Icons.timelapse_rounded
                 : Icons.play_circle_outline_rounded;
+    // Warna aksen modul (termasuk pink) sengaja diketepikan daripada TEKS
+    // kecil (label, peratus, status) — dipakai sebaliknya pada latar
+    // kotak/glif/bar kemajuan sahaja, supaya kad kekal mudah dibaca dan
+    // tidak "sakit mata" dengan pelbagai teks berwarna.
     final statusColor = pending
         ? scheme.onSurfaceVariant
         : completed
             ? scheme.primary
-            : accent;
+            : scheme.onSurfaceVariant;
 
     final padding = widget.compact ? 14.0 : 18.0;
 
@@ -78,19 +82,24 @@ class _ModuleLearningCardState extends State<ModuleLearningCard> {
         transform: Matrix4.translationValues(0, _hovered ? -4 : 0, 0),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(22),
+          // Latar KOTAK (bukan teks — lihat `statusColor`/label di bawah)
+          // sengaja dwi-warna hijau→dusty pink pada SETIAP kad modul dalam
+          // mod cerah (permintaan pengguna: unsur dusty pink DAN hijau pada
+          // semua kotak modul, bukan hanya sebahagian kad seperti sebelum
+          // ini). Mod gelap kekal guna aksen per-modul (emas) seperti asal.
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors: dark
                 ? [
-                    Color.lerp(scheme.surface, accent, 0.06)!,
+                    Color.lerp(scheme.surface, accent, _hovered ? 0.22 : 0.14)!,
                     scheme.surfaceContainerLowest.withValues(alpha: 0.9),
                   ]
                 : [
-                    Color.lerp(scheme.surface, AppColors.deepSage,
-                        _hovered ? 0.1 : 0.045)!,
+                    Color.lerp(
+                        scheme.surface, scheme.primary, _hovered ? 0.2 : 0.13)!,
                     Color.lerp(scheme.surfaceContainerHighest,
-                        AppColors.deepSage, _hovered ? 0.08 : 0.03)!,
+                        AppColors.pinkAccent, _hovered ? 0.24 : 0.16)!,
                   ],
           ),
           border: Border.all(
@@ -155,7 +164,7 @@ class _ModuleLearningCardState extends State<ModuleLearningCard> {
                                   maxLines: 1,
                                   overflow: TextOverflow.ellipsis,
                                   style: TextStyle(
-                                    color: accent,
+                                    color: scheme.onSurfaceVariant,
                                     fontSize: 10.5,
                                     fontWeight: FontWeight.w700,
                                     letterSpacing: 1.1,
@@ -196,7 +205,9 @@ class _ModuleLearningCardState extends State<ModuleLearningCard> {
                             style: TextStyle(
                               fontWeight: FontWeight.w800,
                               fontSize: 13,
-                              color: completed ? scheme.primary : accent,
+                              color: completed
+                                  ? scheme.primary
+                                  : scheme.onSurfaceVariant,
                             ),
                           ),
                         ],

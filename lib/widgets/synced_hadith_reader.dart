@@ -742,8 +742,8 @@ class _SyncedSegmentTile extends StatelessWidget {
                     visualDensity: VisualDensity.compact,
                     icon: const Icon(Icons.repeat_one_rounded),
                     color: scheme.onSurfaceVariant,
-                    selectedIcon:
-                        Icon(Icons.repeat_one_on_rounded, color: scheme.tertiary),
+                    selectedIcon: Icon(Icons.repeat_one_on_rounded,
+                        color: scheme.tertiary),
                   ),
                 ),
               ],

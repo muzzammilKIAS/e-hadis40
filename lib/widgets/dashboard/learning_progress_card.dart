@@ -107,9 +107,8 @@ class LearningProgressCard extends StatelessWidget {
                         child: Icon(
                           icon,
                           size: compact ? 18 : 21,
-                          color: dark
-                              ? Color.lerp(tone, Colors.white, 0.2)
-                              : tone,
+                          color:
+                              dark ? Color.lerp(tone, Colors.white, 0.2) : tone,
                         ),
                       ),
                       SizedBox(height: compact ? 14 : 18),

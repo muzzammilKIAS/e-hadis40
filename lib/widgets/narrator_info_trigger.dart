@@ -171,7 +171,8 @@ class _NarratorInfoTriggerState extends State<NarratorInfoTrigger> {
                             style: Theme.of(context)
                                 .textTheme
                                 .bodySmall
-                                ?.copyWith(height: 1.5, color: scheme.onSurface),
+                                ?.copyWith(
+                                    height: 1.5, color: scheme.onSurface),
                           ),
                         ),
                       ],

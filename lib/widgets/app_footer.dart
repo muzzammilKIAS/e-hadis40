@@ -1,13 +1,29 @@
 import 'package:flutter/material.dart';
 
 import '../core/theme/app_spacing.dart';
+import 'about_ehadis40_dialog.dart';
+import 'legal_information_dialog.dart';
 
+/// Footer kongsi merentasi Dashboard, Modul, Hadis, Tetapan dan Anatomi
+/// Sunnah — hierarki: nama/kredit pembangun → Fakulti → penafian ringkas →
+/// pautan (Tentang e-Hadis40 / Hak Cipta & Penafian) → hak cipta.
+///
+/// Kandungan legal PENUH (penafian lengkap, hak cipta terperinci, sumber
+/// rujukan) sengaja TIDAK diletakkan di sini — footer kekal ringkas/tidak
+/// sarat, dan pengguna yang mahukan butiran penuh boleh klik pautan
+/// "Hak Cipta & Penafian" ke [LegalInformationDialog]. Maklumat produk
+/// (tujuan, objektif, ciri, pasukan) pula di [AboutEHadis40Dialog].
 class AppFooter extends StatelessWidget {
   const AppFooter({super.key});
 
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
+    final mutedStyle = Theme.of(context).textTheme.bodySmall?.copyWith(
+          color: scheme.onSurfaceVariant,
+          fontSize: 11.5,
+          height: 1.5,
+        );
 
     return Padding(
       padding: const EdgeInsets.only(top: AppSpacing.xxl),
@@ -17,55 +33,80 @@ class AppFooter extends StatelessWidget {
           const Divider(height: 1),
           const SizedBox(height: AppSpacing.xl),
           Icon(Icons.auto_stories_rounded,
-              size: 28, color: scheme.primary.withValues(alpha: 0.5)),
+              size: 26, color: scheme.primary.withValues(alpha: 0.5)),
           const SizedBox(height: AppSpacing.md),
           Text(
-            '\u00a9 2026 e-Hadis40. Hak cipta terpelihara.',
+            'Dibangunkan oleh',
             textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                  color: scheme.onSurfaceVariant,
-                  fontWeight: FontWeight.w500,
-                ),
+            style: mutedStyle?.copyWith(fontSize: 10.5, letterSpacing: 0.3),
           ),
-          const SizedBox(height: 4),
+          const SizedBox(height: 3),
           Text(
-            'Muzzammil Najib | Saeid Ramadhan | Adam Abd. Azid',
+            'Adam Abd. Azid · Muzzammil Najib · Saeid Ramadhan',
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.bodySmall?.copyWith(
                   color: scheme.onSurfaceVariant,
-                  fontSize: 11,
-                  height: 1.4,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 12,
                 ),
           ),
-          const SizedBox(height: 4),
+          const SizedBox(height: 3),
+          Text(
+            'Fakulti Pengajian Islam & Bahasa Arab, KIAS',
+            textAlign: TextAlign.center,
+            style: mutedStyle,
+          ),
+          const SizedBox(height: AppSpacing.lg),
+          // Penafian RINGKAS sahaja pada footer/homepage — kandungan legal
+          // penuh dipindahkan ke `LegalInformationDialog` supaya footer
+          // tidak sarat/panjang.
           ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 520),
+            constraints: const BoxConstraints(maxWidth: 460),
             child: Text(
-              'Kandungan pembelajaran dibangunkan berasaskan Modul '
-              'Penghayatan Hadis 40 Imam Nawawi Edisi Kedua, '
-              'Kementerian Pendidikan Malaysia.',
+              'e-Hadis40 ialah prototaip inovasi pendidikan yang '
+              'dibangunkan secara bebas berasaskan Modul Penghayatan Hadis '
+              '40 Imam Nawawi Edisi Kedua. Bukan aplikasi rasmi Kementerian '
+              'Pendidikan Malaysia (KPM).',
               textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                    color: scheme.onSurfaceVariant,
-                    fontSize: 11,
-                    height: 1.4,
-                  ),
+              style: mutedStyle,
             ),
           ),
           const SizedBox(height: AppSpacing.lg),
-          TextButton.icon(
-            onPressed: () {
-              Navigator.of(context).push(
-                MaterialPageRoute<void>(
-                  builder: (_) => const _AboutPage(),
+          Wrap(
+            alignment: WrapAlignment.center,
+            spacing: 4,
+            runSpacing: 4,
+            children: [
+              _FooterLink(
+                label: 'Tentang e-Hadis40',
+                onTap: () => Navigator.of(context).push(
+                  MaterialPageRoute<void>(
+                    builder: (_) => const AboutEHadis40Dialog(),
+                  ),
                 ),
-              );
-            },
-            icon: const Icon(Icons.info_outline_rounded, size: 16),
-            label: const Text('Tentang Aplikasi'),
-            style: TextButton.styleFrom(
-              foregroundColor: scheme.onSurfaceVariant,
-            ),
+              ),
+              Text(
+                '·',
+                style: TextStyle(
+                    color: scheme.onSurfaceVariant.withValues(
+                  alpha: 0.6,
+                )),
+              ),
+              _FooterLink(
+                label: 'Hak Cipta & Penafian',
+                onTap: () => Navigator.of(context).push(
+                  MaterialPageRoute<void>(
+                    builder: (_) => const LegalInformationDialog(),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: AppSpacing.lg),
+          Text(
+            '© 2026 e-Hadis40',
+            textAlign: TextAlign.center,
+            style: mutedStyle,
           ),
           const SizedBox(height: AppSpacing.md),
         ],
@@ -74,149 +115,24 @@ class AppFooter extends StatelessWidget {
   }
 }
 
-class _AboutPage extends StatelessWidget {
-  const _AboutPage();
+class _FooterLink extends StatelessWidget {
+  const _FooterLink({required this.label, required this.onTap});
+
+  final String label;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
-
-    return Scaffold(
-      appBar: AppBar(title: const Text('Tentang e-Hadis40')),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(24),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Center(
-              child: Column(
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: Image.asset(
-                      'assets/images/e_hadis40_logo_official.png',
-                      width: 80,
-                      height: 80,
-                      fit: BoxFit.contain,
-                      filterQuality: FilterQuality.high,
-                    ),
-                  ),
-                  const SizedBox(height: 20),
-                  Text(
-                    'e-Hadis40',
-                    style: Theme.of(context).textTheme.headlineMedium,
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    'Platform Pengajaran dan Pembelajaran Interaktif\n'
-                    'Modul Penghayatan Hadis 40 Imam al-Nawawi\n'
-                    'Kementerian Pendidikan Malaysia.',
-                    textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                          color: scheme.onSurfaceVariant,
-                          height: 1.5,
-                        ),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 20),
-            Center(
-              child: Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                decoration: BoxDecoration(
-                  color: scheme.primaryContainer.withValues(alpha: 0.4),
-                  borderRadius: BorderRadius.circular(999),
-                ),
-                child: Text(
-                  'Prototaip Pembelajaran Interaktif',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w600,
-                    color: scheme.onPrimaryContainer,
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(height: 32),
-            const Divider(),
-            const SizedBox(height: 24),
-            Text(
-              '\u00a9 2026 e-Hadis40. Hak cipta reka bentuk aplikasi, susun '
-              'atur interaktif, sistem audio, sorotan teks, kuiz dan kod '
-              'sumber adalah terpelihara.',
-              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    height: 1.6,
-                    color: scheme.onSurface,
-                  ),
-            ),
-            const SizedBox(height: 16),
-            Text(
-              'Kandungan pembelajaran dalam prototaip ini dibangunkan '
-              'berasaskan Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua '
-              'yang digunakan dalam pelaksanaan Aktiviti Penghayatan Hadis 40 '
-              'Imam Nawawi di institusi pendidikan bawah Kementerian '
-              'Pendidikan Malaysia.',
-              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    height: 1.6,
-                    color: scheme.onSurface,
-                  ),
-            ),
-            const SizedBox(height: 16),
-            Text(
-              'e-Hadis40 ialah sebuah prototaip aplikasi pembelajaran yang '
-              'dibangunkan secara bebas dan bukan aplikasi rasmi, produk '
-              'rasmi atau platform yang diperakui oleh Kementerian Pendidikan '
-              'Malaysia.',
-              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    height: 1.6,
-                    color: scheme.onSurface,
-                  ),
-            ),
-            const SizedBox(height: 16),
-            Text(
-              'Hak cipta kandungan asal, modul, logo, nama dan identiti '
-              'rasmi Kementerian Pendidikan Malaysia kekal milik pemegang hak '
-              'masing-masing.',
-              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    height: 1.6,
-                    color: scheme.onSurface,
-                  ),
-            ),
-            const SizedBox(height: 32),
-            const Divider(),
-            const SizedBox(height: 24),
-            Text(
-              'Pembangun Aplikasi',
-              style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                    fontWeight: FontWeight.w600,
-                  ),
-            ),
-            const SizedBox(height: 12),
-            Text(
-              'Muzzammil Najib | Saeid Ramadhan | Adam Abd. Azid',
-              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    height: 1.7,
-                    color: scheme.onSurface,
-                  ),
-            ),
-            const SizedBox(height: 32),
-            const Divider(),
-            const SizedBox(height: 24),
-            Text(
-              'Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua',
-              style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                    fontWeight: FontWeight.w600,
-                  ),
-            ),
-            const SizedBox(height: 8),
-            Text(
-              'Kementerian Pendidikan Malaysia',
-              style: TextStyle(color: scheme.onSurfaceVariant),
-            ),
-          ],
-        ),
+    return TextButton(
+      onPressed: onTap,
+      style: TextButton.styleFrom(
+        foregroundColor: scheme.onSurfaceVariant,
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+        minimumSize: const Size(0, 32),
+        textStyle: const TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
       ),
+      child: Text(label),
     );
   }
 }

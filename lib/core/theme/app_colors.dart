@@ -63,6 +63,14 @@ class AppColors {
   static const darkGold = Color(0xFFD2B46C);
   static const goldAccent = Color(0xFFD8B55B);
 
+  /// Warna ketiga (aksen pink) untuk grid modul & peta minda — gantikan
+  /// emas sebagai titik tengah laluan hijau→X→hijau di
+  /// `ModuleIdentity.accentFor`, `MindMapScreen` dan
+  /// `NarratorMindMapScreen`. HANYA untuk mod cerah (permintaan pengguna);
+  /// mod gelap kekal guna `darkGold`. Kekal muted/dusty (bukan pink neon)
+  /// supaya sepadan dengan tepu warna lain dalam palet.
+  static const pinkAccent = Color(0xFFC97B95);
+
   // ── Atmosphere (background berlapis) ──────────────────
   /// Emerald pekat untuk base layer dark mode.
   static const deepEmerald = Color(0xFF0F513F);

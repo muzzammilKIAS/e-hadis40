@@ -2,7 +2,7 @@ name: e_hadis40
 version: 1.18.0+18
 publish_to: "none"
 
-description: Platform Pengajaran dan Pembelajaran Interaktif Modul Penghayatan Hadis 40 Imam al-Nawawi Kementerian Pendidikan Malaysia.
+description: "Platform Pengajaran dan Pembelajaran Interaktif berasaskan Modul Penghayatan Hadis 40 Imam Nawawi Edisi Kedua. Rujukan modul: Kementerian Pendidikan Malaysia (KPM)."
 
 environment:
   sdk: ">=3.6.0 <4.0.0"

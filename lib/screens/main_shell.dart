@@ -303,7 +303,12 @@ class _SidebarItemState extends State<_SidebarItem> {
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
     final selected = widget.selected;
-    final fg = selected ? scheme.primary : scheme.onSurfaceVariant;
+    // Ikon/label sendiri kini turut bertukar warna semasa hover (bukan
+    // hanya latar) — sebelum ini hanya latar berubah pada alpha yang
+    // sangat pudar (0.35), jadi kesan hover mudah tersasar pandangan dan
+    // rasa "tidak berfungsi" walaupun ia sebenarnya aktif.
+    final fg =
+        (selected || _hovered) ? scheme.primary : scheme.onSurfaceVariant;
 
     return Padding(
       padding: const EdgeInsets.only(bottom: 6),
@@ -316,7 +321,7 @@ class _SidebarItemState extends State<_SidebarItem> {
             color: selected
                 ? scheme.primaryContainer
                 : _hovered
-                    ? scheme.primaryContainer.withValues(alpha: 0.35)
+                    ? scheme.primaryContainer.withValues(alpha: 0.65)
                     : Colors.transparent,
             borderRadius: BorderRadius.circular(14),
           ),

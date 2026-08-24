@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../core/theme/app_colors.dart';
 import '../services/app_controller.dart';
+import '../widgets/legal_information_dialog.dart';
 
 /// e-Hadis40 Emerald Motion Splash (SILENT).
 ///
@@ -617,28 +618,46 @@ class _DisclaimerDialog extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 24),
+                // Penafian RINGKAS sahaja di sini — butiran penuh (sumber
+                // rujukan, hak cipta terperinci, syarat penggunaan)
+                // dipindahkan ke `LegalInformationDialog` supaya gerbang
+                // pertama ini tidak sarat dengan dinding teks legal.
                 Text(
-                  'e-Hadis40 ialah sebuah prototaip aplikasi pembelajaran '
-                  'yang dibangunkan secara bebas berasaskan Modul Penghayatan '
-                  'Hadis 40 Imam Nawawi Edisi Kedua, Kementerian Pendidikan '
-                  'Malaysia.\n\n'
-                  'Aplikasi ini bukan aplikasi rasmi, produk rasmi atau '
-                  'platform yang diperakui oleh Kementerian Pendidikan '
-                  'Malaysia.\n\n'
-                  'Hak cipta kandungan asal Modul Penghayatan Hadis 40 Imam '
-                  'Nawawi Edisi Kedua, nama, logo dan identiti rasmi '
-                  'Kementerian Pendidikan Malaysia kekal milik pemegang hak '
-                  'masing-masing.\n\n'
-                  'Kandungan dalam aplikasi ini hendaklah dirujuk bersama '
-                  'sumber dan modul rasmi bagi tujuan pengajaran dan '
-                  'pembelajaran.',
+                  'e-Hadis40 ialah prototaip inovasi pendidikan yang '
+                  'dibangunkan secara bebas berasaskan Modul Penghayatan '
+                  'Hadis 40 Imam Nawawi Edisi Kedua. Bukan aplikasi rasmi '
+                  'Kementerian Pendidikan Malaysia (KPM).',
                   style: TextStyle(
                     fontSize: 16,
                     height: 1.65,
                     color: scheme.onSurface,
                   ),
                 ),
-                const SizedBox(height: 28),
+                const SizedBox(height: 14),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: TextButton(
+                    onPressed: () => Navigator.of(context).push(
+                      MaterialPageRoute<void>(
+                        builder: (_) => const LegalInformationDialog(),
+                      ),
+                    ),
+                    style: TextButton.styleFrom(
+                      padding: EdgeInsets.zero,
+                      minimumSize: const Size(0, 32),
+                      foregroundColor: AppColors.splashPrimaryEmerald,
+                    ),
+                    child: const Text(
+                      'Baca Hak Cipta & Penafian penuh',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 13.5,
+                        decoration: TextDecoration.underline,
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 14),
                 SizedBox(
                   width: double.infinity,
                   height: 52,

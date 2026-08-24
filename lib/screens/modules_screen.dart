@@ -13,7 +13,9 @@ import '../widgets/dashboard/misi_pencari_hikmah_card.dart';
 import '../widgets/dashboard/module_learning_card.dart';
 import '../widgets/dashboard/uji_minda_card.dart';
 import 'anatomi_sunnah_list_screen.dart';
+import 'mind_map_screen.dart';
 import 'module_detail_screen.dart';
+import 'narrator_mind_map_screen.dart';
 
 class ModulesScreen extends StatelessWidget {
   const ModulesScreen({super.key});
@@ -82,6 +84,10 @@ class ModulesScreen extends StatelessWidget {
                     ],
                   ),
                   SizedBox(height: layout.sectionGap),
+                  _MindMapCard(layout: layout),
+                  SizedBox(height: layout.sectionGap),
+                  _NarratorMindMapCard(layout: layout),
+                  SizedBox(height: layout.sectionGap),
                   _AnatomiSunnahCard(layout: layout),
                   SizedBox(height: layout.sectionGap),
                   const _InteractiveActivitySection(),
@@ -91,6 +97,239 @@ class ModulesScreen extends StatelessWidget {
           ),
         );
       },
+    );
+  }
+}
+
+// ───────────────────────────── Peta Minda ───────────────────────────
+
+/// Kotak kemasukan "Peta Minda Hadis 40" — pandangan alternatif kepada
+/// grid modul di atas: 42 hadis dikelompokkan mengikut nilai fokus
+/// (`Hadith.focusValues`) dalam satu lukisan radial (lihat
+/// `MindMapScreen`), berbanding susunan linear ikut nombor/modul.
+class _MindMapCard extends StatelessWidget {
+  const _MindMapCard({required this.layout});
+
+  final DashboardLayout layout;
+
+  @override
+  Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+    final text = Theme.of(context).textTheme;
+    final dark = scheme.brightness == Brightness.dark;
+
+    final heading = Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Container(
+          width: 44,
+          height: 44,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(14),
+            color: scheme.primary.withValues(alpha: dark ? 0.22 : 0.12),
+            border: Border.all(color: scheme.primary.withValues(alpha: 0.32)),
+          ),
+          child: Icon(
+            Icons.hub_rounded,
+            size: 21,
+            color: dark ? scheme.tertiary : scheme.primary,
+          ),
+        ),
+        const SizedBox(width: 12),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                'Peta Minda Hadis 40',
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: text.titleMedium?.copyWith(
+                  fontWeight: FontWeight.w700,
+                  fontSize: 15.5,
+                ),
+              ),
+              const SizedBox(height: 3),
+              Text(
+                '42 hadis disusun mengikut nilai fokus untuk revisi pantas.',
+                maxLines: 3,
+                overflow: TextOverflow.ellipsis,
+                style: text.bodySmall?.copyWith(
+                  color: scheme.onSurfaceVariant,
+                  fontSize: 12.5,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+
+    final button = FilledButton.icon(
+      onPressed: () => Navigator.of(context).push(
+        MaterialPageRoute<void>(
+          builder: (_) => const MindMapScreen(),
+        ),
+      ),
+      icon: const Icon(Icons.hub_rounded, size: 18),
+      label: const Text('Buka Peta Minda'),
+      style: dark
+          ? null
+          : FilledButton.styleFrom(
+              backgroundColor: AppColors.primaryHover,
+              foregroundColor: Colors.white,
+            ),
+    );
+
+    return Stack(
+      children: [
+        Positioned.fill(
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(22),
+            child: IslamicCardPattern(color: scheme.primary, seed: 3),
+          ),
+        ),
+        GlassSurface(
+          padding: EdgeInsets.all(layout.isCompact ? 16 : 20),
+          accent: scheme.primary.withValues(alpha: 0.35),
+          child: layout.contentWidth >= 700
+              ? Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Expanded(child: heading),
+                    const SizedBox(width: 16),
+                    button,
+                  ],
+                )
+              : Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    heading,
+                    const SizedBox(height: 14),
+                    button,
+                  ],
+                ),
+        ),
+      ],
+    );
+  }
+}
+
+// ─────────────────────── Peta Minda Perawi ───────────────────────────
+
+/// Kotak kemasukan "Peta Minda Perawi" — sama seperti `_MindMapCard` tetapi
+/// membawa ke `NarratorMindMapScreen` (kelompok ikut perawi, bukan tema).
+/// Sengaja kad berasingan (bukan togol dalam satu skrin) supaya kedua-dua
+/// pandangan (tema vs perawi) kekal sebagai laluan navigasi yang jelas.
+class _NarratorMindMapCard extends StatelessWidget {
+  const _NarratorMindMapCard({required this.layout});
+
+  final DashboardLayout layout;
+
+  @override
+  Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+    final text = Theme.of(context).textTheme;
+    final dark = scheme.brightness == Brightness.dark;
+
+    final heading = Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Container(
+          width: 44,
+          height: 44,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(14),
+            color: scheme.primary.withValues(alpha: dark ? 0.22 : 0.12),
+            border: Border.all(color: scheme.primary.withValues(alpha: 0.32)),
+          ),
+          child: Icon(
+            Icons.diversity_3_rounded,
+            size: 21,
+            color: dark ? scheme.tertiary : scheme.primary,
+          ),
+        ),
+        const SizedBox(width: 12),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                'Peta Minda Perawi',
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: text.titleMedium?.copyWith(
+                  fontWeight: FontWeight.w700,
+                  fontSize: 15.5,
+                ),
+              ),
+              const SizedBox(height: 3),
+              Text(
+                '42 hadis disusun mengikut perawi (sahabat) untuk mudah '
+                'dirujuk.',
+                maxLines: 3,
+                overflow: TextOverflow.ellipsis,
+                style: text.bodySmall?.copyWith(
+                  color: scheme.onSurfaceVariant,
+                  fontSize: 12.5,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+
+    final button = FilledButton.icon(
+      onPressed: () => Navigator.of(context).push(
+        MaterialPageRoute<void>(
+          builder: (_) => const NarratorMindMapScreen(),
+        ),
+      ),
+      icon: const Icon(Icons.diversity_3_rounded, size: 18),
+      label: const Text('Buka Peta Perawi'),
+      style: dark
+          ? null
+          : FilledButton.styleFrom(
+              backgroundColor: AppColors.primaryHover,
+              foregroundColor: Colors.white,
+            ),
+    );
+
+    return Stack(
+      children: [
+        Positioned.fill(
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(22),
+            child: IslamicCardPattern(color: scheme.primary, seed: 9),
+          ),
+        ),
+        GlassSurface(
+          padding: EdgeInsets.all(layout.isCompact ? 16 : 20),
+          accent: scheme.primary.withValues(alpha: 0.35),
+          child: layout.contentWidth >= 700
+              ? Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Expanded(child: heading),
+                    const SizedBox(width: 16),
+                    button,
+                  ],
+                )
+              : Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    heading,
+                    const SizedBox(height: 14),
+                    button,
+                  ],
+                ),
+        ),
+      ],
     );
   }
 }
@@ -289,21 +528,20 @@ class _InteractiveActivitySection extends StatelessWidget {
                       children: [
                         Text(
                           'Aktiviti Interaktif',
-                          style: Theme.of(context)
-                              .textTheme
-                              .titleMedium
-                              ?.copyWith(
-                                fontWeight: FontWeight.w700,
-                                fontSize: 15.5,
-                              ),
+                          style:
+                              Theme.of(context).textTheme.titleMedium?.copyWith(
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 15.5,
+                                  ),
                         ),
                         const SizedBox(height: 3),
                         Text(
                           'Permainan pembelajaran interaktif Hadis 40.',
-                          style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                                color: scheme.onSurfaceVariant,
-                                fontSize: 12.5,
-                              ),
+                          style:
+                              Theme.of(context).textTheme.bodySmall?.copyWith(
+                                    color: scheme.onSurfaceVariant,
+                                    fontSize: 12.5,
+                                  ),
                         ),
                       ],
                     ),
