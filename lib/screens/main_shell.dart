@@ -157,123 +157,130 @@ class _DashboardSidebar extends StatefulWidget {
 }
 
 class _DashboardSidebarState extends State<_DashboardSidebar> {
-  // Sidebar bermula dalam keadaan dikecilkan (ikon sahaja) setiap kali
-  // aplikasi diakses — pengguna boleh mengembangkannya semula dengan
-  // menekan togol jika perlu, tetapi ia tidak lagi terus mengembang
-  // secara automatik pada setiap muatan halaman.
+  // Sidebar kekal boleh dibuka/dikunci dengan togol, dan secara lalai
+  // akan mengembang secara automatik apabila kursor tetikus dihover ke atasnya.
   bool _collapsed = true;
+  bool _hovered = false;
 
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
     final dark = scheme.brightness == Brightness.dark;
-    final collapsed = _collapsed;
+    final isExpanded = !_collapsed || _hovered;
+    final collapsed = !isExpanded;
 
-    return AnimatedContainer(
-      duration: const Duration(milliseconds: 200),
-      curve: Curves.easeOut,
-      width: collapsed ? 92 : 264,
-      color: dark
-          ? scheme.surface.withValues(alpha: 0.92)
-          : scheme.surface.withValues(alpha: 0.96),
-      child: Column(
-        children: [
-          SizedBox(
-            height: 88,
-            child: Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: collapsed ? 18 : 20,
-                vertical: 16,
-              ),
-              child: Row(
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(12),
-                    child: Image.asset(
-                      'assets/images/e_hadis40_logo_official.png',
-                      width: 40,
-                      height: 40,
-                      fit: BoxFit.contain,
-                      filterQuality: FilterQuality.high,
-                    ),
-                  ),
-                  if (!collapsed) ...[
-                    const SizedBox(width: 12),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Text(
-                            AppConstants.appName,
-                            style: TextStyle(
-                              fontWeight: FontWeight.w800,
-                              fontSize: 17,
-                            ),
-                          ),
-                          Text(
-                            'Pembelajaran Hadis',
-                            style: TextStyle(
-                              fontSize: 11,
-                              color: scheme.onSurfaceVariant,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ],
-              ),
-            ),
-          ),
-          Divider(
-              height: 1, color: scheme.outlineVariant.withValues(alpha: 0.6)),
-          Expanded(
-            child: ListView(
-              padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
-              children: [
-                for (var i = 0; i < widget.destinations.length; i++)
-                  _SidebarItem(
-                    destination: widget.destinations[i],
-                    selected: widget.selectedIndex == i,
-                    collapsed: collapsed,
-                    onTap: () => widget.onSelect(i),
-                  ),
-              ],
-            ),
-          ),
-          Divider(
-              height: 1, color: scheme.outlineVariant.withValues(alpha: 0.6)),
-          SizedBox(
-            height: 56,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12),
-              // `FittedBox` — apabila audio sedang dimainkan, kawalan
-              // audio menambah 3 butang ikon (sebelum/jeda/seterusnya) di
-              // samping togol kecilkan dan menu tema. Jumlah lebar butang
-              // tidak muat dalam lajur sisi 264px, menyebabkan jalur
-              // amaran kuning-hitam. `FittedBox` menjamin baris ini
-              // sentiasa muat, mengecil sedikit jika perlu.
-              child: FittedBox(
-                fit: BoxFit.scaleDown,
-                alignment: Alignment.centerLeft,
+    return MouseRegion(
+      onEnter: (_) => setState(() => _hovered = true),
+      onExit: (_) => setState(() => _hovered = false),
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 200),
+        curve: Curves.easeOutCubic,
+        width: collapsed ? 92 : 264,
+        color: dark
+            ? scheme.surface.withValues(alpha: 0.92)
+            : scheme.surface.withValues(alpha: 0.96),
+        child: Column(
+          children: [
+            SizedBox(
+              height: 88,
+              child: Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: collapsed ? 26 : 16,
+                  vertical: 16,
+                ),
                 child: Row(
                   children: [
-                    _CollapseToggle(
-                      collapsed: collapsed,
-                      onToggle: () => setState(() => _collapsed = !_collapsed),
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(12),
+                      child: Image.asset(
+                        'assets/images/e_hadis40_logo_official.png',
+                        width: 40,
+                        height: 40,
+                        fit: BoxFit.contain,
+                        filterQuality: FilterQuality.high,
+                      ),
                     ),
                     if (!collapsed) ...[
-                      const SizedBox(width: 4),
-                      const _AudioAppBarControls(),
-                      const _ThemeModeMenu(),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text(
+                              AppConstants.appName,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                fontWeight: FontWeight.w800,
+                                fontSize: 17,
+                              ),
+                            ),
+                            Text(
+                              'Pembelajaran Hadis',
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                fontSize: 11,
+                                color: scheme.onSurfaceVariant,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                     ],
                   ],
                 ),
               ),
             ),
-          ),
-        ],
+            Divider(
+                height: 1, color: scheme.outlineVariant.withValues(alpha: 0.6)),
+            Expanded(
+              child: ListView(
+                padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
+                children: [
+                  for (var i = 0; i < widget.destinations.length; i++)
+                    _SidebarItem(
+                      destination: widget.destinations[i],
+                      selected: widget.selectedIndex == i,
+                      collapsed: collapsed,
+                      onTap: () => widget.onSelect(i),
+                    ),
+                ],
+              ),
+            ),
+            Divider(
+                height: 1, color: scheme.outlineVariant.withValues(alpha: 0.6)),
+            SizedBox(
+              height: 56,
+              child: Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: collapsed ? 26 : 12,
+                ),
+                child: FittedBox(
+                  fit: BoxFit.scaleDown,
+                  alignment: collapsed ? Alignment.center : Alignment.centerLeft,
+                  child: Row(
+                    mainAxisAlignment: collapsed
+                        ? MainAxisAlignment.center
+                        : MainAxisAlignment.start,
+                    children: [
+                      _CollapseToggle(
+                        collapsed: _collapsed,
+                        onToggle: () => setState(() => _collapsed = !_collapsed),
+                      ),
+                      if (!collapsed) ...[
+                        const SizedBox(width: 4),
+                        const _AudioAppBarControls(),
+                        const _ThemeModeMenu(),
+                      ],
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -303,12 +310,9 @@ class _SidebarItemState extends State<_SidebarItem> {
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
     final selected = widget.selected;
-    // Ikon/label sendiri kini turut bertukar warna semasa hover (bukan
-    // hanya latar) — sebelum ini hanya latar berubah pada alpha yang
-    // sangat pudar (0.35), jadi kesan hover mudah tersasar pandangan dan
-    // rasa "tidak berfungsi" walaupun ia sebenarnya aktif.
     final fg =
         (selected || _hovered) ? scheme.primary : scheme.onSurfaceVariant;
+    final collapsed = widget.collapsed;
 
     return Padding(
       padding: const EdgeInsets.only(bottom: 6),
@@ -331,25 +335,33 @@ class _SidebarItemState extends State<_SidebarItem> {
               onTap: widget.onTap,
               borderRadius: BorderRadius.circular(14),
               child: Tooltip(
-                message: widget.collapsed ? widget.destination.label : '',
+                message: collapsed ? widget.destination.label : '',
                 waitDuration: const Duration(milliseconds: 300),
                 child: SizedBox(
                   height: 48,
                   child: Padding(
                     padding: EdgeInsets.symmetric(
-                      horizontal: widget.collapsed ? 0 : 16,
+                      horizontal: collapsed ? 0 : 4,
                     ),
                     child: Row(
-                      mainAxisAlignment: widget.collapsed
+                      mainAxisAlignment: collapsed
                           ? MainAxisAlignment.center
                           : MainAxisAlignment.start,
                       children: [
-                        Icon(widget.destination.icon, color: fg, size: 22),
-                        if (!widget.collapsed) ...[
-                          const SizedBox(width: 14),
+                        SizedBox(
+                          width: 40,
+                          height: 40,
+                          child: Center(
+                            child: Icon(widget.destination.icon, color: fg, size: 22),
+                          ),
+                        ),
+                        if (!collapsed) ...[
+                          const SizedBox(width: 12),
                           Expanded(
                             child: Text(
                               widget.destination.label,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
                               style: TextStyle(
                                 color: fg,
                                 fontWeight: selected
@@ -363,6 +375,7 @@ class _SidebarItemState extends State<_SidebarItem> {
                             Container(
                               width: 6,
                               height: 6,
+                              margin: const EdgeInsets.only(right: 8),
                               decoration: BoxDecoration(
                                 color: scheme.primary,
                                 shape: BoxShape.circle,
